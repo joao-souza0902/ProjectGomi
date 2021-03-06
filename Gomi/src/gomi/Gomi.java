@@ -16,6 +16,7 @@ public class Gomi {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        /* Teste para alguma coisa - João */
     }
     
 }
