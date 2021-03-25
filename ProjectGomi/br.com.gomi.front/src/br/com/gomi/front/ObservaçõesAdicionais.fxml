@@ -6,14 +6,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane id="AnchorPane" prefHeight="488.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" prefHeight="488.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.FXMLDocumentController">
    <children>
       <ComboBox layoutX="256.0" layoutY="27.0" prefHeight="31.0" prefWidth="269.0" promptText="Subtipo da Coleta" />
       <ComboBox layoutX="256.0" layoutY="86.0" prefHeight="31.0" prefWidth="269.0" promptText="Volume Aproximado" />
       <Label alignment="CENTER" layoutX="262.0" layoutY="142.0" prefHeight="199.0" prefWidth="257.0" text="Sem foto (Label foto)" />
       <Button layoutX="316.0" layoutY="361.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="117.0" text="Adicionar foto" />
-      <Button layoutX="172.0" layoutY="361.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="117.0" text="&lt;- Voltar" />
-      <Button layoutX="467.0" layoutY="361.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="117.0" text="Proximo -&gt;" />
+      <Button layoutX="172.0" layoutY="361.0" mnemonicParsing="false" onAction="#btnClickVoltar" prefHeight="59.0" prefWidth="117.0" text="&lt;- Voltar" />
+      <Button layoutX="467.0" layoutY="361.0" mnemonicParsing="false" onAction="#btnClickProximo" prefHeight="59.0" prefWidth="117.0" text="Proximo -&gt;" />
       <Pane layoutY="-9.0" prefHeight="563.0" prefWidth="129.0" style="-fx-background-color: #656865;">
          <children>
             <Button layoutX="5.0" layoutY="71.0" mnemonicParsing="false" onAction="#btnPagUsuario" prefHeight="37.0" prefWidth="119.0" text="Pagina Usuario" />

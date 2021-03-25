@@ -6,24 +6,24 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="437.0" prefWidth="642.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" prefHeight="437.0" prefWidth="642.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.FXMLDocumentController">
    <children>
       <Label alignment="CENTER" layoutX="272.0" layoutY="117.0" prefHeight="66.0" prefWidth="198.0" text="Tempo aproximado:" />
-      <Label alignment="CENTER" layoutX="233.0" layoutY="14.0" prefHeight="117.0" prefWidth="297.0" text="Motorista Encontrado!">
+      <Label alignment="CENTER" layoutX="233.0" layoutY="5.0" prefHeight="117.0" prefWidth="297.0" text="Motorista Encontrado!">
          <font>
             <Font size="29.0" />
          </font></Label>
-      <Label layoutX="201.0" layoutY="219.0" text="Foto do motorista" />
-      <Label layoutX="434.0" layoutY="219.0" text="Tipo do automóvel" />
-      <Button layoutX="173.0" layoutY="329.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="120.0" text="Chat" />
-      <Button layoutX="410.0" layoutY="329.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="120.0" text="Cancelar pedido" />
-      <Pane layoutY="5.0" prefHeight="491.0" prefWidth="138.0" style="-fx-background-color: #656865;">
+      <Label alignment="CENTER" layoutX="163.0" layoutY="202.0" prefHeight="102.0" prefWidth="186.0" text="Foto do motorista" />
+      <Label alignment="CENTER" layoutX="424.0" layoutY="202.0" prefHeight="102.0" prefWidth="186.0" text="Tipo do automóvel" />
+      <Button layoutX="180.0" layoutY="360.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="152.0" text="Chat" />
+      <Button layoutX="441.0" layoutY="360.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="152.0" text="Cancelar pedido" />
+      <Pane prefHeight="568.0" prefWidth="129.0" style="-fx-background-color: #656865;">
          <children>
-            <Button layoutX="5.0" layoutY="68.0" mnemonicParsing="false" onAction="#btnPagUsuario" prefHeight="37.0" prefWidth="129.0" text="Pagina Usuario" />
-            <Button layoutX="5.0" layoutY="147.0" mnemonicParsing="false" onAction="#btnHome" prefHeight="25.0" prefWidth="129.0" text="Home" />
-            <Button layoutX="5.0" layoutY="208.0" mnemonicParsing="false" onAction="#btnAdicionarSaldo" prefHeight="25.0" prefWidth="129.0" text="Adicionar Creditos" />
-            <Button layoutX="5.0" layoutY="269.0" mnemonicParsing="false" onAction="#btnSobreClick" prefHeight="25.0" prefWidth="129.0" text="Sobre" />
-            <Button layoutX="5.0" layoutY="348.0" mnemonicParsing="false" onAction="#btnHelpClick" prefHeight="25.0" prefWidth="129.0" text="Ajuda" />
+            <Button layoutX="5.0" layoutY="71.0" mnemonicParsing="false" onAction="#btnPagUsuario" prefHeight="37.0" prefWidth="119.0" text="Pagina Usuario" />
+            <Button layoutX="5.0" layoutY="136.0" mnemonicParsing="false" onAction="#btnHome" prefHeight="37.0" prefWidth="119.0" text="Home" />
+            <Button layoutX="5.0" layoutY="196.0" mnemonicParsing="false" onAction="#btnAdicionarSaldo" prefHeight="37.0" prefWidth="119.0" text="Adicionar Creditos" />
+            <Button layoutX="5.0" layoutY="424.0" mnemonicParsing="false" onAction="#btnSobreClick" prefHeight="37.0" prefWidth="119.0" text="Sobre" />
+            <Button layoutX="5.0" layoutY="478.0" mnemonicParsing="false" onAction="#btnHelpClick" prefHeight="37.0" prefWidth="119.0" text="Ajuda" />
          </children>
       </Pane>
    </children>
