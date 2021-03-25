@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="563.0" prefWidth="707.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button layoutX="187.0" layoutY="108.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="426.0" text="Móveis" />
+      <Label alignment="CENTER" layoutX="94.0" layoutY="22.0" prefHeight="25.0" prefWidth="519.0" text="Solicitação de coleta">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Label>
+      <Button layoutX="187.0" layoutY="190.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="426.0" text="Lixo Reciclavel" />
+      <Button layoutX="187.0" layoutY="285.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="426.0" text="Eletrodomesticos" />
+      <Button layoutX="187.0" layoutY="376.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="426.0" text="Entulho" />
+      <Button layoutX="578.0" layoutY="461.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" text="Voltar ao menu" />
+      <Pane layoutX="6.0" prefHeight="563.0" prefWidth="129.0" style="-fx-background-color: #656865;">
+         <children>
+            <Button layoutX="5.0" layoutY="71.0" mnemonicParsing="false" onAction="#btnPagUsuario" prefHeight="37.0" prefWidth="119.0" text="Pagina Usuario" />
+            <Button layoutX="5.0" layoutY="136.0" mnemonicParsing="false" onAction="#btnHome" prefHeight="37.0" prefWidth="119.0" text="Home" />
+            <Button layoutX="5.0" layoutY="196.0" mnemonicParsing="false" onAction="#btnAdicionarSaldo" prefHeight="37.0" prefWidth="119.0" text="Adicionar Creditos" />
+            <Button layoutX="5.0" layoutY="424.0" mnemonicParsing="false" onAction="#btnSobreClick" prefHeight="37.0" prefWidth="119.0" text="Sobre" />
+            <Button layoutX="5.0" layoutY="478.0" mnemonicParsing="false" onAction="#btnHelpClick" prefHeight="37.0" prefWidth="119.0" text="Ajuda" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
