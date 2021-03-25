@@ -8,11 +8,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane id="AnchorPane" prefHeight="669.0" prefWidth="949.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" prefHeight="669.0" prefWidth="949.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.FXMLDocumentController">
    <children>
       <Label alignment="CENTER" layoutX="178.0" layoutY="273.0" prefHeight="17.0" prefWidth="249.0" text="Ultimas Coletas" />
-      <Button layoutX="171.0" layoutY="54.0" mnemonicParsing="false" prefHeight="126.0" prefWidth="263.0" text="Solicitar Coleta" />
-      <Button layoutX="171.0" layoutY="220.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="263.0" text="Agendar Coleta" />
+      <Button layoutX="171.0" layoutY="54.0" mnemonicParsing="false" onAction="#btnClickSolicitar" prefHeight="126.0" prefWidth="263.0" text="Solicitar Coleta" />
+      <Button layoutX="171.0" layoutY="220.0" mnemonicParsing="false" onAction="#btnClickAgendar" prefHeight="25.0" prefWidth="263.0" text="Agendar Coleta" />
       <TextArea layoutX="171.0" layoutY="321.0" prefHeight="255.0" prefWidth="298.0" />
       <Separator layoutX="485.0" layoutY="26.0" orientation="VERTICAL" prefHeight="590.0" prefWidth="2.0" />
       <Label alignment="CENTER" layoutX="528.0" layoutY="26.0" prefHeight="200.0" prefWidth="225.0" text="Foto do Usuario" />

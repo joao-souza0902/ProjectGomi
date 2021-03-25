@@ -49,6 +49,15 @@ public class FXMLDocumentController implements Initializable {
         app_stage.show();
     }
     
+    public void handledButtonMotorista(ActionEvent event) throws IOException {
+        System.out.println("A");
+        Parent home_page_motorista_parent = FXMLLoader.load(getClass().getResource("HomePageFuncionario.fxml"));
+        Scene home_page_motorista_scene = new Scene(home_page_motorista_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(home_page_motorista_scene);
+        app_stage.show();
+    }
+    
     public void btnSobreClick(ActionEvent event) throws IOException {
         System.out.println("A");
         Parent Sobre_parent = FXMLLoader.load(getClass().getResource("Sobre.fxml"));
@@ -103,7 +112,7 @@ public class FXMLDocumentController implements Initializable {
         app_stage.show();
     }
     
-     public void btnSolicitarColeta(ActionEvent event) throws IOException {
+     public void btnClickSolicitar(ActionEvent event) throws IOException {
          System.out.println("A");
         Parent add_solicitar_parent = FXMLLoader.load(getClass().getResource("Solicitação.fxml"));
         Scene add_solicitar_scene = new Scene(add_solicitar_parent);
@@ -112,14 +121,97 @@ public class FXMLDocumentController implements Initializable {
         app_stage.show();
     }
     
-    public void btnAgendarColeta(ActionEvent event) throws IOException {
+    public void btnClickAgendar(ActionEvent event) throws IOException {
         System.out.println("A");
-        Parent add_agendar_parent = FXMLLoader.load(getClass().getResource("Log In.fxml"));
+        Parent add_agendar_parent = FXMLLoader.load(getClass().getResource("Agendamento.fxml"));
         Scene add_agendar_scene = new Scene(add_agendar_parent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(add_agendar_scene);
         app_stage.show();
     }
+    
+    public void btnClickReturnLogin(ActionEvent event) throws IOException {
+        System.out.println("A");
+        Parent return_login_parent = FXMLLoader.load(getClass().getResource("Log In.fxml"));
+        Scene return_login_scene = new Scene(return_login_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(return_login_scene);
+        app_stage.show();
+    } 
+    
+    public void btnfazerCadastro(ActionEvent event) throws IOException {
+        System.out.println("A");
+        Parent fazer_cadastro_parent = FXMLLoader.load(getClass().getResource("Log In.fxml"));
+        Scene fazer_cadastro_scene = new Scene(fazer_cadastro_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(fazer_cadastro_scene);
+        app_stage.show();
+    } 
+    
+    public void btnClickMoveis(ActionEvent event) throws IOException {
+        System.out.println("A");
+        Parent moveis_parent = FXMLLoader.load(getClass().getResource("ObservaçõesAdicionais.fxml"));
+        Scene moveis_scene = new Scene(moveis_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(moveis_scene);
+        app_stage.show();
+    }
+    
+    public void btnClickReciclavel(ActionEvent event) throws IOException {
+        System.out.println("A");
+        Parent reciclaveis_parent = FXMLLoader.load(getClass().getResource("ObservaçõesAdicionais.fxml"));
+        Scene reciclaveis_scene = new Scene(reciclaveis_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(reciclaveis_scene);
+        app_stage.show();
+    }
+    
+    public void btnClickEletrodomestico(ActionEvent event) throws IOException {
+        System.out.println("A");
+        Parent eletrodomesticos_parent = FXMLLoader.load(getClass().getResource("ObservaçõesAdicionais.fxml"));
+        Scene eletrodomesticos_scene = new Scene(eletrodomesticos_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(eletrodomesticos_scene);
+        app_stage.show();
+    }
+    
+    public void btnClickEntulho(ActionEvent event) throws IOException {
+        System.out.println("A");
+        Parent entulho_parent = FXMLLoader.load(getClass().getResource("ObservaçõesAdicionais.fxml"));
+        Scene entulho_scene = new Scene(entulho_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(entulho_scene);
+        app_stage.show();
+    }
+    
+    public void btnVoltarMenu(ActionEvent event) throws IOException {
+        System.out.println("A");
+        Parent voltar_menu_parent = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
+        Scene voltar_menu_scene = new Scene(voltar_menu_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(voltar_menu_scene);
+        app_stage.show();
+    } 
+    
+    public void btnClickVoltar(ActionEvent event) throws IOException {
+        System.out.println("A");
+        Parent voltar_parent = FXMLLoader.load(getClass().getResource("Solicitação.fxml"));
+        Scene voltar_scene = new Scene(voltar_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(voltar_scene);
+        app_stage.show();
+    } 
+      
+    public void btnClickProximo(ActionEvent event) throws IOException {
+        System.out.println("A");
+        Parent proximo_parent = FXMLLoader.load(getClass().getResource("TelaConfirmacao.fxml"));
+        Scene proximo_scene = new Scene(proximo_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(proximo_scene);
+        app_stage.show();
+    }
+    
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {

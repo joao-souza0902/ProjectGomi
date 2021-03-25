@@ -10,25 +10,25 @@
 <AnchorPane id="AnchorPane" prefHeight="556.0" prefWidth="746.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.FXMLDocumentController">
     <children>
         <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
-      <Button fx:id="btnEntrar" layoutX="528.0" layoutY="375.0" onAction="#handledButtonAction" prefHeight="62.0" prefWidth="185.0" text="Entrar">
+      <Button fx:id="btnEntrar" layoutX="241.0" layoutY="354.0" onAction="#handledButtonAction" prefHeight="62.0" prefWidth="185.0" text="Entrar Cliente">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
       <Label fx:id="label1" layoutX="136.0" layoutY="130.0" minHeight="16" minWidth="69" />
-      <TextField layoutX="391.0" layoutY="162.0" />
-      <TextField layoutX="391.0" layoutY="305.0" />
-      <Label layoutX="433.0" layoutY="107.0" text="Usuario ">
+      <TextField layoutX="259.0" layoutY="164.0" />
+      <TextField layoutX="259.0" layoutY="299.0" />
+      <Label layoutX="300.0" layoutY="107.0" text="Usuario ">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="442.0" layoutY="240.0" text="Senha">
+      <Label layoutX="309.0" layoutY="237.0" text="Senha">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Button fx:id="btnCadastro" layoutX="528.0" layoutY="472.0" mnemonicParsing="false" onAction="#handledButtonAction1" prefHeight="62.0" prefWidth="185.0" text="Cadastro">
+      <Button fx:id="btnCadastro" layoutX="513.0" layoutY="459.0" mnemonicParsing="false" onAction="#handledButtonAction1" prefHeight="62.0" prefWidth="185.0" text="Cadastro">
          <font>
             <Font size="16.0" />
          </font>
@@ -38,15 +38,20 @@
             <Font size="36.0" />
          </font>
       </Label>
-      <Label layoutX="556.0" layoutY="342.0" text="*Validação de credenciais*" textFill="#e10202" />
-      <Pane prefHeight="557.0" prefWidth="185.0" style="-fx-background-color: #656865;">
+      <Label layoutX="259.0" layoutY="526.0" text="*Validação de credenciais*" textFill="#e10202" />
+      <Pane prefHeight="568.0" prefWidth="140.0" style="-fx-background-color: #656865;">
          <children>
-            <Button layoutX="45.0" layoutY="38.0" mnemonicParsing="false" onAction="#btnPagUsuario" text="Pagina Usuario" />
-            <Button layoutX="67.0" layoutY="121.0" mnemonicParsing="false" onAction="#btnHome" text="Home" />
-            <Button layoutX="33.0" layoutY="209.0" mnemonicParsing="false" onAction="#btnAdicionarSaldo" text="Adicionar Creditos" />
-            <Button layoutX="67.0" layoutY="305.0" mnemonicParsing="false" onAction="#btnSobreClick" text="Sobre" />
-            <Button layoutX="67.0" layoutY="404.0" mnemonicParsing="false" onAction="#btnHelpClick" text="Ajuda" />
+            <Button layoutX="11.0" layoutY="70.0" mnemonicParsing="false" onAction="#btnPagUsuario" prefHeight="37.0" prefWidth="119.0" text="Pagina Usuario" />
+            <Button layoutX="11.0" layoutY="136.0" mnemonicParsing="false" onAction="#btnHome" prefHeight="37.0" prefWidth="119.0" text="Home" />
+            <Button layoutX="11.0" layoutY="199.0" mnemonicParsing="false" onAction="#btnAdicionarSaldo" prefHeight="37.0" prefWidth="119.0" text="Adicionar Creditos" />
+            <Button layoutX="11.0" layoutY="422.0" mnemonicParsing="false" onAction="#btnSobreClick" prefHeight="37.0" prefWidth="119.0" text="Sobre" />
+            <Button layoutX="11.0" layoutY="478.0" mnemonicParsing="false" onAction="#btnHelpClick" prefHeight="37.0" prefWidth="119.0" text="Ajuda" />
          </children>
       </Pane>
+      <Button layoutX="513.0" layoutY="356.0" mnemonicParsing="false" onAction="#handledButtonMotorista" prefHeight="62.0" prefWidth="185.0" text="Entrar Motorista">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>

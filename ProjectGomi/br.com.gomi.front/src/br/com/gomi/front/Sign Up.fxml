@@ -6,13 +6,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="436.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" prefHeight="436.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.FXMLDocumentController">
    <children>
-      <Button layoutX="119.0" layoutY="324.0" mnemonicParsing="false" prefHeight="76.0" prefWidth="390.0" text="Fazer cadastro">
+      <Button layoutX="119.0" layoutY="324.0" mnemonicParsing="false" onAction="#btnfazerCadastro" prefHeight="76.0" prefWidth="390.0" text="Fazer cadastro">
          <font>
             <Font size="21.0" />
          </font></Button>
-      <Button layoutX="476.0" layoutY="13.0" mnemonicParsing="false" text="&lt;- Voltar ao login">
+      <Button layoutX="476.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnClickReturnLogin" text="&lt;- Voltar ao login">
          <font>
             <Font size="14.0" />
          </font></Button>

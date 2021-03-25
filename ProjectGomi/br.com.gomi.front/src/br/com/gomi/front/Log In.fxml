@@ -10,7 +10,7 @@
 <AnchorPane id="AnchorPane" prefHeight="556.0" prefWidth="746.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.FXMLDocumentController">
     <children>
         <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
-      <Button fx:id="btnEntrar" layoutX="241.0" layoutY="354.0" onAction="#handledButtonAction" prefHeight="62.0" prefWidth="185.0" text="Entrar">
+      <Button fx:id="btnEntrar" layoutX="241.0" layoutY="354.0" onAction="#handledButtonAction" prefHeight="62.0" prefWidth="185.0" text="Entrar Cliente">
          <font>
             <Font size="16.0" />
          </font>
@@ -48,5 +48,10 @@
             <Button layoutX="11.0" layoutY="478.0" mnemonicParsing="false" onAction="#btnHelpClick" prefHeight="37.0" prefWidth="119.0" text="Ajuda" />
          </children>
       </Pane>
+      <Button layoutX="513.0" layoutY="356.0" mnemonicParsing="false" onAction="#handledButtonMotorista" prefHeight="62.0" prefWidth="185.0" text="Entrar Motorista">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>
