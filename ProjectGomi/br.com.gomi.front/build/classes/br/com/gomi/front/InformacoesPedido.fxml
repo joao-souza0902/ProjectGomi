@@ -6,11 +6,15 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.FXMLDocumentController">
    <children>
       <Button layoutX="28.0" layoutY="22.0" mnemonicParsing="false" onAction="#btnClickMapa" prefHeight="28.0" prefWidth="135.0" text="Voltar para o mapa:" />
-      <Label layoutX="225.0" layoutY="26.0" text="Informações Sobre o pedido" />
+      <Label layoutX="191.0" layoutY="19.0" text="Informações sobre o pedido">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
       <ImageView fitHeight="218.0" fitWidth="219.0" layoutX="359.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="file:/C:/ProjectGomi/ProjectGomi/br.com.gomi.front/imgs/Puin.jpg" />

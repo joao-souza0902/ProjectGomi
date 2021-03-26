@@ -18,9 +18,9 @@
          <children>
             <Button layoutX="5.0" layoutY="71.0" mnemonicParsing="false" onAction="#btnPagUsuario" prefHeight="37.0" prefWidth="119.0" text="Pagina Usuario" />
             <Button layoutX="5.0" layoutY="136.0" mnemonicParsing="false" onAction="#btnHome" prefHeight="37.0" prefWidth="119.0" text="Home" />
-            <Button layoutX="5.0" layoutY="196.0" mnemonicParsing="false" onAction="#btnAdicionarSaldo" prefHeight="37.0" prefWidth="119.0" text="Adicionar Creditos" />
-            <Button layoutX="5.0" layoutY="407.0" mnemonicParsing="false" onAction="#btnSobreClick" prefHeight="37.0" prefWidth="119.0" text="Sobre" />
-            <Button layoutX="5.0" layoutY="462.0" mnemonicParsing="false" onAction="#btnHelpClick" prefHeight="37.0" prefWidth="119.0" text="Ajuda" />
+            <Button disable="true" layoutX="5.0" layoutY="196.0" mnemonicParsing="false" onAction="#btnAdicionarSaldo" prefHeight="37.0" prefWidth="119.0" text="Adicionar Creditos" />
+            <Button disable="true" layoutX="5.0" layoutY="407.0" mnemonicParsing="false" onAction="#btnSobreClick" prefHeight="37.0" prefWidth="119.0" text="Sobre" />
+            <Button disable="true" layoutX="5.0" layoutY="462.0" mnemonicParsing="false" onAction="#btnHelpClick" prefHeight="37.0" prefWidth="119.0" text="Ajuda" />
             <Button layoutX="5.0" layoutY="512.0" mnemonicParsing="false" onAction="#btnClickSair" prefHeight="37.0" prefWidth="119.0" text="Sair" />
          </children>
       </Pane>

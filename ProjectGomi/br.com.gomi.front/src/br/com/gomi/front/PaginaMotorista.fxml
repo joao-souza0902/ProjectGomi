@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.FXMLDocumentController">
+   <children>
+      <Pane prefHeight="605.0" prefWidth="157.0" style="-fx-background-color: #656865;">
+         <children>
+            <Button layoutX="19.0" layoutY="71.0" mnemonicParsing="false" onAction="#btnPaginaMotorista" prefHeight="37.0" prefWidth="119.0" text="Pagina Usuario" />
+            <Button layoutX="19.0" layoutY="136.0" mnemonicParsing="false" onAction="#btnHomeFuncionario" prefHeight="37.0" prefWidth="119.0" text="Home" />
+            <Button disable="true" layoutX="19.0" layoutY="197.0" mnemonicParsing="false" onAction="#btnAdicionarSaldo" prefHeight="37.0" prefWidth="119.0" text="Adicionar Creditos" />
+            <Button disable="true" layoutX="19.0" layoutY="423.0" mnemonicParsing="false" onAction="#btnSobreClick" prefHeight="37.0" prefWidth="119.0" text="Sobre" />
+            <Button disable="true" layoutX="19.0" layoutY="480.0" mnemonicParsing="false" onAction="#btnHelpClick" prefHeight="37.0" prefWidth="119.0" text="Ajuda" />
+            <Button layoutX="19.0" layoutY="531.0" mnemonicParsing="false" onAction="#btnClickSair" prefHeight="37.0" prefWidth="119.0" text="Sair" />
+         </children>
+      </Pane>
+      <ImageView fitHeight="189.0" fitWidth="164.0" layoutX="192.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="file:/C:/ProjectGomi/ProjectGomi/br.com.gomi.front/imgs/O%20Motorista.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="183.0" layoutY="275.0" text="Nome do usuario:" />
+      <Label layoutX="179.0" layoutY="311.0" text="Genero:" />
+      <Label layoutX="183.0" layoutY="352.0" text="Idade:" />
+      <Label layoutX="180.0" layoutY="396.0" text="CPF:" />
+      <Label layoutX="182.0" layoutY="436.0" text="Status:" />
+      <Label layoutX="174.0" layoutY="481.0" text="Endereço:" />
+      <Button layoutX="435.0" layoutY="266.0" mnemonicParsing="false" text="Alterar dados" />
+      <Button layoutX="435.0" layoutY="317.0" mnemonicParsing="false" text="Histórico de coletas" />
+      <Button layoutX="435.0" layoutY="374.0" mnemonicParsing="false" text="Mudar foto de perfil" />
+      <Button layoutX="435.0" layoutY="427.0" mnemonicParsing="false" text="Adicionar Créditos" />
+      <Button layoutX="435.0" layoutY="477.0" mnemonicParsing="false" text="Deletar conta" />
+   </children>
+</AnchorPane>

@@ -5,12 +5,14 @@
  */
 package br.com.gomi.front;
 
+import java.awt.Image;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javax.swing.text.html.ImageView;
 
 /**
  *

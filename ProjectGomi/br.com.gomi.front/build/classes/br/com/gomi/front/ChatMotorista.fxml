@@ -4,13 +4,23 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="434.0" prefWidth="626.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="489.0" prefWidth="626.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.FXMLDocumentController">
    <children>
-      <TextArea layoutX="10.0" layoutY="86.0" prefHeight="348.0" prefWidth="606.0" />
-      <Label layoutX="491.0" layoutY="57.0" text="Nome do motorista" textFill="#2004d7" />
-      <Label layoutX="34.0" layoutY="57.0" text="Nome do cliente" textFill="#eb0909" />
+      <TextArea layoutX="10.0" layoutY="104.0" prefHeight="348.0" prefWidth="606.0" />
+      <Label layoutX="481.0" layoutY="74.0" text="Nome do motorista" textFill="#2004d7">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <Label layoutX="34.0" layoutY="74.0" text="Nome do cliente" textFill="#eb0909">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
       <Button layoutX="34.0" layoutY="20.0" mnemonicParsing="false" onAction="#btnClickChatCancelar" prefHeight="25.0" prefWidth="89.0" text="&lt;- Voltar" />
-      <Label layoutX="304.0" layoutY="24.0" text="Chatroom" />
+      <Label layoutX="260.0" layoutY="15.0" text="Chatroom">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
    </children>
 </AnchorPane>
