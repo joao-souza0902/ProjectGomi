@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="440.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.FXMLDocumentController">
+   <children>
+      <TextArea layoutX="17.0" layoutY="76.0" prefHeight="348.0" prefWidth="606.0" />
+      <Label layoutX="294.0" layoutY="14.0" text="Chatroom" />
+      <Label layoutX="24.0" layoutY="38.0" text="Nome do cliente" textFill="#eb0909" />
+      <Label layoutX="481.0" layoutY="38.0" text="Nome do motorista" textFill="#2004d7" />
+      <Button layoutX="24.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnClickNaoCancelar" prefHeight="25.0" prefWidth="89.0" text="&lt;- Voltar" />
+   </children>
+</AnchorPane>

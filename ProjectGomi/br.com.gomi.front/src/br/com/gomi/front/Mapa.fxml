@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane id="AnchorPane" prefHeight="489.0" prefWidth="659.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.FXMLDocumentController">
+   <children>
+      <ImageView fitHeight="277.0" fitWidth="442.0" layoutX="175.0" layoutY="146.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../imgs/google-maps-truques_1400x875_5d8ec1be6e50d.jpg" />
+         </image>
+      </ImageView>
+      <Pane prefHeight="568.0" prefWidth="140.0" style="-fx-background-color: #656865;">
+         <children>
+            <Button layoutX="11.0" layoutY="70.0" mnemonicParsing="false" onAction="#btnPagUsuario" prefHeight="37.0" prefWidth="119.0" text="Pagina Usuario" />
+            <Button layoutX="11.0" layoutY="136.0" mnemonicParsing="false" onAction="#btnHome" prefHeight="37.0" prefWidth="119.0" text="Home" />
+            <Button layoutX="11.0" layoutY="199.0" mnemonicParsing="false" onAction="#btnAdicionarSaldo" prefHeight="37.0" prefWidth="119.0" text="Adicionar Creditos" />
+            <Button layoutX="11.0" layoutY="422.0" mnemonicParsing="false" onAction="#btnSobreClick" prefHeight="37.0" prefWidth="119.0" text="Sobre" />
+            <Button layoutX="11.0" layoutY="478.0" mnemonicParsing="false" onAction="#btnHelpClick" prefHeight="37.0" prefWidth="119.0" text="Ajuda" />
+         </children>
+      </Pane>
+      <Button layoutX="477.0" layoutY="505.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="140.0" text="Detalhes do pedido" />
+      <Button layoutX="177.0" layoutY="505.0" mnemonicParsing="false" onAction="#btnClickChat" prefHeight="37.0" prefWidth="107.0" text="Chat" />
+      <Label layoutX="169.0" layoutY="110.0" text="Endereço da residencia" />
+      <Label layoutX="316.0" layoutY="110.0" text="Distancia" />
+      <Label layoutX="408.0" layoutY="110.0" text="Endereço do ponto" />
+      <Button layoutX="149.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnVoltarMenu" prefHeight="25.0" prefWidth="81.0" text="Voltar &lt;-" />
+      <Button layoutX="447.0" layoutY="14.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="188.0" text="Prosseguir para pagamento" />
+      <Label layoutX="530.0" layoutY="110.0" text="Distancia" />
+      <Separator layoutX="384.0" layoutY="54.0" orientation="VERTICAL" prefHeight="85.0" prefWidth="0.0" />
+   </children>
+</AnchorPane>
