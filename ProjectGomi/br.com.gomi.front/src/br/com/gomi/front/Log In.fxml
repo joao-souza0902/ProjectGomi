@@ -41,8 +41,8 @@
             <Button disable="true" layoutX="11.0" layoutY="70.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="119.0" text="Pagina Usuario" />
             <Button disable="true" layoutX="11.0" layoutY="136.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="119.0" text="Home" />
             <Button disable="true" layoutX="11.0" layoutY="199.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="119.0" text="Adicionar Creditos" />
-            <Button layoutX="11.0" layoutY="422.0" mnemonicParsing="false" onAction="#btnSobreClick" prefHeight="37.0" prefWidth="119.0" text="Sobre" />
-            <Button layoutX="11.0" layoutY="478.0" mnemonicParsing="false" onAction="#btnHelpClick" prefHeight="37.0" prefWidth="119.0" text="Ajuda" />
+            <Button disable="true" layoutX="11.0" layoutY="422.0" mnemonicParsing="false" onAction="#btnSobreClick" prefHeight="37.0" prefWidth="119.0" text="Sobre" />
+            <Button disable="true" layoutX="11.0" layoutY="478.0" mnemonicParsing="false" onAction="#btnHelpClick" prefHeight="37.0" prefWidth="119.0" text="Ajuda" />
          </children>
       </Pane>
       <Button layoutX="513.0" layoutY="356.0" mnemonicParsing="false" onAction="#handledButtonMotorista" prefHeight="62.0" prefWidth="185.0" text="Entrar Motorista">
@@ -52,7 +52,7 @@
       </Button>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="486.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../imgs/GomIMG.png" />
+            <Image url="file:/C:/ProjectGomi/ProjectGomi/br.com.gomi.front/imgs/GomIMG.png" />
          </image>
       </ImageView>
     </children>
