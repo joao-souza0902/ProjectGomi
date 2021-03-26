@@ -20,11 +20,12 @@
       <Button layoutX="578.0" layoutY="461.0" mnemonicParsing="false" onAction="#btnVoltarMenu" prefHeight="25.0" prefWidth="108.0" text="Voltar ao menu" />
       <Pane layoutX="6.0" prefHeight="563.0" prefWidth="129.0" style="-fx-background-color: #656865;">
          <children>
-            <Button layoutX="5.0" layoutY="71.0" mnemonicParsing="false" onAction="#btnPagUsuario" prefHeight="37.0" prefWidth="119.0" text="Pagina Usuario" />
-            <Button layoutX="5.0" layoutY="136.0" mnemonicParsing="false" onAction="#btnHome" prefHeight="37.0" prefWidth="119.0" text="Home" />
-            <Button layoutX="5.0" layoutY="196.0" mnemonicParsing="false" onAction="#btnAdicionarSaldo" prefHeight="37.0" prefWidth="119.0" text="Adicionar Creditos" />
-            <Button layoutX="5.0" layoutY="424.0" mnemonicParsing="false" onAction="#btnSobreClick" prefHeight="37.0" prefWidth="119.0" text="Sobre" />
-            <Button layoutX="5.0" layoutY="478.0" mnemonicParsing="false" onAction="#btnHelpClick" prefHeight="37.0" prefWidth="119.0" text="Ajuda" />
+            <Button layoutX="5.0" layoutY="44.0" mnemonicParsing="false" onAction="#btnPagUsuario" prefHeight="37.0" prefWidth="119.0" text="Pagina Usuario" />
+            <Button layoutX="5.0" layoutY="106.0" mnemonicParsing="false" onAction="#btnHome" prefHeight="37.0" prefWidth="119.0" text="Home" />
+            <Button disable="true" layoutX="5.0" layoutY="164.0" mnemonicParsing="false" onAction="#btnAdicionarSaldo" prefHeight="37.0" prefWidth="119.0" text="Adicionar Creditos" />
+            <Button disable="true" layoutX="5.0" layoutY="393.0" mnemonicParsing="false" onAction="#btnSobreClick" prefHeight="37.0" prefWidth="119.0" text="Sobre" />
+            <Button disable="true" layoutX="5.0" layoutY="448.0" mnemonicParsing="false" onAction="#btnHelpClick" prefHeight="37.0" prefWidth="119.0" text="Ajuda" />
+            <Button layoutX="5.0" layoutY="499.0" mnemonicParsing="false" onAction="#btnClickSair" prefHeight="37.0" prefWidth="119.0" text="Sair" />
          </children>
       </Pane>
    </children>

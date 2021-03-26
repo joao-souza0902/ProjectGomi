@@ -12,12 +12,12 @@
    <children>
       <Pane layoutX="-7.0" layoutY="1.0" prefHeight="563.0" prefWidth="129.0" style="-fx-background-color: #656865;">
          <children>
-            <Button layoutX="5.0" layoutY="44.0" mnemonicParsing="false" onAction="#btnPagUsuario" prefHeight="37.0" prefWidth="119.0" text="Pagina Usuario" />
-            <Button layoutX="5.0" layoutY="111.0" mnemonicParsing="false" onAction="#btnHome" prefHeight="37.0" prefWidth="119.0" text="Home" />
+            <Button layoutX="5.0" layoutY="44.0" mnemonicParsing="false" onAction="#btnPaginaMotorista" prefHeight="37.0" prefWidth="119.0" text="Pagina Usuario" />
+            <Button layoutX="5.0" layoutY="111.0" mnemonicParsing="false" onAction="#btnHomeFuncionario" prefHeight="37.0" prefWidth="119.0" text="Home" />
             <Button disable="true" layoutX="5.0" layoutY="173.0" mnemonicParsing="false" onAction="#btnAdicionarSaldo" prefHeight="37.0" prefWidth="119.0" text="Adicionar Creditos" />
-            <Button layoutX="5.0" layoutY="382.0" mnemonicParsing="false" onAction="#btnSobreClick" prefHeight="37.0" prefWidth="119.0" text="Sobre" />
-            <Button layoutX="5.0" layoutY="445.0" mnemonicParsing="false" onAction="#btnHelpClick" prefHeight="37.0" prefWidth="119.0" text="Ajuda" />
-            <Button layoutX="5.0" layoutY="512.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="119.0" text="Sair" />
+            <Button disable="true" layoutX="5.0" layoutY="382.0" mnemonicParsing="false" onAction="#btnSobreClick" prefHeight="37.0" prefWidth="119.0" text="Sobre" />
+            <Button disable="true" layoutX="5.0" layoutY="445.0" mnemonicParsing="false" onAction="#btnHelpClick" prefHeight="37.0" prefWidth="119.0" text="Ajuda" />
+            <Button layoutX="5.0" layoutY="512.0" mnemonicParsing="false" onAction="#btnClickSair" prefHeight="37.0" prefWidth="119.0" text="Sair" />
          </children>
       </Pane>
       <CheckBox alignment="CENTER" layoutX="425.0" layoutY="14.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="298.0" text="Disponibilidade para trabalhar" textAlignment="CENTER">

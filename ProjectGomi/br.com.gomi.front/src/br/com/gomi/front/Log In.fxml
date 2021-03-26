@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="556.0" prefWidth="746.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="556.0" prefWidth="746.0" styleClass="bodybg" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.FXMLDocumentController">
     <children>
         <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
       <Button fx:id="btnEntrar" layoutX="241.0" layoutY="354.0" onAction="#handledButtonAction" prefHeight="62.0" prefWidth="185.0" text="Entrar Cliente">

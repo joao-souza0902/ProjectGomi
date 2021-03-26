@@ -30,7 +30,7 @@ public class FXMLDocumentController implements Initializable {
     private Label label;
 
     
-    
+    //Pagina login cliente
     public void handledButtonAction(ActionEvent event) throws IOException {
         
         Parent home_page_parent = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
@@ -40,6 +40,7 @@ public class FXMLDocumentController implements Initializable {
         app_stage.show();
     }
     
+    //cadastro usuario
     public void handledButtonAction1(ActionEvent event) throws IOException {
         
         Parent sign_up_parent = FXMLLoader.load(getClass().getResource("Sign Up.fxml"));
@@ -49,6 +50,7 @@ public class FXMLDocumentController implements Initializable {
         app_stage.show();
     }
     
+    // Login no motorista
     public void handledButtonMotorista(ActionEvent event) throws IOException {
         
         Parent home_page_motorista_parent = FXMLLoader.load(getClass().getResource("HomePageFuncionario.fxml"));
@@ -58,6 +60,7 @@ public class FXMLDocumentController implements Initializable {
         app_stage.show();
     }
     
+    //Abre tela sobre
     public void btnSobreClick(ActionEvent event) throws IOException {
         
         Parent Sobre_parent = FXMLLoader.load(getClass().getResource("Sobre.fxml"));
@@ -67,6 +70,7 @@ public class FXMLDocumentController implements Initializable {
         app_stage.show();
     }
     
+    //Abre tela help
     public void btnHelpClick(ActionEvent event) throws IOException {
         
         Parent Help_parent = FXMLLoader.load(getClass().getResource("Help.fxml"));
@@ -76,6 +80,7 @@ public class FXMLDocumentController implements Initializable {
         app_stage.show();
     }
     
+    //Pagina do cliente
     public void btnPagUsuario(ActionEvent event) throws IOException {
         
         Parent pag_user_parent = FXMLLoader.load(getClass().getResource("PaginaUser.fxml"));
@@ -85,6 +90,17 @@ public class FXMLDocumentController implements Initializable {
         app_stage.show();
     }
     
+    //Pagina do motorista
+    public void btnPaginaMotorista(ActionEvent event) throws IOException {
+        
+        Parent pag_moto_parent = FXMLLoader.load(getClass().getResource("PaginaMotorista.fxml"));
+        Scene pag_moto_scene = new Scene(pag_moto_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(pag_moto_scene);
+        app_stage.show();
+    }
+    
+    //Pagina Home do cliente
     public void btnHome(ActionEvent event) throws IOException {
         
         Parent Home_parent = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
@@ -94,6 +110,7 @@ public class FXMLDocumentController implements Initializable {
         app_stage.show();
     }
     
+    //Adicionar saldo em sua conta (aind em planejamento)
     public void btnAdicionarSaldo(ActionEvent event) throws IOException {
         
         Parent add_saldo_parent = FXMLLoader.load(getClass().getResource("AdicionarSaldo.fxml"));
@@ -102,7 +119,7 @@ public class FXMLDocumentController implements Initializable {
         app_stage.setScene(add_saldo_scene);
         app_stage.show();
     }
-    
+    //Volta da tela de cadastro ao login
     public void handlerVoltarLogin(ActionEvent event) throws IOException {
         
         Parent add_voltar_login_parent = FXMLLoader.load(getClass().getResource("Log In.fxml"));
@@ -112,6 +129,7 @@ public class FXMLDocumentController implements Initializable {
         app_stage.show();
     }
     
+    //Abre uma solicitação de coleta
      public void btnClickSolicitar(ActionEvent event) throws IOException {
         
         Parent add_solicitar_parent = FXMLLoader.load(getClass().getResource("Solicitação.fxml"));
@@ -121,6 +139,7 @@ public class FXMLDocumentController implements Initializable {
         app_stage.show();
     }
     
+     //Abre um agendamento
     public void btnClickAgendar(ActionEvent event) throws IOException {
         
         Parent add_agendar_solicitar_parent = FXMLLoader.load(getClass().getResource("Solicitação.fxml"));
@@ -129,6 +148,7 @@ public class FXMLDocumentController implements Initializable {
         app_stage.setScene(add_agendar_solicitar_scene);
         app_stage.show();
     }
+    
     
     public void btnClickReturnLogin(ActionEvent event) throws IOException {
         
@@ -202,6 +222,7 @@ public class FXMLDocumentController implements Initializable {
         app_stage.show();
     } 
       
+    //Passa para a tela de confirmação
     public void btnClickProximo(ActionEvent event) throws IOException {
         
         Parent proximo_parent = FXMLLoader.load(getClass().getResource("TelaConfirmacao.fxml"));
@@ -238,6 +259,7 @@ public class FXMLDocumentController implements Initializable {
         app_stage.show();
     }
     
+    //Cancela pedido de coleta
     public void btnClickCancelarColeta(ActionEvent event) throws IOException {
         
         Parent cancelar_coleta_parent = FXMLLoader.load(getClass().getResource("ColetaCancelada.fxml"));
@@ -248,7 +270,7 @@ public class FXMLDocumentController implements Initializable {
     }
     
     
-    
+    //Volta para a tela do motorista encontrado das paginas de cancelar pedido (se não cancelar) e sair da sala de chat
     public void btnClickNaoCancelar(ActionEvent event) throws IOException {
         
         Parent cancelar_pedido_parent = FXMLLoader.load(getClass().getResource("MotoristaEncontrado.fxml"));
@@ -258,6 +280,7 @@ public class FXMLDocumentController implements Initializable {
         app_stage.show();
     }
     
+    //Volta ao menu da tela de confirmação de cancelamento
     public void btnClickVoltarMenu(ActionEvent event) throws IOException {
         
         Parent voltar_menu_parent = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
@@ -330,6 +353,7 @@ public class FXMLDocumentController implements Initializable {
         app_stage.show();
     }
     
+    //Sair da conta
     public void btnClickSair(ActionEvent event) throws IOException {
         
         Parent sair_parent = FXMLLoader.load(getClass().getResource("Log In.fxml"));
@@ -339,6 +363,7 @@ public class FXMLDocumentController implements Initializable {
         app_stage.show();
     }
     
+    //Voltar aao menu do motorista
     public void btnVoltarMenuMotorista(ActionEvent event) throws IOException {
         
         Parent sair_parent = FXMLLoader.load(getClass().getResource("HomePageFuncionario.fxml"));
@@ -348,6 +373,7 @@ public class FXMLDocumentController implements Initializable {
         app_stage.show();
     }
     
+    //Aceita um pedido e abre mapa do local
     public void btnClickMapa(ActionEvent event) throws IOException {
         
         Parent mapa_detalhes_parent = FXMLLoader.load(getClass().getResource("Mapa.fxml"));
@@ -357,6 +383,7 @@ public class FXMLDocumentController implements Initializable {
         app_stage.show();
     }
     
+    //Abre informações do pedido
     public void btnClickInformacoes(ActionEvent event) throws IOException {
         
         Parent info_pedido_parent = FXMLLoader.load(getClass().getResource("InformacoesPedido.fxml"));
@@ -366,6 +393,7 @@ public class FXMLDocumentController implements Initializable {
         app_stage.show();
     }
     
+    //Abre chat com o cliente
     public void btnClickChatMotorista(ActionEvent event) throws IOException {
         
         Parent info_pedido_parent = FXMLLoader.load(getClass().getResource("ChatMotorista.fxml"));
@@ -375,18 +403,30 @@ public class FXMLDocumentController implements Initializable {
         app_stage.show();
     }
     
-    public void btnAceitarPedido(ActionEvent event) throws IOException {
+    //Abre pagina de pagamento (ainda em planejamento)
+    public void btnClickQR(ActionEvent event) throws IOException {
         
-        Parent info_pedido_parent = FXMLLoader.load(getClass().getResource("ChatMotorista.fxml"));
-        Scene info_pedido_scene = new Scene(info_pedido_parent);
+        Parent QR_parent = FXMLLoader.load(getClass().getResource("Pagamento.fxml"));
+        Scene QR_scene = new Scene(QR_parent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        app_stage.setScene(info_pedido_scene);
+        app_stage.setScene(QR_scene);
         app_stage.show();
     }
     
+    //Tela do chat do motorista para o mapa do motorista
     public void btnClickChatCancelar(ActionEvent event) throws IOException {
         
         Parent chat_cancelar_parent = FXMLLoader.load(getClass().getResource("Mapa.fxml"));
+        Scene chat_cancelar_scene = new Scene(chat_cancelar_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(chat_cancelar_scene);
+        app_stage.show();
+    }
+    
+    //Pagina home do motorista
+    public void btnHomeFuncionario(ActionEvent event) throws IOException {
+        
+        Parent chat_cancelar_parent = FXMLLoader.load(getClass().getResource("HomePageFuncionario.fxml"));
         Scene chat_cancelar_scene = new Scene(chat_cancelar_parent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(chat_cancelar_scene);

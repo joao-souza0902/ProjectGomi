@@ -17,11 +17,12 @@
       </ImageView>
       <Pane prefHeight="568.0" prefWidth="140.0" style="-fx-background-color: #656865;">
          <children>
-            <Button layoutX="11.0" layoutY="70.0" mnemonicParsing="false" onAction="#btnPagUsuario" prefHeight="37.0" prefWidth="119.0" text="Pagina Usuario" />
-            <Button layoutX="11.0" layoutY="136.0" mnemonicParsing="false" onAction="#btnHome" prefHeight="37.0" prefWidth="119.0" text="Home" />
-            <Button layoutX="11.0" layoutY="199.0" mnemonicParsing="false" onAction="#btnAdicionarSaldo" prefHeight="37.0" prefWidth="119.0" text="Adicionar Creditos" />
-            <Button layoutX="11.0" layoutY="422.0" mnemonicParsing="false" onAction="#btnSobreClick" prefHeight="37.0" prefWidth="119.0" text="Sobre" />
-            <Button layoutX="11.0" layoutY="478.0" mnemonicParsing="false" onAction="#btnHelpClick" prefHeight="37.0" prefWidth="119.0" text="Ajuda" />
+            <Button layoutX="11.0" layoutY="35.0" mnemonicParsing="false" onAction="#btnPagUsuario" prefHeight="37.0" prefWidth="119.0" text="Pagina Usuario" />
+            <Button layoutX="11.0" layoutY="93.0" mnemonicParsing="false" onAction="#btnHomeFuncionario" prefHeight="37.0" prefWidth="119.0" text="Home" />
+            <Button disable="true" layoutX="11.0" layoutY="158.0" mnemonicParsing="false" onAction="#btnAdicionarSaldo" prefHeight="37.0" prefWidth="119.0" text="Adicionar Creditos" />
+            <Button disable="true" layoutX="11.0" layoutY="385.0" mnemonicParsing="false" onAction="#btnSobreClick" prefHeight="37.0" prefWidth="119.0" text="Sobre" />
+            <Button disable="true" layoutX="11.0" layoutY="436.0" mnemonicParsing="false" onAction="#btnHelpClick" prefHeight="37.0" prefWidth="119.0" text="Ajuda" />
+            <Button layoutX="11.0" layoutY="492.0" mnemonicParsing="false" onAction="#btnClickSair" prefHeight="37.0" prefWidth="119.0" text="Sair" />
          </children>
       </Pane>
       <Button layoutX="508.0" layoutY="498.0" mnemonicParsing="false" onAction="#btnClickInformacoes" prefHeight="37.0" prefWidth="140.0" text="Detalhes do pedido" />
@@ -30,9 +31,9 @@
       <Label layoutX="316.0" layoutY="110.0" text="Distancia" />
       <Label layoutX="408.0" layoutY="110.0" text="Endereço do ponto" />
       <Button layoutX="149.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnVoltarMenuMotorista" prefHeight="25.0" prefWidth="81.0" text="Voltar &lt;-" />
-      <Button layoutX="149.0" layoutY="498.0" mnemonicParsing="false" onAction="#btnAceitarPedido" prefHeight="37.0" prefWidth="188.0" text="Aceitar pedido" />
+      <Button layoutX="149.0" layoutY="498.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="188.0" text="Aceitar pedido" />
       <Label layoutX="530.0" layoutY="110.0" text="Distancia" />
       <Separator layoutX="384.0" layoutY="54.0" orientation="VERTICAL" prefHeight="85.0" prefWidth="0.0" />
-      <Button layoutX="482.0" layoutY="8.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="174.0" text="Prosseguir para pagamento" />
+      <Button layoutX="482.0" layoutY="8.0" mnemonicParsing="false" onAction="#btnClickQR" prefHeight="37.0" prefWidth="174.0" text="Prosseguir para pagamento" />
    </children>
 </AnchorPane>
