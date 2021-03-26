@@ -5,6 +5,8 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
@@ -15,11 +17,9 @@
       <Button layoutX="171.0" layoutY="220.0" mnemonicParsing="false" onAction="#btnClickAgendar" prefHeight="25.0" prefWidth="263.0" text="Agendar Coleta" />
       <TextArea layoutX="171.0" layoutY="321.0" prefHeight="255.0" prefWidth="298.0" />
       <Separator layoutX="485.0" layoutY="26.0" orientation="VERTICAL" prefHeight="590.0" prefWidth="2.0" />
-      <Label alignment="CENTER" layoutX="528.0" layoutY="26.0" prefHeight="200.0" prefWidth="225.0" text="Foto do Usuario" />
       <Label layoutX="581.0" layoutY="256.0" text="Ola: *Insert username*" />
       <TextField layoutX="503.0" layoutY="296.0" prefHeight="25.0" prefWidth="249.0" text="Endereço:" />
       <Label layoutX="501.0" layoutY="356.0" text="Forma de Pagamento final:" />
-      <Label layoutX="654.0" layoutY="356.0" text="Icone pagamento" />
       <Label layoutX="563.0" layoutY="418.0" text="Crédito Usuario: $ xxx,yy" />
       <Pane layoutX="6.0" layoutY="9.0" prefHeight="590.0" prefWidth="143.0" style="-fx-background-color: #656865;">
          <children>
@@ -31,5 +31,15 @@
             <Button layoutX="5.0" layoutY="526.0" mnemonicParsing="false" onAction="#btnClickSair" prefHeight="37.0" prefWidth="119.0" text="Sair" />
          </children>
       </Pane>
+      <ImageView fitHeight="184.0" fitWidth="203.0" layoutX="536.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="file:/C:/ProjectGomi/ProjectGomi/br.com.gomi.front/imgs/64025389.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="17.0" fitWidth="18.0" layoutX="651.0" layoutY="356.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="file:/C:/ProjectGomi/ProjectGomi/br.com.gomi.front/imgs/bitcoin.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

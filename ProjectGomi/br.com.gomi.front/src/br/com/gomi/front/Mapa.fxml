@@ -10,9 +10,9 @@
 
 <AnchorPane id="AnchorPane" prefHeight="489.0" prefWidth="659.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.FXMLDocumentController">
    <children>
-      <ImageView fitHeight="277.0" fitWidth="442.0" layoutX="175.0" layoutY="146.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="277.0" fitWidth="442.0" layoutX="177.0" layoutY="171.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../imgs/google-maps-truques_1400x875_5d8ec1be6e50d.jpg" />
+            <Image url="file:/C:/ProjectGomi/ProjectGomi/br.com.gomi.front/imgs/google-maps-truques_1400x875_5d8ec1be6e50d.jpg" />
          </image>
       </ImageView>
       <Pane prefHeight="568.0" prefWidth="140.0" style="-fx-background-color: #656865;">
@@ -24,14 +24,15 @@
             <Button layoutX="11.0" layoutY="478.0" mnemonicParsing="false" onAction="#btnHelpClick" prefHeight="37.0" prefWidth="119.0" text="Ajuda" />
          </children>
       </Pane>
-      <Button layoutX="477.0" layoutY="505.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="140.0" text="Detalhes do pedido" />
-      <Button layoutX="177.0" layoutY="505.0" mnemonicParsing="false" onAction="#btnClickChat" prefHeight="37.0" prefWidth="107.0" text="Chat" />
+      <Button layoutX="508.0" layoutY="498.0" mnemonicParsing="false" onAction="#btnClickInformacoes" prefHeight="37.0" prefWidth="140.0" text="Detalhes do pedido" />
+      <Button layoutX="331.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnClickChatMotorista" prefHeight="37.0" prefWidth="107.0" text="Chat" />
       <Label layoutX="169.0" layoutY="110.0" text="Endereço da residencia" />
       <Label layoutX="316.0" layoutY="110.0" text="Distancia" />
       <Label layoutX="408.0" layoutY="110.0" text="Endereço do ponto" />
-      <Button layoutX="149.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnVoltarMenu" prefHeight="25.0" prefWidth="81.0" text="Voltar &lt;-" />
-      <Button layoutX="447.0" layoutY="14.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="188.0" text="Prosseguir para pagamento" />
+      <Button layoutX="149.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnVoltarMenuMotorista" prefHeight="25.0" prefWidth="81.0" text="Voltar &lt;-" />
+      <Button layoutX="149.0" layoutY="498.0" mnemonicParsing="false" onAction="#btnAceitarPedido" prefHeight="37.0" prefWidth="188.0" text="Aceitar pedido" />
       <Label layoutX="530.0" layoutY="110.0" text="Distancia" />
       <Separator layoutX="384.0" layoutY="54.0" orientation="VERTICAL" prefHeight="85.0" prefWidth="0.0" />
+      <Button layoutX="482.0" layoutY="8.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="174.0" text="Prosseguir para pagamento" />
    </children>
 </AnchorPane>

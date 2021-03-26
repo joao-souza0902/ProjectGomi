@@ -123,10 +123,10 @@ public class FXMLDocumentController implements Initializable {
     
     public void btnClickAgendar(ActionEvent event) throws IOException {
         
-        Parent add_agendar_parent = FXMLLoader.load(getClass().getResource("ObservaçõesFinaisAgendamento.fxml"));
-        Scene add_agendar_scene = new Scene(add_agendar_parent);
+        Parent add_agendar_solicitar_parent = FXMLLoader.load(getClass().getResource("Solicitação.fxml"));
+        Scene add_agendar_solicitar_scene = new Scene(add_agendar_solicitar_parent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        app_stage.setScene(add_agendar_scene);
+        app_stage.setScene(add_agendar_solicitar_scene);
         app_stage.show();
     }
     
@@ -168,7 +168,7 @@ public class FXMLDocumentController implements Initializable {
     
     public void btnClickEletrodomestico(ActionEvent event) throws IOException {
         
-        Parent eletrodomesticos_parent = FXMLLoader.load(getClass().getResource("ObservaçõesAdicionais.fxml"));
+        Parent eletrodomesticos_parent = FXMLLoader.load(getClass().getResource("ObservaçõesFinaisAgendamento.fxml"));
         Scene eletrodomesticos_scene = new Scene(eletrodomesticos_parent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(eletrodomesticos_scene);
@@ -336,6 +336,60 @@ public class FXMLDocumentController implements Initializable {
         Scene sair_scene = new Scene(sair_parent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(sair_scene);
+        app_stage.show();
+    }
+    
+    public void btnVoltarMenuMotorista(ActionEvent event) throws IOException {
+        
+        Parent sair_parent = FXMLLoader.load(getClass().getResource("HomePageFuncionario.fxml"));
+        Scene sair_scene = new Scene(sair_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(sair_scene);
+        app_stage.show();
+    }
+    
+    public void btnClickMapa(ActionEvent event) throws IOException {
+        
+        Parent mapa_detalhes_parent = FXMLLoader.load(getClass().getResource("Mapa.fxml"));
+        Scene mapa_detalhes_scene = new Scene(mapa_detalhes_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(mapa_detalhes_scene);
+        app_stage.show();
+    }
+    
+    public void btnClickInformacoes(ActionEvent event) throws IOException {
+        
+        Parent info_pedido_parent = FXMLLoader.load(getClass().getResource("InformacoesPedido.fxml"));
+        Scene info_pedido_scene = new Scene(info_pedido_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(info_pedido_scene);
+        app_stage.show();
+    }
+    
+    public void btnClickChatMotorista(ActionEvent event) throws IOException {
+        
+        Parent info_pedido_parent = FXMLLoader.load(getClass().getResource("ChatMotorista.fxml"));
+        Scene info_pedido_scene = new Scene(info_pedido_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(info_pedido_scene);
+        app_stage.show();
+    }
+    
+    public void btnAceitarPedido(ActionEvent event) throws IOException {
+        
+        Parent info_pedido_parent = FXMLLoader.load(getClass().getResource("ChatMotorista.fxml"));
+        Scene info_pedido_scene = new Scene(info_pedido_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(info_pedido_scene);
+        app_stage.show();
+    }
+    
+    public void btnClickChatCancelar(ActionEvent event) throws IOException {
+        
+        Parent chat_cancelar_parent = FXMLLoader.load(getClass().getResource("Mapa.fxml"));
+        Scene chat_cancelar_scene = new Scene(chat_cancelar_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(chat_cancelar_scene);
         app_stage.show();
     }
     
