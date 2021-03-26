@@ -15,15 +15,16 @@
          </font></Label>
       <Label alignment="CENTER" layoutX="163.0" layoutY="202.0" prefHeight="102.0" prefWidth="186.0" text="Foto do motorista" />
       <Label alignment="CENTER" layoutX="424.0" layoutY="202.0" prefHeight="102.0" prefWidth="186.0" text="Tipo do automóvel" />
-      <Button layoutX="180.0" layoutY="360.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="152.0" text="Chat" />
-      <Button layoutX="441.0" layoutY="360.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="152.0" text="Cancelar pedido" />
+      <Button layoutX="180.0" layoutY="360.0" mnemonicParsing="false" onAction="#btnClickChat" prefHeight="66.0" prefWidth="152.0" text="Chat" />
+      <Button layoutX="441.0" layoutY="360.0" mnemonicParsing="false" onAction="#btnClickCancelarPedido" prefHeight="66.0" prefWidth="152.0" text="Cancelar pedido" />
       <Pane prefHeight="568.0" prefWidth="129.0" style="-fx-background-color: #656865;">
          <children>
             <Button layoutX="5.0" layoutY="71.0" mnemonicParsing="false" onAction="#btnPagUsuario" prefHeight="37.0" prefWidth="119.0" text="Pagina Usuario" />
             <Button layoutX="5.0" layoutY="136.0" mnemonicParsing="false" onAction="#btnHome" prefHeight="37.0" prefWidth="119.0" text="Home" />
             <Button layoutX="5.0" layoutY="196.0" mnemonicParsing="false" onAction="#btnAdicionarSaldo" prefHeight="37.0" prefWidth="119.0" text="Adicionar Creditos" />
-            <Button layoutX="5.0" layoutY="424.0" mnemonicParsing="false" onAction="#btnSobreClick" prefHeight="37.0" prefWidth="119.0" text="Sobre" />
-            <Button layoutX="5.0" layoutY="478.0" mnemonicParsing="false" onAction="#btnHelpClick" prefHeight="37.0" prefWidth="119.0" text="Ajuda" />
+            <Button layoutX="5.0" layoutY="411.0" mnemonicParsing="false" onAction="#btnSobreClick" prefHeight="37.0" prefWidth="119.0" text="Sobre" />
+            <Button layoutX="5.0" layoutY="467.0" mnemonicParsing="false" onAction="#btnHelpClick" prefHeight="37.0" prefWidth="119.0" text="Ajuda" />
+            <Button layoutX="4.0" layoutY="518.0" mnemonicParsing="false" onAction="#btnClickSair" prefHeight="37.0" prefWidth="119.0" text="Sair" />
          </children>
       </Pane>
    </children>

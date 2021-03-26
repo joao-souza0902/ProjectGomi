@@ -13,7 +13,7 @@
          <font>
             <Font size="21.0" />
          </font></Label>
-      <Button layoutX="31.0" layoutY="334.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="142.0" text="Voltar" />
-      <Button layoutX="430.0" layoutY="334.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="142.0" text="Proximo" />
+      <Button layoutX="31.0" layoutY="334.0" mnemonicParsing="false" onAction="#btnClickVoltarInfo" prefHeight="50.0" prefWidth="142.0" text="Voltar" />
+      <Button layoutX="430.0" layoutY="334.0" mnemonicParsing="false" onAction="#btnClickProximoInfo" prefHeight="50.0" prefWidth="142.0" text="Proximo" />
    </children>
 </AnchorPane>
