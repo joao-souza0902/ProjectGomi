@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.FXMLDocumentController">
+   <children>
+      <Pane layoutY="1.0" prefHeight="563.0" prefWidth="129.0" style="-fx-background-color: #656865;">
+         <children>
+            <Button layoutX="5.0" layoutY="71.0" mnemonicParsing="false" onAction="#btnPagUsuario" prefHeight="37.0" prefWidth="119.0" text="Pagina Usuario" />
+            <Button layoutX="5.0" layoutY="136.0" mnemonicParsing="false" onAction="#btnHome" prefHeight="37.0" prefWidth="119.0" text="Home" />
+            <Button disable="true" layoutX="5.0" layoutY="196.0" mnemonicParsing="false" onAction="#btnAdicionarSaldo" prefHeight="37.0" prefWidth="119.0" text="Adicionar Creditos" />
+            <Button disable="true" layoutX="5.0" layoutY="395.0" mnemonicParsing="false" onAction="#btnSobreClick" prefHeight="37.0" prefWidth="119.0" text="Sobre" />
+            <Button disable="true" layoutX="5.0" layoutY="450.0" mnemonicParsing="false" onAction="#btnHelpClick" prefHeight="37.0" prefWidth="119.0" text="Ajuda" />
+            <Button layoutX="5.0" layoutY="506.0" mnemonicParsing="false" onAction="#btnClickSair" prefHeight="37.0" prefWidth="119.0" text="Sair" />
+         </children>
+      </Pane>
+      <Button layoutX="163.0" layoutY="419.0" mnemonicParsing="false" onAction="#btnClickVoltar" prefHeight="59.0" prefWidth="117.0" text="&lt;- Voltar" />
+      <Button layoutX="313.0" layoutY="419.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="117.0" text="Adicionar foto" />
+      <Button layoutX="469.0" layoutY="419.0" mnemonicParsing="false" onAction="#btnClickProximo1" prefHeight="59.0" prefWidth="117.0" text="Proximo -&gt;" />
+      <ComboBox layoutX="231.0" layoutY="32.0" prefHeight="31.0" prefWidth="269.0" promptText="Subtipo da Coleta" />
+      <ComboBox layoutX="231.0" layoutY="89.0" prefHeight="31.0" prefWidth="269.0" promptText="Volume Aproximado" />
+      <ImageView fitHeight="199.0" fitWidth="294.0" layoutX="219.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="file:/C:/ProjectGomi/ProjectGomi/br.com.gomi.front/imgs/Eletrodomesticos.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
