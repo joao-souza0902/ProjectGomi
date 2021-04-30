@@ -7,15 +7,18 @@ package br.com.gomi.shared;
 
 /**
  *
- * @author Gabrielle
+ * @author Administrador
  */
-public class BrComGomiShared {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+public abstract class PadraoViewModel
+{
+    public int getId()
+    {
+        return id;
     }
-    
+
+    public void setId(int id)
+    {
+        this.id = id;
+    }
+    private int id;
 }
