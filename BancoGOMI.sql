@@ -7,7 +7,7 @@ go
 
 use Gomi
 
-/*Criação das tabelas*/
+/*CriaÃ§Ã£o das tabelas*/
 
 create table Administrador(
 	IdAdministrador int primary key identity(1,1)
@@ -33,7 +33,7 @@ create table NaoAdm(
 	IdCliente int foreign key references Cliente(IdCliente),
 	IdMotorista int foreign key references Motorista(IdMotorista),
 	CPF bigint,
-	/* Informações de pagamento/Cobrança */
+	/* InformaÃ§Ãµes de pagamento/CobranÃ§a */
 	/* Armazenamento da foto */
 	Telefone int,
 	Email varchar(max)
@@ -79,9 +79,9 @@ create table Ecoponto (
 )
 go
 
-/*Criação das Procedures Genericas*/
+/*CriaÃ§Ã£o das Procedures Genericas*/
 
-create procedure spConsulta (@id int ,@tabela varchar(max)) as
+create procedure spConsult (@id int ,@tabela varchar(max)) as
 begin
 	declare @sql varchar(max);
 	set @sql = 'select * from ' + @tabela +
@@ -99,14 +99,14 @@ begin
 end
 go
 
-create procedure spListagem (@tabela varchar(max),@ordem varchar(max)) as
+create procedure spList (@tabela varchar(max),@ordem varchar(max)) as
 begin
 	exec('select * from ' + @tabela +
 		 ' order by ' + @ordem)
 end
 go
 
-/*Criação das procedures de Insert e Update*/
+/*CriaÃ§Ã£o das procedures de Insert e Update*/
 
 create procedure spInsert_Log (@Id int, @Descricao varchar(max)) as
 begin
