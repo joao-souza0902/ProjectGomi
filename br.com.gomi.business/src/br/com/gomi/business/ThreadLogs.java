@@ -22,7 +22,7 @@ public class ThreadLogs extends Thread{
     public void run() {
         Auditoria auditoria = Auditoria.obtemInstancia();
         
-        while (isAtivo() /*|| auditoria.existemLogsNaFila()*/ ) {  //Só ativar essa parte depois de estar salvando no banco
+        while (isAtivo() || auditoria.existemLogsNaFila() ) {
             if (auditoria.existemLogsNaFila()) {
                 String log = auditoria.getFila().poll();
                 

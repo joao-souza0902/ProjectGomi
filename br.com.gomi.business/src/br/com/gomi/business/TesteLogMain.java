@@ -15,7 +15,9 @@ public class TesteLogMain {
         try
         {
             Auditoria.obtemInstancia().iniciar();
-            Auditoria.obtemInstancia().salvarLog("Log1");   
+            for (Integer i = 0; i < 100; i++){
+                Auditoria.obtemInstancia().salvarLog("Log" + i.toString());
+            }
         }
         finally
         {
