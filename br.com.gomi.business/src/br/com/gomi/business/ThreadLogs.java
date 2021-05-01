@@ -5,6 +5,11 @@
  */
 package br.com.gomi.business;
 
+import br.com.gomi.back.LogDAO;
+import br.com.gomi.shared.LogViewModel;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Fábio
@@ -21,9 +26,16 @@ public class ThreadLogs extends Thread{
             if (auditoria.existemLogsNaFila()) {
                 String log = auditoria.getFila().poll();
                 
-                ////////////////////////////////////////////////////////////////////////////////
-                //Salvar no banco de dados, na tabela de logs
-                ////////////////////////////////////////////////////////////////////////////////                               
+                LogDAO dao = new LogDAO();
+                LogViewModel model = new LogViewModel();
+                
+                model.setDescricao(log);
+                
+                try {
+                    dao.insert(model);
+                } catch (Exception ex) {
+                    Logger.getLogger(ThreadLogs.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
     }
