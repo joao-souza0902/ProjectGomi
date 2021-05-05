@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="br.com.gomi.front.jnlp">
+  <information>
+    <title>br.com.gomi.front</title>
+    <vendor>jonyg</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="br.com.gomi.front.jar" size="21548" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="br.com.gomi.front" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="br.com.gomi.front.BrComGomiFront"  name="br.com.gomi.front" />
+  <update check="always"/>
+</jnlp>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane id="AnchorPane" prefHeight="488.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.FXMLDocumentController">
+   <children>
+      <ComboBox layoutX="256.0" layoutY="27.0" prefHeight="31.0" prefWidth="269.0" promptText="Subtipo da Coleta" />
+      <ComboBox layoutX="256.0" layoutY="86.0" prefHeight="31.0" prefWidth="269.0" promptText="Volume Aproximado" />
+      <Button layoutX="316.0" layoutY="402.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="117.0" text="Adicionar foto" />
+      <Button layoutX="171.0" layoutY="402.0" mnemonicParsing="false" onAction="#btnClickVoltar" prefHeight="59.0" prefWidth="117.0" text="&lt;- Voltar" />
+      <Button layoutX="467.0" layoutY="402.0" mnemonicParsing="false" onAction="#btnClickProximo" prefHeight="59.0" prefWidth="117.0" text="Proximo -&gt;" />
+      <Pane layoutY="-9.0" prefHeight="563.0" prefWidth="129.0" style="-fx-background-color: #656865;">
+         <children>
+            <Button layoutX="5.0" layoutY="71.0" mnemonicParsing="false" onAction="#btnPagUsuario" prefHeight="37.0" prefWidth="119.0" text="Pagina Usuario" />
+            <Button layoutX="5.0" layoutY="136.0" mnemonicParsing="false" onAction="#btnHome" prefHeight="37.0" prefWidth="119.0" text="Home" />
+            <Button disable="true" layoutX="5.0" layoutY="196.0" mnemonicParsing="false" onAction="#btnAdicionarSaldo" prefHeight="37.0" prefWidth="119.0" text="Adicionar Creditos" />
+            <Button disable="true" layoutX="5.0" layoutY="407.0" mnemonicParsing="false" onAction="#btnSobreClick" prefHeight="37.0" prefWidth="119.0" text="Sobre" />
+            <Button disable="true" layoutX="5.0" layoutY="462.0" mnemonicParsing="false" onAction="#btnHelpClick" prefHeight="37.0" prefWidth="119.0" text="Ajuda" />
+            <Button layoutX="5.0" layoutY="512.0" mnemonicParsing="false" onAction="#btnClickSair" prefHeight="37.0" prefWidth="119.0" text="Sair" />
+         </children>
+      </Pane>
+      <ImageView fitHeight="213.0" fitWidth="277.0" layoutX="236.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="file:/C:/ProjectGomi/ProjectGomi/br.com.gomi.front/imgs/Puin.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
