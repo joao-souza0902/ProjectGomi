@@ -24,6 +24,7 @@ public class BrComGomiFront extends Application {
     public void start(Stage stage) throws Exception {
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("Log In.fxml"));
         Parent root = loader.load();
+        stage.initStyle(StageStyle.TRANSPARENT); //testar se o fundo vai ficar transparente
         stage.setScene(new Scene(root));
         stage.show();
     }
