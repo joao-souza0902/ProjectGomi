@@ -7,6 +7,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="612.0" prefWidth="435.0" styleClass="bodybg" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.FXMLDocumentController">
    <children>
@@ -17,7 +18,7 @@
                   <Image url="@Imagens/info.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="129.0" fitWidth="138.0" layoutX="172.0" layoutY="-11.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="129.0" fitWidth="138.0" layoutX="172.0" layoutY="-11.0" opacity="0.82" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Imagens/user.png" />
                </image>
@@ -29,6 +30,13 @@
             <TextField layoutX="79.0" layoutY="142.0" prefHeight="40.0" prefWidth="317.0" promptText="E-mail" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57;" />
             <TextField layoutX="78.0" layoutY="199.0" prefHeight="40.0" prefWidth="317.0" promptText="Senha" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57;" />
          </children></AnchorPane>
-      <AnchorPane prefHeight="94.0" prefWidth="445.0" style="-fx-background-color: #00CC66;" />
+      <AnchorPane prefHeight="120.0" prefWidth="447.0" style="-fx-background-color: #00CC66;">
+         <children>
+            <Button layoutX="400.0" layoutY="9.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="29.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="X" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+         </children></AnchorPane>
    </children>
 </AnchorPane>
