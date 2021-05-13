@@ -34,6 +34,8 @@ public class NaoAdmDAO extends PadraoDAO<NaoAdmViewModel>
     {
         NaoAdmViewModel t = new NaoAdmViewModel();
         t.setId((Integer)registro.get("id"));
+        t.setIdNaoAdm((Integer)registro.get("idCliente"));
+        t.setIdAdministrador((Integer)registro.get("idMotorista"));
         t.setTelefoneddd((Integer)registro.get("telefoneDDD"));
         t.setTelefone((Integer)registro.get("telefone"));
         return t;

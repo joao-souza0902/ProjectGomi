@@ -10,10 +10,32 @@ package br.com.gomi.shared;
  * @author Fábio
  */
 public class NaoAdmViewModel extends UsuarioViewModel{  
+    private Integer idCliente;
+    private Integer idMotorista;   
     private int telefoneddd;
     private int telefone;
     //Informações de pagamento
     //Armazenamento de foto
+    
+    public Integer getIdCliente()
+    {
+        return idCliente;
+    }
+
+    public void setIdCliente(Integer idCliente)
+    {
+        this.idCliente = idCliente;
+    }
+
+    public Integer getIdMotorista()
+    {
+        return idMotorista;
+    }
+
+    public void setIdMotorista(Integer idMotorista)
+    {
+        this.idMotorista = idMotorista;
+    }
     
     public int getTelefoneddd() {
         return telefoneddd;

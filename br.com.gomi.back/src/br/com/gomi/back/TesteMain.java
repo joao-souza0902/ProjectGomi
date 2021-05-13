@@ -20,11 +20,16 @@ public class TesteMain
     public static void main(String[] args) throws Exception
     {
         DateTimeFormatter sdf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        NaoAdmDAO dao = new NaoAdmDAO();
-        NaoAdmViewModel vm = new NaoAdmViewModel();
+        UsuarioDAO dao = new UsuarioDAO();
+        UsuarioViewModel vm = new UsuarioViewModel();
         vm.setId(175);
-        vm.setTelefoneddd(11);
-        vm.setTelefone(946626888);
+        vm.setIdNaoAdm(1);
+        vm.setIdAdministrador(null);
+        vm.setEmail("qualquer.coisa@gmail.com");
+        vm.setSenha("admin123456ç");
+        vm.setNome("Adamastor Terreno");
+        vm.setData(LocalDate.parse("11/05/1997", sdf));
+        vm.setCpf("44885468893");
         dao.insert(vm);
     }
 }

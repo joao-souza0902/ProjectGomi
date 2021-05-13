@@ -20,11 +20,11 @@ public class MotoristaViewModel extends NaoAdmViewModel{
     private int cargaSuportada;
     //Foto da CNH
     
-    public String gettipoVeiculo() {
+    public String getTipoVeiculo() {
         return tipoVeiculo;
     }
 
-    public void settipoVeiculo(String tipoVeiculo) {
+    public void setTipoVeiculo(String tipoVeiculo) {
         this.tipoVeiculo = tipoVeiculo;
     }
     
