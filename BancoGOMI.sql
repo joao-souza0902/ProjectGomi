@@ -30,13 +30,14 @@ create table Motorista(
 	/* Armazenamento da foto da CHN */
 	CargaSuportada int
 )
+
 go
 
 create table NaoAdm(
 	IdNaoAdm int primary key identity(1, 1),
 	IdCliente int foreign key references Cliente(IdCliente) null,
 	IdMotorista int foreign key references Motorista(IdMotorista) null,
-	/* Informações de pagamento/Cobrança */
+	/* InformaÃ§Ãµes de pagamento/CobranÃ§a */
 	/* Armazenamento da foto */
 	TelefoneDDD int,
 	Telefone int,
@@ -45,8 +46,8 @@ go
 
 create table Usuario(
 	IdUsuario int primary key identity(1, 1),
-	IdNaoAdm int foreign key references NaoAdm(IdNaoAdm),
-	IdAdministrador int foreign key references Administrador(IdAdministrador),
+	IdNaoAdm int foreign key references NaoAdm(IdNaoAdm) null,
+	IdAdministrador int foreign key references Administrador(IdAdministrador) null,
 	Email varchar(max),
 	Senha varchar(max),
 	Nome varchar(max),
@@ -64,8 +65,6 @@ create table Solicitacao(
 	Aberto bit,
 	Descricao varchar(max),
 	Volume int,
-	cep varchar(max),
-	numero int
 	--Armazenamento das Fotos
 )
 
@@ -125,7 +124,7 @@ begin
 end
 go
 
-/*Criação das procedures de Insert e Update*/
+/*CriaÃ§Ã£o das procedures de Insert e Update*/
 
 create procedure spInsert_Log (@Id int, @Descricao varchar(max)) as
 begin
@@ -227,13 +226,13 @@ begin
 end
 go
 
-create procedure spInsert_Usuario (@IdUsuario int, @IdNaoAdm int, @IdAdministrador int, @Email varchar(max), @Senha varchar(max), @Nome varchar(max), @DataNascimento date, @CPF bigint) as
+create procedure spInsert_Usuario (@IdUsuario int, @IdNaoAdm int, @IdAdministrador int, @Email varchar(max), @Senha varchar(max), @Nome varchar(max), @DataNascimento date, @CPF varchar(max)) as
 begin
 	insert into Usuario values (@IdNaoAdm, @IdAdministrador, @Email, @Senha, @Nome, @DataNascimento, @CPF)
 end
 go
 
-create procedure spUpdate_Usuario (@IdUsuario int, @IdNaoAdm int, @IdAdministrador int, @Email varchar(max), @Senha varchar(max), @Nome varchar(max), @DataNascimento date, @CPF bigint) as
+create procedure spUpdate_Usuario (@IdUsuario int, @IdNaoAdm int, @IdAdministrador int, @Email varchar(max), @Senha varchar(max), @Nome varchar(max), @DataNascimento date, @CPF varchar(max)) as
 begin
 	update Usuario set IdNaoAdm = @IdNaoAdm,
 					   IdAdministrador = @IdAdministrador,
@@ -280,7 +279,5 @@ go
 create procedure spDelete_CategoriaSolicitacao (@IdSolicitacao int, @IdCategoria int) as
 begin
 	delete CategoriaSolicitacao where idSolicitacao = @IdSolicitacao and IdCategoria = @IdCategoria
-	
 end
 go
-

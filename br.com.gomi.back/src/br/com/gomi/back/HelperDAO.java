@@ -21,7 +21,12 @@ public class HelperDAO
         try(Connection conexao = ConexaoBD.getConexao()){  
             PreparedStatement comando = conexao.prepareStatement(sql);
             for(int i = 1; i <= parametros.length; i++){
+                if (parametros[i-1].equals("null")){
+                    comando.setNull(i, 0);
+                }
+                else{
                 comando.setString(i, parametros[i-1]);
+                }
             }
             comando.execute();
             conexao.close();

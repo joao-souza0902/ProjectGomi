@@ -11,6 +11,7 @@ import java.time.LocalDate;
  *
  * @author Fábio
  */
+
 public class MotoristaViewModel extends NaoAdmViewModel{    
     private String tipoVeiculo;
     private String cnh;
@@ -19,11 +20,11 @@ public class MotoristaViewModel extends NaoAdmViewModel{
     private int cargaSuportada;
     //Foto da CNH
     
-    public String gettipoVeiculo() {
+    public String getTipoVeiculo() {
         return tipoVeiculo;
     }
 
-    public void settipoVeiculo(String tipoVeiculo) {
+    public void setTipoVeiculo(String tipoVeiculo) {
         this.tipoVeiculo = tipoVeiculo;
     }
     
@@ -56,6 +57,7 @@ public class MotoristaViewModel extends NaoAdmViewModel{
     }
 
     public void setCargaSuportada(int cargaSuportada) {
+
         this.cargaSuportada = cargaSuportada;
     }
 }
