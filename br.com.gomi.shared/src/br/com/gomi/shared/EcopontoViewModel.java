@@ -10,7 +10,9 @@ package br.com.gomi.shared;
  * @author Fábio
  */
 public class EcopontoViewModel extends PadraoViewModel{
-
+    private String cep;
+    private int numero;
+    
     public String getCep() {
         return cep;
     }
@@ -26,6 +28,4 @@ public class EcopontoViewModel extends PadraoViewModel{
     public void setNumero(int numero) {
         this.numero = numero;
     }
-    private String cep;
-    private int numero;
 }
