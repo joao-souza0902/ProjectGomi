@@ -5,21 +5,16 @@
  */
 package br.com.gomi.shared;
 
+import java.time.LocalDate;
+
 /**
  *
- * @author Administrador
+ * @author Fábio
  */
-public abstract class PadraoViewModel
-{
-    private int id;
-    
-    public int getId()
-    {
-        return id;
-    }
-
-    public void setId(int id)
-    {
-        this.id = id;
-    } 
+public class MotoristaViewModel {
+    long cnh;
+    LocalDate dataExpiracao;
+    char cnhCategoria;
+    int cargaSuportada;
+    //Foto da CNH
 }
