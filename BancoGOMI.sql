@@ -37,7 +37,7 @@ create table NaoAdm(
 	IdNaoAdm int primary key identity(1, 1),
 	IdCliente int foreign key references Cliente(IdCliente) null,
 	IdMotorista int foreign key references Motorista(IdMotorista) null,
-	/* Informações de pagamento/Cobrança */
+	/* InformaÃ§Ãµes de pagamento/CobranÃ§a */
 	/* Armazenamento da foto */
 	TelefoneDDD int,
 	Telefone int,
@@ -94,7 +94,8 @@ create table [Log] (
 
 create table Ecoponto (
 	IdEcoponto int primary key identity(1, 1),
-	EnderecoEcoponto varchar(max)
+	cep varchar(max),
+	numero int
 )
 go
 
@@ -123,7 +124,7 @@ begin
 end
 go
 
-/*Criação das procedures de Insert e Update*/
+/*CriaÃ§Ã£o das procedures de Insert e Update*/
 
 create procedure spInsert_Log (@Id int, @Descricao varchar(max)) as
 begin
@@ -131,13 +132,13 @@ begin
 end
 go
 
-create procedure spInsert_Solicitacao (@IdSolicitacao int, @IdCliente int, @IdMotorista int, @Agendamento bit, @DataSolicitacao smalldatetime, @Aberto bit, @Descricao varchar(max), @Volume int) as
+create procedure spInsert_Solicitacao (@IdSolicitacao int, @IdCliente int, @IdMotorista int, @Agendamento bit, @DataSolicitacao smalldatetime, @Aberto bit, @Descricao varchar(max), @Volume int, @CEP varchar(max), @numero int) as
 begin
-	insert into Solicitacao values (@IdCliente, @IdMotorista, @Agendamento, @DataSolicitacao, @Aberto, @Descricao, @Volume)
+	insert into Solicitacao values (@IdCliente, @IdMotorista, @Agendamento, @DataSolicitacao, @Aberto, @Descricao, @Volume, @CEP, @numero)
 end
 go
 
-create procedure spUpdate_Solicitacao (@IdSolicitacao int, @IdCliente int, @IdMotorista int, @Agendamento bit, @DataSolicitacao smalldatetime, @Aberto bit, @Descricao varchar(max), @Volume int) as
+create procedure spUpdate_Solicitacao (@IdSolicitacao int, @IdCliente int, @IdMotorista int, @Agendamento bit, @DataSolicitacao smalldatetime, @Aberto bit, @Descricao varchar(max), @Volume int, @CEP varchar(max), @numero int) as
 begin
 	update Solicitacao set IdCliente = @IdCliente, 
 						   IdMotorista = @IdMotorista, 
@@ -145,7 +146,9 @@ begin
 						   DataSolicitacao = @DataSolicitacao,
 						   Aberto = @Aberto,
 						   Descricao = @Descricao,
-						   Volume = @Volume
+						   Volume = @Volume,
+						   cep = @CEP,
+						   numero = @numero
 						   where IdSolicitacao = @IdSolicitacao
 end
 go
@@ -242,15 +245,16 @@ begin
 end
 go
 
-create procedure spInsert_Ecoponto (@idEcoponto int, @EnderecoEcoponto varchar(max)) as
+create procedure spInsert_Ecoponto (@idEcoponto int, @cep varchar(max), @numero int) as
 begin
-	insert into Ecoponto values (@EnderecoEcoponto)
+	insert into Ecoponto values (@cep, @numero)
 end
 go
 
-create procedure spUpdate_Ecoponto (@idEcoponto int, @EnderecoEcoponto varchar(max)) as
+create procedure spUpdate_Ecoponto (@idEcoponto int, @cep varchar(max), @numero int) as
 begin
-	update Ecoponto set EnderecoEcoponto = @EnderecoEcoponto
+	update Ecoponto set cep = @cep,
+						numero = @numero
 end
 go
 
@@ -276,3 +280,4 @@ create procedure spDelete_CategoriaSolicitacao (@IdSolicitacao int, @IdCategoria
 begin
 	delete CategoriaSolicitacao where idSolicitacao = @IdSolicitacao and IdCategoria = @IdCategoria
 end
+go
