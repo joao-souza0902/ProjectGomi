@@ -9,7 +9,7 @@ package br.com.gomi.shared;
  *
  * @author Fábio
  */
-public class NaoAdmViewModel extends UsuarioViewModel{
+public class NaoAdmViewModel extends UsuarioViewModel{  
     private int telefoneddd;
     private int telefone;
     //Informações de pagamento

@@ -5,7 +5,11 @@
  */
 package br.com.gomi.back;
 
-import br.com.gomi.shared.LogViewModel;
+import br.com.gomi.shared.*;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 
 /**
  *
@@ -15,10 +19,12 @@ public class TesteMain
 {
     public static void main(String[] args) throws Exception
     {
-        LogDAO l = new LogDAO();
-        LogViewModel lvm = new LogViewModel();
-        lvm.setId(1);
-        lvm.setDescricao("Primeiro teste com o Log");
-        l.insert(lvm);
+        DateTimeFormatter sdf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        NaoAdmDAO dao = new NaoAdmDAO();
+        NaoAdmViewModel vm = new NaoAdmViewModel();
+        vm.setId(175);
+        vm.setTelefoneddd(11);
+        vm.setTelefone(946626888);
+        dao.insert(vm);
     }
 }
