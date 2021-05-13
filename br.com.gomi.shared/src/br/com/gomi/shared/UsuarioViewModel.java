@@ -15,7 +15,7 @@ public class UsuarioViewModel extends PadraoViewModel{
     private String email;
     private String senha;
     private String nome;
-    private LocalDate data;
+    private LocalDate dataNascimento;
     private long cpf;
     
     public String getEmail() {
@@ -43,11 +43,11 @@ public class UsuarioViewModel extends PadraoViewModel{
     }
 
     public LocalDate getData() {
-        return data;
+        return dataNascimento;
     }
 
     public void setData(LocalDate data) {
-        this.data = data;
+        this.dataNascimento = data;
     }
 
     public long getCpf() {

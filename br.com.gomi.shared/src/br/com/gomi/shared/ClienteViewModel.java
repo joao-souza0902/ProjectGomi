@@ -9,7 +9,7 @@ package br.com.gomi.shared;
  *
  * @author Fábio
  */
-public class ClienteViewModel extends UsuarioViewModel {
+public class ClienteViewModel extends NaoAdmViewModel {
     private String rua;
     private int numero;
     private String complemento;
