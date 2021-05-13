@@ -13,7 +13,7 @@ import java.time.LocalDate;
  */
 public class MotoristaViewModel extends NaoAdmViewModel{    
     private String tipoVeiculo;
-    private long cnh;
+    private String cnh;
     private LocalDate dataExpiracao;
     private char cnhCategoria;
     private int cargaSuportada;
@@ -27,11 +27,11 @@ public class MotoristaViewModel extends NaoAdmViewModel{
         this.tipoVeiculo = tipoVeiculo;
     }
     
-    public long getCnh() {
+    public String getCnh() {
         return cnh;
     }
 
-    public void setCnh(long cnh) {
+    public void setCnh(String cnh) {
         this.cnh = cnh;
     }
 
@@ -48,7 +48,7 @@ public class MotoristaViewModel extends NaoAdmViewModel{
     }
 
     public void setCnhCategoria(char cnhCategoria) {
-        this.cnhCategoria = cnhCategoria;
+        this.cnhCategoria = Character.toUpperCase(cnhCategoria);
     }
 
     public int getCargaSuportada() {

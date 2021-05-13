@@ -18,29 +18,28 @@ create table Cliente(
 	Complemento varchar(max),
 	Bairro varchar(max),
 	Cidade varchar(max),
-	CEP int
+	CEP varchar(max)
 )
 
 create table Motorista(
 	IdMotorista int primary key identity(1, 1),
-	TipoVeiculo varchar(max), --
-	CNH bigint, --
-	DataExpiracao date, -- 
-	CategoriaCNH varchar(max), --
-	/* Armazenamento da foto da CHN */ -- 
-	CargaSuportada int --
+	TipoVeiculo varchar(max),
+	CNH varchar(max),
+	DataExpiracao date,
+	CategoriaCNH varchar(max),
+	/* Armazenamento da foto da CHN */
+	CargaSuportada int
 )
-
 go
 
 create table NaoAdm(
 	IdNaoAdm int primary key identity(1, 1),
 	IdCliente int foreign key references Cliente(IdCliente),
 	IdMotorista int foreign key references Motorista(IdMotorista),
-	/* Informações de pagamento/Cobrança */ --
-	/* Armazenamento da foto */ --
+	/* Informações de pagamento/Cobrança */
+	/* Armazenamento da foto */
 	TelefoneDDD int,
-	Telefone int, --
+	Telefone int,
 )
 go
 
@@ -48,11 +47,11 @@ create table Usuario(
 	IdUsuario int primary key identity(1, 1),
 	IdNaoAdm int foreign key references NaoAdm(IdNaoAdm),
 	IdAdministrador int foreign key references Administrador(IdAdministrador),
-	Email varchar(max), --
-	Senha varchar(max), --
-	Nome varchar(max), --
-	DataNascimento date, --
-	CPF bigint --
+	Email varchar(max),
+	Senha varchar(max),
+	Nome varchar(max),
+	DataNascimento date,
+	CPF varchar(max)
 )
 go
 
@@ -61,9 +60,13 @@ create table Solicitacao(
 	IdCliente int foreign key references Cliente (IdCliente),
 	IdMotorista int foreign key references Motorista (IdMotorista),
 	Agendamento bit,
-	DataSolicitacao date,
+	DataSolicitacao smalldatetime,
 	Aberto bit,
-	/* Informacoes */	
+	Descricao varchar(max),
+	Volume int,
+	cep varchar(max),
+	numero int
+	--Armazenamento das Fotos
 )
 
 create table Categoria(
@@ -74,7 +77,8 @@ go
 
 create table CategoriaSolicitacao(
 	IdSolicitacao int foreign key references Solicitacao(IdSolicitacao),
-	IdCategoria int foreign key references Categoria(IdCategoria)
+	IdCategoria int foreign key references Categoria(IdCategoria),
+	Primary Key (IdSolicitacao, IdCategoria)
 )
 
 create table Notificacao (
@@ -128,19 +132,21 @@ begin
 end
 go
 
-create procedure spInsert_Solicitacao (@IdSolicitacao int, @IdCliente int, @IdMotorista int, @Agendamento bit, @DataSolicitacao date, @Aberto bit) as
+create procedure spInsert_Solicitacao (@IdSolicitacao int, @IdCliente int, @IdMotorista int, @Agendamento bit, @DataSolicitacao smalldatetime, @Aberto bit, @Descricao varchar(max), @Volume int) as
 begin
-	insert into Solicitacao values (@IdCliente, @IdMotorista, @Agendamento, @DataSolicitacao, @Aberto)
+	insert into Solicitacao values (@IdCliente, @IdMotorista, @Agendamento, @DataSolicitacao, @Aberto, @Descricao, @Volume)
 end
 go
 
-create procedure spUpdate_Solicitacao (@IdSolicitacao int, @IdCliente int, @IdMotorista int, @Agendamento bit, @DataSolicitacao date, @Aberto bit) as
+create procedure spUpdate_Solicitacao (@IdSolicitacao int, @IdCliente int, @IdMotorista int, @Agendamento bit, @DataSolicitacao smalldatetime, @Aberto bit, @Descricao varchar(max), @Volume int) as
 begin
 	update Solicitacao set IdCliente = @IdCliente, 
 						   IdMotorista = @IdMotorista, 
 						   Agendamento = @Agendamento, 
 						   DataSolicitacao = @DataSolicitacao,
-						   Aberto = @Aberto
+						   Aberto = @Aberto,
+						   Descricao = @Descricao,
+						   Volume = @Volume
 						   where IdSolicitacao = @IdSolicitacao
 end
 go
@@ -153,7 +159,7 @@ go
 
 create procedure spInsert_Administrador (@IdAdministrador int) as
 begin
-	insert into Usuario default values
+	insert into Administrador default values
 end
 go
 
@@ -167,13 +173,13 @@ go
 */
 
 
-create procedure spInsert_Cliente (@IdCliente int, @Rua varchar(max), @Numero int, @Complemento varchar(max), @Bairro varchar(max), @Cidade varchar(max), @CEP int) as
+create procedure spInsert_Cliente (@IdCliente int, @Rua varchar(max), @Numero int, @Complemento varchar(max), @Bairro varchar(max), @Cidade varchar(max), @CEP varchar(max)) as
 begin
 	insert into Cliente values (@rua, @Numero, @Complemento, @Bairro, @Cidade, @CEP)
 end
 go
 
-create procedure spUpdate_Cliente (@IdCliente int, @Rua varchar(max), @Numero int, @Complemento varchar(max), @Bairro varchar(max), @Cidade varchar(max), @CEP int) as
+create procedure spUpdate_Cliente (@IdCliente int, @Rua varchar(max), @Numero int, @Complemento varchar(max), @Bairro varchar(max), @Cidade varchar(max), @CEP varchar(max)) as
 begin
 	update Cliente set Rua = @Rua,
 					   Numero = @Numero,
@@ -246,5 +252,29 @@ go
 create procedure spUpdate_Ecoponto (@idEcoponto int, @EnderecoEcoponto varchar(max)) as
 begin
 	update Ecoponto set EnderecoEcoponto = @EnderecoEcoponto
+end
+go
+
+create procedure spInsert_Categoria (@idCategoria int, @descricaoCategoria varchar(max)) as
+begin
+	insert into Categoria values (@descricaoCategoria)
+end
+go
+
+create procedure spUpdate_Categoria (@idCategoria int, @descricaoCategoria varchar(max)) as
+begin
+	update Categoria set descricaoCategoria = @descricaoCategoria
+end
+go
+
+create procedure spInsert_CategoriaSolicitacao (@IdSolicitacao int, @IdCategoria int) as
+begin
+	insert into CategoriaSolicitacao values (@IdSolicitacao, @IdCategoria)
+end
+go
+
+create procedure spDelete_CategoriaSolicitacao (@IdSolicitacao int, @IdCategoria int) as
+begin
+	delete CategoriaSolicitacao where idSolicitacao = @IdSolicitacao and IdCategoria = @IdCategoria
 end
 go

@@ -15,7 +15,7 @@ public class ClienteViewModel extends NaoAdmViewModel {
     private String complemento;
     private String bairro;
     private String cidade;
-    private int cep;
+    private String cep;
     
     public String getRua() {
         return rua;
@@ -57,11 +57,11 @@ public class ClienteViewModel extends NaoAdmViewModel {
         this.cidade = cidade;
     }
 
-    public int getCep() {
+    public String getCep() {
         return cep;
     }
 
-    public void setCep(int cep) {
+    public void setCep(String cep) {
         this.cep = cep;
     }
 }
