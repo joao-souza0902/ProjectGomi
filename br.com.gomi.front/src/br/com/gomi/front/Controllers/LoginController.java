@@ -27,7 +27,8 @@ public class LoginController
     private TextField loginTextField;
     private TextField senhaTextField;
     
-    public void btnLoginOnClick(ActionEvent event) throws IOException, SQLException {
+    public void btnLoginOnClick(ActionEvent event) throws IOException, SQLException 
+    {
         
         Parent home_page_parent = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
         Scene home_page_scene = new Scene(home_page_parent);
@@ -38,5 +39,32 @@ public class LoginController
             app_stage.show();
         else
             System.out.println("Login Inválido!");
+    }
+    
+    public void btnCadastrarOnClick (ActionEvent event) throws IOException {
+        
+        Parent sign_up_parent = FXMLLoader.load(getClass().getResource("Sign Up.fxml"));
+        Scene sign_up_scene = new Scene(sign_up_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(sign_up_scene);
+        app_stage.show();
+    }
+    
+    public void imgSobreOnClick (ActionEvent event) throws IOException {
+        
+        Parent sign_up_parent = FXMLLoader.load(getClass().getResource("Sobre.fxml"));
+        Scene sign_up_scene = new Scene(sign_up_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(sign_up_scene);
+        app_stage.show();
+    }
+    
+    public void lnkEsqueceuSenhaOnClick (ActionEvent event) throws IOException {
+        
+        Parent sign_up_parent = FXMLLoader.load(getClass().getResource("EsqueceuSenha.fxml"));
+        Scene sign_up_scene = new Scene(sign_up_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(sign_up_scene);
+        app_stage.show();
     }
 }

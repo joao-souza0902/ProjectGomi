@@ -42,6 +42,10 @@ public class FXMLDocumentController implements Initializable, MapComponentInitia
     @FXML
     private TextField addressTextField;
     
+    private TextField loginTextField;
+    
+     private TextField senhaTextField;
+    
     private GoogleMap map;
     
     private GeocodingService geocodingService;
@@ -50,24 +54,8 @@ public class FXMLDocumentController implements Initializable, MapComponentInitia
 
     
     //Pagina login cliente
-    public void handledButtonAction(ActionEvent event) throws IOException {
-        
-        Parent home_page_parent = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
-        Scene home_page_scene = new Scene(home_page_parent);
-        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        app_stage.setScene(home_page_scene);
-        app_stage.show();
-    }
     
     //cadastro usuario
-    public void handledButtonAction1(ActionEvent event) throws IOException {
-        
-        Parent sign_up_parent = FXMLLoader.load(getClass().getResource("Sign Up.fxml"));
-        Scene sign_up_scene = new Scene(sign_up_parent);
-        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        app_stage.setScene(sign_up_scene);
-        app_stage.show();
-    }
     
     // Login no motorista
     public void handledButtonMotorista(ActionEvent event) throws IOException {
