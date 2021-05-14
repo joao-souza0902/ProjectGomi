@@ -13,6 +13,8 @@ import java.util.ArrayList;
  * @author Fábio
  */
 public class SolicitacaoViewModel extends PadraoViewModel {
+    private int idCliente;
+    private int idMotorista;
     private boolean agendamento;
     private LocalDateTime dataSolicitacao;
     private boolean aberto;
@@ -20,7 +22,27 @@ public class SolicitacaoViewModel extends PadraoViewModel {
     private int volume;
     private String cep;
     private int numero;
-    ArrayList<CategoriaViewModel> categorias = new ArrayList<>();
+    ArrayList<CategoriaViewModel> categorias = new ArrayList<>();    
+
+    public int getIdCliente()
+    {
+        return idCliente;
+    }
+
+    public void setIdCliente(int idCliente)
+    {
+        this.idCliente = idCliente;
+    }
+
+    public int getIdMotorista()
+    {
+        return idMotorista;
+    }
+
+    public void setIdMotorista(int idMotorista)
+    {
+        this.idMotorista = idMotorista;
+    }
     
     public boolean isAgendamento() {
         return agendamento;
@@ -70,11 +92,11 @@ public class SolicitacaoViewModel extends PadraoViewModel {
         this.cep = cep;
     }
 
-    public int getRua() {
+    public int getNumero() {
         return numero;
     }
 
-    public void setRua(int numero) {
+    public void setNumero(int numero) {
         this.numero = numero;
     }
 }

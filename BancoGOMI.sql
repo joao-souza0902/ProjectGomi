@@ -36,7 +36,7 @@ create table NaoAdm(
 	IdNaoAdm int primary key identity(1, 1),
 	IdCliente int foreign key references Cliente(IdCliente) null,
 	IdMotorista int foreign key references Motorista(IdMotorista) null,
-	/* Informações de pagamento/Cobrança */
+	/* InformaÃ§Ãµes de pagamento/CobranÃ§a */
 	/* Armazenamento da foto */
 	TelefoneDDD int,
 	Telefone int,
@@ -125,7 +125,7 @@ begin
 end
 go
 
-/*Criação das procedures de Insert e Update*/
+/*CriaÃ§Ã£o das procedures de Insert e Update*/
 
 create procedure spInsert_Log (@Id int, @Descricao varchar(max)) as
 begin
@@ -133,18 +133,24 @@ begin
 end
 go
 
-create procedure spInsert_Solicitacao (@IdSolicitacao int, @IdCliente int, @IdMotorista int, @Agendamento bit, @DataSolicitacao smalldatetime, @Aberto bit, @Descricao varchar(max), @Volume int, @CEP varchar(max), @numero int) as
+create procedure spInsert_Solicitacao (@IdSolicitacao int, @IdCliente int, @IdMotorista int, @Agendamento bit, @DataSolicitacao varchar(max), @Aberto bit, @Descricao varchar(max), @Volume int, @CEP varchar(max), @numero int) as
 begin
-	insert into Solicitacao values (@IdCliente, @IdMotorista, @Agendamento, @DataSolicitacao, @Aberto, @Descricao, @Volume, @CEP, @numero)
+	declare @date varchar(max)
+	set @date = convert(smalldatetime, @DataSolicitacao, 105)
+	
+	insert into Solicitacao values (@IdCliente, @IdMotorista, @Agendamento, @date, @Aberto, @Descricao, @Volume, @CEP, @numero)
 end
 go
 
-create procedure spUpdate_Solicitacao (@IdSolicitacao int, @IdCliente int, @IdMotorista int, @Agendamento bit, @DataSolicitacao smalldatetime, @Aberto bit, @Descricao varchar(max), @Volume int, @CEP varchar(max), @numero int) as
+create procedure spUpdate_Solicitacao (@IdSolicitacao int, @IdCliente int, @IdMotorista int, @Agendamento bit, @DataSolicitacao varchar(max), @Aberto bit, @Descricao varchar(max), @Volume int, @CEP varchar(max), @numero int) as
 begin
+	declare @date varchar(max)
+	set @date = convert(smalldatetime, @DataSolicitacao, 105)
+	
 	update Solicitacao set IdCliente = @IdCliente, 
 						   IdMotorista = @IdMotorista, 
 						   Agendamento = @Agendamento, 
-						   DataSolicitacao = @DataSolicitacao,
+						   DataSolicitacao = @date,
 						   Aberto = @Aberto,
 						   Descricao = @Descricao,
 						   Volume = @Volume,
@@ -283,4 +289,3 @@ begin
 	
 end
 go
-

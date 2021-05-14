@@ -37,19 +37,19 @@ public abstract class PadraoDAO<T> extends PadraoViewModel
     }
     public void delete(int id)throws Exception{
         String[] parametros = {String.valueOf(id), getTabela()};
-        HelperDAO.executaProc("spDelete_ ?, ? ", parametros);
+        HelperDAO.executaProc("spDelete ?, ? ", parametros);
     }
     public T consult(int id)throws Exception{
         String[] parametros = {String.valueOf(id), getTabela()};
-        JDataTable tabela = HelperDAO.executaProcSelect("spConsult_ ?, ?", parametros);
+        JDataTable tabela = HelperDAO.executaProcSelect("spConsult ?, ?", parametros);
         if (tabela.getNumeroLinhas() == 0)
             return null;
         else
             return MontaModel(tabela.getLinha(1));
     }
-    public ArrayList<T> list()throws Exception{
-        String[] parametros = {getTabela()};
-        JDataTable tabela = HelperDAO.executaProcSelect("spList_ ?", parametros);
+    public ArrayList<T> list(String ordem)throws Exception{
+        String[] parametros = {getTabela(), ordem};
+        JDataTable tabela = HelperDAO.executaProcSelect("spList ?, ?", parametros);
         ArrayList<T> lista = new ArrayList<T>();
         for(int linha = 1; linha <= tabela.getNumeroLinhas(); linha++){
             lista.add(MontaModel(tabela.getLinha(linha)));
