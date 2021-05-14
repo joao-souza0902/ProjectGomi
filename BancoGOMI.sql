@@ -36,7 +36,7 @@ create table NaoAdm(
 	IdNaoAdm int primary key identity(1, 1),
 	IdCliente int foreign key references Cliente(IdCliente) null,
 	IdMotorista int foreign key references Motorista(IdMotorista) null,
-	/* Informações de pagamento/Cobrança */
+	/* InformaÃ§Ãµes de pagamento/CobranÃ§a */
 	/* Armazenamento da foto */
 	TelefoneDDD int,
 	Telefone int,
@@ -125,7 +125,7 @@ begin
 end
 go
 
-/*Criação das procedures de Insert e Update*/
+/*CriaÃ§Ã£o das procedures de Insert e Update*/
 
 create procedure spInsert_Log (@Id int, @Descricao varchar(max)) as
 begin
