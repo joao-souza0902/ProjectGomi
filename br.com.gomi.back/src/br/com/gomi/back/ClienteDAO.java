@@ -21,12 +21,12 @@ public class ClienteDAO extends PadraoDAO<ClienteViewModel>
     {           
         String[] parametros = new String[7];
         parametros[0] = String.valueOf(model.getId());
-        parametros[1] = "'" + model.getRua()+ "'";
+        parametros[1] = model.getRua();
         parametros[2] = String.valueOf(model.getNumero());
-        parametros[3] = "'" + model.getComplemento()+ "'";
-        parametros[4] = "'" + model.getBairro()+ "'";
-        parametros[5] = "'" + model.getCidade()+ "'";
-        parametros[6] = "'" + model.getCep()+ "'";
+        parametros[3] = model.getComplemento();
+        parametros[4] = model.getBairro();
+        parametros[5] = model.getCidade();
+        parametros[6] = model.getCep();
         return parametros;
     }
 
@@ -34,13 +34,13 @@ public class ClienteDAO extends PadraoDAO<ClienteViewModel>
     protected ClienteViewModel MontaModel(HashMap<String, Object> registro)
     {
         ClienteViewModel t = new ClienteViewModel();
-        t.setId((Integer)registro.get("id"));
-        t.setRua((String)registro.get("rua"));
-        t.setNumero((Integer)registro.get("numero"));
-        t.setComplemento((String)registro.get("complemento"));
-        t.setBairro((String)registro.get("bairro"));
-        t.setCidade((String)registro.get("cidade"));
-        t.setCep((String)registro.get("cep"));
+        t.setId((Integer)registro.get("IdCliente"));
+        t.setRua((String)registro.get("Rua"));
+        t.setNumero((Integer)registro.get("Numero"));
+        t.setComplemento((String)registro.get("Complemento"));
+        t.setBairro((String)registro.get("Bairro"));
+        t.setCidade((String)registro.get("Cidade"));
+        t.setCep((String)registro.get("CEP"));
         return t;
     }
 

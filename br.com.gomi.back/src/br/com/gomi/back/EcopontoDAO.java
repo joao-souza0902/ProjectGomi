@@ -13,35 +13,37 @@ import br.com.gomi.shared.*;
  *
  * @author Administrador
  */
-public class LogDAO extends PadraoDAO<LogViewModel>
+public class EcopontoDAO extends PadraoDAO<EcopontoViewModel>
 {
       
     @Override
-    protected String[] CriaParametros(LogViewModel model)
+    protected String[] CriaParametros(EcopontoViewModel model)
     {           
-        String[] parametros = new String[2];
+        String[] parametros = new String[3];
         parametros[0] = String.valueOf(model.getId());
-        parametros[1] = model.getDescricao();
+        parametros[1] = model.getCep();
+        parametros[2] = String.valueOf(model.getNumero());
         return parametros;
     }
 
     @Override
-    protected LogViewModel MontaModel(HashMap<String, Object> registro)
+    protected EcopontoViewModel MontaModel(HashMap<String, Object> registro)
     {
-        LogViewModel t = new LogViewModel();
-        t.setId((Integer)registro.get("id"));
-        t.setDescricao((String)registro.get("nome"));
+        EcopontoViewModel t = new EcopontoViewModel();
+        t.setId((Integer)registro.get("IdEcoponto"));
+        t.setCep((String)registro.get("cep"));
+        t.setNumero((Integer)registro.get("numero"));
         return t;
     }
 
     @Override
     protected void setTabela()
     {
-       tabela = "Log";
+       tabela = "Ecoponto";
     }    
     
     @Override
     protected void setQtdParametros(){
-        qtdParametros = " ?, ?";
+        qtdParametros = " ?, ?, ?";
     }
 }

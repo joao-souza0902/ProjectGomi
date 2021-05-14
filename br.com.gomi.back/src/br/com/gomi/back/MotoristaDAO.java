@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 import br.com.gomi.shared.*;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -23,23 +24,23 @@ public class MotoristaDAO extends PadraoDAO<MotoristaViewModel>
         String[] parametros = new String[6];
         parametros[0] = String.valueOf(model.getId());
         parametros[1] = String.valueOf(model.getTipoVeiculo());
-        parametros[2] = "'" + model.getCnh()+ "'"; //Verificar
-        parametros[3] = String.valueOf(model.getDataExpiracao()); //Verificar
-        parametros[4] = "'" + model.getCnhCategoria()+ "'";
+        parametros[2] = model.getCnh();
+        parametros[3] = String.valueOf(model.getDataExpiracao());
+        parametros[4] = String.valueOf(model.getCnhCategoria());
         parametros[5] = String.valueOf(model.getCargaSuportada());
         return parametros;
     }
 
     @Override
     protected MotoristaViewModel MontaModel(HashMap<String, Object> registro)
-    {
+    {        
         MotoristaViewModel t = new MotoristaViewModel();
-        t.setId((Integer)registro.get("id"));
-        t.setTipoVeiculo((String)registro.get("tipoVeiculo"));
-        t.setCnh((String)registro.get("cnh"));
-        t.setDataExpiracao(LocalDate.parse((String)registro.get("dataExpiracao")));
-        t.setCnhCategoria((Character)registro.get("cnhCategoria"));
-        t.setCargaSuportada((Integer)registro.get("cargaSuportada"));
+        t.setId((Integer)registro.get("IdMotorista"));
+        t.setTipoVeiculo((String)registro.get("TipoVeiculo"));
+        t.setCnh((String)registro.get("CNH"));
+        t.setDataExpiracao(LocalDate.parse(String.valueOf(registro.get("DataExpiracao"))));
+        t.setCnhCategoria((Character)String.valueOf(registro.get("CategoriaCNH")).charAt(0));
+        t.setCargaSuportada((Integer)registro.get("CargaSuportada"));
         return t;
     }
 

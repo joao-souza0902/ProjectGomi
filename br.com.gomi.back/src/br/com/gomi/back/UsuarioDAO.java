@@ -24,11 +24,11 @@ public class UsuarioDAO extends PadraoDAO<UsuarioViewModel>
         parametros[0] = String.valueOf(model.getId());
         parametros[1] = String.valueOf(model.getIdNaoAdm());
         parametros[2] = String.valueOf(model.getIdAdministrador());        
-        parametros[3] = "'" + model.getEmail()+ "'";
-        parametros[4] = "'" + model.getSenha()+ "'";
-        parametros[5] = "'" + model.getNome()+ "'";
+        parametros[3] = model.getEmail();
+        parametros[4] = model.getSenha();
+        parametros[5] = model.getNome();
         parametros[6] = String.valueOf(model.getData());
-        parametros[7] = "'" + model.getCpf()+ "'";
+        parametros[7] = model.getCpf();
         return parametros;
     }
 
@@ -36,14 +36,20 @@ public class UsuarioDAO extends PadraoDAO<UsuarioViewModel>
     protected UsuarioViewModel MontaModel(HashMap<String, Object> registro)
     {
         UsuarioViewModel t = new UsuarioViewModel();
-        t.setId((Integer)registro.get("id"));
-        t.setIdNaoAdm((Integer)registro.get("idNaoAdm"));
-        t.setIdAdministrador((Integer)registro.get("idAdministrador"));
-        t.setEmail((String)registro.get("email"));
-        t.setSenha((String)registro.get("senha"));
-        t.setNome((String)registro.get("nome"));
-        t.setData(LocalDate.parse((String)registro.get("dataNascimento")));
-        t.setCpf((String)registro.get("cpf"));
+        t.setId((Integer)registro.get("IdUsuario"));
+        if(String.valueOf(registro.get("IdNaoAdm")).equals(""))
+            t.setIdNaoAdm(null);
+        else
+            t.setIdNaoAdm((Integer)registro.get("IdNaoAdm"));
+        if(String.valueOf(registro.get("IdAdministrador")).equals(""))
+            t.setIdAdministrador(null);
+        else
+            t.setIdAdministrador((Integer)registro.get("IdAdministrador"));
+        t.setEmail((String)registro.get("Email"));
+        t.setSenha((String)registro.get("Senha"));
+        t.setNome((String)registro.get("Nome"));
+        t.setData(LocalDate.parse(String.valueOf(registro.get("DataNascimento"))));
+        t.setCpf((String)registro.get("CPF"));
         return t;
     }
 

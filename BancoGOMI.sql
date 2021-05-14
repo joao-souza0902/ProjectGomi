@@ -30,7 +30,6 @@ create table Motorista(
 	/* Armazenamento da foto da CHN */
 	CargaSuportada int
 )
-
 go
 
 create table NaoAdm(
@@ -46,8 +45,8 @@ go
 
 create table Usuario(
 	IdUsuario int primary key identity(1, 1),
-	IdNaoAdm int foreign key references NaoAdm(IdNaoAdm) null,
-	IdAdministrador int foreign key references Administrador(IdAdministrador) null,
+	IdNaoAdm int foreign key references NaoAdm(IdNaoAdm),
+	IdAdministrador int foreign key references Administrador(IdAdministrador),
 	Email varchar(max),
 	Senha varchar(max),
 	Nome varchar(max),
@@ -65,6 +64,8 @@ create table Solicitacao(
 	Aberto bit,
 	Descricao varchar(max),
 	Volume int,
+	cep varchar(max),
+	numero int
 	--Armazenamento das Fotos
 )
 
@@ -132,18 +133,24 @@ begin
 end
 go
 
-create procedure spInsert_Solicitacao (@IdSolicitacao int, @IdCliente int, @IdMotorista int, @Agendamento bit, @DataSolicitacao smalldatetime, @Aberto bit, @Descricao varchar(max), @Volume int, @CEP varchar(max), @numero int) as
+create procedure spInsert_Solicitacao (@IdSolicitacao int, @IdCliente int, @IdMotorista int, @Agendamento bit, @DataSolicitacao varchar(max), @Aberto bit, @Descricao varchar(max), @Volume int, @CEP varchar(max), @numero int) as
 begin
-	insert into Solicitacao values (@IdCliente, @IdMotorista, @Agendamento, @DataSolicitacao, @Aberto, @Descricao, @Volume, @CEP, @numero)
+	declare @date varchar(max)
+	set @date = convert(smalldatetime, @DataSolicitacao, 105)
+	
+	insert into Solicitacao values (@IdCliente, @IdMotorista, @Agendamento, @date, @Aberto, @Descricao, @Volume, @CEP, @numero)
 end
 go
 
-create procedure spUpdate_Solicitacao (@IdSolicitacao int, @IdCliente int, @IdMotorista int, @Agendamento bit, @DataSolicitacao smalldatetime, @Aberto bit, @Descricao varchar(max), @Volume int, @CEP varchar(max), @numero int) as
+create procedure spUpdate_Solicitacao (@IdSolicitacao int, @IdCliente int, @IdMotorista int, @Agendamento bit, @DataSolicitacao varchar(max), @Aberto bit, @Descricao varchar(max), @Volume int, @CEP varchar(max), @numero int) as
 begin
+	declare @date varchar(max)
+	set @date = convert(smalldatetime, @DataSolicitacao, 105)
+	
 	update Solicitacao set IdCliente = @IdCliente, 
 						   IdMotorista = @IdMotorista, 
 						   Agendamento = @Agendamento, 
-						   DataSolicitacao = @DataSolicitacao,
+						   DataSolicitacao = @date,
 						   Aberto = @Aberto,
 						   Descricao = @Descricao,
 						   Volume = @Volume,
@@ -226,13 +233,13 @@ begin
 end
 go
 
-create procedure spInsert_Usuario (@IdUsuario int, @IdNaoAdm int, @IdAdministrador int, @Email varchar(max), @Senha varchar(max), @Nome varchar(max), @DataNascimento date, @CPF varchar(max)) as
+create procedure spInsert_Usuario (@IdUsuario int, @IdNaoAdm int, @IdAdministrador int, @Email varchar(max), @Senha varchar(max), @Nome varchar(max), @DataNascimento date, @CPF bigint) as
 begin
 	insert into Usuario values (@IdNaoAdm, @IdAdministrador, @Email, @Senha, @Nome, @DataNascimento, @CPF)
 end
 go
 
-create procedure spUpdate_Usuario (@IdUsuario int, @IdNaoAdm int, @IdAdministrador int, @Email varchar(max), @Senha varchar(max), @Nome varchar(max), @DataNascimento date, @CPF varchar(max)) as
+create procedure spUpdate_Usuario (@IdUsuario int, @IdNaoAdm int, @IdAdministrador int, @Email varchar(max), @Senha varchar(max), @Nome varchar(max), @DataNascimento date, @CPF bigint) as
 begin
 	update Usuario set IdNaoAdm = @IdNaoAdm,
 					   IdAdministrador = @IdAdministrador,
@@ -279,6 +286,6 @@ go
 create procedure spDelete_CategoriaSolicitacao (@IdSolicitacao int, @IdCategoria int) as
 begin
 	delete CategoriaSolicitacao where idSolicitacao = @IdSolicitacao and IdCategoria = @IdCategoria
+	
 end
 go
-
