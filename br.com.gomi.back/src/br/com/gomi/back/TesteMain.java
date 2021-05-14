@@ -26,7 +26,7 @@ public class TesteMain
        EcopontoViewModel vm = new EcopontoViewModel();
        vm.setId(1);
        vm.setCep("156058902");
-       vm.setNumero(331);
-       dao.insert(vm);
+       vm.setNumero(331);       
+       System.out.println(dao.insert(vm));
     }
 }
