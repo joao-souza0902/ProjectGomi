@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="612.0" prefWidth="435.0" styleClass="bodybg" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="612.0" prefWidth="435.0" styleClass="bodybg" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.FXMLDocumentController">
    <children>
       <AnchorPane layoutX="-6.0" layoutY="134.0" prefHeight="478.0" prefWidth="452.0" style="-fx-background-color: #38414e;">
          <children>
@@ -24,9 +24,9 @@
                </image>
             </ImageView>
             <Separator layoutX="8.0" layoutY="376.0" prefHeight="33.0" prefWidth="445.0" />
-            <Button layoutX="79.0" layoutY="318.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="317.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Entrar" textFill="WHITE" />
+            <Button layoutX="79.0" layoutY="318.0" mnemonicParsing="false" onAction="#btnClickLogin" prefHeight="40.0" prefWidth="317.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Entrar" textFill="WHITE" />
             <Hyperlink layoutX="178.0" layoutY="250.0" text="Esqueci minha senha" textFill="#a7fcb9" />
-            <Button layoutX="80.0" layoutY="416.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="317.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Cadastre-se" textFill="WHITE" />
+            <Button layoutX="80.0" layoutY="416.0" mnemonicParsing="false" onAction="#btnClickSignUp" prefHeight="40.0" prefWidth="317.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Cadastre-se" textFill="WHITE" />
             <TextField layoutX="79.0" layoutY="142.0" prefHeight="40.0" prefWidth="317.0" promptText="E-mail" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57;" />
             <TextField layoutX="78.0" layoutY="199.0" prefHeight="40.0" prefWidth="317.0" promptText="Senha" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57;" />
          </children></AnchorPane>

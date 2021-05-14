@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="br.com.gomi.front.jar" size="95882" download="eager" />
+    <jar href="br.com.gomi.front.jar" size="94876" download="eager" />
     <jar href="lib\GMapsFX-2.12.0.jar" size="207618" download="eager" />
     <jar href="lib\logback-classic-1.2.1.jar" size="310442" download="eager" />
     <jar href="lib\logback-core-1.2.1.jar" size="473113" download="eager" />
