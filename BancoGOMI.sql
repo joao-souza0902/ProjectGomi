@@ -7,79 +7,98 @@ go
 
 use Gomi
 
-/*Criação das tabelas*/
-
 create table Administrador(
-	IdAdministrador int primary key identity(1,1)
+	IdAdministrador int primary key identity(1, 1)
 )
 
 create table Cliente(
-	IdCliente int primary key identity(1,1),
-	Endereco varchar(max)
+	IdCliente int primary key identity(1, 1),
+	Rua varchar(max),
+	Numero int,
+	Complemento varchar(max),
+	Bairro varchar(max),
+	Cidade varchar(max),
+	CEP varchar(max)
 )
 
 create table Motorista(
-	IdMotorista int primary key identity(1,1),
-	CNH bigint,
+	IdMotorista int primary key identity(1, 1),
+	TipoVeiculo varchar(max),
+	CNH varchar(max),
 	DataExpiracao date,
-	CategoriaCNH varchar(max)
+	CategoriaCNH varchar(max),
 	/* Armazenamento da foto da CHN */
+	CargaSuportada int
 )
-
 go
 
 create table NaoAdm(
-	IdNaoAdm int primary key identity(1,1),
-	IdCliente int foreign key references Cliente(IdCliente),
-	IdMotorista int foreign key references Motorista(IdMotorista),
-	CPF bigint,
+	IdNaoAdm int primary key identity(1, 1),
+	IdCliente int foreign key references Cliente(IdCliente) null,
+	IdMotorista int foreign key references Motorista(IdMotorista) null,
 	/* Informações de pagamento/Cobrança */
 	/* Armazenamento da foto */
+	TelefoneDDD int,
 	Telefone int,
-	Email varchar(max)
 )
 go
 
 create table Usuario(
-	IdUsuario int primary key identity(1,1),
+	IdUsuario int primary key identity(1, 1),
 	IdNaoAdm int foreign key references NaoAdm(IdNaoAdm),
 	IdAdministrador int foreign key references Administrador(IdAdministrador),
-	[Login] varchar(max),
+	Email varchar(max),
 	Senha varchar(max),
 	Nome varchar(max),
-	DataNascimento date
+	DataNascimento date,
+	CPF varchar(max)
 )
 go
 
 create table Solicitacao(
-	IdSolicitacao int primary key identity(1,1),
+	IdSolicitacao int primary key identity(1, 1),
 	IdCliente int foreign key references Cliente (IdCliente),
 	IdMotorista int foreign key references Motorista (IdMotorista),
 	Agendamento bit,
-	DataSolicitacao date,
+	DataSolicitacao smalldatetime,
 	Aberto bit,
-	/* Informacoes */	
+	Descricao varchar(max),
+	Volume int,
+	cep varchar(max),
+	numero int
+	--Armazenamento das Fotos
+)
+
+create table Categoria(
+	idCategoria int primary key identity(1, 1),
+	descricaoCategoria varchar(max)
+)
+go
+
+create table CategoriaSolicitacao(
+	IdSolicitacao int foreign key references Solicitacao(IdSolicitacao),
+	IdCategoria int foreign key references Categoria(IdCategoria),
+	Primary Key (IdSolicitacao, IdCategoria)
 )
 
 create table Notificacao (
-	IdNotificacao int primary key identity(1,1),
+	IdNotificacao int primary key identity(1, 1),
 	IdSolicitacao int foreign key references Solicitacao(IdSolicitacao),
 	IdUsuario int foreign key references Usuario(IdUsuario),
 	Mensagem varchar(max)
 )
 
 create table [Log] (
-	IdLog int primary key identity(1,1),
+	IdLog int primary key identity(1, 1),
 	Descricao varchar(max)
 )
 
 create table Ecoponto (
-	IdEcoponto int primary key identity(1,1),
-	EnderecoEcoponto varchar(max)
+	IdEcoponto int primary key identity(1, 1),
+	cep varchar(max),
+	numero int
 )
 go
-
-/*Criação das Procedures Genericas*/
 
 create procedure spConsult (@id int ,@tabela varchar(max)) as
 begin
@@ -114,19 +133,29 @@ begin
 end
 go
 
-create procedure spInsert_Solicitacao (@IdSolicitacao int, @IdCliente int, @IdMotorista int, @Agendamento bit, @DataSolicitacao date, @Aberto bit) as
+create procedure spInsert_Solicitacao (@IdSolicitacao int, @IdCliente int, @IdMotorista int, @Agendamento bit, @DataSolicitacao varchar(max), @Aberto bit, @Descricao varchar(max), @Volume int, @CEP varchar(max), @numero int) as
 begin
-	insert into Solicitacao values (@IdCliente, @IdMotorista, @Agendamento, @DataSolicitacao, @Aberto)
+	declare @date varchar(max)
+	set @date = convert(smalldatetime, @DataSolicitacao, 105)
+	
+	insert into Solicitacao values (@IdCliente, @IdMotorista, @Agendamento, @date, @Aberto, @Descricao, @Volume, @CEP, @numero)
 end
 go
 
-create procedure spUpdate_Solicitacao (@IdSolicitacao int, @IdCliente int, @IdMotorista int, @Agendamento bit, @DataSolicitacao date, @Aberto bit) as
+create procedure spUpdate_Solicitacao (@IdSolicitacao int, @IdCliente int, @IdMotorista int, @Agendamento bit, @DataSolicitacao varchar(max), @Aberto bit, @Descricao varchar(max), @Volume int, @CEP varchar(max), @numero int) as
 begin
+	declare @date varchar(max)
+	set @date = convert(smalldatetime, @DataSolicitacao, 105)
+	
 	update Solicitacao set IdCliente = @IdCliente, 
 						   IdMotorista = @IdMotorista, 
 						   Agendamento = @Agendamento, 
-						   DataSolicitacao = @DataSolicitacao,
-						   Aberto = @Aberto
+						   DataSolicitacao = @date,
+						   Aberto = @Aberto,
+						   Descricao = @Descricao,
+						   Volume = @Volume,
+						   cep = @CEP,
+						   numero = @numero
 						   where IdSolicitacao = @IdSolicitacao
 end
 go
@@ -139,7 +168,7 @@ go
 
 create procedure spInsert_Administrador (@IdAdministrador int) as
 begin
-	insert into Usuario default values
+	insert into Administrador default values
 end
 go
 
@@ -153,77 +182,110 @@ go
 */
 
 
-create procedure spInsert_Cliente (@IdCliente int, @Endereco varchar(max)) as
+create procedure spInsert_Cliente (@IdCliente int, @Rua varchar(max), @Numero int, @Complemento varchar(max), @Bairro varchar(max), @Cidade varchar(max), @CEP varchar(max)) as
 begin
-	insert into Cliente values (@Endereco)
+	insert into Cliente values (@rua, @Numero, @Complemento, @Bairro, @Cidade, @CEP)
 end
 go
 
-create procedure spUpdate_Cliente (@IdCliente int, @Endereco varchar(max)) as
+create procedure spUpdate_Cliente (@IdCliente int, @Rua varchar(max), @Numero int, @Complemento varchar(max), @Bairro varchar(max), @Cidade varchar(max), @CEP varchar(max)) as
 begin
-	update Cliente set Endereco = @Endereco
+	update Cliente set Rua = @Rua,
+					   Numero = @Numero,
+					   Complemento = @Complemento,
+					   Bairro = @Bairro,
+					   Cidade = @Cidade,
+					   CEP = @CEP
 	where IdCliente = @IdCliente
 end
 go
 
-create procedure spInsert_Motorista (@IdMotorista int, @Cnh bigint, @DataExpiracao date, @CategoriaCnh varchar(max)) as
+create procedure spInsert_Motorista (@IdMotorista int, @tipoVeiculo varchar(max), @Cnh varchar(max), @DataExpiracao date, @CategoriaCnh varchar(max), @cargaSuportada int) as
 begin
-	insert into Motorista values (@Cnh, @DataExpiracao, @CategoriaCnh)
+	insert into Motorista values (@tipoVeiculo, @Cnh, @DataExpiracao, @CategoriaCnh, @cargaSuportada)
 end
 go
 
-create procedure spUpdate_Motorista (@IdMotorista int, @Cnh bigint, @DataExpiracao date, @CategoriaCnh varchar(max)) as
+create procedure spUpdate_Motorista (@IdMotorista int, @tipoVeiculo varchar(max), @Cnh varchar(max), @DataExpiracao date, @CategoriaCnh varchar(max), @cargaSuportada int) as
 begin
-	Update Motorista set CNH = @Cnh,
+	Update Motorista set TipoVeiculo = @tipoVeiculo,
+						 CNH = @Cnh,
 						 DataExpiracao = @DataExpiracao,
-						 CategoriaCNH = @CategoriaCnh
+						 CategoriaCNH = @CategoriaCnh,
+						 CargaSuportada = @cargaSuportada
 						 where IdMotorista = @IdMotorista
 end
 go
 
-create procedure spInsert_NaoAdm (@IdNaoAdm int, @IdCliente int, @IdMotorista int, @Cpf bigint, @Telefone int, @Email int) as
+create procedure spInsert_NaoAdm (@IdNaoAdm int, @IdCliente int, @IdMotorista int, @TelefoneDDD int, @Telefone int) as
 begin
-	insert into NaoAdm values (@IdCliente, @IdMotorista, @Cpf, @Telefone, @Email)
+	insert into NaoAdm values (@IdCliente, @IdMotorista, @TelefoneDDD, @Telefone)
 end
 go
 
-create procedure spUpdate_NaoAdm (@IdNaoAdm int, @IdCliente int, @IdMotorista int, @Cpf bigint, @Telefone int, @Email int) as
+create procedure spUpdate_NaoAdm (@IdNaoAdm int, @IdCliente int, @IdMotorista int, @TelefoneDDD int, @Telefone int) as
 begin
 	update NaoAdm set IdCliente = @IdCliente,
 					  IdMotorista = @IdMotorista,
-					  CPF = @Cpf,
-					  Telefone = @Telefone,
-					  Email = @Email
+					  TelefoneDDD = @TelefoneDDD,
+					  Telefone = @Telefone
 					  where IdNaoAdm = @IdNaoAdm
 end
 go
 
-create procedure spInsert_Usuario (@IdUsuario int, @IdNaoAdm int, @IdAdministrador int, @Login varchar(max), @Senha varchar(max), @Nome varchar(max), @DataNascimento date) as
+create procedure spInsert_Usuario (@IdUsuario int, @IdNaoAdm int, @IdAdministrador int, @Email varchar(max), @Senha varchar(max), @Nome varchar(max), @DataNascimento date, @CPF bigint) as
 begin
-	insert into Usuario values (@IdNaoAdm, @IdAdministrador, @Login, @Senha, @Nome, @DataNascimento)
+	insert into Usuario values (@IdNaoAdm, @IdAdministrador, @Email, @Senha, @Nome, @DataNascimento, @CPF)
 end
 go
 
-create procedure spUpdate_Usuario (@IdUsuario int, @IdNaoAdm int, @IdAdministrador int, @Login varchar(max), @Senha varchar(max), @Nome varchar(max), @DataNascimento date) as
+create procedure spUpdate_Usuario (@IdUsuario int, @IdNaoAdm int, @IdAdministrador int, @Email varchar(max), @Senha varchar(max), @Nome varchar(max), @DataNascimento date, @CPF bigint) as
 begin
 	update Usuario set IdNaoAdm = @IdNaoAdm,
 					   IdAdministrador = @IdAdministrador,
-					   [Login] = @Login,
+					   Email = @Email,
 					   Senha = @Senha,
 					   Nome = @Nome,
-					   DataNascimento = @DataNascimento
+					   DataNascimento = @DataNascimento,
+					   CPF = @CPF
 					   where IdUsuario = @IdUsuario
 end
 go
 
-create procedure spInsert_Ecoponto (@idEcoponto int, @EnderecoEcoponto varchar(max)) as
+create procedure spInsert_Ecoponto (@idEcoponto int, @cep varchar(max), @numero int) as
 begin
-	insert into Ecoponto values (@EnderecoEcoponto)
+	insert into Ecoponto values (@cep, @numero)
 end
 go
 
-create procedure spUpdate_Ecoponto (@idEcoponto int, @EnderecoEcoponto varchar(max)) as
+create procedure spUpdate_Ecoponto (@idEcoponto int, @cep varchar(max), @numero int) as
 begin
-	update Ecoponto set EnderecoEcoponto = @EnderecoEcoponto
+	update Ecoponto set cep = @cep,
+						numero = @numero
+end
+go
+
+create procedure spInsert_Categoria (@idCategoria int, @descricaoCategoria varchar(max)) as
+begin
+	insert into Categoria values (@descricaoCategoria)
+end
+go
+
+create procedure spUpdate_Categoria (@idCategoria int, @descricaoCategoria varchar(max)) as
+begin
+	update Categoria set descricaoCategoria = @descricaoCategoria
+end
+go
+
+create procedure spInsert_CategoriaSolicitacao (@IdSolicitacao int, @IdCategoria int) as
+begin
+	insert into CategoriaSolicitacao values (@IdSolicitacao, @IdCategoria)
+end
+go
+
+create procedure spDelete_CategoriaSolicitacao (@IdSolicitacao int, @IdCategoria int) as
+begin
+	delete CategoriaSolicitacao where idSolicitacao = @IdSolicitacao and IdCategoria = @IdCategoria
+	
 end
 go

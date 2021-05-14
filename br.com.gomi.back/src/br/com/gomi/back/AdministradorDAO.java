@@ -13,35 +13,33 @@ import br.com.gomi.shared.*;
  *
  * @author Administrador
  */
-public class LogDAO extends PadraoDAO<LogViewModel>
+public class AdministradorDAO extends PadraoDAO<AdministradorViewModel>
 {
       
     @Override
-    protected String[] CriaParametros(LogViewModel model)
+    protected String[] CriaParametros(AdministradorViewModel model)
     {           
-        String[] parametros = new String[2];
+        String[] parametros = new String[1];
         parametros[0] = String.valueOf(model.getId());
-        parametros[1] = model.getDescricao();
         return parametros;
     }
 
     @Override
-    protected LogViewModel MontaModel(HashMap<String, Object> registro)
+    protected AdministradorViewModel MontaModel(HashMap<String, Object> registro)
     {
-        LogViewModel t = new LogViewModel();
-        t.setId((Integer)registro.get("id"));
-        t.setDescricao((String)registro.get("nome"));
+        AdministradorViewModel t = new AdministradorViewModel();
+        t.setId((Integer)registro.get("IdAdministrador"));
         return t;
     }
 
     @Override
     protected void setTabela()
     {
-       tabela = "Log";
+       tabela = "Administrador";
     }    
     
     @Override
     protected void setQtdParametros(){
-        qtdParametros = " ?, ?";
+        qtdParametros = " ?";
     }
 }

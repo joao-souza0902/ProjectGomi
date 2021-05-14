@@ -7,19 +7,8 @@ package br.com.gomi.shared;
 
 /**
  *
- * @author Administrador
+ * @author Fábio
  */
-public abstract class PadraoViewModel
-{
-    private int id;
+public class AdministradorViewModel extends UsuarioViewModel{
     
-    public int getId()
-    {
-        return id;
-    }
-
-    public void setId(int id)
-    {
-        this.id = id;
-    } 
 }
