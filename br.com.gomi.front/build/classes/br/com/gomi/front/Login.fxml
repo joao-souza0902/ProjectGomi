@@ -24,9 +24,9 @@
                </image>
             </ImageView>
             <Separator layoutX="8.0" layoutY="376.0" prefHeight="33.0" prefWidth="445.0" />
-            <Button layoutX="79.0" layoutY="318.0" mnemonicParsing="false" onAction="#btnClickLogin" prefHeight="40.0" prefWidth="317.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Entrar" textFill="WHITE" />
+            <Button layoutX="79.0" layoutY="318.0" mnemonicParsing="false" onAction="#btnClickHomepage" prefHeight="40.0" prefWidth="317.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Entrar" textFill="WHITE" />
             <Hyperlink layoutX="178.0" layoutY="250.0" text="Esqueci minha senha" textFill="#a7fcb9" />
-            <Button layoutX="80.0" layoutY="416.0" mnemonicParsing="false" onAction="#btnClickSignUp" prefHeight="40.0" prefWidth="317.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Cadastre-se" textFill="WHITE" />
+            <Button layoutX="80.0" layoutY="416.0" mnemonicParsing="false" onAction="#btnClickSignup" prefHeight="40.0" prefWidth="317.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Cadastre-se" textFill="WHITE" />
             <TextField layoutX="79.0" layoutY="142.0" prefHeight="40.0" prefWidth="317.0" promptText="E-mail" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57;" />
             <TextField layoutX="78.0" layoutY="199.0" prefHeight="40.0" prefWidth="317.0" promptText="Senha" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57;" />
          </children></AnchorPane>

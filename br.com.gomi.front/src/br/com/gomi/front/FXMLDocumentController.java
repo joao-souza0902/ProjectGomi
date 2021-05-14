@@ -50,7 +50,7 @@ public class FXMLDocumentController implements Initializable, MapComponentInitia
 
     
     //Pagina login cliente
-    public void btnClickLogin (ActionEvent event) throws IOException {
+    public void btnClickHomepage (ActionEvent event) throws IOException {
         
         Parent home_page_parent = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
         Scene home_page_scene = new Scene(home_page_parent);
@@ -60,7 +60,7 @@ public class FXMLDocumentController implements Initializable, MapComponentInitia
     }
     
     //cadastro usuario
-    public void btnClickSignUp(ActionEvent event) throws IOException {
+    public void btnClickSignup (ActionEvent event) throws IOException {
         
         Parent sign_up_parent = FXMLLoader.load(getClass().getResource("Sign Up.fxml"));
         Scene sign_up_scene = new Scene(sign_up_parent);
