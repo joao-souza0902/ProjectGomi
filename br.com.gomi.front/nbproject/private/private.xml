@@ -3,17 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Git/ProjectGomi/br.com.gomi.front/src/br/com/gomi/front/BrComGomiFront.java</file>
-            <file>file:/C:/Git/ProjectGomi/br.com.gomi.front/src/br/com/gomi/front/FXMLDocumentController.java</file>
-            <file>file:/C:/Git/ProjectGomi/br.com.gomi.front/src/br/com/gomi/front/Controllers/LoginController.java</file>
-            <file>file:/C:/Git/ProjectGomi/br.com.gomi.front/src/br/com/gomi/front/Login.fxml</file>
-=======
+
+            <file>file:/C:/Git/ProjectGomi/br.com.gomi.front/src/br/com/gomi/front/Controllers/RecuperacaoDeSenhaController.java</file>
+            <file>file:/C:/Git/ProjectGomi/br.com.gomi.front/src/br/com/gomi/front/Controllers/PrincipalController.java</file>
+            <file>file:/C:/Git/ProjectGomi/br.com.gomi.front/src/br/com/gomi/front/PaginaInicial.fxml</file>
+            <file>file:/C:/Git/ProjectGomi/br.com.gomi.front/src/br/com/gomi/front/PaginaUser.fxml</file>
             <file>file:/C:/Users/Administrador/Desktop/ProjectGomi/br.com.gomi.front/src/br/com/gomi/front/Controllers/CadastrarController.java</file>
             <file>file:/C:/Users/Administrador/Desktop/ProjectGomi/br.com.gomi.front/src/br/com/gomi/front/Controllers/LoginController.java</file>
             <file>file:/C:/Users/Administrador/Desktop/ProjectGomi/br.com.gomi.front/src/br/com/gomi/front/Login.fxml</file>
             <file>file:/C:/Users/Administrador/Desktop/ProjectGomi/br.com.gomi.front/src/br/com/gomi/front/Controllers/RecuperacaoDeSenhaController.java</file>
->>>>>>> 2d026e8263e0eb4dbd736ad5bd6ccc303c291dfd
         </group>
     </open-files>
 </project-private>

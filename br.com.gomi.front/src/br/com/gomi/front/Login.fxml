@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="612.0" prefWidth="435.0" styleClass="bodybg" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.Controllers.LoginController">
+<AnchorPane id="AnchorPane" prefHeight="612.0" prefWidth="435.0" styleClass="bodybg" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.Controllers.LoginController">
    <children>
       <AnchorPane layoutX="-6.0" layoutY="134.0" prefHeight="478.0" prefWidth="452.0" style="-fx-background-color: #38414e;">
          <children>
@@ -32,7 +32,7 @@
          </children></AnchorPane>
       <AnchorPane prefHeight="120.0" prefWidth="447.0" style="-fx-background-color: #00CC66;">
          <children>
-            <Button layoutX="393.0" layoutY="14.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="29.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="X" textFill="WHITE">
+            <Button fx:id="btnClose" layoutX="393.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnClickClose" prefHeight="46.0" prefWidth="29.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="X" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
