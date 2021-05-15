@@ -72,6 +72,10 @@ public class SolicitacaoController implements Initializable
     public void btnCloseClick (ActionEvent event) throws IOException{
        System.exit(0);
     } 
+    
+    public void btnMinOnClick (ActionEvent event) throws IOException{
+        System.exit(0);
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) 
