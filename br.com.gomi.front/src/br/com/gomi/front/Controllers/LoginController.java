@@ -27,10 +27,6 @@ public class LoginController
     @FXML
     private TextField loginTextField;
     private TextField senhaTextField;
-    private Button btnLogin;
-    private Button btnCadastrar;
-    private Button ImgSobre;
-    private Button lnkEsqueceuSenha;
     
     public void btnLoginOnClick(ActionEvent event) throws IOException, SQLException 
     {
