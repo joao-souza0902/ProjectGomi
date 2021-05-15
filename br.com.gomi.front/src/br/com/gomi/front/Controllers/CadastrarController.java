@@ -162,11 +162,6 @@ public class CadastrarController implements Initializable
             }
         }
         else{
-            /*TextField tipoVeiculoTextField;
-              TextField cnhTextfield;
-              TextField dataExpiracaoTextField;
-              TextField cnhCategoriaTextField;
-              TextField cargaSuportadaTextField;*/
             if (tipoVeiculoTextField.getText().isEmpty()){
                 //mensagem de erro ("Error Provider" ou "MessageBox")
                 erro = true;

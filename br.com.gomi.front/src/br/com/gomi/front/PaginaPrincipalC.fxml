@@ -42,12 +42,7 @@
                <font>
                   <Font size="44.0" />
                </font>
-            </Label>
-            <Button fx:id="btnLogin1" layoutX="17.0" layoutY="20.0" mnemonicParsing="false" onAction="#btnLoginOnClick" prefHeight="36.0" prefWidth="79.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Voltar" textFill="WHITE">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
+            </Label>            
          </children>
       </AnchorPane>
    </children>

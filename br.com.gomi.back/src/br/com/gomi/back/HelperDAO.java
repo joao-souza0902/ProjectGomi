@@ -41,7 +41,7 @@ public class HelperDAO
             ResultSet rs = comando.executeQuery();
             JDataTable tabela = new JDataTable(rs);
             if (tabela.getNumeroLinhas() == 0)
-                throw new SQLException("Tabela Vazia");
+                return null;
             conexao.close();
             return tabela;
         }

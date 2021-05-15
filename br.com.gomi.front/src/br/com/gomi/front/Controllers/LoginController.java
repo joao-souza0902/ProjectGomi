@@ -20,6 +20,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -35,16 +36,16 @@ public class LoginController implements Initializable
     public void btnLoginOnClick(ActionEvent event) throws IOException, SQLException 
     {
         
-        if (Validacao.validaLogin("abc@123.com", "123456")){//if (Validacao.validaLogin(loginTextField.getText(), senhaTextField.getText())){
-            System.out.println("YeahBaby");
-        /*    Parent home_page_parent = FXMLLoader.load(getClass().getResource("PaginaInicial.fxml"));
-            Scene home_page_scene = new Scene(home_page_parent);
-            Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            app_stage.setScene(home_page_scene);
-            app_stage.show();*/
+        if (Validacao.validaLogin(loginTextField.getText(), senhaTextField.getText())){
+           Parent parent = FXMLLoader.load(getClass().getResource("/br/com/gomi/front/PaginaPrincipalC.fxml"));
+           Scene scene = new Scene(parent);
+           Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+           stage.setScene(scene);
+           stage.show();
         }
         else
-            System.out.println("Login Inválido!");
+            //System.out.println("Login Inválido!");
+            JOptionPane.showMessageDialog(null, "Usuário não encontrado", "Erro de Login", JOptionPane.INFORMATION_MESSAGE);
     }
     
     public void btnCadastrarOnClick(ActionEvent event) throws IOException {

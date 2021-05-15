@@ -19,7 +19,7 @@ public class LoginDAO
     public UsuarioViewModel login(String usuario, String senha) throws SQLException{
         String[] parametros =   {usuario, senha};
         JDataTable tabela = HelperDAO.executaProcSelect("spLogin ?, ?", parametros);
-        if (tabela.getNumeroLinhas() == 0)
+        if (tabela == null)
             return null;
         else
             return MontaModel(tabela.getLinha(1));
