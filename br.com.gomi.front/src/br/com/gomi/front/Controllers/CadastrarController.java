@@ -24,17 +24,29 @@ public class CadastrarController
 {
     @FXML
     TextField emailTextField;
+    @FXML
     TextField nomeTextField;
+    @FXML
     TextField telefoneTextField;
+    @FXML 
     TextField cpfTextField;
+    @FXML
     TextField dataNascimentoTextField;
+    @FXML
     TextField senhaTextField;
+    @FXML
     TextField confirmacaoSenhaTextField;
+    @FXML
     TextField cepTextField;
+    @FXML
     TextField numeroTextField;
+    @FXML
     TextField ruaTextField;
+    @FXML
     TextField complementoTextField;
+    @FXML
     TextField bairroTextField;
+    @FXML
     TextField cidadeTextField;
     //verificar como colocar foto
     //verificar como colocar método de pagamento
