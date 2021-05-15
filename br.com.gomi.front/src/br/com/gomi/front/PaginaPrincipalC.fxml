@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="563.0" prefWidth="707.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.Controllers.PrincipalController">
+<AnchorPane id="AnchorPane" prefHeight="563.0" prefWidth="707.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.Controllers.PrincipalController">
    <children>
       <AnchorPane layoutY="97.0" prefHeight="466.0" prefWidth="707.0" style="-fx-background-color: #38414e;">
          <children>
@@ -19,9 +19,9 @@
                   <Font size="24.0" />
                </font>
             </Button>
-            <Button fx:id="btnHistorico" layoutX="132.0" layoutY="327.0" mnemonicParsing="false" onAction="#btnHistoricoOnClick" prefHeight="34.0" prefWidth="443.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Histórico" textFill="WHITE">
+            <Button fx:id="btnHistorico" layoutX="132.0" layoutY="327.0" mnemonicParsing="false" onAction="#btnHistoricoOnClick" prefHeight="74.0" prefWidth="443.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Histórico" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="64.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Button>
          </children>
