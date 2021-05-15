@@ -42,4 +42,8 @@ public class PrincipalController
         app_stage.setScene(home_page_scene);
         app_stage.show();
     }
+     
+     public void btnCloseClick (ActionEvent event) throws IOException{
+       System.exit(0);
+    }
 }

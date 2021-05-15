@@ -28,10 +28,10 @@
       </AnchorPane>
       <AnchorPane prefHeight="74.0" prefWidth="707.0" style="-fx-background-color: #00CC66;">
          <children>
-            <Button layoutX="642.0" layoutY="14.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="29.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="X" textFill="WHITE">
-               <font>
-                  <Font size="20.0" />
-               </font>
+            <Button fx:id="btnClose" layoutX="642.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnCloseClick" prefHeight="46.0" prefWidth="29.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="X" textFill="WHITE">
+                <font>
+                <Font size="20.0" />
+                </font>
             </Button>
             <Button layoutX="578.0" layoutY="14.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="40.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="-" textFill="WHITE">
                <font>

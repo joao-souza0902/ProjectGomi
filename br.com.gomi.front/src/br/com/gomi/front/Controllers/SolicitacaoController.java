@@ -46,7 +46,7 @@ public class SolicitacaoController implements Initializable
     }
     
     public void btnVoltarOnClick(ActionEvent event) throws IOException {
-        Parent home_page_parent = FXMLLoader.load(getClass().getResource("PaginaInicial.fxml"));
+        Parent home_page_parent = FXMLLoader.load(getClass().getResource("/br/com/gomi/front/PaginaPrincipalC.fxml"));
         Scene home_page_scene = new Scene(home_page_parent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(home_page_scene);
