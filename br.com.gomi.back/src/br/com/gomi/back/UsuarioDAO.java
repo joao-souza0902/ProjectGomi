@@ -8,6 +8,7 @@ package br.com.gomi.back;
 import java.math.BigDecimal;
 import java.util.HashMap;
 import br.com.gomi.shared.*;
+import java.sql.SQLException;
 import java.time.LocalDate;
 
 /**
@@ -62,5 +63,14 @@ public class UsuarioDAO extends PadraoDAO<UsuarioViewModel>
     @Override
     protected void setQtdParametros(){
         qtdParametros = " ?, ?, ?, ?, ?, ?, ?, ?";
+    }
+    
+    public UsuarioViewModel consultaEmail(String email) throws SQLException{
+        String[] parametros = {email};
+        JDataTable tabela = HelperDAO.executaProcSelect("spUsuario ?", parametros);
+        if (tabela.getNumeroLinhas() == 0)
+            return null;
+        else
+            return MontaModel(tabela.getLinha(1));
     }
 }

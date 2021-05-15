@@ -36,7 +36,7 @@ create table NaoAdm(
 	IdNaoAdm int primary key identity(1, 1),
 	IdCliente int foreign key references Cliente(IdCliente) null,
 	IdMotorista int foreign key references Motorista(IdMotorista) null,
-	/* InformaÃ§Ãµes de pagamento/CobranÃ§a */
+	/* Informações de pagamento/Cobrança */
 	/* Armazenamento da foto */
 	TelefoneDDD int,
 	Telefone int,
@@ -125,7 +125,7 @@ begin
 end
 go
 
-/*CriaÃ§Ã£o das procedures de Insert e Update*/
+/*Criação das procedures de Insert e Update*/
 
 create procedure spInsert_Log (@Id int, @Descricao varchar(max)) as
 begin
@@ -287,5 +287,17 @@ create procedure spDelete_CategoriaSolicitacao (@IdSolicitacao int, @IdCategoria
 begin
 	delete CategoriaSolicitacao where idSolicitacao = @IdSolicitacao and IdCategoria = @IdCategoria
 	
+end
+go
+
+create procedure spLogin (@usuario varchar(max), @senha varchar(max)) as
+begin
+	select * from Usuario where Email = @usuario and Senha = @senha
+end
+go
+
+create procedure spUsuario (@usuario varchar(max)) as
+begin
+	select* from Usuario where email = @usuario
 end
 go

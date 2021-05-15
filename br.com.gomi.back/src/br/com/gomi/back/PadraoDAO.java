@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import br.com.gomi.shared.*;
+import java.math.BigDecimal;
 
 /**
  *
@@ -29,8 +30,9 @@ public abstract class PadraoDAO<T> extends PadraoViewModel
     protected abstract void setTabela();
     protected abstract void setQtdParametros();
     
-    public void insert(T model) throws Exception{
-        HelperDAO.executaProc("exec spInsert_" + getTabela() + getQtdParametros(), CriaParametros(model));
+    public int insert(T model) throws Exception{
+        JDataTable tabela = HelperDAO.executaProcSelect("exec spInsert_" + getTabela() + getQtdParametros(), CriaParametros(model));
+        return ((BigDecimal)tabela.getLinha(1).get("Id")).intValue();
     }
     public void update(T model)throws Exception{
         HelperDAO.executaProc("exec spUpdate_" + getTabela() + getQtdParametros(), CriaParametros(model));
