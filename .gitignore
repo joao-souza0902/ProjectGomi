@@ -70,3 +70,5 @@ nbdist/
 .nb-gradle/
 
 # End of https://www.toptal.com/developers/gitignore/api/git,java,netbeans,java-web
+
+*/build/
