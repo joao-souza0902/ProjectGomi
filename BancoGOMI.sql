@@ -130,6 +130,7 @@ go
 create procedure spInsert_Log (@Id int, @Descricao varchar(max)) as
 begin
 	insert into [Log] values (@Descricao)
+	select @@IDENTITY as 'Id'
 end
 go
 
@@ -139,6 +140,7 @@ begin
 	set @date = convert(smalldatetime, @DataSolicitacao, 105)
 	
 	insert into Solicitacao values (@IdCliente, @IdMotorista, @Agendamento, @date, @Aberto, @Descricao, @Volume, @CEP, @numero)
+	select @@IDENTITY as 'Id'
 end
 go
 
@@ -163,12 +165,14 @@ go
 create procedure spInsert_Notificacao (@IdNotificacao int, @IdSolicitacao int, @IdUsuario int, @Mensagem varchar(max)) as
 begin
 	insert into Notificacao values (@IdSolicitacao, @IdUsuario, @Mensagem)
+	select @@IDENTITY as 'Id'
 end
 go
 
 create procedure spInsert_Administrador (@IdAdministrador int) as
 begin
 	insert into Administrador default values
+	select @@IDENTITY as 'Id'
 end
 go
 
@@ -185,6 +189,7 @@ go
 create procedure spInsert_Cliente (@IdCliente int, @Rua varchar(max), @Numero int, @Complemento varchar(max), @Bairro varchar(max), @Cidade varchar(max), @CEP varchar(max)) as
 begin
 	insert into Cliente values (@rua, @Numero, @Complemento, @Bairro, @Cidade, @CEP)
+	select @@IDENTITY as 'Id'
 end
 go
 
@@ -203,6 +208,7 @@ go
 create procedure spInsert_Motorista (@IdMotorista int, @tipoVeiculo varchar(max), @Cnh varchar(max), @DataExpiracao date, @CategoriaCnh varchar(max), @cargaSuportada int) as
 begin
 	insert into Motorista values (@tipoVeiculo, @Cnh, @DataExpiracao, @CategoriaCnh, @cargaSuportada)
+	select @@IDENTITY as 'Id'
 end
 go
 
@@ -220,6 +226,7 @@ go
 create procedure spInsert_NaoAdm (@IdNaoAdm int, @IdCliente int, @IdMotorista int, @TelefoneDDD int, @Telefone int) as
 begin
 	insert into NaoAdm values (@IdCliente, @IdMotorista, @TelefoneDDD, @Telefone)
+	select @@IDENTITY as 'Id'
 end
 go
 
@@ -236,6 +243,7 @@ go
 create procedure spInsert_Usuario (@IdUsuario int, @IdNaoAdm int, @IdAdministrador int, @Email varchar(max), @Senha varchar(max), @Nome varchar(max), @DataNascimento date, @CPF bigint) as
 begin
 	insert into Usuario values (@IdNaoAdm, @IdAdministrador, @Email, @Senha, @Nome, @DataNascimento, @CPF)
+	select @@IDENTITY as 'Id'
 end
 go
 
@@ -255,6 +263,7 @@ go
 create procedure spInsert_Ecoponto (@idEcoponto int, @cep varchar(max), @numero int) as
 begin
 	insert into Ecoponto values (@cep, @numero)
+	select @@IDENTITY as 'Id'
 end
 go
 
@@ -268,6 +277,7 @@ go
 create procedure spInsert_Categoria (@idCategoria int, @descricaoCategoria varchar(max)) as
 begin
 	insert into Categoria values (@descricaoCategoria)
+    select @@IDENTITY as 'Id'
 end
 go
 
@@ -280,6 +290,7 @@ go
 create procedure spInsert_CategoriaSolicitacao (@IdSolicitacao int, @IdCategoria int) as
 begin
 	insert into CategoriaSolicitacao values (@IdSolicitacao, @IdCategoria)
+    select @@IDENTITY as 'Id'
 end
 go
 
