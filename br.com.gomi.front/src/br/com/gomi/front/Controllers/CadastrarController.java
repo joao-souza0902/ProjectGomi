@@ -8,19 +8,23 @@ package br.com.gomi.front.Controllers;
 import br.com.gomi.business.Dados;
 import br.com.gomi.business.Validacao;
 import br.com.gomi.shared.ClienteViewModel;
+import br.com.gomi.shared.MotoristaViewModel;
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 
 /**
  *
  * @author Administrador
  */
-public class CadastrarController
+public class CadastrarController implements Initializable
 {
     @FXML
     TextField emailTextField;
@@ -36,10 +40,15 @@ public class CadastrarController
     TextField complementoTextField;
     TextField bairroTextField;
     TextField cidadeTextField;
+    TextField tipoVeiculoTextField;
+    TextField cnhTextfield;
+    TextField dataExpiracaoTextField;
+    TextField cnhCategoriaTextField;
+    TextField cargaSuportadaTextField;
     //verificar como colocar foto
     //verificar como colocar método de pagamento
     
-    public void btnCadstrarOnClick(ActionEvent event) throws IOException, SQLException, Exception{
+    public void btnCadastrarOnClick(ActionEvent event) throws IOException, SQLException, Exception{
         boolean erro = false;
         boolean ehCliente = true;
         if(emailTextField.getText().isEmpty()){
@@ -141,7 +150,59 @@ public class CadastrarController
             }
         }
         else{
-            
+            /*TextField tipoVeiculoTextField;
+              TextField cnhTextfield;
+              TextField dataExpiracaoTextField;
+              TextField cnhCategoriaTextField;
+              TextField cargaSuportadaTextField;*/
+            if (tipoVeiculoTextField.getText().isEmpty()){
+                //mensagem de erro ("Error Provider" ou "MessageBox")
+                erro = true;
+            }
+            if (cnhTextfield.getText().isEmpty()){
+                //mensagem de erro ("Error Provider" ou "MessageBox")
+                erro = true;
+            }
+            if (dataExpiracaoTextField.getText().isEmpty()){
+                //mensagem de erro ("Error Provider" ou "MessageBox")
+                erro = true;
+            }
+            if (LocalDate.parse(dataExpiracaoTextField.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy")).isAfter(LocalDate.now())){
+                //mensagem de erro ("Error Provider" ou "MessageBox")
+                erro = true;
+            }
+            if (cnhCategoriaTextField.getText().length() != 1){
+                //mensagem de erro ("Error Provider" ou "MessageBox")
+                erro = true;
+            }
+            if (cargaSuportadaTextField.getText().isEmpty() || Integer.parseInt(cargaSuportadaTextField.getText()) <= 0){
+                //mensagem de erro ("Error Provider" ou "MessageBox")
+                erro = true;
+            }
+            if (!erro){
+                MotoristaViewModel motorista = new MotoristaViewModel();
+                motorista.setEmail(emailTextField.getText());
+                motorista.setNome(nomeTextField.getText());
+                motorista.setTelefoneddd(Integer.parseInt(telefoneTextField.getText().substring(1, 3)));
+                motorista.setTelefone(Integer.parseInt(telefoneTextField.getText().substring(4)));
+                motorista.setCpf(cpfTextField.getText());
+                motorista.setData(LocalDate.parse(dataNascimentoTextField.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+                motorista.setSenha(senhaTextField.getText());
+                motorista.setTipoVeiculo(tipoVeiculoTextField.getText());
+                motorista.setCnh(cnhTextfield.getText());
+                motorista.setDataExpiracao(LocalDate.parse(dataExpiracaoTextField.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+                motorista.setCnhCategoria(cnhCategoriaTextField.getText().charAt(0));
+                motorista.setCargaSuportada(Integer.parseInt(bairroTextField.getText()));
+                motorista.setIdMotorista(Dados.insereMotorista(motorista));
+                motorista.setIdNaoAdm(Dados.insereNaoAdm(motorista));
+                Dados.insereUsuario(motorista);
+            }
         }
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources)
+    {
+        
     }
 }
