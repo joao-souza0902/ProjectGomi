@@ -7,10 +7,13 @@ package br.com.gomi.front.Controllers;
 import br.com.gomi.business.*;
 import br.com.gomi.shared.UsuarioViewModel;
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -22,21 +25,23 @@ import javafx.stage.Stage;
  *
  * @author Administrador
  */
-public class LoginController
+public class LoginController implements Initializable
 {
     @FXML
     private TextField loginTextField;
+    @FXML
     private TextField senhaTextField;
     
     public void btnLoginOnClick(ActionEvent event) throws IOException, SQLException 
     {
         
-        if (Validacao.validaLogin(loginTextField.getText(), senhaTextField.getText())){
-            Parent home_page_parent = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
+        if (Validacao.validaLogin("abc@123.com", "123456")){//if (Validacao.validaLogin(loginTextField.getText(), senhaTextField.getText())){
+            System.out.println("YeahBaby");
+        /*    Parent home_page_parent = FXMLLoader.load(getClass().getResource("PaginaInicial.fxml"));
             Scene home_page_scene = new Scene(home_page_parent);
             Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             app_stage.setScene(home_page_scene);
-            app_stage.show();
+            app_stage.show();*/
         }
         else
             System.out.println("Login Inválido!");
@@ -64,5 +69,11 @@ public class LoginController
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(home_page_scene);
         app_stage.show();
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources)
+    {
+        
     }
 }
