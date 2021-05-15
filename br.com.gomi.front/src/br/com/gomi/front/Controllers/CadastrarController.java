@@ -28,17 +28,29 @@ public class CadastrarController implements Initializable
 {
     @FXML
     TextField emailTextField;
+    @FXML
     TextField nomeTextField;
+    @FXML
     TextField telefoneTextField;
+    @FXML 
     TextField cpfTextField;
+    @FXML
     TextField dataNascimentoTextField;
+    @FXML
     TextField senhaTextField;
+    @FXML
     TextField confirmacaoSenhaTextField;
+    @FXML
     TextField cepTextField;
+    @FXML
     TextField numeroTextField;
+    @FXML
     TextField ruaTextField;
+    @FXML
     TextField complementoTextField;
+    @FXML
     TextField bairroTextField;
+    @FXML
     TextField cidadeTextField;
     TextField tipoVeiculoTextField;
     TextField cnhTextfield;

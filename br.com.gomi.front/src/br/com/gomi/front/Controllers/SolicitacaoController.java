@@ -25,30 +25,28 @@ import javafx.stage.Stage;
  *
  * @author Administrador
  */
-public class LoginController implements Initializable
+public class SolicitacaoController implements Initializable
 {
     @FXML
     private TextField loginTextField;
-    @FXML
     private TextField senhaTextField;
     
-    public void btnLoginOnClick(ActionEvent event) throws IOException, SQLException 
+    public void btnSolicitarOnClick (ActionEvent event) throws IOException, SQLException 
     {
         
-        if (Validacao.validaLogin("abc@123.com", "123456")){//if (Validacao.validaLogin(loginTextField.getText(), senhaTextField.getText())){
-            System.out.println("YeahBaby");
-        /*    Parent home_page_parent = FXMLLoader.load(getClass().getResource("PaginaInicial.fxml"));
+        if (Validacao.validaLogin(loginTextField.getText(), senhaTextField.getText())){
+            Parent home_page_parent = FXMLLoader.load(getClass().getResource("MotoristaEncontrado.fxml"));
             Scene home_page_scene = new Scene(home_page_parent);
             Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             app_stage.setScene(home_page_scene);
-            app_stage.show();*/
+            app_stage.show();
         }
         else
             System.out.println("Login Inválido!");
     }
     
-    public void btnCadastrarOnClick(ActionEvent event) throws IOException {
-        Parent home_page_parent = FXMLLoader.load(getClass().getResource("Sign Up.fxml"));
+    public void btnVoltarOnClick(ActionEvent event) throws IOException {
+        Parent home_page_parent = FXMLLoader.load(getClass().getResource("PaginaInicial.fxml"));
         Scene home_page_scene = new Scene(home_page_parent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(home_page_scene);
@@ -73,12 +71,11 @@ public class LoginController implements Initializable
     
     public void btnCloseClick (ActionEvent event) throws IOException{
        System.exit(0);
-    }
-    
+    } 
+
     @Override
-    public void initialize(URL location, ResourceBundle resources)
+    public void initialize(URL location, ResourceBundle resources) 
     {
         
     }
-
 }
