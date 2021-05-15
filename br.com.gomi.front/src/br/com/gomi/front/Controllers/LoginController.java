@@ -36,20 +36,20 @@ public class LoginController implements Initializable
     public void btnLoginOnClick(ActionEvent event) throws IOException, SQLException 
     {
         
-        if (Validacao.validaLogin(loginTextField.getText(), senhaTextField.getText())){
+        //if (Validacao.validaLogin(loginTextField.getText(), senhaTextField.getText())){
            Parent parent = FXMLLoader.load(getClass().getResource("/br/com/gomi/front/PaginaPrincipalC.fxml"));
            Scene scene = new Scene(parent);
            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
            stage.setScene(scene);
            stage.show();
-        }
-        else
+        //}
+        //else
             //System.out.println("Login Inválido!");
-            JOptionPane.showMessageDialog(null, "Usuário não encontrado", "Erro de Login", JOptionPane.INFORMATION_MESSAGE);
+        //    JOptionPane.showMessageDialog(null, "Usuário não encontrado", "Erro de Login", JOptionPane.INFORMATION_MESSAGE);
     }
     
     public void btnCadastrarOnClick(ActionEvent event) throws IOException {
-        Parent home_page_parent = FXMLLoader.load(getClass().getResource("Sign Up.fxml"));
+        Parent home_page_parent = FXMLLoader.load(getClass().getResource("/br/com/gomi/front/CadastroCM.fxml"));
         Scene home_page_scene = new Scene(home_page_parent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(home_page_scene);
