@@ -7,15 +7,8 @@ package br.com.gomi.shared;
 
 /**
  *
- * @author Gabrielle
+ * @author Fábio
  */
-public class BrComGomiShared {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
+public class AdministradorViewModel extends UsuarioViewModel{
     
 }
