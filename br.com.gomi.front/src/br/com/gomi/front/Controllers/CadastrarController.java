@@ -91,7 +91,7 @@ public class CadastrarController
             //mensagem de erro ("Error Provider" ou "MessageBox")
             erro = true;
         }
-        if (senhaTextField.getText() != confirmacaoSenhaTextField.getText()){
+        if (senhaTextField.getText().equals( confirmacaoSenhaTextField.getText())){
             //mensagem de erro ("Error Provider" ou "MessageBox")
             erro = true;
         }
