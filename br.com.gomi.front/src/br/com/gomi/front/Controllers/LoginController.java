@@ -34,8 +34,7 @@ public class LoginController implements Initializable
     private TextField senhaTextField;
     
     public void btnLoginOnClick(ActionEvent event) throws IOException, SQLException 
-    {
-        
+    {        
         if (Validacao.validaLogin(loginTextField.getText(), senhaTextField.getText())){
            Parent parent = FXMLLoader.load(getClass().getResource("/br/com/gomi/front/PaginaPrincipalC.fxml"));
            Scene scene = new Scene(parent);
