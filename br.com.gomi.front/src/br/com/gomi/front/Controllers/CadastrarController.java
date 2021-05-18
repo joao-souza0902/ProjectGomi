@@ -22,6 +22,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -67,6 +69,11 @@ public class CadastrarController implements Initializable
     TextField cnhCategoriaTextField;
     @FXML
     TextField cargaSuportadaTextField;
+    @FXML
+    RadioButton clienteRadioButton;
+    @FXML
+    RadioButton motoristaRadioButton;
+    
     //verificar como colocar foto
     //verificar como colocar método de pagamento
     
@@ -230,10 +237,56 @@ public class CadastrarController implements Initializable
         app_stage.setScene(home_page_scene);
         app_stage.show();
     }
-
-    @Override
+    
+    public void rdbClienteOnToggle (ActionEvent event) throws IOException{
+        cepTextField.setVisible(true);
+        numeroTextField.setVisible(true);
+        ruaTextField.setVisible(true);
+        complementoTextField.setVisible(true);
+        bairroTextField.setVisible(true);
+        cidadeTextField.setVisible(true);
+        tipoVeiculoTextField.setVisible(false);
+        cnhTextfield.setVisible(false);
+        dataExpiracaoTextField.setVisible(false);
+        cnhCategoriaTextField.setVisible(false);
+        cargaSuportadaTextField.setVisible(false);
+    }
+    
+    public void rdbMotoristaOnToggle (ActionEvent event) throws IOException{
+        cepTextField.setVisible(false);
+        numeroTextField.setVisible(false);
+        ruaTextField.setVisible(false);
+        complementoTextField.setVisible(false);
+        bairroTextField.setVisible(false);
+        cidadeTextField.setVisible(false);
+        tipoVeiculoTextField.setVisible(true);
+        cnhTextfield.setVisible(true);
+        dataExpiracaoTextField.setVisible(true);
+        cnhCategoriaTextField.setVisible(true);
+        cargaSuportadaTextField.setVisible(true);
+    }
+    
+    public void btnCloseClick (ActionEvent event) throws IOException{
+       System.exit(0);
+    }
+    
+    public void btnMinClick (ActionEvent event) throws IOException{
+        ((Stage)((Button)event.getSource()).getScene().getWindow()).setIconified(true);
+    }
+    
+    @Override @FXML
     public void initialize(URL location, ResourceBundle resources)
     {
-        
+        cepTextField.setVisible(false);
+        numeroTextField.setVisible(false);
+        ruaTextField.setVisible(false);
+        complementoTextField.setVisible(false);
+        bairroTextField.setVisible(false);
+        cidadeTextField.setVisible(false);
+        tipoVeiculoTextField.setVisible(false);
+        cnhTextfield.setVisible(false);
+        dataExpiracaoTextField.setVisible(false);
+        cnhCategoriaTextField.setVisible(false);
+        cargaSuportadaTextField.setVisible(false);
     }
 }
