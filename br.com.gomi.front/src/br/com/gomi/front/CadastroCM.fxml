@@ -20,7 +20,7 @@
             <Label layoutX="33.0" layoutY="192.0" text="Telefone" textFill="WHITE" />
             <TextField fx:id="telefoneTextField" layoutX="144.0" layoutY="188.0" prefHeight="25.0" prefWidth="195.0" promptText="(00) 0 0000-0000" />
             <Label layoutX="33.0" layoutY="230.0" prefHeight="25.0" prefWidth="92.0" text="Forma Pag/Rec." textFill="WHITE" />
-            <TextField layoutX="144.0" layoutY="230.0" prefHeight="25.0" prefWidth="195.0" promptText="ajustar onde colocar o campo " />
+            <TextField fx:id="cnhCategoriaTextField" layoutX="144.0" layoutY="230.0" prefHeight="25.0" prefWidth="195.0" promptText="ajustar onde colocar o campo " />
             <RadioButton layoutX="262.0" layoutY="372.0" mnemonicParsing="false" text="Cliente" textFill="WHITE">
                <font>
                   <Font size="15.0" />
@@ -65,11 +65,11 @@
             <ImageView fitHeight="109.0" fitWidth="117.0" layoutX="431.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true" />
             <TextField fx:id="cepTextField" layoutX="501.0" layoutY="116.0" prefHeight="25.0" prefWidth="195.0" />
             <Label layoutX="408.0" layoutY="256.0" text="Nº CNH" textFill="WHITE" />
-            <TextField layoutX="502.0" layoutY="252.0" prefHeight="25.0" prefWidth="195.0" />
+            <TextField fx:id="cnhTextfield" layoutX="502.0" layoutY="252.0" prefHeight="25.0" prefWidth="195.0" />
             <Label layoutX="409.0" layoutY="336.0" text="Tipo Veículo" textFill="WHITE" />
-            <TextField layoutX="502.0" layoutY="332.0" prefHeight="25.0" prefWidth="195.0" promptText="Caminhonete..." />
+            <TextField fx:id="tipoVeiculoTextField" layoutX="502.0" layoutY="332.0" prefHeight="25.0" prefWidth="195.0" promptText="Caminhonete..." />
             <Label layoutX="408.0" layoutY="296.0" text="Data Exp." textFill="WHITE" />
-            <TextField layoutX="502.0" layoutY="293.0" prefHeight="25.0" prefWidth="195.0" promptText="00/00/0000" />
+            <TextField fx:id="dataExpiracaoTextField" layoutX="502.0" layoutY="293.0" prefHeight="25.0" prefWidth="195.0" promptText="00/00/0000" />
             <Label layoutX="409.0" layoutY="376.0" text="Carga Suportada" textFill="WHITE" />
             <TextField fx:id="cargaSuportadaTextField" layoutX="503.0" layoutY="371.0" prefHeight="25.0" prefWidth="195.0" promptText="Caminhonete..." />
             <Label layoutX="419.0" layoutY="164.0" text="Rua" textFill="WHITE" />
