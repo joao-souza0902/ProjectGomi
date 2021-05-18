@@ -23,6 +23,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -33,6 +34,7 @@ import javafx.stage.Stage;
  */
 public class CadastrarController implements Initializable
 {
+    private static boolean ehCliente;
     @FXML
     TextField emailTextField;
     @FXML
@@ -73,13 +75,35 @@ public class CadastrarController implements Initializable
     RadioButton clienteRadioButton;
     @FXML
     RadioButton motoristaRadioButton;
+    @FXML
+    Label cepLabel;
+    @FXML
+    Label numeroLabel;
+    @FXML 
+    Label ruaLabel;
+    @FXML
+    Label complementoLabel;
+    @FXML
+    Label bairroLabel;
+    @FXML
+    Label cidadeLabel;
+    @FXML
+    Label tipoVeiculoLabel;
+    @FXML
+    Label numCnhLabel;
+    @FXML
+    Label dataExpLabel;
+    @FXML
+    Label cnhCategoriaLabel;
+    @FXML
+    Label cargaLabel;
     
     //verificar como colocar foto
     //verificar como colocar método de pagamento
     
     public void btnCadastrarOnClick(ActionEvent event) throws IOException, SQLException, Exception{
         boolean erro = false;
-        boolean ehCliente = true;
+        
         if(emailTextField.getText().isEmpty()){
             //mensagem de erro ("Error Provider" ou "MessageBox")
             erro = true;
@@ -251,6 +275,18 @@ public class CadastrarController implements Initializable
         dataExpiracaoTextField.setVisible(false);
         cnhCategoriaTextField.setVisible(false);
         cargaSuportadaTextField.setVisible(false);
+        cepLabel.setVisible(true);
+        numeroLabel.setVisible(true);
+        ruaLabel.setVisible(true);
+        complementoLabel.setVisible(true);
+        bairroLabel.setVisible(true);
+        cidadeLabel.setVisible(true);
+        tipoVeiculoLabel.setVisible(false);
+        numCnhLabel.setVisible(false);
+        dataExpLabel.setVisible(false);
+        cnhCategoriaLabel.setVisible(false);
+        cargaLabel.setVisible(false);
+        ehCliente = true;
     }
     
     public void rdbMotoristaOnToggle (ActionEvent event) throws IOException{
@@ -265,6 +301,18 @@ public class CadastrarController implements Initializable
         dataExpiracaoTextField.setVisible(true);
         cnhCategoriaTextField.setVisible(true);
         cargaSuportadaTextField.setVisible(true);
+        cepLabel.setVisible(false);
+        numeroLabel.setVisible(false);
+        ruaLabel.setVisible(false);
+        complementoLabel.setVisible(false);
+        bairroLabel.setVisible(false);
+        cidadeLabel.setVisible(false);
+        tipoVeiculoLabel.setVisible(true);
+        numCnhLabel.setVisible(true);
+        dataExpLabel.setVisible(true);
+        cnhCategoriaLabel.setVisible(true);
+        cargaLabel.setVisible(true);
+        ehCliente = false;
     }
     
     public void btnCloseClick (ActionEvent event) throws IOException{
@@ -289,5 +337,16 @@ public class CadastrarController implements Initializable
         dataExpiracaoTextField.setVisible(false);
         cnhCategoriaTextField.setVisible(false);
         cargaSuportadaTextField.setVisible(false);
+        cepLabel.setVisible(false);
+        numeroLabel.setVisible(false);
+        ruaLabel.setVisible(false);
+        complementoLabel.setVisible(false);
+        bairroLabel.setVisible(false);
+        cidadeLabel.setVisible(false);
+        tipoVeiculoLabel.setVisible(false);
+        numCnhLabel.setVisible(false);
+        dataExpLabel.setVisible(false);
+        cnhCategoriaLabel.setVisible(false);
+        cargaLabel.setVisible(false);
     }
 }
