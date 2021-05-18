@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -9,31 +10,22 @@
    <children>
       <AnchorPane layoutY="97.0" prefHeight="466.0" prefWidth="707.0" style="-fx-background-color: #38414e;">
          <children>
-            <Button fx:id="btnSolicitarColeta" layoutX="132.0" layoutY="58.0" mnemonicParsing="false" onAction="#btnSolicitarColetaOnClick" prefHeight="74.0" prefWidth="443.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Solicitar Coleta" textFill="WHITE">
+            <Button fx:id="btnHistorico" layoutX="132.0" layoutY="399.0" mnemonicParsing="false" onAction="#btnHistoricoOnClick" prefHeight="46.0" prefWidth="443.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Confirmar Coleta" textFill="WHITE">
                <font>
                   <Font size="24.0" />
                </font>
             </Button>
-            <Button fx:id="btnAlterarDados" layoutX="132.0" layoutY="196.0" mnemonicParsing="false" onAction="#btnAlterarDadosOnClick" prefHeight="74.0" prefWidth="443.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Alterar dados" textFill="WHITE">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnHistorico" layoutX="132.0" layoutY="327.0" mnemonicParsing="false" onAction="#btnHistoricoOnClick" prefHeight="74.0" prefWidth="443.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Histórico" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Button>
+            <TextField layoutX="10.0" layoutY="14.0" prefHeight="375.0" prefWidth="688.0" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="74.0" prefWidth="707.0" style="-fx-background-color: #00CC66;">
          <children>
-            <Button fx:id="btnClose" layoutX="642.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnCloseClick" prefHeight="46.0" prefWidth="29.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="X" textFill="WHITE">
+            <Button fx:id="btnClose" layoutX="642.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnCloseOnClick" prefHeight="46.0" prefWidth="29.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="X" textFill="WHITE">
                 <font>
                 <Font size="20.0" />
                 </font>
             </Button>
-            <Label layoutX="269.0" layoutY="8.0" prefHeight="65.0" prefWidth="170.0" text="Principal">
+            <Label layoutX="152.0" layoutY="8.0" prefHeight="65.0" prefWidth="403.0" text="Atender Solicitação">
                <font>
                   <Font size="44.0" />
                </font>
