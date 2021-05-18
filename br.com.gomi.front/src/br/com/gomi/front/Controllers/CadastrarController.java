@@ -238,6 +238,7 @@ public class CadastrarController implements Initializable
         app_stage.show();
     }
     
+
     public void rdbClienteOnToggle (ActionEvent event) throws IOException{
         cepTextField.setVisible(true);
         numeroTextField.setVisible(true);
