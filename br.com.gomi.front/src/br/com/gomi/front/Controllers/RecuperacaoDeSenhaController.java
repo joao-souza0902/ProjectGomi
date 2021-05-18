@@ -25,7 +25,7 @@ import javax.swing.JOptionPane;
  *
  * @author Administrador
  */
-public class RecuperacaoDeSenhaController implements Initializable
+public class RecuperacaoDeSenhaController extends PadraoController
 {
 
     @FXML
@@ -44,11 +44,5 @@ public class RecuperacaoDeSenhaController implements Initializable
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(home_page_scene);
         app_stage.show();
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources)
-    {
-        
     }
 }
