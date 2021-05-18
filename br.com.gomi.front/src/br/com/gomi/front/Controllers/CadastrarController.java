@@ -27,6 +27,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -101,88 +102,14 @@ public class CadastrarController implements Initializable
     //verificar como colocar foto
     //verificar como colocar método de pagamento
     
-    public void btnCadastrarOnClick(ActionEvent event) throws IOException, SQLException, Exception{
-        boolean erro = false;
-        
-        if(emailTextField.getText().isEmpty()){
-            //mensagem de erro ("Error Provider" ou "MessageBox")
-            erro = true;
-        }
-        if(nomeTextField.getText().isEmpty()){
-            //mensagem de erro ("Error Provider" ou "MessageBox")
-            erro = true;
-        }
-        if(telefoneTextField.getText().isEmpty()){
-            //mensagem de erro ("Error Provider" ou "MessageBox")
-            erro = true;
-        }
-        if(cpfTextField.getText().isEmpty()){
-            //mensagem de erro ("Error Provider" ou "MessageBox")
-            erro = true;
-        }
-        if(dataNascimentoTextField.getText().isEmpty()){
-            //mensagem de erro ("Error Provider" ou "MessageBox")
-            erro = true;
-        }
-        if(senhaTextField.getText().isEmpty()){
-            //mensagem de erro ("Error Provider" ou "MessageBox")
-            erro = true;
-        }
-        if(confirmacaoSenhaTextField.getText().isEmpty()){
-            //mensagem de erro ("Error Provider" ou "MessageBox")
-            erro = true;
-        }
-        
-        if (emailTextField.getText().indexOf("@") == -1 || emailTextField.getText().lastIndexOf(".") < emailTextField.getText().indexOf("@")){
-            //mensagem de erro ("Error Provider" ou "MessageBox")
-            erro = true;
-        }
-        if (Integer.parseInt(telefoneTextField.getText().substring(1, 3)) <= 10 || telefoneTextField.getText().substring(1, 3).indexOf("0") != -1){
-            //mensagem de erro ("Error Provider" ou "MessageBox")
-            erro = true;
-        }
-        if (telefoneTextField.getText().substring(4).length() > 9 || telefoneTextField.getText().substring(4).length() < 8 ){
-            //mensagem de erro ("Error Provider" ou "MessageBox")
-            erro = true;
-        }
-        if (cpfTextField.getText().length() != 11){
-            //mensagem de erro ("Error Provider" ou "MessageBox")
-            erro = true;
-        }
-        if (LocalDate.parse(dataNascimentoTextField.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy")).isAfter(LocalDate.now())){
-            //mensagem de erro ("Error Provider" ou "MessageBox")
-            erro = true;
-        }
-        if (senhaTextField.getText().equals( confirmacaoSenhaTextField.getText())){
-            //mensagem de erro ("Error Provider" ou "MessageBox")
-            erro = true;
-        }
-        if (ehCliente){
-            if (cepTextField.getText().replace("-", "").length() != 8){
-                //mensagem de erro ("Error Provider" ou "MessageBox")
-                erro = true;
-            }
-            if (numeroTextField.getText().isEmpty() || Integer.parseInt(numeroTextField.getText()) <= 0){
-                //mensagem de erro ("Error Provider" ou "MessageBox")
-                erro = true;
-            }
-            if (ruaTextField.getText().isEmpty()){
-                //mensagem de erro ("Error Provider" ou "MessageBox")
-                erro = true;
-            }
-            if (bairroTextField.getText().isEmpty()){
-                //mensagem de erro ("Error Provider" ou "MessageBox")
-                erro = true;
-            }
-            if (cidadeTextField.getText().isEmpty()){
-                //mensagem de erro ("Error Provider" ou "MessageBox")
-                erro = true;
-            }
-            if (Validacao.usuarioExiste(emailTextField.getText())){
-                //mensagem de erro ("Error Provider" ou "MessageBox")
-                erro = true;
-            }
-            if (!erro){
+    public void btnCadastrarOnClick(ActionEvent event) throws IOException, SQLException, Exception{        
+        try{
+            Validacao.validaCadastro(emailTextField.getText(), nomeTextField.getText(), telefoneTextField.getText(), cpfTextField.getText(), dataNascimentoTextField.getText(),
+                    senhaTextField.getText(), confirmacaoSenhaTextField.getText(), ehCliente, cepTextField.getText(), numeroTextField.getText(), ruaTextField.getText(),
+                    bairroTextField.getText(), cidadeTextField.getText(), tipoVeiculoTextField.getText(), cnhCategoriaTextField.getText(), dataExpiracaoTextField.getText(),
+                    cnhCategoriaTextField.getText(), cargaSuportadaTextField.getText());
+            
+            if(ehCliente){
                 ClienteViewModel cliente = new ClienteViewModel();
                 cliente.setEmail(emailTextField.getText());
                 cliente.setNome(nomeTextField.getText());
@@ -202,35 +129,6 @@ public class CadastrarController implements Initializable
                 Dados.insereUsuario(cliente);
             }
             else{
-                System.out.println("Erro no cadastro de cliente");
-            }
-        }
-        else{
-            if (tipoVeiculoTextField.getText().isEmpty()){
-                //mensagem de erro ("Error Provider" ou "MessageBox")
-                erro = true;
-            }
-            if (cnhTextfield.getText().isEmpty()){
-                //mensagem de erro ("Error Provider" ou "MessageBox")
-                erro = true;
-            }
-            if (dataExpiracaoTextField.getText().isEmpty()){
-                //mensagem de erro ("Error Provider" ou "MessageBox")
-                erro = true;
-            }
-            if (LocalDate.parse(dataExpiracaoTextField.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy")).isAfter(LocalDate.now())){
-                //mensagem de erro ("Error Provider" ou "MessageBox")
-                erro = true;
-            }
-            if (cnhCategoriaTextField.getText().length() != 1){
-                //mensagem de erro ("Error Provider" ou "MessageBox")
-                erro = true;
-            }
-            if (cargaSuportadaTextField.getText().isEmpty() || Integer.parseInt(cargaSuportadaTextField.getText()) <= 0){
-                //mensagem de erro ("Error Provider" ou "MessageBox")
-                erro = true;
-            }
-            if (!erro){
                 MotoristaViewModel motorista = new MotoristaViewModel();
                 motorista.setEmail(emailTextField.getText());
                 motorista.setNome(nomeTextField.getText());
@@ -248,12 +146,12 @@ public class CadastrarController implements Initializable
                 motorista.setIdNaoAdm(Dados.insereNaoAdm(motorista));
                 Dados.insereUsuario(motorista);
             }
-            else{
-                System.out.println("Erro no cadastro de motorista");
-            }
+        }
+        catch (Exception erro){
+            JOptionPane.showMessageDialog(null, erro.getMessage(), "Erro de Cadastro", JOptionPane.ERROR_MESSAGE);
         }
     }
-    
+
     public void btnVoltarOnClick(ActionEvent event) throws IOException {
         Parent home_page_parent = FXMLLoader.load(getClass().getResource("/br/com/gomi/front/Login.fxml"));
         Scene home_page_scene = new Scene(home_page_parent);
