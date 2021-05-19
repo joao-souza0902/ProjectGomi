@@ -44,7 +44,7 @@
                         <Font size="13.0" />
                     </font>
                 </Button>
-                <Button layoutX="574.0" layoutY="73.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="79.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Foto CNH" textFill="WHITE">
+                <Button fx:id="fotoCnhButton" layoutX="574.0" layoutY="105.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="79.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Foto CNH" textFill="WHITE">
                     <font>
                         <Font size="13.0" />
                     </font>
@@ -59,7 +59,7 @@
                 <TextField fx:id="senhaTextField" layoutX="144.0" layoutY="272.0" prefHeight="25.0" prefWidth="195.0" />
                 <Label layoutX="33.0" layoutY="317.0" text="Confirmar Senha" textFill="WHITE" />
                 <TextField fx:id="confirmacaoSenhaTextField" layoutX="144.0" layoutY="313.0" prefHeight="25.0" prefWidth="195.0" />
-                <Button fx:id="btnCadastrarUser" layoutX="394.0" layoutY="411.0" mnemonicParsing="false" onAction="#btnCadastrarUserOnClick" prefHeight="41.0" prefWidth="300.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Cadastrar" textFill="WHITE">
+                <Button fx:id="cadastrarButton" layoutX="394.0" layoutY="411.0" mnemonicParsing="false" onAction="#btnCadastrarOnClick" prefHeight="41.0" prefWidth="300.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Cadastrar" textFill="WHITE">
                     <font>
                         <Font size="18.0" />
                     </font>
@@ -67,7 +67,7 @@
                 <ImageView fitHeight="109.0" fitWidth="117.0" layoutX="431.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true" />
                 <TextField fx:id="cepTextField" layoutX="501.0" layoutY="20.0" prefHeight="25.0" prefWidth="195.0" />
                 <Label fx:id="numCnhLabel" layoutX="408.0" layoutY="223.0" text="Nº CNH" textFill="WHITE" />
-                <TextField fx:id="cnhTextfield" layoutX="502.0" layoutY="219.0" prefHeight="25.0" prefWidth="195.0" />
+                <TextField fx:id="cnhTextField" layoutX="502.0" layoutY="219.0" prefHeight="25.0" prefWidth="195.0" />
                 <Label fx:id="tipoVeiculoLabel" layoutX="409.0" layoutY="303.0" text="Tipo Veículo" textFill="WHITE" />
                 <TextField fx:id="tipoVeiculoTextField" layoutX="502.0" layoutY="299.0" prefHeight="25.0" prefWidth="195.0" promptText="Caminhonete..." />
                 <Label fx:id="dataExpLabel" layoutX="408.0" layoutY="263.0" text="Data Exp." textFill="WHITE" />

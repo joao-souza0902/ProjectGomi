@@ -65,7 +65,7 @@ public class CadastrarController extends PadraoController
     @FXML
     TextField tipoVeiculoTextField;
     @FXML
-    TextField cnhTextfield;
+    TextField cnhTextField;
     @FXML
     TextField dataExpiracaoTextField;
     @FXML
@@ -98,6 +98,8 @@ public class CadastrarController extends PadraoController
     Label cnhCategoriaLabel;
     @FXML
     Label cargaLabel;
+    @FXML
+    Button fotoCnhButton;
     
     //verificar como colocar foto
     //verificar como colocar método de pagamento
@@ -106,7 +108,7 @@ public class CadastrarController extends PadraoController
         try{
             Validacao.validaCadastro(emailTextField.getText(), nomeTextField.getText(), telefoneTextField.getText(), cpfTextField.getText(), dataNascimentoTextField.getText(),
                     senhaTextField.getText(), confirmacaoSenhaTextField.getText(), ehCliente, cepTextField.getText(), numeroTextField.getText(), ruaTextField.getText(),
-                    bairroTextField.getText(), cidadeTextField.getText(), tipoVeiculoTextField.getText(), cnhCategoriaTextField.getText(), dataExpiracaoTextField.getText(),
+                    bairroTextField.getText(), cidadeTextField.getText(), tipoVeiculoTextField.getText(), cnhTextField.getText(), dataExpiracaoTextField.getText(),
                     cnhCategoriaTextField.getText(), cargaSuportadaTextField.getText());
             
             if(ehCliente){
@@ -138,7 +140,7 @@ public class CadastrarController extends PadraoController
                 motorista.setData(LocalDate.parse(dataNascimentoTextField.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy")));
                 motorista.setSenha(senhaTextField.getText());
                 motorista.setTipoVeiculo(tipoVeiculoTextField.getText());
-                motorista.setCnh(cnhTextfield.getText());
+                motorista.setCnh(cnhTextField.getText());
                 motorista.setDataExpiracao(LocalDate.parse(dataExpiracaoTextField.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy")));
                 motorista.setCnhCategoria(cnhCategoriaTextField.getText().charAt(0));
                 motorista.setCargaSuportada(Integer.parseInt(bairroTextField.getText()));
@@ -169,7 +171,7 @@ public class CadastrarController extends PadraoController
         bairroTextField.setVisible(true);
         cidadeTextField.setVisible(true);
         tipoVeiculoTextField.setVisible(false);
-        cnhTextfield.setVisible(false);
+        cnhTextField.setVisible(false);
         dataExpiracaoTextField.setVisible(false);
         cnhCategoriaTextField.setVisible(false);
         cargaSuportadaTextField.setVisible(false);
@@ -184,6 +186,7 @@ public class CadastrarController extends PadraoController
         dataExpLabel.setVisible(false);
         cnhCategoriaLabel.setVisible(false);
         cargaLabel.setVisible(false);
+        fotoCnhButton.setVisible(false);
         ehCliente = true;
     }
     
@@ -195,7 +198,7 @@ public class CadastrarController extends PadraoController
         bairroTextField.setVisible(false);
         cidadeTextField.setVisible(false);
         tipoVeiculoTextField.setVisible(true);
-        cnhTextfield.setVisible(true);
+        cnhTextField.setVisible(true);
         dataExpiracaoTextField.setVisible(true);
         cnhCategoriaTextField.setVisible(true);
         cargaSuportadaTextField.setVisible(true);
@@ -210,6 +213,7 @@ public class CadastrarController extends PadraoController
         dataExpLabel.setVisible(true);
         cnhCategoriaLabel.setVisible(true);
         cargaLabel.setVisible(true);
+        fotoCnhButton.setVisible(true);
         ehCliente = false;
     }   
     
@@ -223,7 +227,7 @@ public class CadastrarController extends PadraoController
         bairroTextField.setVisible(false);
         cidadeTextField.setVisible(false);
         tipoVeiculoTextField.setVisible(false);
-        cnhTextfield.setVisible(false);
+        cnhTextField.setVisible(false);
         dataExpiracaoTextField.setVisible(false);
         cnhCategoriaTextField.setVisible(false);
         cargaSuportadaTextField.setVisible(false);
@@ -238,5 +242,6 @@ public class CadastrarController extends PadraoController
         dataExpLabel.setVisible(false);
         cnhCategoriaLabel.setVisible(false);
         cargaLabel.setVisible(false);
+        fotoCnhButton.setVisible(false);
     }
 }
