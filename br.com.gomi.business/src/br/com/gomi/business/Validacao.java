@@ -92,7 +92,7 @@ public class Validacao {
         if (LocalDate.parse(dataNascimento, DateTimeFormatter.ofPattern("dd/MM/yyyy")).isAfter(LocalDate.now())) {
             throw new Exception();
         }
-        if (senha.equals(confirmacaoSenha)) {
+        if (!senha.equals(confirmacaoSenha)) { //#Barros: Mexi aqui caso tenha dado erro. Apaga essa mensagem depois
             throw new Exception();
         }
         if (ehCliente) {
@@ -111,9 +111,6 @@ public class Validacao {
             if (cidade.isEmpty()) {
                 throw new Exception();
             }
-            if (Validacao.usuarioExiste(email)) {
-                throw new Exception();
-            }
         } else {
             if (tipoVeiculo.isEmpty()) {
                 throw new Exception();
@@ -124,15 +121,18 @@ public class Validacao {
             if (dataExpiracao.isEmpty()) {
                 throw new Exception();
             }
-            if (LocalDate.parse(dataExpiracao, DateTimeFormatter.ofPattern("dd/MM/yyyy")).isAfter(LocalDate.now())) {
+            if (LocalDate.parse(dataExpiracao, DateTimeFormatter.ofPattern("dd/MM/yyyy")).isBefore(LocalDate.now())) {
                 throw new Exception();
             }
-            if (cnhCategoria.length() != 1) {
+            if (cnhCategoria.length() != 1 || (cnhCategoria.equals("C") && cnhCategoria.equals("D") && cnhCategoria.equals("E"))) {
                 throw new Exception();
             }
             if (cargaSuportada.isEmpty() || Integer.parseInt(cargaSuportada) <= 0) {
                 throw new Exception();
             }
         }
+        if (usuarioExiste(email)) {
+                throw new Exception();
+            }
     }
 }
