@@ -143,7 +143,7 @@ public class CadastrarController extends PadraoController
                 motorista.setCnh(cnhTextField.getText());
                 motorista.setDataExpiracao(LocalDate.parse(dataExpiracaoTextField.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy")));
                 motorista.setCnhCategoria(cnhCategoriaTextField.getText().charAt(0));
-                motorista.setCargaSuportada(Integer.parseInt(bairroTextField.getText()));
+                motorista.setCargaSuportada(Integer.parseInt(cargaSuportadaTextField.getText()));
                 motorista.setIdMotorista(Dados.insereMotorista(motorista));
                 motorista.setIdNaoAdm(Dados.insereNaoAdm(motorista));
                 Dados.insereUsuario(motorista);

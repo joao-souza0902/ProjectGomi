@@ -6,7 +6,9 @@
 package br.com.gomi.business;
 
 import br.com.gomi.back.LoginDAO;
+import br.com.gomi.back.NaoAdmDAO;
 import br.com.gomi.back.UsuarioDAO;
+import br.com.gomi.shared.NaoAdmViewModel;
 import br.com.gomi.shared.UsuarioViewModel;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -26,13 +28,25 @@ public class Validacao {
             return false;
         }
     }
+    public static char validaTipoLogin (String usuario, String senha) throws SQLException, Exception{
+        UsuarioViewModel user = new LoginDAO().login(usuario, senha);
+        if (user.getIdNaoAdm() != null){
+        NaoAdmViewModel naoAdm = new NaoAdmDAO().consult(user.getIdNaoAdm());
+        if (naoAdm.getIdCliente() != null)
+            return 'C';
+        else 
+            return 'M';
+        }
+        else 
+            return 'A';
+    }
 
     public static boolean usuarioExiste(String usuario) throws SQLException {
         UsuarioViewModel user = new UsuarioDAO().consultaEmail(usuario);
         if (user != null) {
-            return true;
-        } else {
             return false;
+        } else {
+            return true;
         }
     }
 
@@ -131,7 +145,7 @@ public class Validacao {
                 throw new Exception();
             }
         }
-        if (usuarioExiste(email)) {
+        if (!usuarioExiste(email)) {
                 throw new Exception();
             }
     }

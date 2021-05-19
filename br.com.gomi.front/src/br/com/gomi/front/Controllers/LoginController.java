@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package br.com.gomi.front.Controllers;
+
 import br.com.gomi.business.*;
 import br.com.gomi.shared.UsuarioViewModel;
 import java.io.IOException;
@@ -28,41 +29,61 @@ import javax.swing.JOptionPane;
  */
 public class LoginController extends PadraoController
 {
+
     @FXML
     private TextField loginTextField;
     @FXML
     private TextField senhaTextField;
-    
-    public void btnLoginOnClick(ActionEvent event) throws IOException, SQLException 
-    {        
-        if (Validacao.validaLogin(loginTextField.getText(), senhaTextField.getText())){
-           Parent parent = FXMLLoader.load(getClass().getResource("/br/com/gomi/front/PaginaPrincipalC.fxml"));
-           Scene scene = new Scene(parent);
-           Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-           stage.setScene(scene);
-           stage.show();
-        }
-        else
+
+    public void btnLoginOnClick(ActionEvent event) throws IOException, SQLException, Exception
+    {
+        if (Validacao.validaLogin(loginTextField.getText(), senhaTextField.getText()))
+        {
+            char tipo = Validacao.validaTipoLogin(loginTextField.getText(), senhaTextField.getText());
+            if (tipo == 'C')
+            {
+                Parent parent = FXMLLoader.load(getClass().getResource("/br/com/gomi/front/PaginaPrincipalC.fxml"));
+                Scene scene = new Scene(parent);
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                stage.show();
+            } else if (tipo == 'M')
+            {
+                Parent parent = FXMLLoader.load(getClass().getResource("/br/com/gomi/front/PaginaPrincipalM.fxml"));
+                Scene scene = new Scene(parent);
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                stage.show();
+            } else
+            {
+
+            }
+        } else
+        {
             JOptionPane.showMessageDialog(null, "Usuário não encontrado", "Erro de Login", JOptionPane.INFORMATION_MESSAGE);
+        }
     }
-    
-    public void btnCadastrarOnClick(ActionEvent event) throws IOException {
+
+    public void btnCadastrarOnClick(ActionEvent event) throws IOException
+    {
         Parent home_page_parent = FXMLLoader.load(getClass().getResource("/br/com/gomi/front/CadastroCM.fxml"));
         Scene home_page_scene = new Scene(home_page_parent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(home_page_scene);
         app_stage.show();
     }
-    
-    public void lnkEsqueceuSenhaOnClick(ActionEvent event) throws IOException {
+
+    public void lnkEsqueceuSenhaOnClick(ActionEvent event) throws IOException
+    {
         Parent home_page_parent = FXMLLoader.load(getClass().getResource("RecuperacaoDeSenha.fxml"));
         Scene home_page_scene = new Scene(home_page_parent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(home_page_scene);
         app_stage.show();
     }
-    
-    public void imgSobreOnClick(ActionEvent event) throws IOException{
+
+    public void imgSobreOnClick(ActionEvent event) throws IOException
+    {
         Parent home_page_parent = FXMLLoader.load(getClass().getResource("Sobre.fxml"));
         Scene home_page_scene = new Scene(home_page_parent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
