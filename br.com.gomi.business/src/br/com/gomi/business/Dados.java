@@ -5,14 +5,8 @@
  */
 package br.com.gomi.business;
 
-import br.com.gomi.back.ClienteDAO;
-import br.com.gomi.back.MotoristaDAO;
-import br.com.gomi.back.NaoAdmDAO;
-import br.com.gomi.back.UsuarioDAO;
-import br.com.gomi.shared.ClienteViewModel;
-import br.com.gomi.shared.MotoristaViewModel;
-import br.com.gomi.shared.NaoAdmViewModel;
-import br.com.gomi.shared.UsuarioViewModel;
+import br.com.gomi.back.*;
+import br.com.gomi.shared.*;
 
 /**
  *
@@ -35,5 +29,9 @@ public class Dados
     public static int insereMotorista(MotoristaViewModel motorista) throws Exception{
         MotoristaDAO dao = new MotoristaDAO();
         return dao.insert(motorista);
+    }
+    public static int insereSolicitacao(SolicitacaoViewModel solicitacao) throws Exception{
+        SolicitacaoDAO dao = new SolicitacaoDAO();
+        return dao.insert(solicitacao);
     }
 }

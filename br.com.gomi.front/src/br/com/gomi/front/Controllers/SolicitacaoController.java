@@ -4,8 +4,9 @@
  * and open the template in the editor.
  */
 package br.com.gomi.front.Controllers;
-import br.com.gomi.business.*;
-import br.com.gomi.shared.UsuarioViewModel;
+import br.com.gomi.business.Dados;
+import br.com.gomi.business.Validacao;
+import br.com.gomi.shared.SolicitacaoViewModel;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -19,30 +20,45 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.control.CheckBox;
 import javafx.stage.Stage;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Administrador
  */
-public class SolicitacaoController implements Initializable
+public class SolicitacaoController extends PadraoController
 {
     @FXML
-    private TextField loginTextField;
-    private TextField senhaTextField;
+    TextField descricaoTextField;
+    @FXML
+    TextField volumeTextField;
+    @FXML
+    CheckBox checkLixoReciclaveis;
+    @FXML
+    CheckBox checkEletrodomesticos;
+    @FXML
+    CheckBox checkMoveis;
+    @FXML
+    CheckBox checkEntulho;
+    @FXML
+    CheckBox checkLixoEletronico;
     
     public void btnSolicitarOnClick (ActionEvent event) throws IOException, SQLException 
     {
-        
-        if (Validacao.validaLogin(loginTextField.getText(), senhaTextField.getText())){
-            Parent home_page_parent = FXMLLoader.load(getClass().getResource("MotoristaEncontrado.fxml"));
-            Scene home_page_scene = new Scene(home_page_parent);
-            Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            app_stage.setScene(home_page_scene);
-            app_stage.show();
+        try {
+            Validacao.validaSolicitacao(descricaoTextField.getText(), volumeTextField.getText());
+            
+            SolicitacaoViewModel solicitacao = new SolicitacaoViewModel();
+            //solicitacao.setIdCliente(); //Ter um local para as informacoes do cliente
+            solicitacao.setDescricao(descricaoTextField.getText());
+            solicitacao.setVolume(Integer.parseInt(volumeTextField.getText()));
+            //adicionar categorias na lista
+            Dados.insereSolicitacao(solicitacao);
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(null, erro.getMessage(), "Erro de Cadastro", JOptionPane.ERROR_MESSAGE);
         }
-        else
-            System.out.println("Login Inválido!");
     }
     
     public void btnVoltarOnClick(ActionEvent event) throws IOException {
@@ -67,19 +83,5 @@ public class SolicitacaoController implements Initializable
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(home_page_scene);
         app_stage.show();
-    }
-    
-    public void btnCloseClick (ActionEvent event) throws IOException{
-       System.exit(0);
-    } 
-    
-    public void btnMinOnClick (ActionEvent event) throws IOException{
-        System.exit(0);
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) 
-    {
-        
     }
 }

@@ -33,7 +33,7 @@ import javax.swing.JOptionPane;
  *
  * @author Administrador
  */
-public class CadastrarController implements Initializable
+public class CadastrarController extends PadraoController
 {
     private static boolean ehCliente;
     @FXML
@@ -215,15 +215,7 @@ public class CadastrarController implements Initializable
         cargaLabel.setVisible(true);
         fotoCnhButton.setVisible(true);
         ehCliente = false;
-    }
-    
-    public void btnCloseClick (ActionEvent event) throws IOException{
-       System.exit(0);
-    }
-    
-    public void btnMinClick (ActionEvent event) throws IOException{
-        ((Stage)((Button)event.getSource()).getScene().getWindow()).setIconified(true);
-    }
+    }   
     
     @Override @FXML
     public void initialize(URL location, ResourceBundle resources)

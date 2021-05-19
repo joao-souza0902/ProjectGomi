@@ -17,7 +17,7 @@ import javafx.stage.Stage;
  *
  * @author jonyg
  */
-public class PrincipalController 
+public class PrincipalController extends PadraoController
 {
      public void btnSolicitarColetaOnClick (ActionEvent event) throws IOException {
         Parent home_page_parent = FXMLLoader.load(getClass().getResource("/br/com/gomi/front/FazerSolicitacao.fxml"));
@@ -41,9 +41,5 @@ public class PrincipalController
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(home_page_scene);
         app_stage.show();
-    }
-     
-     public void btnCloseClick (ActionEvent event) throws IOException{
-       System.exit(0);
     }
 }

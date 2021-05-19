@@ -26,7 +26,7 @@ import javax.swing.JOptionPane;
  *
  * @author Administrador
  */
-public class LoginController implements Initializable
+public class LoginController extends PadraoController
 {
     @FXML
     private TextField loginTextField;
@@ -69,17 +69,6 @@ public class LoginController implements Initializable
         app_stage.setScene(home_page_scene);
         app_stage.show();
     }
-    
-    public void btnCloseClick (ActionEvent event) throws IOException{
-       System.exit(0);
-    }
-    
-    @Override
-    public void initialize(URL location, ResourceBundle resources)
-    {
-        
-    }
-
 }
 
 ////hh
