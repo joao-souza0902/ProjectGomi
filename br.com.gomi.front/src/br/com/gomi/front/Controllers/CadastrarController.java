@@ -215,7 +215,11 @@ public class CadastrarController extends PadraoController
         cargaLabel.setVisible(true);
         fotoCnhButton.setVisible(true);
         ehCliente = false;
-    }   
+    } 
+    
+    public void btnCarregaFotoUserOnClick (ActionEvent event) throws IOException{
+        
+    }
     
     @Override @FXML
     public void initialize(URL location, ResourceBundle resources)

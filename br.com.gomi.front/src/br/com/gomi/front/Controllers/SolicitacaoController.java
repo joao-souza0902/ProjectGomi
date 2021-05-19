@@ -84,4 +84,11 @@ public class SolicitacaoController extends PadraoController
         app_stage.setScene(home_page_scene);
         app_stage.show();
     }
+    public void btnContinuarOnClick (ActionEvent event) throws IOException
+    {
+        
+    }
+    public void btnFotoColetaOnClick (ActionEvent event) throws IOException{
+        
+    }
 }
