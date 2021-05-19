@@ -19,7 +19,6 @@ public class SolicitacaoViewModel extends PadraoViewModel {
     private LocalDateTime dataSolicitacao;
     private boolean aberto;
     private String descricao;
-    private int volume;
     private String cep;
     private int numero;
     ArrayList<CategoriaViewModel> categorias = new ArrayList<>();    
@@ -74,14 +73,6 @@ public class SolicitacaoViewModel extends PadraoViewModel {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
-    }
-
-    public int getVolume() {
-        return volume;
-    }
-
-    public void setVolume(int volume) {
-        this.volume = volume;
     } 
     
     public String getCep() {
