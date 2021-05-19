@@ -28,46 +28,37 @@ public class Validacao {
             return false;
         }
     }
-    public static char validaTipoLogin (String usuario, String senha) throws SQLException, Exception{
+
+    public static char validaTipoLogin(String usuario, String senha) throws SQLException, Exception {
         UsuarioViewModel user = new LoginDAO().login(usuario, senha);
-        if (user.getIdNaoAdm() != null){
-        NaoAdmViewModel naoAdm = new NaoAdmDAO().consult(user.getIdNaoAdm());
-        if (naoAdm.getIdCliente() != null)
-            return 'C';
-        else 
-            return 'M';
-        }
-        else 
+        if (user.getIdNaoAdm() != null) {
+            NaoAdmViewModel naoAdm = new NaoAdmDAO().consult(user.getIdNaoAdm());
+            if (naoAdm.getIdCliente() != null) {
+                return 'C';
+            } else {
+                return 'M';
+            }
+        } else {
             return 'A';
+        }
     }
 
     public static boolean usuarioExiste(String usuario) throws SQLException {
         UsuarioViewModel user = new UsuarioDAO().consultaEmail(usuario);
-        if (user != null) {
-            return false;
-        } else {
-            return true;
-        }
+        return user != null;
     }
 
-    public static void validaSolicitacao(String descricao, String volume) throws Exception {
+    public static void validaSolicitacao(String descricao) throws Exception {
         if (descricao.isEmpty()) {
             throw new Exception("Preencha a Descrição!");
-        }
-        if (volume.isEmpty()) {
-            throw new Exception("Preencha o Volume!");
-        }
-
-        if (Integer.parseInt(volume) <= 0) {
-            throw new Exception("Volume não pode ser zero ou negativo!");
         }
     }
 
     public static void validaCadastro(String email, String nome, String telefone,
             String cpf, String dataNascimento, String senha,
-            String confirmacaoSenha, boolean ehCliente, String cep, 
-            String numero, String rua, String bairro, String cidade, 
-            String tipoVeiculo, String cnh, String dataExpiracao, 
+            String confirmacaoSenha, boolean ehCliente, String cep,
+            String numero, String rua, String bairro, String cidade,
+            String tipoVeiculo, String cnh, String dataExpiracao,
             String cnhCategoria, String cargaSuportada) throws Exception {
         if (email.isEmpty()) {
             throw new Exception();
@@ -92,6 +83,9 @@ public class Validacao {
         }
 
         if (email.indexOf("@") == -1 || email.lastIndexOf(".") < email.indexOf("@")) {
+            throw new Exception();
+        }
+        if (!usuarioExiste(email)) {
             throw new Exception();
         }
         if (Integer.parseInt(telefone.substring(1, 3)) <= 10 || telefone.substring(1, 3).indexOf("0") != -1) {
@@ -145,8 +139,5 @@ public class Validacao {
                 throw new Exception();
             }
         }
-        if (!usuarioExiste(email)) {
-                throw new Exception();
-            }
     }
 }

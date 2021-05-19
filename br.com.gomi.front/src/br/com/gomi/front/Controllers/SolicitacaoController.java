@@ -8,17 +8,13 @@ import br.com.gomi.business.Dados;
 import br.com.gomi.business.Validacao;
 import br.com.gomi.shared.SolicitacaoViewModel;
 import java.io.IOException;
-import java.net.URL;
 import java.sql.SQLException;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.CheckBox;
 import javafx.stage.Stage;
@@ -33,8 +29,6 @@ public class SolicitacaoController extends PadraoController
     @FXML
     TextField descricaoTextField;
     @FXML
-    TextField volumeTextField;
-    @FXML
     CheckBox checkLixoReciclaveis;
     @FXML
     CheckBox checkEletrodomesticos;
@@ -45,15 +39,14 @@ public class SolicitacaoController extends PadraoController
     @FXML
     CheckBox checkLixoEletronico;
     
-    public void btnSolicitarOnClick (ActionEvent event) throws IOException, SQLException 
+    public void btnContinuarOnClick (ActionEvent event) throws IOException, SQLException 
     {
         try {
-            Validacao.validaSolicitacao(descricaoTextField.getText(), volumeTextField.getText());
+            Validacao.validaSolicitacao(descricaoTextField.getText());
             
             SolicitacaoViewModel solicitacao = new SolicitacaoViewModel();
             //solicitacao.setIdCliente(); //Ter um local para as informacoes do cliente
             solicitacao.setDescricao(descricaoTextField.getText());
-            solicitacao.setVolume(Integer.parseInt(volumeTextField.getText()));
             //adicionar categorias na lista
             Dados.insereSolicitacao(solicitacao);
         } catch (Exception erro) {
@@ -69,25 +62,6 @@ public class SolicitacaoController extends PadraoController
         app_stage.show();
     }
     
-    public void lnkEsqueceuSenhaOnClick(ActionEvent event) throws IOException {
-        Parent home_page_parent = FXMLLoader.load(getClass().getResource("RecuperacaoDeSenha.fxml"));
-        Scene home_page_scene = new Scene(home_page_parent);
-        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        app_stage.setScene(home_page_scene);
-        app_stage.show();
-    }
-    
-    public void imgSobreOnClick(ActionEvent event) throws IOException{
-        Parent home_page_parent = FXMLLoader.load(getClass().getResource("Sobre.fxml"));
-        Scene home_page_scene = new Scene(home_page_parent);
-        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        app_stage.setScene(home_page_scene);
-        app_stage.show();
-    }
-    public void btnContinuarOnClick (ActionEvent event) throws IOException
-    {
-        
-    }
     public void btnFotoColetaOnClick (ActionEvent event) throws IOException{
         
     }

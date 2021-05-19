@@ -7,7 +7,6 @@ package br.com.gomi.back;
 
 import java.util.HashMap;
 import br.com.gomi.shared.*;
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -21,7 +20,7 @@ public class SolicitacaoDAO extends PadraoDAO<SolicitacaoViewModel>
     @Override
     protected String[] CriaParametros(SolicitacaoViewModel model)
     {           
-        String[] parametros = new String[10];
+        String[] parametros = new String[9];
         parametros[0] = String.valueOf(model.getId());
         parametros[1] = String.valueOf(model.getIdCliente());
         parametros[2] = String.valueOf(model.getIdMotorista());
@@ -29,9 +28,8 @@ public class SolicitacaoDAO extends PadraoDAO<SolicitacaoViewModel>
         parametros[4] = String.valueOf(model.getDataSolicitacao().format(dtf));
         parametros[5] = String.valueOf(model.isAberto());
         parametros[6] = model.getDescricao();
-        parametros[7] = String.valueOf(model.getVolume());
-        parametros[8] = model.getCep();
-        parametros[9] = String.valueOf(model.getNumero());
+        parametros[7] = model.getCep();
+        parametros[8] = String.valueOf(model.getNumero());
         
         return parametros;
     }
@@ -48,7 +46,6 @@ public class SolicitacaoDAO extends PadraoDAO<SolicitacaoViewModel>
         t.setDataSolicitacao(LocalDateTime.parse(String.valueOf(registro.get("DataSolicitacao")).substring(0, 16), dft));
         t.setAberto((Boolean)registro.get("Aberto"));
         t.setDescricao((String)registro.get("Descricao"));
-        t.setVolume((Integer)registro.get("Volume"));
         t.setCep((String)registro.get("cep"));
         t.setNumero((Integer)registro.get("numero"));
         return t;
@@ -62,6 +59,6 @@ public class SolicitacaoDAO extends PadraoDAO<SolicitacaoViewModel>
     
     @Override
     protected void setQtdParametros(){
-        qtdParametros = " ?, ?, ?, ?, ?, ?, ?, ?, ?, ?";
+        qtdParametros = " ?, ?, ?, ?, ?, ?, ?, ?, ?";
     }
 }
