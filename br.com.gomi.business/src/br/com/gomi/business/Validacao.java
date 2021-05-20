@@ -88,12 +88,12 @@ public class Validacao {
         if (email.indexOf("@") == -1 || email.lastIndexOf(".") < email.indexOf("@")) {
             throw new Exception();
         }
-        if (!usuarioExiste(email)) {
+        if (usuarioExiste(email)) {
             char tipoExistente = validaTipoLogin(email, senha);
-            if (!(tipoExistente == 'C' && !ehCliente) || !(tipoExistente == 'M' && ehCliente))            
-                throw new Exception();
-            else
+            if ((tipoExistente == 'C' && !ehCliente) || (tipoExistente == 'M' && ehCliente))            
                 tipo = 'X';
+            else
+                throw new Exception();
         }
         if (Integer.parseInt(telefone.substring(1, 3)) <= 10 || telefone.substring(1, 3).indexOf("0") != -1) {
             throw new Exception();
