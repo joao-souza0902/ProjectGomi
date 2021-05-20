@@ -50,6 +50,7 @@ public class Auditoria {
     public void iniciar(){
         if(thread == null){
             thread = new ThreadLogs();
+            thread.setName("Auditoria");
             thread.start();
         }                
     }
