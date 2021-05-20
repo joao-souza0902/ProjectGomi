@@ -5,14 +5,13 @@
  */
 package br.com.gomi.front;
 
-import java.awt.Image;
+import br.com.gomi.business.Auditoria;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javax.swing.text.html.ImageView;
 
 /**
  *
@@ -34,7 +33,9 @@ public class BrComGomiFront extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        Auditoria.obtemInstancia().iniciar();
         launch(args);
+        Auditoria.obtemInstancia().finalizar();
     }
     
 }
