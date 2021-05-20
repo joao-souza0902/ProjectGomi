@@ -10,13 +10,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="563.0" prefWidth="707.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.Controllers.CadastrarController">
+
+<AnchorPane id="AnchorPane" prefHeight="563.0" prefWidth="707.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.Controllers.CadastrarController">
     <children>
         <AnchorPane layoutY="97.0" prefHeight="466.0" prefWidth="707.0" style="-fx-background-color: #38414e;">
             <children>
                 <Label fx:id="cepLabel" layoutX="420.0" layoutY="22.0" text="CEP" textFill="WHITE" />
                 <Label fx:id="emailLabel" layoutX="33.0" layoutY="17.0" text="E-mail" textFill="WHITE" />
-                <TextField fx:id="emailTextField" layoutX="144.0" layoutY="13.0" prefHeight="25.0" prefWidth="195.0" promptText="cadastro@email.com.br" />
+                <TextField fx:id="emailTextField" layoutX="144.0" layoutY="13.0" onKeyReleased="#emailTextKeyReleased" prefHeight="25.0" prefWidth="195.0" promptText="cadastro@email.com.br" />
                 <Separator layoutX="374.0" layoutY="6.0" orientation="VERTICAL" prefHeight="443.0" prefWidth="6.0" />
                 <Label layoutX="33.0" layoutY="192.0" text="Telefone" textFill="WHITE" />
                 <TextField fx:id="telefoneTextField" layoutX="144.0" layoutY="188.0" prefHeight="25.0" prefWidth="195.0" promptText="(00) 0 0000-0000" />
