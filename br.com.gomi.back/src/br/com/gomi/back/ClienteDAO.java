@@ -20,7 +20,7 @@ public class ClienteDAO extends PadraoDAO<ClienteViewModel>
     protected String[] CriaParametros(ClienteViewModel model)
     {           
         String[] parametros = new String[7];
-        parametros[0] = String.valueOf(model.getId());
+        parametros[0] = String.valueOf(model.getIdCliente());
         parametros[1] = model.getRua();
         parametros[2] = String.valueOf(model.getNumero());
         parametros[3] = model.getComplemento();
@@ -34,7 +34,7 @@ public class ClienteDAO extends PadraoDAO<ClienteViewModel>
     protected ClienteViewModel MontaModel(HashMap<String, Object> registro)
     {
         ClienteViewModel t = new ClienteViewModel();
-        t.setId((Integer)registro.get("IdCliente"));
+        t.setIdCliente((Integer)registro.get("IdCliente"));
         t.setRua((String)registro.get("Rua"));
         t.setNumero((Integer)registro.get("Numero"));
         t.setComplemento((String)registro.get("Complemento"));

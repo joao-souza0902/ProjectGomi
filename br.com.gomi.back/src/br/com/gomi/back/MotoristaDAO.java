@@ -22,7 +22,7 @@ public class MotoristaDAO extends PadraoDAO<MotoristaViewModel>
     protected String[] CriaParametros(MotoristaViewModel model)
     {           
         String[] parametros = new String[6];
-        parametros[0] = String.valueOf(model.getId());
+        parametros[0] = String.valueOf(model.getIdMotorista());
         parametros[1] = String.valueOf(model.getTipoVeiculo());
         parametros[2] = model.getCnh();
         parametros[3] = String.valueOf(model.getDataExpiracao());
@@ -35,7 +35,7 @@ public class MotoristaDAO extends PadraoDAO<MotoristaViewModel>
     protected MotoristaViewModel MontaModel(HashMap<String, Object> registro)
     {        
         MotoristaViewModel t = new MotoristaViewModel();
-        t.setId((Integer)registro.get("IdMotorista"));
+        t.setIdMotorista((Integer)registro.get("IdMotorista"));
         t.setTipoVeiculo((String)registro.get("TipoVeiculo"));
         t.setCnh((String)registro.get("CNH"));
         t.setDataExpiracao(LocalDate.parse(String.valueOf(registro.get("DataExpiracao"))));

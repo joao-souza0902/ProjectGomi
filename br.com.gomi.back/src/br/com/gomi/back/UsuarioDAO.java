@@ -68,7 +68,7 @@ public class UsuarioDAO extends PadraoDAO<UsuarioViewModel>
     public UsuarioViewModel consultaEmail(String email) throws SQLException{
         String[] parametros = {email};
         JDataTable tabela = HelperDAO.executaProcSelect("spUsuario ?", parametros);
-        if (tabela.getNumeroLinhas() == 0)
+        if (tabela == null)
             return null;
         else
             return MontaModel(tabela.getLinha(1));

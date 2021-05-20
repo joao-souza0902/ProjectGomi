@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="563.0" prefWidth="707.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.Controllers.PrincipalController">
+<AnchorPane id="AnchorPane" prefHeight="563.0" prefWidth="707.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.Controllers.MotoristaController">
    <children>
       <AnchorPane layoutY="97.0" prefHeight="466.0" prefWidth="707.0" style="-fx-background-color: #38414e;">
          <children>
@@ -20,7 +20,7 @@
                   <Font size="24.0" />
                </font>
             </Button>
-            <CheckBox layoutX="197.0" layoutY="84.0" mnemonicParsing="false" text="Ficar disponível para coletas" textFill="WHITE">
+            <CheckBox fx:id="disponivelRadioButton" layoutX="197.0" layoutY="84.0" mnemonicParsing="false" text="Ficar disponível para coletas" textFill="WHITE">
                <font>
                   <Font size="22.0" />
                </font>
@@ -29,7 +29,7 @@
       </AnchorPane>
       <AnchorPane prefHeight="74.0" prefWidth="707.0" style="-fx-background-color: #00CC66;">
          <children>
-            <Button fx:id="btnClose" layoutX="642.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnCloseOnClick" prefHeight="46.0" prefWidth="29.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="X" textFill="WHITE">
+            <Button fx:id="btnClose" layoutX="642.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnCloseClick" prefHeight="46.0" prefWidth="29.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="X" textFill="WHITE">
                 <font>
                 <Font size="20.0" />
                 </font>
@@ -39,7 +39,7 @@
                   <Font size="44.0" />
                </font>
             </Label>
-            <Button fx:id="btnVoltar" layoutX="14.0" layoutY="20.0" mnemonicParsing="false" onAction="#btnVoltarOnClick" prefHeight="36.0" prefWidth="79.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Voltar" textFill="WHITE">
+            <Button fx:id="btnSair" layoutX="14.0" layoutY="20.0" mnemonicParsing="false" onAction="#btnSairOnClick" prefHeight="36.0" prefWidth="79.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Sair" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>

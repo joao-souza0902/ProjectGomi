@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.gomi.front;
+package util;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;

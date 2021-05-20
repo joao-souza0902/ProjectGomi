@@ -20,7 +20,7 @@ public class NaoAdmDAO extends PadraoDAO<NaoAdmViewModel>
     protected String[] CriaParametros(NaoAdmViewModel model)
     {           
         String[] parametros = new String[5];
-        parametros[0] = String.valueOf(model.getId());
+        parametros[0] = String.valueOf(model.getIdNaoAdm());
         parametros[1] = String.valueOf(model.getIdCliente());
         parametros[2] = String.valueOf(model.getIdMotorista());
         parametros[3] = String.valueOf(model.getTelefoneddd());
@@ -33,7 +33,7 @@ public class NaoAdmDAO extends PadraoDAO<NaoAdmViewModel>
     protected NaoAdmViewModel MontaModel(HashMap<String, Object> registro)
     {
         NaoAdmViewModel t = new NaoAdmViewModel();
-        t.setId((Integer)registro.get("IdNaoAdm"));
+        t.setIdNaoAdm((Integer)registro.get("IdNaoAdm"));
         if (String.valueOf(registro.get("IdCliente")).equals(""))
             t.setIdCliente(null);
         else
