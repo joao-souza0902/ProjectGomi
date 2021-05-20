@@ -29,6 +29,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import util.MaskField;
 
 /**
@@ -119,11 +120,14 @@ public class CadastrarController extends PadraoController
     
     public void btnCadastrarOnClick(ActionEvent event) throws IOException, SQLException, Exception{        
         try{
+            if (JOptionPane.showConfirmDialog(null, "Deseja cadastrar esse usuário?", "Mensagem de Cadastro", 0) == 1)
+                return;
+            
             char tipo = Validacao.validaCadastro(emailTextField.getText(), nomeTextField.getText(), telefoneTextField.getText(), cpfTextField.getText(), dataNascimentoTextField.getText(),
                     senhaTextField.getText(), confirmacaoSenhaTextField.getText(), ehCliente, cepTextField.getText(), numeroTextField.getText(), ruaTextField.getText(),
                     bairroTextField.getText(), cidadeTextField.getText(), tipoVeiculoTextField.getText(), cnhTextField.getText(), dataExpiracaoTextField.getText(),
                     cnhCategoriaTextField.getText(), cargaSuportadaTextField.getText());
-
+            
             if (tipo == 'C')
             {
                 ClienteViewModel cliente = new ClienteViewModel();
@@ -165,6 +169,8 @@ public class CadastrarController extends PadraoController
             {
                 if (ehCliente)
                 {
+                    if (JOptionPane.showConfirmDialog(null, "Esse usuário Já está cadastrado como Motorista. Deseja Cadastrar-se como Cliente?", "Mensagem de Cadastro", 0) == 1)
+                        return;
                     ClienteViewModel cliente = new ClienteViewModel();
                     cliente.setCep(cepTextField.getText());
                     cliente.setNumero(Integer.parseInt(numeroTextField.getText()));
@@ -182,6 +188,8 @@ public class CadastrarController extends PadraoController
                     
                 } else
                 {
+                    if (JOptionPane.showConfirmDialog(null, "Esse usuário Já está cadastrado como Cliente. Deseja Cadastrar-se como Motorista?", "Mensagem de Cadastro", 0) == 1)
+                        return;
                     MotoristaViewModel motorista = new MotoristaViewModel();
                     motorista.setTipoVeiculo(tipoVeiculoTextField.getText());
                     motorista.setCnh(cnhTextField.getText());
@@ -197,6 +205,7 @@ public class CadastrarController extends PadraoController
                     Dados.AtualizaNaoAdm(motorista);                    
                 }
             }
+            JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso!", "Mensagem de Cadastro", 1);
         } catch (Exception erro)
         {
             JOptionPane.showMessageDialog(null, erro.getMessage(), "Erro de Cadastro", JOptionPane.ERROR_MESSAGE);
@@ -271,6 +280,10 @@ public class CadastrarController extends PadraoController
     public void btnCarregaFotoUserOnClick(ActionEvent event) throws IOException
     {
 
+    }
+    
+    public void emailTextKeyReleased (ActionEvent event) throws IOException{
+        
     }
 
     @Override
