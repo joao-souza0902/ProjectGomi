@@ -28,7 +28,7 @@ public class AdministradorDAO extends PadraoDAO<AdministradorViewModel>
     protected AdministradorViewModel MontaModel(HashMap<String, Object> registro)
     {
         AdministradorViewModel t = new AdministradorViewModel();
-        t.setId((Integer)registro.get("IdAdministrador"));
+        t.setIdAdministrador((Integer)registro.get("IdAdministrador"));
         return t;
     }
 

@@ -106,12 +106,12 @@ public class CadastrarController extends PadraoController
     
     public void btnCadastrarOnClick(ActionEvent event) throws IOException, SQLException, Exception{        
         try{
-            Validacao.validaCadastro(emailTextField.getText(), nomeTextField.getText(), telefoneTextField.getText(), cpfTextField.getText(), dataNascimentoTextField.getText(),
+            char tipo = Validacao.validaCadastro(emailTextField.getText(), nomeTextField.getText(), telefoneTextField.getText(), cpfTextField.getText(), dataNascimentoTextField.getText(),
                     senhaTextField.getText(), confirmacaoSenhaTextField.getText(), ehCliente, cepTextField.getText(), numeroTextField.getText(), ruaTextField.getText(),
                     bairroTextField.getText(), cidadeTextField.getText(), tipoVeiculoTextField.getText(), cnhTextField.getText(), dataExpiracaoTextField.getText(),
                     cnhCategoriaTextField.getText(), cargaSuportadaTextField.getText());
             
-            if(ehCliente){
+            if(tipo == 'C'){
                 ClienteViewModel cliente = new ClienteViewModel();
                 cliente.setEmail(emailTextField.getText());
                 cliente.setNome(nomeTextField.getText());
@@ -130,7 +130,7 @@ public class CadastrarController extends PadraoController
                 cliente.setIdNaoAdm(Dados.insereNaoAdm(cliente));
                 Dados.insereUsuario(cliente);
             }
-            else{
+            else if (tipo == 'M'){
                 MotoristaViewModel motorista = new MotoristaViewModel();
                 motorista.setEmail(emailTextField.getText());
                 motorista.setNome(nomeTextField.getText());
@@ -148,7 +148,11 @@ public class CadastrarController extends PadraoController
                 motorista.setIdNaoAdm(Dados.insereNaoAdm(motorista));
                 Dados.insereUsuario(motorista);
             }
+            else if (tipo == 'X'){
+                //Fazer update em naoadm e o insert na tabela neta
+                }
         }
+        
         catch (Exception erro){
             JOptionPane.showMessageDialog(null, erro.getMessage(), "Erro de Cadastro", JOptionPane.ERROR_MESSAGE);
         }

@@ -33,7 +33,7 @@ public class NaoAdmDAO extends PadraoDAO<NaoAdmViewModel>
     protected NaoAdmViewModel MontaModel(HashMap<String, Object> registro)
     {
         NaoAdmViewModel t = new NaoAdmViewModel();
-        t.setId((Integer)registro.get("IdNaoAdm"));
+        t.setIdNaoAdm((Integer)registro.get("IdNaoAdm"));
         if (String.valueOf(registro.get("IdCliente")).equals(""))
             t.setIdCliente(null);
         else

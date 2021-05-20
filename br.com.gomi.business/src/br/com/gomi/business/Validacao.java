@@ -33,6 +33,8 @@ public class Validacao {
         UsuarioViewModel user = new LoginDAO().login(usuario, senha);
         if (user.getIdNaoAdm() != null) {
             NaoAdmViewModel naoAdm = new NaoAdmDAO().consult(user.getIdNaoAdm());
+            if (naoAdm.getIdCliente() != null && naoAdm.getIdMotorista() != null)
+                return 'X';
             if (naoAdm.getIdCliente() != null) {
                 return 'C';
             } else {
@@ -54,12 +56,13 @@ public class Validacao {
         }
     }
 
-    public static void validaCadastro(String email, String nome, String telefone,
+    public static char validaCadastro(String email, String nome, String telefone,
             String cpf, String dataNascimento, String senha,
             String confirmacaoSenha, boolean ehCliente, String cep,
             String numero, String rua, String bairro, String cidade,
             String tipoVeiculo, String cnh, String dataExpiracao,
             String cnhCategoria, String cargaSuportada) throws Exception {
+        char tipo = ' ';
         if (email.isEmpty()) {
             throw new Exception();
         }
@@ -86,7 +89,11 @@ public class Validacao {
             throw new Exception();
         }
         if (!usuarioExiste(email)) {
-            throw new Exception();
+            char tipoExistente = validaTipoLogin(email, senha);
+            if (!(tipoExistente == 'C' && !ehCliente) || !(tipoExistente == 'M' && ehCliente))            
+                throw new Exception();
+            else
+                tipo = 'X';
         }
         if (Integer.parseInt(telefone.substring(1, 3)) <= 10 || telefone.substring(1, 3).indexOf("0") != -1) {
             throw new Exception();
@@ -104,6 +111,8 @@ public class Validacao {
             throw new Exception();
         }
         if (ehCliente) {
+            if (tipo != 'X')
+                tipo = 'C';
             if (cep.replace("-", "").length() != 8) {
                 throw new Exception();
             }
@@ -119,7 +128,10 @@ public class Validacao {
             if (cidade.isEmpty()) {
                 throw new Exception();
             }
+            return tipo;
         } else {
+            if (tipo != 'X')
+                tipo = 'M';
             if (tipoVeiculo.isEmpty()) {
                 throw new Exception();
             }
@@ -138,6 +150,7 @@ public class Validacao {
             if (cargaSuportada.isEmpty() || Integer.parseInt(cargaSuportada) <= 0) {
                 throw new Exception();
             }
+            return tipo;
         }
     }
 }

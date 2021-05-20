@@ -5,6 +5,7 @@
  */
 package br.com.gomi.front.Controllers;
 
+import br.com.gomi.shared.UsuarioAtual;
 import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -26,6 +27,7 @@ public class MotoristaController extends PadraoController
         
     }
     public void btnSairOnClick(ActionEvent event) throws IOException{
+        UsuarioAtual.getInstancia().logoff();
         Parent home_page_parent = FXMLLoader.load(getClass().getResource("/br/com/gomi/front/Login.fxml"));
         Scene home_page_scene = new Scene(home_page_parent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
