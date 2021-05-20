@@ -9,6 +9,7 @@ import br.com.gomi.business.Dados;
 import br.com.gomi.business.Validacao;
 import br.com.gomi.shared.ClienteViewModel;
 import br.com.gomi.shared.MotoristaViewModel;
+import br.com.gomi.shared.NaoAdmViewModel;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -36,6 +37,7 @@ import util.MaskField;
  */
 public class CadastrarController extends PadraoController
 {
+
     private static boolean ehCliente;
     @FXML
     TextField emailTextField;
@@ -43,7 +45,7 @@ public class CadastrarController extends PadraoController
     TextField nomeTextField;
     @FXML
     TextField telefoneTextField;
-    @FXML 
+    @FXML
     TextField cpfTextField;
     @FXML
     TextField dataNascimentoTextField;
@@ -81,7 +83,7 @@ public class CadastrarController extends PadraoController
     Label cepLabel;
     @FXML
     Label numeroLabel;
-    @FXML 
+    @FXML
     Label ruaLabel;
     @FXML
     Label complementoLabel;
@@ -101,7 +103,7 @@ public class CadastrarController extends PadraoController
     Label cargaLabel;
     @FXML
     Button fotoCnhButton;
-    
+
     //verificar como colocar foto
     //verificar como colocar método de pagamento
     //verificar mascara (abaixo)
@@ -121,8 +123,9 @@ public class CadastrarController extends PadraoController
                     senhaTextField.getText(), confirmacaoSenhaTextField.getText(), ehCliente, cepTextField.getText(), numeroTextField.getText(), ruaTextField.getText(),
                     bairroTextField.getText(), cidadeTextField.getText(), tipoVeiculoTextField.getText(), cnhTextField.getText(), dataExpiracaoTextField.getText(),
                     cnhCategoriaTextField.getText(), cargaSuportadaTextField.getText());
-            
-            if(tipo == 'C'){
+
+            if (tipo == 'C')
+            {
                 ClienteViewModel cliente = new ClienteViewModel();
                 cliente.setEmail(emailTextField.getText());
                 cliente.setNome(nomeTextField.getText());
@@ -140,8 +143,8 @@ public class CadastrarController extends PadraoController
                 cliente.setIdCliente(Dados.insereCliente(cliente));
                 cliente.setIdNaoAdm(Dados.insereNaoAdm(cliente));
                 Dados.insereUsuario(cliente);
-            }
-            else if (tipo == 'M'){
+            } else if (tipo == 'M')
+            {
                 MotoristaViewModel motorista = new MotoristaViewModel();
                 motorista.setEmail(emailTextField.getText());
                 motorista.setNome(nomeTextField.getText());
@@ -158,27 +161,59 @@ public class CadastrarController extends PadraoController
                 motorista.setIdMotorista(Dados.insereMotorista(motorista));
                 motorista.setIdNaoAdm(Dados.insereNaoAdm(motorista));
                 Dados.insereUsuario(motorista);
-            }
-            else if (tipo == 'X'){
-                //Fazer update em naoadm e o insert na tabela neta
+            } else if (tipo == 'X')
+            {
+                if (ehCliente)
+                {
+                    ClienteViewModel cliente = new ClienteViewModel();
+                    cliente.setCep(cepTextField.getText());
+                    cliente.setNumero(Integer.parseInt(numeroTextField.getText()));
+                    cliente.setRua(ruaTextField.getText());
+                    cliente.setComplemento(complementoTextField.getText());
+                    cliente.setBairro(bairroTextField.getText());
+                    cliente.setCidade(cidadeTextField.getText());
+                    cliente.setIdCliente(Dados.insereCliente(cliente));
+                    NaoAdmViewModel na = Dados.recuperaNaoAdm(emailTextField.getText());
+                    cliente.setIdNaoAdm(na.getIdNaoAdm());
+                    cliente.setTelefone(na.getTelefone());
+                    cliente.setTelefoneddd(na.getTelefoneddd());
+                    cliente.setIdMotorista(na.getIdMotorista());
+                    Dados.AtualizaNaoAdm(cliente);
+                    
+                } else
+                {
+                    MotoristaViewModel motorista = new MotoristaViewModel();
+                    motorista.setTipoVeiculo(tipoVeiculoTextField.getText());
+                    motorista.setCnh(cnhTextField.getText());
+                    motorista.setDataExpiracao(LocalDate.parse(dataExpiracaoTextField.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+                    motorista.setCnhCategoria(cnhCategoriaTextField.getText().charAt(0));
+                    motorista.setCargaSuportada(Integer.parseInt(cargaSuportadaTextField.getText()));
+                    motorista.setIdMotorista(Dados.insereMotorista(motorista));
+                    NaoAdmViewModel na = Dados.recuperaNaoAdm(emailTextField.getText());
+                    motorista.setIdNaoAdm(na.getIdNaoAdm());
+                    motorista.setTelefone(na.getTelefone());
+                    motorista.setTelefoneddd(na.getTelefoneddd());
+                    motorista.setIdCliente(na.getIdCliente());
+                    Dados.AtualizaNaoAdm(motorista);                    
                 }
-        }
-        
-        catch (Exception erro){
+            }
+        } catch (Exception erro)
+        {
             JOptionPane.showMessageDialog(null, erro.getMessage(), "Erro de Cadastro", JOptionPane.ERROR_MESSAGE);
         }
     }
 
-    public void btnVoltarOnClick(ActionEvent event) throws IOException {
+    public void btnVoltarOnClick(ActionEvent event) throws IOException
+    {
         Parent home_page_parent = FXMLLoader.load(getClass().getResource("/br/com/gomi/front/Login.fxml"));
         Scene home_page_scene = new Scene(home_page_parent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(home_page_scene);
         app_stage.show();
     }
-    
 
-    public void rdbClienteOnToggle (ActionEvent event) throws IOException{
+    public void rdbClienteOnToggle(ActionEvent event) throws IOException
+    {
         cepTextField.setVisible(true);
         numeroTextField.setVisible(true);
         ruaTextField.setVisible(true);
@@ -204,8 +239,9 @@ public class CadastrarController extends PadraoController
         fotoCnhButton.setVisible(false);
         ehCliente = true;
     }
-    
-    public void rdbMotoristaOnToggle (ActionEvent event) throws IOException{
+
+    public void rdbMotoristaOnToggle(ActionEvent event) throws IOException
+    {
         cepTextField.setVisible(false);
         numeroTextField.setVisible(false);
         ruaTextField.setVisible(false);
@@ -230,13 +266,15 @@ public class CadastrarController extends PadraoController
         cargaLabel.setVisible(true);
         fotoCnhButton.setVisible(true);
         ehCliente = false;
-    } 
-    
-    public void btnCarregaFotoUserOnClick (ActionEvent event) throws IOException{
-        
     }
-    
-    @Override @FXML
+
+    public void btnCarregaFotoUserOnClick(ActionEvent event) throws IOException
+    {
+
+    }
+
+    @Override
+    @FXML
     public void initialize(URL location, ResourceBundle resources)
     {
         cepTextField.setVisible(false);

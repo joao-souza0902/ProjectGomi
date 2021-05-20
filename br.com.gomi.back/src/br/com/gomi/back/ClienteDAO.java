@@ -20,7 +20,7 @@ public class ClienteDAO extends PadraoDAO<ClienteViewModel>
     protected String[] CriaParametros(ClienteViewModel model)
     {           
         String[] parametros = new String[7];
-        parametros[0] = String.valueOf(model.getId());
+        parametros[0] = String.valueOf(model.getIdCliente());
         parametros[1] = model.getRua();
         parametros[2] = String.valueOf(model.getNumero());
         parametros[3] = model.getComplemento();
