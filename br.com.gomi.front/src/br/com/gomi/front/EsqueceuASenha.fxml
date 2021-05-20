@@ -10,7 +10,17 @@
    <children>
       <AnchorPane layoutY="97.0" prefHeight="466.0" prefWidth="707.0" style="-fx-background-color: #38414e;">
          <children>
-            <TextField layoutX="14.0" layoutY="16.0" prefHeight="433.0" prefWidth="680.0" promptText="Sobre" />
+            <Button fx:id="btnEnviarEmail" layoutX="132.0" layoutY="347.0" mnemonicParsing="false" onAction="#btnAlterarDadosOnClick" prefHeight="74.0" prefWidth="443.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Enviar por E-mail" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+            <Label layoutX="132.0" layoutY="163.0" prefHeight="58.0" prefWidth="92.0" text="E-mail:" textFill="WHITE">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtEmailRedefinirSenha" layoutX="233.0" layoutY="172.0" prefHeight="41.0" prefWidth="342.0" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="74.0" prefWidth="707.0" style="-fx-background-color: #00CC66;">
@@ -20,7 +30,7 @@
                 <Font size="20.0" />
                 </font>
             </Button>
-            <Label layoutX="296.0" layoutY="8.0" prefHeight="65.0" prefWidth="116.0" text="Sobre">
+            <Label layoutX="143.0" layoutY="8.0" prefHeight="65.0" prefWidth="422.0" text="Redefinição de Senha">
                <font>
                   <Font size="44.0" />
                </font>
