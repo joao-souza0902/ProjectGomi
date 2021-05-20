@@ -34,7 +34,7 @@ public class ClienteDAO extends PadraoDAO<ClienteViewModel>
     protected ClienteViewModel MontaModel(HashMap<String, Object> registro)
     {
         ClienteViewModel t = new ClienteViewModel();
-        t.setId((Integer)registro.get("IdCliente"));
+        t.setIdCliente((Integer)registro.get("IdCliente"));
         t.setRua((String)registro.get("Rua"));
         t.setNumero((Integer)registro.get("Numero"));
         t.setComplemento((String)registro.get("Complemento"));

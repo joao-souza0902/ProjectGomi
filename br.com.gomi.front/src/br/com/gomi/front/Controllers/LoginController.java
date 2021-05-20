@@ -6,6 +6,8 @@
 package br.com.gomi.front.Controllers;
 
 import br.com.gomi.business.*;
+import br.com.gomi.shared.UsuarioAtual;
+import ch.qos.logback.core.joran.conditional.ElseAction;
 import java.io.IOException;
 import java.sql.SQLException;
 import javafx.event.ActionEvent;
@@ -35,8 +37,20 @@ public class LoginController extends PadraoController
         if (Validacao.validaLogin(loginTextField.getText(), senhaTextField.getText()))
         {
             char tipo = Validacao.validaTipoLogin(loginTextField.getText(), senhaTextField.getText());
+            if (tipo == 'X'){
+                String[] escolhas = {"Cliente","Motorista"};
+                int indice = JOptionPane.showOptionDialog(null, "Com qual tipo de usuário deseja fazer login?", "Usuário Cruzado", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, escolhas, null);
+                if (indice == 0)
+                    tipo = 'C';
+                else if (indice == 1)
+                    tipo = 'M';
+                else
+                    return;
+                
+            }
             if (tipo == 'C')
             {
+                UsuarioAtual.getInstancia().setUsuario(Dados.recuperaCliente(loginTextField.getText()));
                 Parent parent = FXMLLoader.load(getClass().getResource("/br/com/gomi/front/PaginaPrincipalC.fxml"));
                 Scene scene = new Scene(parent);
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -44,6 +58,7 @@ public class LoginController extends PadraoController
                 stage.show();
             } else if (tipo == 'M')
             {
+                UsuarioAtual.getInstancia().setUsuario(Dados.recuperaMotorista(loginTextField.getText()));
                 Parent parent = FXMLLoader.load(getClass().getResource("/br/com/gomi/front/PaginaPrincipalM.fxml"));
                 Scene scene = new Scene(parent);
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -51,7 +66,7 @@ public class LoginController extends PadraoController
                 stage.show();
             } else
             {
-
+                //Tela de administrador
             }
         } else
         {

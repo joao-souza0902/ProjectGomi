@@ -35,7 +35,7 @@ public class MotoristaDAO extends PadraoDAO<MotoristaViewModel>
     protected MotoristaViewModel MontaModel(HashMap<String, Object> registro)
     {        
         MotoristaViewModel t = new MotoristaViewModel();
-        t.setId((Integer)registro.get("IdMotorista"));
+        t.setIdMotorista((Integer)registro.get("IdMotorista"));
         t.setTipoVeiculo((String)registro.get("TipoVeiculo"));
         t.setCnh((String)registro.get("CNH"));
         t.setDataExpiracao(LocalDate.parse(String.valueOf(registro.get("DataExpiracao"))));
