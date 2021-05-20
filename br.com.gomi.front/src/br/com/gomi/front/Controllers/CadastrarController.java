@@ -28,6 +28,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
+import util.MaskField;
 
 /**
  *
@@ -103,6 +104,16 @@ public class CadastrarController extends PadraoController
     
     //verificar como colocar foto
     //verificar como colocar método de pagamento
+    //verificar mascara (abaixo)
+    
+    /*@FXML
+    private void emailTextKeyReleased(){
+        MaskField mask = new MaskField();
+        mask.setMask("abc@abc.com");
+        mask.setCaracteresValidos("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789");
+        mask.setMsk(maskEmail);
+        mask.formatter();
+    }*/
     
     public void btnCadastrarOnClick(ActionEvent event) throws IOException, SQLException, Exception{        
         try{
@@ -251,5 +262,6 @@ public class CadastrarController extends PadraoController
         cnhCategoriaLabel.setVisible(false);
         cargaLabel.setVisible(false);
         fotoCnhButton.setVisible(false);
+       
     }
 }
