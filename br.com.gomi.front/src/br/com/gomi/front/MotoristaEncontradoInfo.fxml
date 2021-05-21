@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="563.0" prefWidth="707.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.Controllers.SolicitacaoController">
+<AnchorPane id="AnchorPane" prefHeight="563.0" prefWidth="707.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.Controllers.SolicitacaoController">
    <children>
       <AnchorPane layoutY="89.0" prefHeight="474.0" prefWidth="707.0" style="-fx-background-color: #38414e;">
          <children>
@@ -17,7 +17,7 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <ImageView fx:id="imgMotorista" fitHeight="208.0" fitWidth="200.0" layoutX="493.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgMotorista" fitHeight="208.0" fitWidth="200.0" layoutX="493.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color: black; -fx-border-style: solid; -fx-border-width: 5;" />
             <Label alignment="CENTER" layoutX="520.0" layoutY="237.0" prefHeight="30.0" prefWidth="147.0" text="Foto Motorista" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="20.0" />
