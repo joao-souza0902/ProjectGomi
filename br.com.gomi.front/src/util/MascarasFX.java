@@ -1,22 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package util;
+
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.scene.control.TextField;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class MaskField 
-{
-  
+public class MascarasFX extends TextField {
+
+
+    /**
+     * позиция в маске позволит ввести только цифры
+     */
     public static final char MASK_DIGIT = 'D';
 
-   
+    /**
+     * позиция в маске позволит ввести буквы и цифры
+     */
     public static final char MASK_DIG_OR_CHAR = 'W';
 
     /**
@@ -120,14 +122,6 @@ public class MaskField
         if (placeholder == null)
             placeholder = new SimpleStringProperty(this, "placeholder");
         return placeholder;
-    }
-
-    private void setText(String textMask) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void selectRange(int caretPosition, int caretPosition0) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 
@@ -273,6 +267,7 @@ public class MaskField
     }
 
 
+    @Override
     public void replaceText(int start, int end, String text) {
 
 
@@ -298,6 +293,4 @@ public class MaskField
     }
 
 
-}   
-    
-
+}
