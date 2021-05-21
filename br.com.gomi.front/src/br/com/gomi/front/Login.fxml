@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="612.0" prefWidth="435.0" styleClass="bodybg" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.Controllers.LoginController">
+<AnchorPane id="AnchorPane" prefHeight="612.0" prefWidth="435.0" styleClass="bodybg" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.Controllers.LoginController">
    <children>
       <AnchorPane layoutX="-6.0" layoutY="134.0" prefHeight="478.0" prefWidth="452.0" style="-fx-background-color: #38414e;">
          <children>
@@ -27,8 +27,8 @@
             <Button fx:id="btnLogin" layoutX="79.0" layoutY="318.0" mnemonicParsing="false" onAction="#btnLoginOnClick" prefHeight="40.0" prefWidth="317.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Entrar" textFill="WHITE" />
             <Hyperlink fx:id="lnkEsqueceuSenha" layoutX="177.0" layoutY="254.0" onAction="#lnkEsqueceuSenhaOnClick" text="Esqueci minha senha" textFill="#a7fcb9" />
             <Button fx:id="btnCadastrar" layoutX="80.0" layoutY="416.0" mnemonicParsing="false" onAction="#btnCadastrarOnClick" prefHeight="40.0" prefWidth="317.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Cadastre-se" textFill="WHITE" />
-            <TextField fx:id="loginTextField" layoutX="79.0" layoutY="142.0" prefHeight="40.0" prefWidth="317.0" promptText="E-mail" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57;" />
-            <TextField fx:id="senhaTextField" layoutX="78.0" layoutY="199.0" prefHeight="40.0" prefWidth="317.0" promptText="Senha" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57;" />
+            <TextField fx:id="loginTextField" layoutX="79.0" layoutY="142.0" prefHeight="40.0" prefWidth="317.0" promptText="E-mail" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;" />
+            <TextField fx:id="senhaTextField" layoutX="78.0" layoutY="199.0" prefHeight="40.0" prefWidth="317.0" promptText="Senha" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #FFFFFF;" />
          </children></AnchorPane>
       <AnchorPane prefHeight="120.0" prefWidth="447.0" style="-fx-background-color: #00CC66;">
          <children>
