@@ -176,7 +176,7 @@ public class CadastrarController extends PadraoController
                     cliente.setTelefone(na.getTelefone());
                     cliente.setTelefoneddd(na.getTelefoneddd());
                     cliente.setIdMotorista(na.getIdMotorista());
-                    Dados.AtualizaNaoAdm(cliente);
+                    Dados.atualizaNaoAdm(cliente);
                     
                 } else
                 {
@@ -194,10 +194,11 @@ public class CadastrarController extends PadraoController
                     motorista.setTelefone(na.getTelefone());
                     motorista.setTelefoneddd(na.getTelefoneddd());
                     motorista.setIdCliente(na.getIdCliente());
-                    Dados.AtualizaNaoAdm(motorista);                    
+                    Dados.atualizaNaoAdm(motorista);                    
                 }
             }
             JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso!", "Mensagem de Cadastro", 1);
+            btnVoltarOnClick(event);
         } catch (Exception erro)
         {
             JOptionPane.showMessageDialog(null, erro.getMessage(), "Erro de Cadastro", JOptionPane.ERROR_MESSAGE);

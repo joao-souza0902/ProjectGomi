@@ -27,7 +27,7 @@ public class Validacao {
         if (user != null) {
             return true;
         } else {
-            throw new Exception("Usuário não encontrado");
+            throw new Exception("Usuário ou senha incorretos");
         }
     }
 

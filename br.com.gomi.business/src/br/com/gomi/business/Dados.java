@@ -75,8 +75,14 @@ public class Dados
         return na;
     }
     //Update    
-    public static void AtualizaNaoAdm(NaoAdmViewModel na) throws Exception{
+    public static void atualizaNaoAdm(NaoAdmViewModel na) throws Exception{
         NaoAdmDAO dao = new NaoAdmDAO();
         dao.update(na);
+    }
+    public static String atualizaSenhaUsuario(String email, String senha) throws Exception{
+        UsuarioViewModel user = new UsuarioDAO().consultaEmail(email);
+        user.setSenha(senha);
+        new UsuarioDAO().update(user);
+        return user.getNome();
     }
 }
