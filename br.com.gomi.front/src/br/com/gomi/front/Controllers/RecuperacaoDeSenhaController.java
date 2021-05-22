@@ -5,6 +5,8 @@
  */
 package br.com.gomi.front.Controllers;
 
+import br.com.gomi.business.Dados;
+import br.com.gomi.business.RandomPasswordGenerator;
 import br.com.gomi.business.Validacao;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -28,15 +30,26 @@ public class RecuperacaoDeSenhaController extends PadraoController
     @FXML
     private TextField emailTextField;
 
-    public void btnRecuperarOnClick(ActionEvent event) throws IOException, SQLException
+    public void btnRecuperarOnClick(ActionEvent event) throws IOException, SQLException, Exception
     {
         //Chamar o banco para verificar existência de E-mail
-        JOptionPane.showMessageDialog(null, "Um email de solicitação foi enviado", "Troca de Senha", JOptionPane.INFORMATION_MESSAGE);
         if (Validacao.usuarioExiste(emailTextField.getText()))
         {
-            //Envia email e chama tela de login de novo
+            String senha = RandomPasswordGenerator.geraSenha();
+            String nome = Dados.atualizaSenhaUsuario(emailTextField.getText(), senha);
+            RandomPasswordGenerator.enviarEmail(emailTextField.getText(), senha, nome);
         }
-        Parent home_page_parent = FXMLLoader.load(getClass().getResource("Login.fxml"));
+        JOptionPane.showMessageDialog(null, "Um email de solicitação foi enviado", "Troca de Senha", JOptionPane.INFORMATION_MESSAGE);
+        Parent home_page_parent = FXMLLoader.load(getClass().getResource("/br/com/gomi/front/Login.fxml"));
+        Scene home_page_scene = new Scene(home_page_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(home_page_scene);
+        app_stage.show();
+    }
+    
+    public void btnVoltarOnClick(ActionEvent event) throws IOException
+    {
+        Parent home_page_parent = FXMLLoader.load(getClass().getResource("/br/com/gomi/front/Login.fxml"));
         Scene home_page_scene = new Scene(home_page_parent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(home_page_scene);
