@@ -20,12 +20,17 @@ import javafx.stage.Stage;
  */
 public class MotoristaController extends PadraoController
 {
+    //Tela para alterar dados cadastrais do motorista
     public void btnAlterarDadosOnClick(ActionEvent event){
         
     }
+    
+    //Tela para mostrar o histórico de coletas feitas pelo motorista
     public void btnHistoricoOnClick(ActionEvent event){
         
     }
+    
+    //Botão para sair do usuario
     public void btnSairOnClick(ActionEvent event) throws IOException{
         UsuarioAtual.getInstancia().logoff();
         Parent home_page_parent = FXMLLoader.load(getClass().getResource("/br/com/gomi/front/Login.fxml"));

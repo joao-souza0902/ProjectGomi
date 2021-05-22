@@ -30,6 +30,7 @@ public class RecuperacaoDeSenhaController extends PadraoController
     @FXML
     private TextField emailTextField;
 
+    //Após clicar no botão, o método envia um email automatico com a solicitação de recuperação de senha
     public void btnRecuperarOnClick(ActionEvent event) throws IOException, SQLException, Exception
     {
         //Chamar o banco para verificar existência de E-mail
@@ -47,6 +48,7 @@ public class RecuperacaoDeSenhaController extends PadraoController
         app_stage.show();
     }
     
+    //Voltar a tela login
     public void btnVoltarOnClick(ActionEvent event) throws IOException
     {
         Parent home_page_parent = FXMLLoader.load(getClass().getResource("/br/com/gomi/front/Login.fxml"));

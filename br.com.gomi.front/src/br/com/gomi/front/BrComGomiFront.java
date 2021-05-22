@@ -20,6 +20,7 @@ import javax.swing.text.html.ImageView;
  */
 public class BrComGomiFront extends Application {
     
+    //método inicializa as telas, começando com Login onde a primeira tela deve se localizar 
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("Login.fxml"));

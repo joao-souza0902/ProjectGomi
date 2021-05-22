@@ -21,6 +21,7 @@ import javafx.stage.Stage;
 public class PrincipalController extends PadraoController
 {
 
+    //O cliente solicita a coleta com esse método
     public void btnSolicitarColetaOnClick(ActionEvent event) throws IOException
     {
         Parent home_page_parent = FXMLLoader.load(getClass().getResource("/br/com/gomi/front/FazerSolicitacao.fxml"));
@@ -30,6 +31,7 @@ public class PrincipalController extends PadraoController
         app_stage.show();
     }
 
+    //O cliente altera seus dados cadastrais com esse método
     public void btnAlterarDadosOnClick(ActionEvent event) throws IOException
     {
         Parent home_page_parent = FXMLLoader.load(getClass().getResource("PaginaMotorista.fxml"));
@@ -39,6 +41,7 @@ public class PrincipalController extends PadraoController
         app_stage.show();
     }
 
+    //O cliente visualiza o histórico de colétas 
     public void btnHistoricoOnClick(ActionEvent event) throws IOException
     {
         Parent home_page_parent = FXMLLoader.load(getClass().getResource("PaginaHistorico.fxml"));
@@ -48,6 +51,7 @@ public class PrincipalController extends PadraoController
         app_stage.show();
     }
 
+    //O cliente sai de seu usuario
     public void btnSairOnClick(ActionEvent event) throws IOException
     {
         UsuarioAtual.getInstancia().logoff();

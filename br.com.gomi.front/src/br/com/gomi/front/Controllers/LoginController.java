@@ -32,6 +32,7 @@ public class LoginController extends PadraoController
     @FXML
     private TextField senhaTextField;
 
+    //Login do cliente conforme as iinformações inseridas corretamente
     public void btnLoginOnClick(ActionEvent event) throws Exception
     {
         try
@@ -84,7 +85,8 @@ public class LoginController extends PadraoController
             JOptionPane.showMessageDialog(null, erro.getMessage(), "Erro de Login", JOptionPane.INFORMATION_MESSAGE);
         }
     }
-
+    
+    //Se não possuir usuario, o botão leva para a tela de cadastro
     public void btnCadastrarOnClick(ActionEvent event) throws IOException
     {
         Parent home_page_parent = FXMLLoader.load(getClass().getResource("/br/com/gomi/front/CadastroCM.fxml"));
@@ -94,6 +96,7 @@ public class LoginController extends PadraoController
         app_stage.show();
     }
 
+    //Direcionado a tela caso o usuario esquecer a senha
     public void lnkEsqueceuSenhaOnClick(ActionEvent event) throws IOException
     {
         Parent home_page_parent = FXMLLoader.load(getClass().getResource("/br/com/gomi/front/EsqueceuASenha.fxml"));
@@ -103,6 +106,7 @@ public class LoginController extends PadraoController
         app_stage.show();
     }
 
+    //Pagina sobre o programa e os integrantes do grupo
     public void imgSobreOnClick(ActionEvent event) throws IOException
     {
         Parent home_page_parent = FXMLLoader.load(getClass().getResource("Sobre.fxml"));

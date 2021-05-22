@@ -38,7 +38,7 @@ import util.MascarasFX;
  */
 public class CadastrarController extends PadraoController
 {
-
+    //variaveis dos campos 
     private static boolean ehCliente;
     @FXML
     TextField emailTextField;
@@ -110,6 +110,7 @@ public class CadastrarController extends PadraoController
     //verificar mascara (abaixo)
     
     
+    //método para cadastrar usando as informações fornecidas pelo usuario
     public void btnCadastrarOnClick(ActionEvent event) throws IOException, SQLException, Exception{        
         try{
             if (JOptionPane.showConfirmDialog(null, "Deseja cadastrar esse usuário?", "Mensagem de Cadastro", 0) == 1)
@@ -205,6 +206,7 @@ public class CadastrarController extends PadraoController
         }
     }
 
+    //Voltar a tela de login
     public void btnVoltarOnClick(ActionEvent event) throws IOException
     {
         Parent home_page_parent = FXMLLoader.load(getClass().getResource("/br/com/gomi/front/Login.fxml"));
@@ -214,6 +216,7 @@ public class CadastrarController extends PadraoController
         app_stage.show();
     }
 
+    //Mudar para preencher dados exclusivos do cliente
     public void rdbClienteOnToggle(ActionEvent event) throws IOException
     {
         cepTextField.setVisible(true);
@@ -242,6 +245,7 @@ public class CadastrarController extends PadraoController
         ehCliente = true;
     }
 
+    //mudar para preencher dados exclusivos do motorista
     public void rdbMotoristaOnToggle(ActionEvent event) throws IOException
     {
         cepTextField.setVisible(false);
@@ -270,10 +274,12 @@ public class CadastrarController extends PadraoController
         ehCliente = false;
     }
 
+    //Carrega foto fornecida pelo usuario
     public void btnCarregaFotoUserOnClick(ActionEvent event) throws IOException
     {
 
     }
+    
     
     public void emailTextKeyReleased (ActionEvent event) throws IOException{
         
