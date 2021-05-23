@@ -16,7 +16,7 @@ import javafx.stage.Stage;
  *
  * @author jonyg
  */
-public class DetalhesController {
+public class DetalhesController extends PadraoController{
     
      public void btnAceitarOnClick(ActionEvent event) throws IOException
     {
@@ -43,5 +43,10 @@ public class DetalhesController {
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(home_page_scene);
         app_stage.show();
+    }
+
+    @Override
+    public void exibir(ActionEvent event) throws IOException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
