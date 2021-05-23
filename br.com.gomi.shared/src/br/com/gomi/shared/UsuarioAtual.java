@@ -5,8 +5,6 @@
  */
 package br.com.gomi.shared;
 
-import jdk.nashorn.internal.parser.TokenType;
-
 /**
  *
  * @author Administrador
