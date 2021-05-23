@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="563.0" prefWidth="707.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.Controllers.MotoristaController">
+<AnchorPane id="AnchorPane" prefHeight="563.0" prefWidth="707.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.Controllers.SobreController">
    <children>
       <AnchorPane layoutY="97.0" prefHeight="466.0" prefWidth="707.0" style="-fx-background-color: #38414e;">
          <children>
@@ -25,7 +25,7 @@
                   <Font size="44.0" />
                </font>
             </Label>
-            <Button fx:id="btnVoltar" layoutX="14.0" layoutY="20.0" mnemonicParsing="false" onAction="#btnSairOnClick" prefHeight="36.0" prefWidth="79.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Voltar" textFill="WHITE">
+            <Button fx:id="btnVoltar" layoutX="14.0" layoutY="20.0" mnemonicParsing="false" onAction="#btnCloseClick" prefHeight="36.0" prefWidth="79.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Voltar" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>

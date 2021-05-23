@@ -18,7 +18,9 @@ import javafx.stage.Stage;
  * @author Fábio
  */
 //Os métodos abaixo denominam funções padrões de todas as telas (Fechar e minimizar) 
-public class PadraoController implements Initializable{
+public abstract class PadraoController implements Initializable{
+    public abstract void exibir(ActionEvent event) throws IOException;
+    
     public void btnCloseClick (ActionEvent event) throws IOException{
        System.exit(0);
     }

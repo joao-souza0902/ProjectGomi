@@ -5,7 +5,6 @@
  */
 package br.com.gomi.front.Controllers;
 
-import br.com.gomi.shared.UsuarioAtual;
 import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -16,27 +15,17 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author Administrador
+ * @author Fábio
  */
-public class MotoristaController extends PadraoController
-{
-    //Tela para alterar dados cadastrais do motorista
-    public void btnAlterarDadosOnClick(ActionEvent event){
-        
-    }
-    
-    //Tela para mostrar o histórico de coletas feitas pelo motorista
-    public void btnHistoricoOnClick(ActionEvent event){
-        
-    }
-    
-    //Botão para sair do usuario
-    public void btnSairOnClick(ActionEvent event) throws IOException{
-        UsuarioAtual.getInstancia().logoff();
-        Parent home_page_parent = FXMLLoader.load(getClass().getResource("/br/com/gomi/front/Login.fxml"));
+public class SobreController extends PadraoController{
+
+    @Override
+    public void exibir(ActionEvent event) throws IOException {
+        Parent home_page_parent = FXMLLoader.load(getClass().getResource("Sobre.fxml"));
         Scene home_page_scene = new Scene(home_page_parent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(home_page_scene);
         app_stage.show();
     }
+    
 }
