@@ -10,13 +10,14 @@ package br.com.gomi.shared;
  * @author Fábio
  */
 public class ClienteViewModel extends NaoAdmViewModel {
-    private String rua;
-    private int numero;
-    private String complemento;
-    private String bairro;
-    private String cidade;
-    private String cep;
+    private String rua; //Rua do cliente
+    private int numero; //Numero da casa do cliente
+    private String complemento; //Complemento do cliente
+    private String bairro; //Bairro do cliente
+    private String cidade; //Cidade do cliente
+    private String cep; //CEP do cliente
     
+    //metodos get e set para escrever nos campos vendo se condiz com string ou int
     public String getRua() {
         return rua;
     }

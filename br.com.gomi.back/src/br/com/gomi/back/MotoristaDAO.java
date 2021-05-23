@@ -19,6 +19,7 @@ public class MotoristaDAO extends PadraoDAO<MotoristaViewModel>
 {
       
     @Override
+    //Cria os parametros
     protected String[] CriaParametros(MotoristaViewModel model)
     {           
         String[] parametros = new String[6];
@@ -45,12 +46,14 @@ public class MotoristaDAO extends PadraoDAO<MotoristaViewModel>
     }
 
     @Override
+    //Tabela utilizada no SQL
     protected void setTabela()
     {
        tabela = "Motorista";
     }    
     
     @Override
+    //Quantidade de parametros em Motorista
     protected void setQtdParametros(){
         qtdParametros = " ?, ?, ?, ?, ?, ?";
     }

@@ -9,10 +9,12 @@ package br.com.gomi.shared;
  *
  * @author Fábio
  */
+//
 public class EcopontoViewModel extends PadraoViewModel{
-    private String cep;
-    private int numero;
+    private String cep; //CEP do ecoponto
+    private int numero; //Numero do ecoponto
     
+    //metodos get e set para escrever nos campos vendo se condiz com string ou int
     public String getCep() {
         return cep;
     }

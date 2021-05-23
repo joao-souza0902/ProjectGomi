@@ -22,9 +22,9 @@ public abstract class PadraoDAO<T> extends PadraoViewModel
         setTabela();
         setQtdParametros();
     };
-    protected String tabela; 
+    protected String tabela; //tabela
     protected String chave; 
-    protected String qtdParametros; 
+    protected String qtdParametros; //quantidade de parametros
     protected abstract String[] CriaParametros(T model); //Talvez nao seja statement, mas aqui é para passar parametros
     protected abstract T MontaModel(HashMap<String, Object> registro);
     protected abstract void setTabela();

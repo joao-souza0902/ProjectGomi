@@ -17,6 +17,7 @@ public class ClienteDAO extends PadraoDAO<ClienteViewModel>
 {
       
     @Override
+    //Cria os parametros
     protected String[] CriaParametros(ClienteViewModel model)
     {           
         String[] parametros = new String[7];
@@ -45,12 +46,14 @@ public class ClienteDAO extends PadraoDAO<ClienteViewModel>
     }
 
     @Override
+    //Tabela utilizada no SQL
     protected void setTabela()
     {
        tabela = "Cliente";
     }    
     
     @Override
+    //Parametros em Cliente
     protected void setQtdParametros(){
         qtdParametros = " ?, ?, ?, ?, ?, ?, ?";
     }

@@ -79,6 +79,7 @@ public class Dados
         NaoAdmDAO dao = new NaoAdmDAO();
         dao.update(na);
     }
+    //Atualizar senha do usuario
     public static String atualizaSenhaUsuario(String email, String senha) throws Exception{
         UsuarioViewModel user = new UsuarioDAO().consultaEmail(email);
         user.setSenha(senha);

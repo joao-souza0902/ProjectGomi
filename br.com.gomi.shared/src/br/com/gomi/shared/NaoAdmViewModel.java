@@ -10,13 +10,14 @@ package br.com.gomi.shared;
  * @author Fábio
  */
 public class NaoAdmViewModel extends UsuarioViewModel{  
-    private Integer idCliente;
-    private Integer idMotorista;   
-    private int telefoneddd;
-    private int telefone;
+    private Integer idCliente;//ID do cliente
+    private Integer idMotorista;//ID do motorista
+    private int telefoneddd;///DDD do telefone
+    private int telefone;//número de telefone
     //Informações de pagamento
     //Armazenamento de foto
     
+    //metodos get e set para escrever nos campos vendo se condiz com string ou int
     public Integer getIdCliente()
     {
         return idCliente;

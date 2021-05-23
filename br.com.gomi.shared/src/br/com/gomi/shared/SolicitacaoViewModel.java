@@ -13,16 +13,17 @@ import java.util.ArrayList;
  * @author Fábio
  */
 public class SolicitacaoViewModel extends PadraoViewModel {
-    private int idCliente;
-    private int idMotorista;
-    private boolean agendamento;
-    private LocalDateTime dataSolicitacao;
-    private boolean aberto;
-    private String descricao;
-    private String cep;
-    private int numero;
+    private int idCliente; //Id do Cliente que fez a solicitação
+    private int idMotorista; //id do Motorista atendendo a solicitação
+    private boolean agendamento; //Agendamento
+    private LocalDateTime dataSolicitacao; //Data da solicitação
+    private boolean aberto; //True se aberto, False se fechado
+    private String descricao; //Descrição da solicitação
+    private String cep; //CEP do cliente
+    private int numero; //Numero da solicitação(?)
     ArrayList<CategoriaViewModel> categorias = new ArrayList<>();    
 
+    //metodos get e set para escrever nos campos vendo se condiz com o tipo
     public int getIdCliente()
     {
         return idCliente;
