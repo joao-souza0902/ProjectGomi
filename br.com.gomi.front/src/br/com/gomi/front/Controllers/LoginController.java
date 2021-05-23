@@ -32,45 +32,56 @@ public class LoginController extends PadraoController
     @FXML
     private TextField senhaTextField;
 
-    public void btnLoginOnClick(ActionEvent event) throws IOException, SQLException, Exception
+    public void btnLoginOnClick(ActionEvent event) throws Exception
     {
-        if (Validacao.validaLogin(loginTextField.getText(), senhaTextField.getText()))
+        try
         {
-            char tipo = Validacao.validaTipoLogin(loginTextField.getText(), senhaTextField.getText());
-            if (tipo == 'X'){
-                String[] escolhas = {"Cliente","Motorista"};
-                int indice = JOptionPane.showOptionDialog(null, "Com qual tipo de usuário deseja fazer login?", "Usuário Cruzado", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, escolhas, null);
-                if (indice == 0)
-                    tipo = 'C';
-                else if (indice == 1)
-                    tipo = 'M';
-                else
-                    return;
-                
+            if (Validacao.validaLogin(loginTextField.getText(), senhaTextField.getText()))
+            {
+                char tipo = Validacao.validaTipoLogin(loginTextField.getText());
+                if (tipo == 'X')
+                {
+                    String[] escolhas =
+                    {
+                        "Cliente", "Motorista"
+                    };
+                    int indice = JOptionPane.showOptionDialog(null, "Com qual tipo de usuário deseja fazer login?", "Usuário Cruzado", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, escolhas, null);
+                    if (indice == 0)
+                    {
+                        tipo = 'C';
+                    } else if (indice == 1)
+                    {
+                        tipo = 'M';
+                    } else
+                    {
+                        return;
+                    }
+
+                }
+                if (tipo == 'C')
+                {
+                    UsuarioAtual.getInstancia().setUsuario(Dados.recuperaCliente(loginTextField.getText()));
+                    Parent parent = FXMLLoader.load(getClass().getResource("/br/com/gomi/front/PaginaPrincipalC.fxml"));
+                    Scene scene = new Scene(parent);
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    stage.setScene(scene);
+                    stage.show();
+                } else if (tipo == 'M')
+                {
+                    UsuarioAtual.getInstancia().setUsuario(Dados.recuperaMotorista(loginTextField.getText()));
+                    Parent parent = FXMLLoader.load(getClass().getResource("/br/com/gomi/front/PaginaPrincipalM.fxml"));
+                    Scene scene = new Scene(parent);
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    stage.setScene(scene);
+                    stage.show();
+                } else
+                {
+                    //Tela de administrador
+                }
             }
-            if (tipo == 'C')
-            {
-                UsuarioAtual.getInstancia().setUsuario(Dados.recuperaCliente(loginTextField.getText()));
-                Parent parent = FXMLLoader.load(getClass().getResource("/br/com/gomi/front/PaginaPrincipalC.fxml"));
-                Scene scene = new Scene(parent);
-                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                stage.setScene(scene);
-                stage.show();
-            } else if (tipo == 'M')
-            {
-                UsuarioAtual.getInstancia().setUsuario(Dados.recuperaMotorista(loginTextField.getText()));
-                Parent parent = FXMLLoader.load(getClass().getResource("/br/com/gomi/front/PaginaPrincipalM.fxml"));
-                Scene scene = new Scene(parent);
-                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                stage.setScene(scene);
-                stage.show();
-            } else
-            {
-                //Tela de administrador
-            }
-        } else
+        } catch (Exception erro)
         {
-            JOptionPane.showMessageDialog(null, "Usuário não encontrado", "Erro de Login", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, erro.getMessage(), "Erro de Login", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
@@ -102,5 +113,4 @@ public class LoginController extends PadraoController
     }
 }
 
-////hh
-///hh
+

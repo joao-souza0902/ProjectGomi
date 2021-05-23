@@ -20,17 +20,19 @@ import java.time.format.DateTimeFormatter;
  */
 public class Validacao {
 
-    public static boolean validaLogin(String usuario, String senha) throws SQLException {
+    public static boolean validaLogin(String usuario, String senha) throws Exception {
+        if (usuario.equals("")||senha.equals(""))
+            throw new Exception ("Preencha os campos!");
         UsuarioViewModel user = new LoginDAO().login(usuario, senha);
         if (user != null) {
             return true;
         } else {
-            return false;
+            throw new Exception("Usuário não encontrado");
         }
     }
 
-    public static char validaTipoLogin(String usuario, String senha) throws SQLException, Exception {
-        UsuarioViewModel user = new LoginDAO().login(usuario, senha);
+    public static char validaTipoLogin(String usuario) throws SQLException, Exception {
+        UsuarioViewModel user = new UsuarioDAO().consultaEmail(usuario);
         if (user.getIdNaoAdm() != null) {
             NaoAdmViewModel naoAdm = new NaoAdmDAO().consult(user.getIdNaoAdm());
             if (naoAdm.getIdCliente() != null && naoAdm.getIdMotorista() != null)
@@ -88,12 +90,12 @@ public class Validacao {
         if (email.indexOf("@") == -1 || email.lastIndexOf(".") < email.indexOf("@")) {
             throw new Exception();
         }
-        if (!usuarioExiste(email)) {
-            char tipoExistente = validaTipoLogin(email, senha);
-            if (!(tipoExistente == 'C' && !ehCliente) || !(tipoExistente == 'M' && ehCliente))            
-                throw new Exception();
-            else
+        if (usuarioExiste(email)) {
+            char tipoExistente = validaTipoLogin(email);
+            if ((tipoExistente == 'C' && !ehCliente) || (tipoExistente == 'M' && ehCliente))            
                 tipo = 'X';
+            else
+                throw new Exception();
         }
         if (Integer.parseInt(telefone.substring(1, 3)) <= 10 || telefone.substring(1, 3).indexOf("0") != -1) {
             throw new Exception();

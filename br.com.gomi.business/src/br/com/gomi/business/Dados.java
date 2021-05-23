@@ -15,6 +15,7 @@ import java.sql.SQLException;
  */
 public class Dados
 {
+    //Create
     public static int insereCliente(ClienteViewModel cliente) throws Exception{
         ClienteDAO dao = new ClienteDAO();
         return dao.insert(cliente);
@@ -35,6 +36,7 @@ public class Dados
         SolicitacaoDAO dao = new SolicitacaoDAO();
         return dao.insert(solicitacao);
     }
+    //Read
     public static ClienteViewModel recuperaCliente(String login) throws SQLException, Exception{
         UsuarioViewModel user = new UsuarioDAO().consultaEmail(login);
         NaoAdmViewModel na = new NaoAdmDAO().consult(user.getIdNaoAdm());
@@ -66,5 +68,15 @@ public class Dados
         mot.setData(user.getData());
         mot.setCpf(user.getCpf());        
         return mot;
+    }
+    public static NaoAdmViewModel recuperaNaoAdm(String login) throws SQLException, Exception{
+        UsuarioViewModel user = new UsuarioDAO().consultaEmail(login);
+        NaoAdmViewModel na = new NaoAdmDAO().consult(user.getIdNaoAdm());
+        return na;
+    }
+    //Update    
+    public static void AtualizaNaoAdm(NaoAdmViewModel na) throws Exception{
+        NaoAdmDAO dao = new NaoAdmDAO();
+        dao.update(na);
     }
 }

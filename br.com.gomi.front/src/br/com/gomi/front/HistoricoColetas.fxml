@@ -10,17 +10,12 @@
    <children>
       <AnchorPane layoutY="97.0" prefHeight="466.0" prefWidth="707.0" style="-fx-background-color: #38414e;">
          <children>
-            <TextField layoutX="14.0" layoutY="16.0" prefHeight="433.0" prefWidth="680.0" promptText="Sobre" />
+            <TextField layoutX="17.0" layoutY="21.0" prefHeight="422.0" prefWidth="675.0" promptText="Histórico" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="74.0" prefWidth="707.0" style="-fx-background-color: #00CC66;">
          <children>
-            <Button fx:id="btnClose" layoutX="642.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnCloseClick" prefHeight="46.0" prefWidth="29.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="X" textFill="WHITE">
-                <font>
-                <Font size="20.0" />
-                </font>
-            </Button>
-            <Label layoutX="296.0" layoutY="8.0" prefHeight="65.0" prefWidth="116.0" text="Sobre">
+            <Label layoutX="260.0" layoutY="8.0" prefHeight="65.0" prefWidth="187.0" text="Histórico">
                <font>
                   <Font size="44.0" />
                </font>
