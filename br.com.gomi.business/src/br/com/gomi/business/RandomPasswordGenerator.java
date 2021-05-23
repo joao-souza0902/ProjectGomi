@@ -17,7 +17,7 @@ import javax.mail.internet.MimeMessage;
  */
 public class RandomPasswordGenerator
 {
-
+    //Caracteres permitidos em uma senha
     static Character[] vetor =
     {
         'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
@@ -25,6 +25,7 @@ public class RandomPasswordGenerator
         '!', '@', '#', '$', '%', '&', '*', '-'
     };
 
+    //Quantidade de campos em uma senha(?)
     public static String geraSenha()
     {
         StringBuilder senha = new StringBuilder();
@@ -35,7 +36,8 @@ public class RandomPasswordGenerator
         }
         return senha.toString();
     }
-
+    
+    //Enviar email, o email automatico sendo do endereço "gomiprojeto@gmail.com"
     public static void enviarEmail(String email, String senha, String nome)
     {
         Properties props = new Properties();

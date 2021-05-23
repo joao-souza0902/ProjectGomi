@@ -15,7 +15,7 @@ import java.sql.SQLException;
  */
 public class ConexaoBD
 {
-
+    //Conexão no banco de dados
     public static Connection getConexao() throws SQLException
     {
         //Não esquecer de adicionar o conector .jar do sqlserver, arrombado!

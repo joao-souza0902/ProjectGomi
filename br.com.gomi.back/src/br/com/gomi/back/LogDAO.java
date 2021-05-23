@@ -17,6 +17,7 @@ public class LogDAO extends PadraoDAO<LogViewModel>
 {
       
     @Override
+    //Cria os parametros
     protected String[] CriaParametros(LogViewModel model)
     {           
         String[] parametros = new String[2];
@@ -35,12 +36,14 @@ public class LogDAO extends PadraoDAO<LogViewModel>
     }
 
     @Override
+    //Tabela utilizada no SQL
     protected void setTabela()
     {
        tabela = "Log";
     }    
     
     @Override
+    //Quantidade de parametros em Log
     protected void setQtdParametros(){
         qtdParametros = " ?, ?";
     }

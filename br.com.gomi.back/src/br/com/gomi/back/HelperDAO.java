@@ -17,6 +17,7 @@ import java.sql.PreparedStatement;
  */
 public class HelperDAO
 {
+    //Conexão com banco de dados
     public static void executaProc(String sql, String[] parametros) throws SQLException{
         try(Connection conexao = ConexaoBD.getConexao()){  
             PreparedStatement comando = conexao.prepareStatement(sql);
@@ -32,6 +33,8 @@ public class HelperDAO
             conexao.close();
         }
     }
+    
+    
     public static JDataTable executaProcSelect(String sql, String[] parametros) throws SQLException{
         try(Connection conexao = ConexaoBD.getConexao()){
             PreparedStatement comando = conexao.prepareStatement(sql);

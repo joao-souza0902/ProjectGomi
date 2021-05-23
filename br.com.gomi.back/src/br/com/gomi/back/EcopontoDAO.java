@@ -15,8 +15,9 @@ import br.com.gomi.shared.*;
  */
 public class EcopontoDAO extends PadraoDAO<EcopontoViewModel>
 {
-      
+    
     @Override
+    //Cria os parametros
     protected String[] CriaParametros(EcopontoViewModel model)
     {           
         String[] parametros = new String[3];
@@ -37,12 +38,14 @@ public class EcopontoDAO extends PadraoDAO<EcopontoViewModel>
     }
 
     @Override
+    //Tabela utilizada no SQL
     protected void setTabela()
     {
        tabela = "Ecoponto";
     }    
     
     @Override
+    //Parametros em Ecoponto
     protected void setQtdParametros(){
         qtdParametros = " ?, ?, ?";
     }

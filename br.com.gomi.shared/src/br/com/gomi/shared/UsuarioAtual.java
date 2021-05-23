@@ -17,7 +17,7 @@ public class UsuarioAtual
     private UsuarioAtual(){
         
     }
-
+    
     public static UsuarioAtual getInstancia()
     {
         if (_instancia == null)

@@ -20,6 +20,7 @@ public class SolicitacaoDAO extends PadraoDAO<SolicitacaoViewModel>
     @Override
     protected String[] CriaParametros(SolicitacaoViewModel model)
     {           
+        //Cria os parametros
         String[] parametros = new String[9];
         parametros[0] = String.valueOf(model.getId());
         parametros[1] = String.valueOf(model.getIdCliente());
@@ -37,6 +38,7 @@ public class SolicitacaoDAO extends PadraoDAO<SolicitacaoViewModel>
     @Override
     protected SolicitacaoViewModel MontaModel(HashMap<String, Object> registro)
     {
+        //Model contendo os parametros
         DateTimeFormatter dft = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         SolicitacaoViewModel t = new SolicitacaoViewModel();
         t.setId((Integer)registro.get("IdSolicitacao"));
@@ -52,12 +54,14 @@ public class SolicitacaoDAO extends PadraoDAO<SolicitacaoViewModel>
     }
 
     @Override
+    //Tabela utilizada no SQL
     protected void setTabela()
     {
        tabela = "Solicitacao";
     }    
     
     @Override
+    //Quantidade de parametros em Solicitação
     protected void setQtdParametros(){
         qtdParametros = " ?, ?, ?, ?, ?, ?, ?, ?, ?";
     }

@@ -17,6 +17,7 @@ public class NaoAdmDAO extends PadraoDAO<NaoAdmViewModel>
 {
       
     @Override
+    //Cria os parametros
     protected String[] CriaParametros(NaoAdmViewModel model)
     {           
         String[] parametros = new String[5];
@@ -48,12 +49,14 @@ public class NaoAdmDAO extends PadraoDAO<NaoAdmViewModel>
     }
 
     @Override
+    //Tabela utilizada no SQL
     protected void setTabela()
     {
        tabela = "NaoAdm";
     }    
     
     @Override
+    //Quantidade de parametros em NaoAdm
     protected void setQtdParametros(){
         qtdParametros = " ?, ?, ?, ?, ?";
     }

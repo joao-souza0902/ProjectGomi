@@ -17,6 +17,7 @@ public class AdministradorDAO extends PadraoDAO<AdministradorViewModel>
 {
       
     @Override
+    //Cria os parametros
     protected String[] CriaParametros(AdministradorViewModel model)
     {           
         String[] parametros = new String[1];
@@ -25,6 +26,7 @@ public class AdministradorDAO extends PadraoDAO<AdministradorViewModel>
     }
 
     @Override
+    //Cria a ViewModel
     protected AdministradorViewModel MontaModel(HashMap<String, Object> registro)
     {
         AdministradorViewModel t = new AdministradorViewModel();
@@ -33,12 +35,14 @@ public class AdministradorDAO extends PadraoDAO<AdministradorViewModel>
     }
 
     @Override
+    //Tabela utilizada no SQL
     protected void setTabela()
     {
-       tabela = "Administrador";
+       tabela = "Administrador"; 
     }    
     
     @Override
+    //Quantidade de parametros utilizados
     protected void setQtdParametros(){
         qtdParametros = " ?";
     }

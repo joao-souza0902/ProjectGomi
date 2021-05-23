@@ -19,7 +19,7 @@ import java.time.format.DateTimeFormatter;
  * @author Administrador
  */
 public class Validacao {
-
+    //Validação dos campos, mensagens de erro caso vazio ou incorreto
     public static boolean validaLogin(String usuario, String senha) throws Exception {
         if (usuario.equals("")||senha.equals(""))
             throw new Exception ("Preencha os campos!");
@@ -31,6 +31,7 @@ public class Validacao {
         }
     }
 
+    //Consulta caso usuario for Admin, Cliente ou Motorista(X?)
     public static char validaTipoLogin(String usuario) throws SQLException, Exception {
         UsuarioViewModel user = new UsuarioDAO().consultaEmail(usuario);
         if (user.getIdNaoAdm() != null) {
@@ -47,17 +48,20 @@ public class Validacao {
         }
     }
 
+    //O usuario existe
     public static boolean usuarioExiste(String usuario) throws SQLException {
         UsuarioViewModel user = new UsuarioDAO().consultaEmail(usuario);
         return user != null;
     }
 
+    //Valida solicitação de coleta
     public static void validaSolicitacao(String descricao) throws Exception {
         if (descricao.isEmpty()) {
             throw new Exception("Preencha a Descrição!");
         }
     }
 
+    //Valida informações na tela de cadastro (se vazio, ou faltar @ em e-mail, exibir mensagem de erro)
     public static char validaCadastro(String email, String nome, String telefone,
             String cpf, String dataNascimento, String senha,
             String confirmacaoSenha, boolean ehCliente, String cep,

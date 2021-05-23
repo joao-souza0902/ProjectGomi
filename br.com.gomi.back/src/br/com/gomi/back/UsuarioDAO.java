@@ -18,6 +18,7 @@ import java.time.LocalDate;
 public class UsuarioDAO extends PadraoDAO<UsuarioViewModel>
 {
       
+    //Parametros do usuario
     @Override
     protected String[] CriaParametros(UsuarioViewModel model)
     {           
@@ -34,6 +35,7 @@ public class UsuarioDAO extends PadraoDAO<UsuarioViewModel>
     }
 
     @Override
+    //Model com os parametros do usuario
     protected UsuarioViewModel MontaModel(HashMap<String, Object> registro)
     {
         UsuarioViewModel t = new UsuarioViewModel();
@@ -54,12 +56,14 @@ public class UsuarioDAO extends PadraoDAO<UsuarioViewModel>
         return t;
     }
 
+    // Tabela utilizada no SQL
     @Override
     protected void setTabela()
     {
        tabela = "Usuario";
     }    
     
+    //Quantidade de parametros em Usuario
     @Override
     protected void setQtdParametros(){
         qtdParametros = " ?, ?, ?, ?, ?, ?, ?, ?";
