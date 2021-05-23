@@ -6,7 +6,7 @@
 package br.com.gomi.front.Controllers;
 import br.com.gomi.business.Dados;
 import br.com.gomi.business.Validacao;
-import br.com.gomi.shared.SolicitacaoViewModel;
+import br.com.gomi.shared.*;
 import java.io.IOException;
 import java.sql.SQLException;
 import javafx.event.ActionEvent;
@@ -45,7 +45,10 @@ public class SolicitacaoController extends PadraoController
             Validacao.validaSolicitacao(descricaoTextField.getText());
             
             SolicitacaoViewModel solicitacao = new SolicitacaoViewModel();
-            //solicitacao.setIdCliente(); //Ter um local para as informacoes do cliente
+            ClienteViewModel cliente = (ClienteViewModel) UsuarioAtual.getInstancia().getUsuario();
+            solicitacao.setIdCliente(cliente.getIdCliente()); 
+            solicitacao.setCep(cliente.getCep());
+            solicitacao.setNumero(cliente.getNumero());
             solicitacao.setDescricao(descricaoTextField.getText());
             //adicionar categorias na lista
             Dados.insereSolicitacao(solicitacao);
