@@ -37,7 +37,7 @@ public class Dados
         return dao.insert(solicitacao);
     }
     //Read
-    public static ClienteViewModel recuperaCliente(String login) throws SQLException, Exception{
+    public static ClienteViewModel recuperaCliente(String login) throws Exception{
         UsuarioViewModel user = new UsuarioDAO().consultaEmail(login);
         NaoAdmViewModel na = new NaoAdmDAO().consult(user.getIdNaoAdm());
         ClienteViewModel cli = new ClienteDAO().consult(na.getIdCliente());

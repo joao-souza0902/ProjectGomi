@@ -43,7 +43,10 @@ public class SolicitacaoDAO extends PadraoDAO<SolicitacaoViewModel>
         SolicitacaoViewModel t = new SolicitacaoViewModel();
         t.setId((Integer)registro.get("IdSolicitacao"));
         t.setIdCliente((Integer)registro.get("IdCliente"));
-        t.setIdMotorista((Integer)registro.get("IdMotorista"));
+        if (String.valueOf(registro.get("IdMotorista")).equals(""))
+            t.setIdMotorista(null);
+        else
+            t.setIdMotorista(Integer.parseInt(String.valueOf(registro.get("IdMotorista"))));
         t.setAgendamento((Boolean)registro.get("Agendamento"));
         t.setDataSolicitacao(LocalDateTime.parse(String.valueOf(registro.get("DataSolicitacao")).substring(0, 16), dft));
         t.setAberto((Boolean)registro.get("Aberto"));

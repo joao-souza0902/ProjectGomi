@@ -13,7 +13,7 @@
 
 <!--<?import br.com.gomi.front.util.MaskField> (Mascara imprtação ainda com erro) !-->
 
-<AnchorPane id="AnchorPane" prefHeight="563.0" prefWidth="707.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.Controllers.CadastrarController">
+<AnchorPane id="AnchorPane" prefHeight="563.0" prefWidth="707.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.Controllers.CadastroController">
     <children>
         <AnchorPane layoutY="97.0" prefHeight="466.0" prefWidth="707.0" style="-fx-background-color: #38414e;">
             <children>
