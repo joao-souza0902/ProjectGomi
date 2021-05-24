@@ -45,7 +45,7 @@
                   <Font size="24.0" />
                </font>
             </Button>
-            <TextField fx:id="txtMoveis" layoutX="329.0" layoutY="94.0" prefHeight="250.0" prefWidth="356.0" promptText="Descrição..." />
+            <TextField fx:id="descricaoTextField" layoutX="329.0" layoutY="94.0" prefHeight="250.0" prefWidth="356.0" promptText="Descrição..." />
             <Button fx:id="btnContinuar" layoutX="450.0" layoutY="385.0" mnemonicParsing="false" onAction="#btnContinuarOnClick" prefHeight="57.0" prefWidth="146.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Continuar" textFill="WHITE">
                <font>
                   <Font size="24.0" />

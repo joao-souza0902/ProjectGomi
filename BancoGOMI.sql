@@ -63,7 +63,6 @@ create table Solicitacao(
 	DataSolicitacao smalldatetime,
 	Aberto bit,
 	Descricao varchar(max),
-	Volume int,
 	cep varchar(max),
 	numero int
 	--Armazenamento das Fotos
@@ -134,17 +133,17 @@ begin
 end
 go
 
-create procedure spInsert_Solicitacao (@IdSolicitacao int, @IdCliente int, @IdMotorista int, @Agendamento bit, @DataSolicitacao varchar(max), @Aberto bit, @Descricao varchar(max), @Volume int, @CEP varchar(max), @numero int) as
+create procedure spInsert_Solicitacao (@IdSolicitacao int, @IdCliente int, @IdMotorista int, @Agendamento bit, @DataSolicitacao varchar(max), @Aberto bit, @Descricao varchar(max), @CEP varchar(max), @numero int) as
 begin
 	declare @date varchar(max)
 	set @date = convert(smalldatetime, @DataSolicitacao, 105)
 	
-	insert into Solicitacao values (@IdCliente, @IdMotorista, @Agendamento, @date, @Aberto, @Descricao, @Volume, @CEP, @numero)
+	insert into Solicitacao values (@IdCliente, @IdMotorista, @Agendamento, @date, @Aberto, @Descricao, @CEP, @numero)
 	select @@IDENTITY as 'Id'
 end
 go
 
-create procedure spUpdate_Solicitacao (@IdSolicitacao int, @IdCliente int, @IdMotorista int, @Agendamento bit, @DataSolicitacao varchar(max), @Aberto bit, @Descricao varchar(max), @Volume int, @CEP varchar(max), @numero int) as
+create procedure spUpdate_Solicitacao (@IdSolicitacao int, @IdCliente int, @IdMotorista int, @Agendamento bit, @DataSolicitacao varchar(max), @Aberto bit, @Descricao varchar(max), @CEP varchar(max), @numero int) as
 begin
 	declare @date varchar(max)
 	set @date = convert(smalldatetime, @DataSolicitacao, 105)
@@ -155,7 +154,6 @@ begin
 						   DataSolicitacao = @date,
 						   Aberto = @Aberto,
 						   Descricao = @Descricao,
-						   Volume = @Volume,
 						   cep = @CEP,
 						   numero = @numero
 						   where IdSolicitacao = @IdSolicitacao

@@ -10,6 +10,7 @@ import br.com.gomi.business.Validacao;
 import br.com.gomi.shared.*;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -46,12 +47,16 @@ public class NovaColetaController extends PadraoController {
             
             SolicitacaoViewModel solicitacao = new SolicitacaoViewModel();
             ClienteViewModel cliente = (ClienteViewModel) UsuarioAtual.getInstancia().getUsuario();
-            solicitacao.setIdCliente(cliente.getIdCliente());            
+            solicitacao.setIdCliente(cliente.getIdCliente().intValue());            
             solicitacao.setCep(cliente.getCep());
             solicitacao.setNumero(cliente.getNumero());
             solicitacao.setDescricao(descricaoTextField.getText());
+            solicitacao.setDataSolicitacao(LocalDateTime.now());
+            solicitacao.setAberto(true);
             //adicionar categorias na lista
             Dados.insereSolicitacao(solicitacao);
+            BuscandoMotoristaController buscandoMotorista = new BuscandoMotoristaController();
+            buscandoMotorista.exibir(event);
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage(), "Erro de Cadastro", JOptionPane.ERROR_MESSAGE);
         }

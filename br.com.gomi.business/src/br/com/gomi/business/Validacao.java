@@ -56,7 +56,7 @@ public class Validacao {
 
     //Valida solicitação de coleta
     public static void validaSolicitacao(String descricao) throws Exception {
-        if (descricao.isEmpty()) {
+        if (descricao.trim().isEmpty()) {
             throw new Exception("Preencha a Descrição!");
         }
     }
