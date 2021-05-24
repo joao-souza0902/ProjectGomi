@@ -8,10 +8,10 @@
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
-<!--<?import br.com.gomi.front.util.MaskField> (Mascara imprtação ainda com erro) !--> 
 
-
+<!--<?import br.com.gomi.front.util.MaskField> (Mascara imprtação ainda com erro) !-->
 
 <AnchorPane id="AnchorPane" prefHeight="563.0" prefWidth="707.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.Controllers.CadastrarController">
     <children>
@@ -19,21 +19,25 @@
             <children>
                 <Label fx:id="emailLabel" layoutX="33.0" layoutY="17.0" text="E-mail" textFill="WHITE" />
                 <!-- MaskField emailTextField="AAAAAAAAAAA@AAAAAA.com"/ (modelo para email)!-->
-                <TextField fx:id="emailTextField" layoutX="144.0" layoutY="13.0" onKeyReleased="#emailTextKeyReleased" prefHeight="25.0" prefWidth="195.0" promptText="cadastro@email.com.br" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;"/>
+                <TextField fx:id="emailTextField" layoutX="144.0" layoutY="13.0" onKeyReleased="#emailTextKeyReleased" prefHeight="25.0" prefWidth="195.0" promptText="cadastro@email.com.br" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;" />
                 <Label fx:id="nomecompletoLabel" layoutX="33.0" layoutY="66.0" text="Nome Completo" textFill="WHITE" />
-                <TextField fx:id="nomeTextField" layoutX="144.0" layoutY="62.0" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;"/>
+                <TextField fx:id="nomeTextField" layoutX="144.0" layoutY="62.0" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;" />
                 <Label fx:id="cpf" layoutX="34.0" layoutY="111.0" text="CPF" textFill="WHITE" />
                 <!-- MaskField cpfTextField="NNN.NNN.NNN-NN"/ (modelo para CPF)!-->
-                <TextField fx:id="cpfTextField" layoutX="144.0" layoutY="107.0" prefHeight="25.0" prefWidth="195.0" promptText="000.000.000-00" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;"/>
+                <TextField fx:id="cpfTextField" layoutX="144.0" layoutY="107.0" prefHeight="25.0" prefWidth="195.0" promptText="000.000.000-00" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;" />
                 <Label layoutX="33.0" layoutY="153.0" text="Data de Nascimento" textFill="WHITE" />
-                <TextField fx:id="dataNascimentoTextField" layoutX="144.0" layoutY="149.0" prefHeight="25.0" prefWidth="195.0" promptText="00/00/0000" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;"/>
+                <TextField fx:id="dataNascimentoTextField" layoutX="144.0" layoutY="149.0" prefHeight="25.0" prefWidth="195.0" promptText="00/00/0000" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;" />
                 <Label layoutX="33.0" layoutY="192.0" text="Telefone" textFill="WHITE" />
                 <TextField fx:id="telefoneTextField" layoutX="144.0" layoutY="188.0" prefHeight="25.0" prefWidth="195.0" promptText="(00) 0 0000-0000" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;" />
                 <Label layoutX="33.0" layoutY="234.0" text="Senha" textFill="WHITE" />
-                <TextField fx:id="confirmacaoSenhaTextField" layoutX="144.0" layoutY="271.0" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;"/>
+                <TextField fx:id="senhaTextField" layoutX="144.0" layoutY="230.0" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;" />
                 <Label layoutX="33.0" layoutY="275.0" text="Confirmar Senha" textFill="WHITE" />
-                <TextField fx:id="senhaTextField" layoutX="144.0" layoutY="230.0" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;"/>
-                <ImageView fitHeight="144.0" fitWidth="156.0" layoutX="6.0" layoutY="313.0" pickOnBounds="true" preserveRatio="true" />
+                <TextField fx:id="confirmacaoSenhaTextField" layoutX="144.0" layoutY="271.0" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;" />
+            <StackPane layoutX="6.0" layoutY="307.0" prefHeight="150.0" prefWidth="162.0" style="-fx-border-color: green;">
+               <children>
+                      <ImageView fitHeight="144.0" fitWidth="156.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: green;" />
+               </children>
+            </StackPane>
                 <Button fx:id="btnCarregaFotoUser" layoutX="172.0" layoutY="402.0" mnemonicParsing="false" onAction="#btnCarregaFotoUserOnClick" prefHeight="46.0" prefWidth="54.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Foto" textFill="WHITE">
                     <font>
                         <Font size="13.0" />
@@ -56,34 +60,38 @@
                     </toggleGroup>
                 </RadioButton>
                 <Separator layoutX="374.0" layoutY="6.0" orientation="VERTICAL" prefHeight="443.0" prefWidth="6.0" />
-                <ImageView fitHeight="128.0" fitWidth="137.0" layoutX="411.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true" />
+            <StackPane layoutX="411.0" layoutY="18.0" prefHeight="135.0" prefWidth="145.0" style="-fx-border-color: green;">
+               <children>
+                      <ImageView fitHeight="128.0" fitWidth="137.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </StackPane>
                 <Button fx:id="fotoCnhButton" layoutX="574.0" layoutY="105.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="79.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Foto CNH" textFill="WHITE">
                     <font>
                         <Font size="13.0" />
                     </font>
                 </Button>
                 <Label fx:id="cepLabel" layoutX="420.0" layoutY="22.0" text="CEP" textFill="WHITE" />
-                <TextField fx:id="cepTextField" layoutX="501.0" layoutY="20.0" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;"/>
+                <TextField fx:id="cepTextField" layoutX="501.0" layoutY="20.0" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;" />
                 <Label fx:id="ruaLabel" layoutX="419.0" layoutY="68.0" text="Rua" textFill="WHITE" />
-                <TextField fx:id="ruaTextField" layoutX="500.0" layoutY="66.0" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;"/>
+                <TextField fx:id="ruaTextField" layoutX="500.0" layoutY="66.0" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;" />
                 <Label fx:id="numeroLabel" layoutX="419.0" layoutY="113.0" text="Número" textFill="WHITE" />
-                <TextField fx:id="numeroTextField" layoutX="500.0" layoutY="111.0" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;"/>
+                <TextField fx:id="numeroTextField" layoutX="500.0" layoutY="111.0" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;" />
                 <Label fx:id="complementoLabel" layoutX="419.0" layoutY="155.0" text="Complemento" textFill="WHITE" />
-                <TextField fx:id="complementoTextField" layoutX="501.0" layoutY="153.0" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;"/>
-                <Label fx:id="numCnhLabel" layoutX="408.0" layoutY="179.0" text="Nº CNH" textFill="WHITE" />
-                <TextField fx:id="cnhTextField" layoutX="502.0" layoutY="175.0" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;"/>
-                <Label fx:id="cidadeLabel" layoutX="419.0" layoutY="196.0" text="Cidade" textFill="WHITE" />
-                <TextField fx:id="cidadeTextField" layoutX="501.0" layoutY="194.0" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;"/>
-                <Label fx:id="cnhCategoriaLabel" layoutX="391.0" layoutY="219.0" prefHeight="25.0" prefWidth="92.0" text="Categoria CNH" textFill="WHITE" />
-                <TextField fx:id="cnhCategoriaTextField" layoutX="502.0" layoutY="219.0" prefHeight="25.0" prefWidth="195.0" promptText="Categotia A, B, C..." style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;"/>
+                <TextField fx:id="complementoTextField" layoutX="501.0" layoutY="153.0" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;" />
+                <Label fx:id="numCnhLabel" layoutX="403.0" layoutY="179.0" text="Nº CNH" textFill="WHITE" />
+                <TextField fx:id="cnhTextField" layoutX="502.0" layoutY="175.0" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;" />
+                <Label fx:id="cidadeLabel" layoutX="420.0" layoutY="196.0" text="Cidade" textFill="WHITE" />
+                <TextField fx:id="cidadeTextField" layoutX="501.0" layoutY="194.0" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;" />
+                <Label fx:id="cnhCategoriaLabel" layoutX="404.0" layoutY="219.0" prefHeight="25.0" prefWidth="92.0" text="Categoria CNH" textFill="WHITE" />
+                <TextField fx:id="cnhCategoriaTextField" layoutX="502.0" layoutY="219.0" prefHeight="25.0" prefWidth="195.0" promptText="Categotia A, B, C..." style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;" />
                 <Label fx:id="bairroLabel" layoutX="419.0" layoutY="236.0" text="Bairro" textFill="WHITE" />
-                <TextField fx:id="bairroTextField" layoutX="501.0" layoutY="234.0" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;"/>
-                <Label fx:id="dataExpLabel" layoutX="408.0" layoutY="263.0" text="Data Exp." textFill="WHITE" />
-                <TextField fx:id="dataExpiracaoTextField" layoutX="502.0" layoutY="260.0" prefHeight="25.0" prefWidth="195.0" promptText="00/00/0000" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;"/>
-                <Label fx:id="tipoVeiculoLabel" layoutX="409.0" layoutY="303.0" text="Tipo Veículo" textFill="WHITE" />
-                <TextField fx:id="tipoVeiculoTextField" layoutX="502.0" layoutY="299.0" prefHeight="25.0" prefWidth="195.0" promptText="Caminhonete..." style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;"/>
-                <Label fx:id="cargaLabel" layoutX="409.0" layoutY="343.0" text="Carga Suportada" textFill="WHITE" />
-                <TextField fx:id="cargaSuportadaTextField" layoutX="503.0" layoutY="338.0" prefHeight="25.0" prefWidth="195.0" promptText="kg/quantidade" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;"/>
+                <TextField fx:id="bairroTextField" layoutX="501.0" layoutY="234.0" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;" />
+                <Label fx:id="dataExpLabel" layoutX="403.0" layoutY="263.0" text="Data Exp." textFill="WHITE" />
+                <TextField fx:id="dataExpiracaoTextField" layoutX="502.0" layoutY="260.0" prefHeight="25.0" prefWidth="195.0" promptText="00/00/0000" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;" />
+                <Label fx:id="tipoVeiculoLabel" layoutX="404.0" layoutY="303.0" text="Tipo Veículo" textFill="WHITE" />
+                <TextField fx:id="tipoVeiculoTextField" layoutX="502.0" layoutY="299.0" prefHeight="25.0" prefWidth="195.0" promptText="Caminhonete..." style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;" />
+                <Label fx:id="cargaLabel" layoutX="404.0" layoutY="343.0" text="Carga Suportada" textFill="WHITE" />
+                <TextField fx:id="cargaSuportadaTextField" layoutX="503.0" layoutY="338.0" prefHeight="25.0" prefWidth="195.0" promptText="kg/quantidade" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;" />
                 <Button fx:id="cadastrarButton" layoutX="394.0" layoutY="411.0" mnemonicParsing="false" onAction="#btnCadastrarOnClick" prefHeight="41.0" prefWidth="300.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Cadastrar" textFill="WHITE">
                     <font>
                         <Font size="18.0" />
