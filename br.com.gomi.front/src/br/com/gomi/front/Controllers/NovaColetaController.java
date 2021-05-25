@@ -47,15 +47,16 @@ public class NovaColetaController extends PadraoController {
             
             SolicitacaoViewModel solicitacao = new SolicitacaoViewModel();
             ClienteViewModel cliente = (ClienteViewModel) UsuarioAtual.getInstancia().getUsuario();
-            solicitacao.setIdCliente(cliente.getIdCliente().intValue());            
+            solicitacao.setIdCliente(cliente.getIdCliente());            
             solicitacao.setCep(cliente.getCep());
             solicitacao.setNumero(cliente.getNumero());
             solicitacao.setDescricao(descricaoTextField.getText());
             solicitacao.setDataSolicitacao(LocalDateTime.now());
             solicitacao.setAberto(true);
             //adicionar categorias na lista
-            Dados.insereSolicitacao(solicitacao);
+            solicitacao.setId(Dados.insereSolicitacao(solicitacao));            
             BuscandoMotoristaController buscandoMotorista = new BuscandoMotoristaController();
+            Global.obtemInstancia().solicitacao = solicitacao;
             buscandoMotorista.exibir(event);
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage(), "Erro de Cadastro", JOptionPane.ERROR_MESSAGE);

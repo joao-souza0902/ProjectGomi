@@ -89,6 +89,7 @@ public class LoginController extends PadraoController {
 
     //Pagina sobre o programa e os integrantes do grupo
     public void imgSobreOnClick(ActionEvent event) throws IOException {
+        
         SobreController sobre = new SobreController();
         sobre.exibir(event);
     }
