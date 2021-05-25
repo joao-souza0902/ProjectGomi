@@ -5,14 +5,21 @@
  */
 package br.com.gomi.front.Controllers;
 
+import br.com.gomi.business.Dados;
+import br.com.gomi.shared.MotoristaViewModel;
+import br.com.gomi.shared.SolicitacaoViewModel;
 import br.com.gomi.shared.UsuarioAtual;
 import java.io.IOException;
+import java.util.List;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.CheckBox;
 import javafx.stage.Stage;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -20,6 +27,27 @@ import javafx.stage.Stage;
  */
 public class PrincipalMController extends PadraoController {
 
+    @FXML
+    CheckBox disponivelRadioButton;
+    
+    public void disponivelRadioButtonOnToggle(ActionEvent event) throws Exception{
+        if(disponivelRadioButton.isSelected()){
+            List<SolicitacaoViewModel> solicitacoes = Dados.recuperaSolicitacoes();
+            if(solicitacoes.isEmpty()){
+                JOptionPane.showMessageDialog(null, "Não há coletas disponiveis", "Erro de Busca", JOptionPane.INFORMATION_MESSAGE);
+                disponivelRadioButton.setSelected(false);
+            }else{
+                SolicitacaoViewModel solicitacao = solicitacoes.get(0);
+                Global.obtemInstancia().solicitacao = solicitacao;
+                DetalhesPedidoController detalhes = new DetalhesPedidoController();
+                detalhes.exibir(event);
+            }
+        }
+        else{
+            disponivelRadioButton.setSelected(false);
+        }
+    }
+    
     //Tela para alterar dados cadastrais do motorista
     public void btnAlterarDadosOnClick(ActionEvent event) {
 

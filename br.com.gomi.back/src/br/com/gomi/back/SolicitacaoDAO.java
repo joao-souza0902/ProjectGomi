@@ -9,6 +9,7 @@ import java.util.HashMap;
 import br.com.gomi.shared.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 /**
  *
@@ -67,5 +68,17 @@ public class SolicitacaoDAO extends PadraoDAO<SolicitacaoViewModel>
     //Quantidade de parametros em Solicitação
     protected void setQtdParametros(){
         qtdParametros = " ?, ?, ?, ?, ?, ?, ?, ?, ?";
+    }
+    
+    public ArrayList<SolicitacaoViewModel> listarAbertas()throws Exception{
+        String[] parametros = {};
+        JDataTable tab = HelperDAO.executaProcSelect("spListarSolicitacoesAbertas", parametros);
+        ArrayList<SolicitacaoViewModel> lista = new ArrayList<>();
+        if(tab == null)
+            return lista;
+        for(int linha = 1; linha <= tab.getNumeroLinhas(); linha++){
+            lista.add(MontaModel(tab.getLinha(linha)));
+        }
+        return lista;
     }
 }

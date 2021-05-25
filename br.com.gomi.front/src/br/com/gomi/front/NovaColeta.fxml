@@ -4,13 +4,13 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="563.0" prefWidth="707.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.Controllers.NovaColetaController">
+<AnchorPane id="AnchorPane" prefHeight="563.0" prefWidth="707.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.Controllers.NovaColetaController">
    <children>
       <AnchorPane layoutY="89.0" prefHeight="474.0" prefWidth="707.0" style="-fx-background-color: #38414e;">
          <children>
@@ -45,7 +45,6 @@
                   <Font size="24.0" />
                </font>
             </Button>
-            <TextField fx:id="descricaoTextField" layoutX="329.0" layoutY="94.0" prefHeight="250.0" prefWidth="356.0" promptText="Descrição..." />
             <Button fx:id="btnContinuar" layoutX="450.0" layoutY="385.0" mnemonicParsing="false" onAction="#btnContinuarOnClick" prefHeight="57.0" prefWidth="146.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Continuar" textFill="WHITE">
                <font>
                   <Font size="24.0" />
@@ -56,6 +55,7 @@
                   <ImageView fx:id="imgFotoColeta" fitHeight="241.0" fitWidth="301.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </StackPane>
+            <TextArea fx:id="descricaoTextArea" layoutX="337.0" layoutY="94.0" prefHeight="250.0" prefWidth="356.0" promptText="Descreva da melhor forma possível sua coleta..." wrapText="true" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="74.0" prefWidth="707.0" style="-fx-background-color: #00CC66;">

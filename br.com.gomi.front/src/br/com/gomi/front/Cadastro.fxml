@@ -13,7 +13,7 @@
 
 <!--<?import br.com.gomi.front.util.MaskField> (Mascara imprtação ainda com erro) !-->
 
-<AnchorPane id="AnchorPane" prefHeight="563.0" prefWidth="707.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.Controllers.CadastroController">
+<AnchorPane id="AnchorPane" prefHeight="563.0" prefWidth="707.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.Controllers.CadastroController">
     <children>
         <AnchorPane layoutY="97.0" prefHeight="466.0" prefWidth="707.0" style="-fx-background-color: #38414e;">
             <children>
@@ -62,7 +62,7 @@
                 <Separator layoutX="374.0" layoutY="6.0" orientation="VERTICAL" prefHeight="443.0" prefWidth="6.0" />
             <StackPane layoutX="411.0" layoutY="18.0" prefHeight="135.0" prefWidth="145.0" style="-fx-border-color: green;">
                <children>
-                      <ImageView fitHeight="128.0" fitWidth="137.0" pickOnBounds="true" preserveRatio="true" />
+                      <ImageView fx:id="fotoImg" fitHeight="128.0" fitWidth="137.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </StackPane>
                 <Button fx:id="fotoCnhButton" layoutX="574.0" layoutY="105.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="79.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Foto CNH" textFill="WHITE">

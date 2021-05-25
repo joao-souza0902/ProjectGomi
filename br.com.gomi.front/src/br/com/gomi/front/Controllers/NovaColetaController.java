@@ -19,6 +19,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 
@@ -29,7 +30,7 @@ import javax.swing.JOptionPane;
 public class NovaColetaController extends PadraoController {
 
     @FXML
-    TextField descricaoTextField;
+    TextArea descricaoTextArea;
     @FXML
     CheckBox checkLixoReciclaveis;
     @FXML
@@ -43,14 +44,14 @@ public class NovaColetaController extends PadraoController {
     
     public void btnContinuarOnClick(ActionEvent event) throws IOException, SQLException {
         try {
-            Validacao.validaSolicitacao(descricaoTextField.getText());
+            Validacao.validaSolicitacao(descricaoTextArea.getText());
             
             SolicitacaoViewModel solicitacao = new SolicitacaoViewModel();
             ClienteViewModel cliente = (ClienteViewModel) UsuarioAtual.getInstancia().getUsuario();
             solicitacao.setIdCliente(cliente.getIdCliente());            
             solicitacao.setCep(cliente.getCep());
             solicitacao.setNumero(cliente.getNumero());
-            solicitacao.setDescricao(descricaoTextField.getText());
+            solicitacao.setDescricao(descricaoTextArea.getText());
             solicitacao.setDataSolicitacao(LocalDateTime.now());
             solicitacao.setAberto(true);
             //adicionar categorias na lista

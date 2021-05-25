@@ -68,10 +68,13 @@ public class BuscandoMotoristaController extends PadraoController {
         th.start();
     }
 
-    public void btnVoltarOnClick(ActionEvent event) throws IOException, InterruptedException {
+    public void btnVoltarOnClick(ActionEvent event) throws Exception {
         NovaColetaController novaColeta = new NovaColetaController();
         novaColeta.exibir(event);
-        //Update - Cancela a solicitacao
+        SolicitacaoViewModel solicitacao = Global.obtemInstancia().solicitacao;
+        Global.obtemInstancia().solicitacao = null;
+        solicitacao.setAberto(false);
+        Dados.atualizaSolicitacao(solicitacao);
     }
 
     public void ChangeScene(ActionEvent event, MotoristaEncontradoInfoController encontrado) {

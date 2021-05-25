@@ -8,6 +8,7 @@ package br.com.gomi.business;
 import br.com.gomi.back.*;
 import br.com.gomi.shared.*;
 import java.sql.SQLException;
+import java.util.List;
 
 /**
  *
@@ -96,5 +97,15 @@ public class Dados
         user.setSenha(senha);
         new UsuarioDAO().update(user);
         return user.getNome();
+    }
+    
+    public static void atualizaSolicitacao(SolicitacaoViewModel solicitacao) throws Exception{
+        SolicitacaoDAO dao = new SolicitacaoDAO();
+        dao.update(solicitacao);
+    }
+    
+    public static List<SolicitacaoViewModel> recuperaSolicitacoes() throws Exception{
+        SolicitacaoDAO dao = new SolicitacaoDAO();
+        return dao.listarAbertas();
     }
 }

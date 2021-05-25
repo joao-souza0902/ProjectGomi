@@ -321,3 +321,9 @@ begin
 	where m.IdMotorista = @id
 end
 go
+
+create procedure spListarSolicitacoesAbertas as
+begin
+	select * from Solicitacao where Aberto = 1 and IdMotorista is null
+end
+go
