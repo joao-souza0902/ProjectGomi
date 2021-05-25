@@ -310,3 +310,14 @@ begin
 	select* from Usuario where email = @usuario
 end
 go
+
+create procedure spConsultMotorista (@id int) as
+begin
+	select u.*, na.IdCliente, na.Telefone, na.TelefoneDDD, m.* from Motorista m
+	inner join
+	NaoAdm na on m.IdMotorista = na.IdMotorista
+	inner join
+	Usuario u on na.IdNaoAdm = u.IdNaoAdm
+	where m.IdMotorista = @id
+end
+go

@@ -69,11 +69,22 @@ public class Dados
         mot.setCpf(user.getCpf());        
         return mot;
     }
+    
+    public static MotoristaViewModel recuperaMotorista(int idMotorista) throws SQLException, Exception{
+        MotoristaViewModel motorista = new MotoristaDAO().fullConsult(idMotorista);       
+        return motorista;
+    }
+    
     public static NaoAdmViewModel recuperaNaoAdm(String login) throws SQLException, Exception{
         UsuarioViewModel user = new UsuarioDAO().consultaEmail(login);
         NaoAdmViewModel na = new NaoAdmDAO().consult(user.getIdNaoAdm());
         return na;
     }
+    public static SolicitacaoViewModel recuperaSolicitacao(int id) throws Exception{
+        SolicitacaoViewModel model = new SolicitacaoDAO().consult(id);
+        return model;
+    }
+    
     //Update    
     public static void atualizaNaoAdm(NaoAdmViewModel na) throws Exception{
         NaoAdmDAO dao = new NaoAdmDAO();
