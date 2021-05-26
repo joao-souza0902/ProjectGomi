@@ -96,8 +96,8 @@
                         <Font size="18.0" />
                     </font>
                 </Button>
-            <PasswordField fx:id="senhaTextFieldCerta" layoutX="144.0" layoutY="231.0" prefHeight="27.0" prefWidth="195.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #FFFFFF;" />
-            <PasswordField fx:id="confirmacaoSenhaTextFieldCerta" layoutX="144.0" layoutY="270.0" prefHeight="27.0" prefWidth="195.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #FFFFFF;" />
+            <PasswordField fx:id="senhaPasswordField" layoutX="144.0" layoutY="231.0" prefHeight="27.0" prefWidth="195.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #FFFFFF;" />
+            <PasswordField fx:id="confirmacaoSenhaPasswordField" layoutX="144.0" layoutY="270.0" prefHeight="27.0" prefWidth="195.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #FFFFFF;" />
             </children>
         </AnchorPane>
         <AnchorPane prefHeight="74.0" prefWidth="707.0" style="-fx-background-color: #00CC66;">

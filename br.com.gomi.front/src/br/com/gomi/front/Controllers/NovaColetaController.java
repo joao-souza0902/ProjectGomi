@@ -12,14 +12,17 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextArea;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 
@@ -58,7 +61,7 @@ public class NovaColetaController extends PadraoController {
             solicitacao.setId(Dados.insereSolicitacao(solicitacao));            
             BuscandoMotoristaController buscandoMotorista = new BuscandoMotoristaController();
             Global.obtemInstancia().solicitacao = solicitacao;
-            buscandoMotorista.exibir(event);
+            buscandoMotorista.start((Stage)((Button)event.getSource()).getScene().getWindow());
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage(), "Erro de Cadastro", JOptionPane.ERROR_MESSAGE);
         }
@@ -66,7 +69,7 @@ public class NovaColetaController extends PadraoController {
     
     public void btnVoltarOnClick(ActionEvent event) throws IOException {
         PrincipalCController principal = new PrincipalCController();
-        principal.exibir(event);
+        principal.start((Stage)((Button)event.getSource()).getScene().getWindow());
     }
     
     public void btnFotoColetaOnClick(ActionEvent event) throws IOException {
@@ -74,11 +77,27 @@ public class NovaColetaController extends PadraoController {
     }
     
     @Override
-    public void exibir(ActionEvent event) throws IOException {
+    public void start(Stage stage) throws IOException {
         Parent home_page_parent = FXMLLoader.load(getClass().getResource("/br/com/gomi/front/NovaColeta.fxml"));
         Scene home_page_scene = new Scene(home_page_parent);
-        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        app_stage.setScene(home_page_scene);
-        app_stage.show();
+
+        home_page_parent.setOnMousePressed (new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event){
+                xOffset = event.getSceneX();
+                yOffset = event.getSceneY();
+            }
+        });
+        
+        home_page_parent.setOnMouseDragged(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event){
+                stage.setX(event.getScreenX() - xOffset);
+                stage.setY(event.getScreenY() - yOffset);
+            }
+        });
+        
+        stage.setScene(home_page_scene);
+        stage.show();
     }
 }

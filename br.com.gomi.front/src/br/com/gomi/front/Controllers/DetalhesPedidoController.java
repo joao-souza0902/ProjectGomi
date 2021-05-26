@@ -15,12 +15,15 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 
@@ -42,13 +45,13 @@ public class DetalhesPedidoController extends PadraoController {
         Dados.atualizaSolicitacao(Global.obtemInstancia().solicitacao);
         WebPageOpener.openWebpage("https://google.com/maps/dir/" + Global.obtemInstancia().solicitacao.getOrigem().replace(' ', '+') + "/" + Global.obtemInstancia().solicitacao.getCep() + "/ecoponto");
         AtenderSolicitacaoController atender = new AtenderSolicitacaoController();
-        atender.exibir(event);
+        atender.start((Stage)((Button)event.getSource()).getScene().getWindow());
     }
 
     public void btnRecusarOnClick(ActionEvent event) throws IOException {
         PrincipalMController principal = new PrincipalMController();
         Global.obtemInstancia().solicitacao = null;
-        principal.exibir(event);
+        principal.start((Stage)((Button)event.getSource()).getScene().getWindow());
     }
     
     @Override
@@ -61,11 +64,27 @@ public class DetalhesPedidoController extends PadraoController {
     }
 
     @Override
-    public void exibir(ActionEvent event) throws IOException {
+    public void start(Stage stage) throws IOException {
         Parent home_page_parent = FXMLLoader.load(getClass().getResource("/br/com/gomi/front/DetalhesPedido.fxml"));
         Scene home_page_scene = new Scene(home_page_parent);
-        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        app_stage.setScene(home_page_scene);
-        app_stage.show();
+        
+        home_page_parent.setOnMousePressed (new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event){
+                xOffset = event.getSceneX();
+                yOffset = event.getSceneY();
+            }
+        });
+        
+        home_page_parent.setOnMouseDragged(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event){
+                stage.setX(event.getScreenX() - xOffset);
+                stage.setY(event.getScreenY() - yOffset);
+            }
+        });
+        
+        stage.setScene(home_page_scene);
+        stage.show();
     }
 }

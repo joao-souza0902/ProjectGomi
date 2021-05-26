@@ -12,12 +12,15 @@ import br.com.gomi.shared.UsuarioAtual;
 import java.io.IOException;
 import java.util.List;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 
@@ -41,7 +44,7 @@ public class PrincipalMController extends PadraoController {
                 solicitacao.setOrigem(JOptionPane.showInputDialog("Digite seu endereço atual:", "Endereço").replace(' ', '+'));
                 Global.obtemInstancia().solicitacao = solicitacao;
                 DetalhesPedidoController detalhes = new DetalhesPedidoController();
-                detalhes.exibir(event);
+                detalhes.start((Stage)((CheckBox)event.getSource()).getScene().getWindow());
             }
         }
         else{
@@ -63,14 +66,30 @@ public class PrincipalMController extends PadraoController {
     public void btnSairOnClick(ActionEvent event) throws IOException {
         UsuarioAtual.getInstancia().logoff();
         LoginController login = new LoginController();
-        login.exibir(event);
+        login.start((Stage)((Button)event.getSource()).getScene().getWindow());
     }
 
     @Override
-    public void exibir(ActionEvent event) throws IOException {
+    public void start(Stage stage) throws IOException {
         Parent parent = FXMLLoader.load(getClass().getResource("/br/com/gomi/front/PrincipalM.fxml"));
         Scene scene = new Scene(parent);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        
+        parent.setOnMousePressed (new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event){
+                xOffset = event.getSceneX();
+                yOffset = event.getSceneY();
+            }
+        });
+        
+        parent.setOnMouseDragged(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event){
+                stage.setX(event.getScreenX() - xOffset);
+                stage.setY(event.getScreenY() - yOffset);
+            }
+        });
+        
         stage.setScene(scene);
         stage.show();
     }

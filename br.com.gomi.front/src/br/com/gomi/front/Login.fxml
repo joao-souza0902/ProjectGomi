@@ -29,7 +29,7 @@
             <Hyperlink fx:id="lnkEsqueceuSenha" layoutX="177.0" layoutY="254.0" onAction="#lnkEsqueceuSenhaOnClick" text="Esqueci minha senha" textFill="#a7fcb9" />
             <Button fx:id="btnCadastrar" layoutX="80.0" layoutY="416.0" mnemonicParsing="false" onAction="#btnCadastrarOnClick" prefHeight="40.0" prefWidth="317.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Cadastre-se" textFill="WHITE" />
             <TextField fx:id="loginTextField" layoutX="79.0" layoutY="142.0" prefHeight="40.0" prefWidth="317.0" promptText="E-mail" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;" />
-            <PasswordField fx:id="senhaTextFieldCerta" layoutX="78.0" layoutY="199.0" prefHeight="40.0" prefWidth="317.0" promptText="Senha" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #FFFFFF;" />
+            <PasswordField fx:id="senhaPasswordField" layoutX="78.0" layoutY="199.0" prefHeight="40.0" prefWidth="317.0" promptText="Senha" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #FFFFFF;" />
          </children></AnchorPane>
       <AnchorPane prefHeight="120.0" prefWidth="447.0" style="-fx-background-color: #00CC66;">
          <children>
