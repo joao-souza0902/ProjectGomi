@@ -51,6 +51,7 @@ public class BuscandoMotoristaController extends PadraoController {
                     SolicitacaoViewModel model = Dados.recuperaSolicitacao(idSolicitacao);
                     if (model.getIdMotorista() != null) {
                         Global.obtemInstancia().motorista = Dados.recuperaMotorista(model.getIdMotorista());
+                        Global.obtemInstancia().solicitacao = model;
                         ativo = false;
                     }
                     Thread.sleep(2000);

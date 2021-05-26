@@ -102,4 +102,5 @@ public class LoginController extends PadraoController {
         app_stage.setScene(home_page_scene);
         app_stage.show();
     }
+    
 }

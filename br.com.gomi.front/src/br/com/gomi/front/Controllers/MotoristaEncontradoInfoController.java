@@ -5,6 +5,7 @@
  */
 package br.com.gomi.front.Controllers;
 
+import br.com.gomi.business.Validacao;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -29,6 +30,8 @@ public class MotoristaEncontradoInfoController extends PadraoController{
     TextField txtNomeMotorista;
     @FXML
     TextField txtCarroMotorista;
+    @FXML
+    TextField txtTempoChegadaMotorista;
     
     public void btnCancelarOnClick(ActionEvent event){
         //Cancelar
@@ -38,6 +41,7 @@ public class MotoristaEncontradoInfoController extends PadraoController{
     public void initialize(URL url, ResourceBundle rb){
         txtNomeMotorista.setText(Global.obtemInstancia().motorista.getNome());
         txtCarroMotorista.setText(Global.obtemInstancia().motorista.getTipoVeiculo());
+        txtTempoChegadaMotorista.setText(Validacao.getTempoChegada(Global.obtemInstancia().solicitacao.getOrigem(), Global.obtemInstancia().solicitacao.getCep()));
     }
     
     @Override

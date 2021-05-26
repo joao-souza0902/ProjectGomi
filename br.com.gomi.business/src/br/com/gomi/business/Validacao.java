@@ -159,4 +159,22 @@ public class Validacao {
             return tipo;
         }
     }
+    
+    public static String getDistancia(String origem, String destino){
+        String distancia;
+        String respostaAPI = ConsumidorAPI.getInstancia().getDirections(origem, destino);
+        int instrucao = respostaAPI.indexOf("\"distance\" : {\n" +
+"                  \"text\" : \"" ) + 43;
+        distancia = respostaAPI.substring(instrucao, instrucao + 15);
+        return distancia.substring(0, distancia.indexOf("\""));
+    }
+    
+    public static String getTempoChegada(String origem, String destino){
+        String tempo;
+        String respostaAPI = ConsumidorAPI.getInstancia().getDirections(origem, destino);
+        int instrucao = respostaAPI.indexOf("\"duration\" : {\n" +
+"                  \"text\" : \"" ) + 43;
+        tempo = respostaAPI.substring(instrucao, instrucao + 15);
+        return tempo.substring(0,tempo.indexOf("\""));
+    }
 }

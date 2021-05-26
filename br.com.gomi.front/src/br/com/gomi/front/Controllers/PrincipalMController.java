@@ -38,6 +38,7 @@ public class PrincipalMController extends PadraoController {
                 disponivelRadioButton.setSelected(false);
             }else{
                 SolicitacaoViewModel solicitacao = solicitacoes.get(0);
+                solicitacao.setOrigem(JOptionPane.showInputDialog("Digite seu endereço atual:", "Endereço").replace(' ', '+'));
                 Global.obtemInstancia().solicitacao = solicitacao;
                 DetalhesPedidoController detalhes = new DetalhesPedidoController();
                 detalhes.exibir(event);

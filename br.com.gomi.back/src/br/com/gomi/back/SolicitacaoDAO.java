@@ -22,7 +22,7 @@ public class SolicitacaoDAO extends PadraoDAO<SolicitacaoViewModel>
     protected String[] CriaParametros(SolicitacaoViewModel model)
     {           
         //Cria os parametros
-        String[] parametros = new String[9];
+        String[] parametros = new String[10];
         parametros[0] = String.valueOf(model.getId());
         parametros[1] = String.valueOf(model.getIdCliente());
         parametros[2] = String.valueOf(model.getIdMotorista());
@@ -32,6 +32,7 @@ public class SolicitacaoDAO extends PadraoDAO<SolicitacaoViewModel>
         parametros[6] = model.getDescricao();
         parametros[7] = model.getCep();
         parametros[8] = String.valueOf(model.getNumero());
+        parametros[9] = String.valueOf(model.getOrigem());
         
         return parametros;
     }
@@ -55,6 +56,7 @@ public class SolicitacaoDAO extends PadraoDAO<SolicitacaoViewModel>
         t.setDescricao((String)registro.get("Descricao"));
         t.setCep((String)registro.get("cep"));
         t.setNumero((Integer)registro.get("numero"));
+        t.setOrigem((String)registro.get("origem"));
         return t;
     }
 
@@ -68,7 +70,7 @@ public class SolicitacaoDAO extends PadraoDAO<SolicitacaoViewModel>
     @Override
     //Quantidade de parametros em Solicitação
     protected void setQtdParametros(){
-        qtdParametros = " ?, ?, ?, ?, ?, ?, ?, ?, ?";
+        qtdParametros = " ?, ?, ?, ?, ?, ?, ?, ?, ?, ?";
     }
     
     public ArrayList<SolicitacaoViewModel> listarAbertas()throws Exception{

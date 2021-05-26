@@ -6,6 +6,8 @@
 package br.com.gomi.front.Controllers;
 
 import br.com.gomi.business.Dados;
+import br.com.gomi.business.Validacao;
+import br.com.gomi.business.WebPageOpener;
 import br.com.gomi.shared.MotoristaViewModel;
 import br.com.gomi.shared.SolicitacaoViewModel;
 import br.com.gomi.shared.UsuarioAtual;
@@ -20,6 +22,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -31,10 +34,13 @@ public class DetalhesPedidoController extends PadraoController {
     TextField txtEndereco;
     @FXML
     TextField txtDescricao;
+    @FXML
+    TextField txtDistancia;
     
     public void btnAceitarOnClick(ActionEvent event) throws IOException, Exception {                
         Global.obtemInstancia().solicitacao.setIdMotorista(((MotoristaViewModel) UsuarioAtual.getInstancia().getUsuario()).getIdMotorista());
         Dados.atualizaSolicitacao(Global.obtemInstancia().solicitacao);
+        WebPageOpener.openWebpage("https://google.com/maps/dir/" + Global.obtemInstancia().solicitacao.getOrigem().replace(' ', '+') + "/" + Global.obtemInstancia().solicitacao.getCep() + "/ecoponto");
         AtenderSolicitacaoController atender = new AtenderSolicitacaoController();
         atender.exibir(event);
     }
@@ -51,6 +57,7 @@ public class DetalhesPedidoController extends PadraoController {
         solicitacao = Global.obtemInstancia().solicitacao;
         txtEndereco.setText(solicitacao.getCep() + ", Nº" + solicitacao.getNumero());
         txtDescricao.setText(solicitacao.getDescricao());
+        txtDistancia.setText(Validacao.getDistancia(Global.obtemInstancia().solicitacao.getOrigem(), Global.obtemInstancia().solicitacao.getCep()));
     }
 
     @Override

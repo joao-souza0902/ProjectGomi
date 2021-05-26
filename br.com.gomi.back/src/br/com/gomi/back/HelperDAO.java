@@ -22,7 +22,7 @@ public class HelperDAO
         try(Connection conexao = ConexaoBD.getConexao()){  
             PreparedStatement comando = conexao.prepareStatement(sql);
             for(int i = 1; i <= parametros.length; i++){
-                if (parametros[i-1].equals("null")){
+                if (parametros[i-1].equals("null") || parametros[i-1] == null){
                     comando.setNull(i, 0);
                 }
                 else{
@@ -39,7 +39,7 @@ public class HelperDAO
         try(Connection conexao = ConexaoBD.getConexao()){
             PreparedStatement comando = conexao.prepareStatement(sql);
             for(int i = 1; i <= parametros.length; i++){
-                if (parametros[i-1].equals("null")){
+                if (parametros[i-1].equals("null") || parametros[i-1] == null){
                     comando.setNull(i, 0);
                 }
                 else{
