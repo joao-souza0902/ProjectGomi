@@ -28,6 +28,7 @@ public class EcopontoDAO extends PadraoDAO<EcopontoViewModel>
     }
 
     @Override
+    //Cria as models com os campos
     protected EcopontoViewModel MontaModel(HashMap<String, Object> registro)
     {
         EcopontoViewModel t = new EcopontoViewModel();

@@ -25,7 +25,7 @@ public class RandomPasswordGenerator
         '!', '@', '#', '$', '%', '&', '*', '-'
     };
 
-    //Quantidade de campos em uma senha(?)
+    //Quantidade de campos em uma senha
     public static String geraSenha()
     {
         StringBuilder senha = new StringBuilder();

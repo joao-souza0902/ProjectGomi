@@ -27,6 +27,7 @@ public class LogDAO extends PadraoDAO<LogViewModel>
     }
 
     @Override
+    //Cria as models com os campos
     protected LogViewModel MontaModel(HashMap<String, Object> registro)
     {
         LogViewModel t = new LogViewModel();

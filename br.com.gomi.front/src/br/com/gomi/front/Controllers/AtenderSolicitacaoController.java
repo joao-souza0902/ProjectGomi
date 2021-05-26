@@ -27,6 +27,7 @@ public class AtenderSolicitacaoController extends PadraoController{
         
     }
     
+    //Acessa a tela de atender solicitação
     @Override
     public void exibir(ActionEvent event) throws IOException {
         Parent home_page_parent = FXMLLoader.load(getClass().getResource("/br/com/gomi/front/AtenderSolicitacao.fxml"));

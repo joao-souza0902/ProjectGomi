@@ -31,6 +31,7 @@ public class NaoAdmDAO extends PadraoDAO<NaoAdmViewModel>
     }
 
     @Override
+    //Cria as models com os campos
     protected NaoAdmViewModel MontaModel(HashMap<String, Object> registro)
     {
         NaoAdmViewModel t = new NaoAdmViewModel();

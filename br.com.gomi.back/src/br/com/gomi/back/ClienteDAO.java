@@ -32,6 +32,7 @@ public class ClienteDAO extends PadraoDAO<ClienteViewModel>
     }
 
     @Override
+    //Cria as models com os campos
     protected ClienteViewModel MontaModel(HashMap<String, Object> registro)
     {
         ClienteViewModel t = new ClienteViewModel();

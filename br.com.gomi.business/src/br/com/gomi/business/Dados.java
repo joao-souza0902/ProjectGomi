@@ -98,12 +98,13 @@ public class Dados
         new UsuarioDAO().update(user);
         return user.getNome();
     }
-    
+        
     public static void atualizaSolicitacao(SolicitacaoViewModel solicitacao) throws Exception{
         SolicitacaoDAO dao = new SolicitacaoDAO();
         dao.update(solicitacao);
     }
     
+    //recupera todas as solicitações abertas
     public static List<SolicitacaoViewModel> recuperaSolicitacoes() throws Exception{
         SolicitacaoDAO dao = new SolicitacaoDAO();
         return dao.listarAbertas();

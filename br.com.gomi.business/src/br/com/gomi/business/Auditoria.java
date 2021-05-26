@@ -7,10 +7,7 @@ package br.com.gomi.business;
 
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-/**
- *
- * @author Fábio
- */
+//Auditoria é responsavel por registrar todos os logs do programa
 public class Auditoria {
     /*Singleton*/
     static private Auditoria _instancia;
@@ -26,8 +23,10 @@ public class Auditoria {
     }
     /*Singleton*/
     
-    ThreadLogs thread;
+    ThreadLogs thread; //Thread responsavel por ler a fila e salvar no banco
+    //Fila de logs thread safe
     static private ConcurrentLinkedQueue<String> fila = new ConcurrentLinkedQueue<String>();
+    
     
     public ConcurrentLinkedQueue<String> getFila() {
         return fila;
@@ -46,7 +45,7 @@ public class Auditoria {
         }
     }
     
-    //É necessário executar o método iniciar no inicio da aplicação
+    //método que inicia a thread
     public void iniciar(){
         if(thread == null){
             thread = new ThreadLogs();
@@ -55,7 +54,7 @@ public class Auditoria {
         }                
     }
     
-    //É necessário executar o método finalizar no final da aplicação (Dentro do Finally)
+    //método que finaliza a thread
     public void finalizar(){
         if(thread != null){
             thread.setAtivo(false);
