@@ -7,10 +7,12 @@ package br.com.gomi.front.Controllers;
 
 import java.io.IOException;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 /**
@@ -20,12 +22,28 @@ import javafx.stage.Stage;
 public class SobreController extends PadraoController{
 
     @Override
-    public void exibir(ActionEvent event) throws IOException {
+    public void start(Stage stage) throws IOException {
         Parent home_page_parent = FXMLLoader.load(getClass().getResource("Sobre.fxml"));
         Scene home_page_scene = new Scene(home_page_parent);
-        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        app_stage.setScene(home_page_scene);
-        app_stage.show();
+        
+        home_page_parent.setOnMousePressed (new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event){
+                xOffset = event.getSceneX();
+                yOffset = event.getSceneY();
+            }
+        });
+        
+        home_page_parent.setOnMouseDragged(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event){
+                stage.setX(event.getScreenX() - xOffset);
+                stage.setY(event.getScreenY() - yOffset);
+            }
+        });
+        
+        stage.setScene(home_page_scene);
+        stage.show();
     }
     
 }

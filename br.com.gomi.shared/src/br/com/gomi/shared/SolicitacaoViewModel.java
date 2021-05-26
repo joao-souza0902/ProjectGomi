@@ -20,7 +20,8 @@ public class SolicitacaoViewModel extends PadraoViewModel {
     private boolean aberto; //True se aberto, False se fechado
     private String descricao; //Descrição da solicitação
     private String cep; //CEP do cliente
-    private int numero; //Numero da solicitação(?)
+    private int numero; //Numero do endereço do cliente
+    private String origem; //Endereço de origem do  
     ArrayList<CategoriaViewModel> categorias = new ArrayList<>();    
 
     //metodos get e set para escrever nos campos vendo se condiz com o tipo
@@ -91,4 +92,12 @@ public class SolicitacaoViewModel extends PadraoViewModel {
     public void setNumero(int numero) {
         this.numero = numero;
     }
+    
+    public String getOrigem() {
+        return origem;
+    }
+
+    public void setOrigem(String origem) {
+        this.origem = origem;
+    } 
 }

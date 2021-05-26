@@ -17,6 +17,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -24,9 +25,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javax.swing.JOptionPane;
 
 /**
@@ -48,9 +52,9 @@ public class CadastroController extends PadraoController {
     @FXML
     TextField dataNascimentoTextField;
     @FXML
-    TextField senhaTextField;
+    PasswordField senhaPasswordField;
     @FXML
-    TextField confirmacaoSenhaTextField;
+    PasswordField confirmacaoSenhaPasswordField;
     @FXML
     TextField cepTextField;
     @FXML
@@ -101,6 +105,7 @@ public class CadastroController extends PadraoController {
     Label cargaLabel;
     @FXML
     Button fotoCnhButton;
+    
 
     //verificar como colocar foto
     //verificar como colocar método de pagamento
@@ -113,7 +118,7 @@ public class CadastroController extends PadraoController {
             }
 
             char tipo = Validacao.validaCadastro(emailTextField.getText(), nomeTextField.getText(), telefoneTextField.getText(), cpfTextField.getText(), dataNascimentoTextField.getText(),
-                    senhaTextField.getText(), confirmacaoSenhaTextField.getText(), ehCliente, cepTextField.getText(), numeroTextField.getText(), ruaTextField.getText(),
+                    senhaPasswordField.getText(), confirmacaoSenhaPasswordField.getText(), ehCliente, cepTextField.getText(), numeroTextField.getText(), ruaTextField.getText(),
                     bairroTextField.getText(), cidadeTextField.getText(), tipoVeiculoTextField.getText(), cnhTextField.getText(), dataExpiracaoTextField.getText(),
                     cnhCategoriaTextField.getText(), cargaSuportadaTextField.getText());
 
@@ -125,7 +130,7 @@ public class CadastroController extends PadraoController {
                 cliente.setTelefone(Integer.parseInt(telefoneTextField.getText().substring(4)));
                 cliente.setCpf(cpfTextField.getText());
                 cliente.setData(LocalDate.parse(dataNascimentoTextField.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-                cliente.setSenha(senhaTextField.getText());
+                cliente.setSenha(senhaPasswordField.getText());
                 cliente.setCep(cepTextField.getText());
                 cliente.setNumero(Integer.parseInt(numeroTextField.getText()));
                 cliente.setRua(ruaTextField.getText());
@@ -143,7 +148,7 @@ public class CadastroController extends PadraoController {
                 motorista.setTelefone(Integer.parseInt(telefoneTextField.getText().substring(4)));
                 motorista.setCpf(cpfTextField.getText());
                 motorista.setData(LocalDate.parse(dataNascimentoTextField.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-                motorista.setSenha(senhaTextField.getText());
+                motorista.setSenha(senhaPasswordField.getText());
                 motorista.setTipoVeiculo(tipoVeiculoTextField.getText());
                 motorista.setCnh(cnhTextField.getText());
                 motorista.setDataExpiracao(LocalDate.parse(dataExpiracaoTextField.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy")));
@@ -199,9 +204,9 @@ public class CadastroController extends PadraoController {
     }
 
     //Voltar a tela de login
-    public void btnVoltarOnClick(ActionEvent event) throws IOException {
+    public void btnVoltarOnClick(ActionEvent event) throws IOException, Exception {
         LoginController login = new LoginController();
-        login.exibir(event);
+        login.start((Stage)((Button)event.getSource()).getScene().getWindow());
     }
 
     //Mudar para preencher dados exclusivos do cliente
@@ -299,11 +304,29 @@ public class CadastroController extends PadraoController {
     }
 
     @Override
-    public void exibir(ActionEvent event) throws IOException {
+    public void start(Stage stage) throws IOException {
         Parent home_page_parent = FXMLLoader.load(getClass().getResource("/br/com/gomi/front/Cadastro.fxml"));
         Scene home_page_scene = new Scene(home_page_parent);
-        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        app_stage.setScene(home_page_scene);
-        app_stage.show();
+        
+        
+        home_page_parent.setOnMousePressed (new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event){
+                xOffset = event.getSceneX();
+                yOffset = event.getSceneY();
+            }
+        });
+        
+        home_page_parent.setOnMouseDragged(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event){
+                stage.setX(event.getScreenX() - xOffset);
+                stage.setY(event.getScreenY() - yOffset);
+            }
+        });
+        
+        
+        stage.setScene(home_page_scene);
+        stage.show();
     }
 }
