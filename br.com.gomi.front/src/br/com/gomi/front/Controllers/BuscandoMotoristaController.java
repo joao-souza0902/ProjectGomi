@@ -35,6 +35,7 @@ public class BuscandoMotoristaController extends PadraoController {
     @FXML
     Button btnBuscar;
     
+    
     public void btnBuscarOnClick(ActionEvent event) throws IOException {
         btnBuscar.setVisible(false);
         labelBuscaMotorista.setVisible(true);
@@ -68,6 +69,7 @@ public class BuscandoMotoristaController extends PadraoController {
         th.start();
     }
 
+    
     public void btnVoltarOnClick(ActionEvent event) throws Exception {
         NovaColetaController novaColeta = new NovaColetaController();
         novaColeta.exibir(event);

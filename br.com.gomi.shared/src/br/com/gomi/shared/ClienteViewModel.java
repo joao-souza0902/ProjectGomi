@@ -19,7 +19,7 @@ public class ClienteViewModel extends NaoAdmViewModel {
     
     //metodos get e set para escrever nos campos vendo se condiz com string ou int
     public String getRua() {
-        return rua;
+        return rua; //Rua do cliente
     }
 
     public void setRua(String rua) {
@@ -27,7 +27,7 @@ public class ClienteViewModel extends NaoAdmViewModel {
     }
 
     public int getNumero() {
-        return numero;
+        return numero; //Número do cliente
     }
 
     public void setNumero(int numero) {
@@ -35,7 +35,7 @@ public class ClienteViewModel extends NaoAdmViewModel {
     }
 
     public String getComplemento() {
-        return complemento;
+        return complemento; //Complemento do cliente
     }
 
     public void setComplemento(String complemento) {
@@ -43,7 +43,7 @@ public class ClienteViewModel extends NaoAdmViewModel {
     }
 
     public String getBairro() {
-        return bairro;
+        return bairro; //Bairro do cliente
     }
 
     public void setBairro(String bairro) {
@@ -51,7 +51,7 @@ public class ClienteViewModel extends NaoAdmViewModel {
     }
 
     public String getCidade() {
-        return cidade;
+        return cidade;//Cidade do cliente
     }
 
     public void setCidade(String cidade) {
@@ -59,7 +59,7 @@ public class ClienteViewModel extends NaoAdmViewModel {
     }
 
     public String getCep() {
-        return cep;
+        return cep; //Cidade do cliente
     }
 
     public void setCep(String cep) {

@@ -31,7 +31,7 @@ public class Validacao {
         }
     }
 
-    //Consulta caso usuario for Admin, Cliente ou Motorista(X?)
+    //Consulta caso usuario for Admin, Cliente, Motorista ou ambos Cliente e Motorista
     public static char validaTipoLogin(String usuario) throws SQLException, Exception {
         UsuarioViewModel user = new UsuarioDAO().consultaEmail(usuario);
         if (user.getIdNaoAdm() != null) {

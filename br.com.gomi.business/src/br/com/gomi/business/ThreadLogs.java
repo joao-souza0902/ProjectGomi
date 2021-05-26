@@ -14,6 +14,8 @@ import java.util.logging.Logger;
  *
  * @author Fábio
  */
+
+//thread responsavel por transferir da fila de logs para o banco
 public class ThreadLogs extends Thread{
     
     private boolean ativo = true;

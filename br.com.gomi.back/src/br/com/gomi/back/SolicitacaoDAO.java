@@ -37,6 +37,7 @@ public class SolicitacaoDAO extends PadraoDAO<SolicitacaoViewModel>
     }
 
     @Override
+    //Cria as models com os campos
     protected SolicitacaoViewModel MontaModel(HashMap<String, Object> registro)
     {
         //Model contendo os parametros

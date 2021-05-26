@@ -30,6 +30,7 @@ public class MotoristaDAO extends PadraoDAO<MotoristaViewModel> {
     }
 
     @Override
+    //Cria as models com os campos
     protected MotoristaViewModel MontaModel(HashMap<String, Object> registro) {
         MotoristaViewModel t = new MotoristaViewModel();
         t.setIdMotorista((Integer) registro.get("IdMotorista"));

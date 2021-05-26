@@ -9,6 +9,7 @@ package util;
  *
  * @author jonyg
  */
-public class MaskField {
+public class MaskField 
+{
     
 }
