@@ -81,13 +81,6 @@ create table CategoriaSolicitacao(
 	Primary Key (IdSolicitacao, IdCategoria)
 )
 
-create table Notificacao (
-	IdNotificacao int primary key identity(1, 1),
-	IdSolicitacao int foreign key references Solicitacao(IdSolicitacao),
-	IdUsuario int foreign key references Usuario(IdUsuario),
-	Mensagem varchar(max)
-)
-
 create table [Log] (
 	IdLog int primary key identity(1, 1),
 	Descricao varchar(max)
