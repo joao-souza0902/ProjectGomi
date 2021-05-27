@@ -17,7 +17,7 @@
                   <Font name="Segoe UI" size="24.0" />
                </font>
             </Button>
-            <TextField fx:id="txtEndereco" editable="false" layoutX="160.0" layoutY="62.0" prefHeight="30.0" prefWidth="273.0" />
+            <TextField fx:id="txtEndereco" editable="false" layoutX="160.0" layoutY="62.0" prefHeight="30.0" prefWidth="273.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;" />
             <Label layoutX="24.0" layoutY="44.0" prefHeight="65.0" prefWidth="130.0" text="Endereço:" textFill="WHITE">
                <font>
                   <Font name="Segoe UI" size="25.0" />
@@ -43,11 +43,11 @@
                   <Font name="Segoe UI" size="24.0" />
                </font>
             </Button>
-            <TextField fx:id="txtDistancia" editable="false" layoutX="160.0" layoutY="316.0" prefHeight="30.0" prefWidth="273.0" />
-            <TextField fx:id="txtDescricao" editable="false" layoutX="160.0" layoutY="186.0" prefHeight="30.0" prefWidth="273.0" />
-            <StackPane layoutX="450.0" layoutY="80.0" prefHeight="275.0" prefWidth="245.0" style="-fx-border-color: green;">
+            <TextField fx:id="txtDistancia" editable="false" layoutX="160.0" layoutY="316.0" prefHeight="30.0" prefWidth="273.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;" />
+            <TextField fx:id="txtDescricao" editable="false" layoutX="160.0" layoutY="186.0" prefHeight="30.0" prefWidth="273.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;" />
+            <StackPane layoutX="450.0" layoutY="80.0" prefHeight="265.0" prefWidth="245.0" style="-fx-border-color: #2E8B57;">
                <children>
-                  <ImageView fx:id="imgPedido" fitHeight="267.0" fitWidth="238.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imgPedido" fitHeight="252.0" fitWidth="238.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </StackPane>
          </children>

@@ -50,12 +50,12 @@
                   <Font name="Segoe UI" size="24.0" />
                </font>
             </Button>
-            <StackPane layoutX="14.0" layoutY="94.0" prefHeight="250.0" prefWidth="308.0" style="-fx-border-color: green;">
+            <StackPane layoutX="14.0" layoutY="94.0" prefHeight="250.0" prefWidth="308.0" style="-fx-border-color: #2E8B57;">
                <children>
                   <ImageView fx:id="imgFotoColeta" fitHeight="241.0" fitWidth="301.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </StackPane>
-            <TextArea fx:id="descricaoTextArea" layoutX="337.0" layoutY="94.0" prefHeight="250.0" prefWidth="356.0" promptText="Descreva da melhor forma possível sua coleta..." wrapText="true">
+            <TextArea fx:id="descricaoTextArea" layoutX="337.0" layoutY="94.0" prefHeight="250.0" prefWidth="356.0" promptText="Descreva da melhor forma possível sua coleta..." style="-fx-border-color: #2E8B57; -fx-control-inner-background: #38414e; -fx-background-color: #2E8B57; -fx-text-fill: #ffffff; -fx-prompt-text-fill: #cccccc;" wrapText="true">
                <font>
                   <Font name="Segoe UI" size="12.0" />
                </font></TextArea>
