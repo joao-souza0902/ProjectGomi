@@ -5,12 +5,20 @@
  */
 package br.com.gomi.front.Controllers;
 
+import br.com.gomi.business.Dados;
+import br.com.gomi.shared.SolicitacaoViewModel;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -19,13 +27,60 @@ import javafx.stage.Stage;
  * @author Fábio
  */
 public class AtenderSolicitacaoController extends PadraoController {
+    @FXML
+    Button btnConfirmar;
 
-    public void btnConfirmarOnClick(ActionEvent event) {
+    public void btnConfirmarOnClick(ActionEvent event) throws Exception {
+        
+        int idSolicitacao = Global.obtemInstancia().solicitacao.getId();
+        SolicitacaoViewModel model = Dados.recuperaSolicitacao(idSolicitacao);
+        if (!model.isColetado()){
+            model.setColetado(true);
+        }
+        else{
+            model.setAberto(false);
+        }
+        btnConfirmar.setDisable(true);
+        Dados.atualizaSolicitacao(model);
+        PrincipalMController coletado = new PrincipalMController();
 
+        Task task = new Task<Void>() {
+            @Override
+            public Void call() throws Exception {
+                boolean ativo = true;
+                while (ativo) {
+                    SolicitacaoViewModel model = Dados.recuperaSolicitacao(idSolicitacao);
+                    if (model.isColetado() && !model.isAberto()) {
+                        ativo = false;
+                    }
+                    Thread.sleep(2000);
+                }
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        try
+                        {
+                            ChangeScene(event, coletado);
+                        } catch (IOException ex)
+                        {
+                            Logger.getLogger(AtenderSolicitacaoController.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                });
+                return null;
+            }
+        };
+        Thread th = new Thread(task);
+        th.setDaemon(true);
+        th.start();
     }
 
     public void btnCancelarOnClick(ActionEvent event) {
 
+    }
+    //Apos o carregamento terminar, mudar tela.
+    public void ChangeScene(ActionEvent event, PrincipalMController encontrado) throws IOException {
+        encontrado.start((Stage) ((Button) event.getSource()).getScene().getWindow());
     }
 
     //Tela onde a controller ira agir

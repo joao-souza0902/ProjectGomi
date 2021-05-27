@@ -16,7 +16,7 @@ public class SolicitacaoViewModel extends PadraoViewModel {
 
     private Integer idCliente; //Id do Cliente que fez a solicitação
     private Integer idMotorista; //id do Motorista atendendo a solicitação
-    private boolean agendamento; //Agendamento
+    private boolean coletado; //Conformação de coleta do produto
     private LocalDateTime dataSolicitacao; //Data da solicitação
     private boolean aberto; //True se aberto, False se fechado
     private String descricao; //Descrição da solicitação
@@ -42,12 +42,12 @@ public class SolicitacaoViewModel extends PadraoViewModel {
         this.idMotorista = idMotorista;
     }
 
-    public boolean isAgendamento() {
-        return agendamento;
+    public boolean isColetado() {
+        return coletado;
     }
 
-    public void setAgendamento(boolean agendamento) {
-        this.agendamento = agendamento;
+    public void setColetado(boolean coletado) {
+        this.coletado = coletado;
     }
 
     public LocalDateTime getDataSolicitacao() {

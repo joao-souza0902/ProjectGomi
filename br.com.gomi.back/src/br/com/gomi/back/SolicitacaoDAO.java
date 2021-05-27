@@ -26,7 +26,7 @@ public class SolicitacaoDAO extends PadraoDAO<SolicitacaoViewModel>
         parametros[0] = String.valueOf(model.getId());
         parametros[1] = String.valueOf(model.getIdCliente());
         parametros[2] = String.valueOf(model.getIdMotorista());
-        parametros[3] = String.valueOf(model.isAgendamento());
+        parametros[3] = String.valueOf(model.isColetado());
         parametros[4] = String.valueOf(model.getDataSolicitacao().format(dtf));
         parametros[5] = String.valueOf(model.isAberto());
         parametros[6] = model.getDescricao();
@@ -50,7 +50,7 @@ public class SolicitacaoDAO extends PadraoDAO<SolicitacaoViewModel>
             t.setIdMotorista(null);
         else
             t.setIdMotorista(Integer.parseInt(String.valueOf(registro.get("IdMotorista"))));
-        t.setAgendamento((Boolean)registro.get("Agendamento"));
+        t.setColetado((Boolean)registro.get("Coletado"));
         t.setDataSolicitacao(LocalDateTime.parse(String.valueOf(registro.get("DataSolicitacao")).substring(0, 16), dft));
         t.setAberto((Boolean)registro.get("Aberto"));
         t.setDescricao((String)registro.get("Descricao"));
