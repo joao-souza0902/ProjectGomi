@@ -59,7 +59,7 @@ create table Solicitacao(
 	IdSolicitacao int primary key identity(1, 1),
 	IdCliente int foreign key references Cliente (IdCliente),
 	IdMotorista int foreign key references Motorista (IdMotorista),
-	Agendamento bit,
+	Coletado bit,
 	DataSolicitacao smalldatetime,
 	Aberto bit,
 	Descricao varchar(max),
@@ -127,24 +127,24 @@ begin
 end
 go
 
-create procedure spInsert_Solicitacao (@IdSolicitacao int, @IdCliente int, @IdMotorista int, @Agendamento bit, @DataSolicitacao varchar(max), @Aberto bit, @Descricao varchar(max), @CEP varchar(max), @numero int, @origem varchar(max)) as
+create procedure spInsert_Solicitacao (@IdSolicitacao int, @IdCliente int, @IdMotorista int, @Coletado bit, @DataSolicitacao varchar(max), @Aberto bit, @Descricao varchar(max), @CEP varchar(max), @numero int, @origem varchar(max)) as
 begin
 	declare @date varchar(max)
 	set @date = convert(smalldatetime, @DataSolicitacao, 105)
 	
-	insert into Solicitacao values (@IdCliente, @IdMotorista, @Agendamento, @date, @Aberto, @Descricao, @CEP, @numero, @origem)
+	insert into Solicitacao values (@IdCliente, @IdMotorista, @Coletado, @date, @Aberto, @Descricao, @CEP, @numero, @origem)
 	select @@IDENTITY as 'Id'
 end
 go
 
-create procedure spUpdate_Solicitacao (@IdSolicitacao int, @IdCliente int, @IdMotorista int, @Agendamento bit, @DataSolicitacao varchar(max), @Aberto bit, @Descricao varchar(max), @CEP varchar(max), @numero int, @origem varchar(max)) as
+create procedure spUpdate_Solicitacao (@IdSolicitacao int, @IdCliente int, @IdMotorista int, @Coletado bit, @DataSolicitacao varchar(max), @Aberto bit, @Descricao varchar(max), @CEP varchar(max), @numero int, @origem varchar(max)) as
 begin
 	declare @date varchar(max)
 	set @date = convert(smalldatetime, @DataSolicitacao, 105)
 	
 	update Solicitacao set IdCliente = @IdCliente, 
 						   IdMotorista = @IdMotorista, 
-						   Agendamento = @Agendamento, 
+						   Coletado = @Coletado, 
 						   DataSolicitacao = @date,
 						   Aberto = @Aberto,
 						   Descricao = @Descricao,

@@ -71,7 +71,12 @@ public class LoginController extends PadraoController {
                     case 'M': {
                         UsuarioAtual.getInstancia().setUsuario(Dados.recuperaMotorista(loginTextField.getText().trim().toLowerCase()));
                         PrincipalMController principal = new PrincipalMController();
-                        principal.start((Stage) ((Button) event.getSource()).getScene().getWindow());
+                        if(event.getSource() instanceof Button)
+                            principal.start((Stage) ((Button) event.getSource()).getScene().getWindow());
+                        else if (event.getSource() instanceof PasswordField)
+                            principal.start((Stage) ((PasswordField) event.getSource()).getScene().getWindow());
+                        else
+                            principal.start((Stage) ((TextField) event.getSource()).getScene().getWindow());
                         break;
                     }
                     //Tela de administrador
