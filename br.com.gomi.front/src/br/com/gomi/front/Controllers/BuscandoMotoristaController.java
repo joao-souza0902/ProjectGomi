@@ -16,7 +16,6 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -36,7 +35,7 @@ public class BuscandoMotoristaController extends PadraoController {
     Label labelDots;
     @FXML
     Button btnBuscar;
-    
+
     //Tela carregando enquanto motorista é procurado
     public void btnBuscarOnClick(ActionEvent event) throws IOException {
         btnBuscar.setVisible(false);
@@ -75,7 +74,7 @@ public class BuscandoMotoristaController extends PadraoController {
     //Botão voltar
     public void btnVoltarOnClick(ActionEvent event) throws Exception {
         NovaColetaController novaColeta = new NovaColetaController();
-        novaColeta.start((Stage)((Button)event.getSource()).getScene().getWindow());
+        novaColeta.start((Stage) ((Button) event.getSource()).getScene().getWindow());
         SolicitacaoViewModel solicitacao = Global.obtemInstancia().solicitacao;
         Global.obtemInstancia().solicitacao = null;
         solicitacao.setAberto(false);
@@ -84,37 +83,37 @@ public class BuscandoMotoristaController extends PadraoController {
 
     //Apos o carregamento terminar, mudar tela.
     public void ChangeScene(ActionEvent event, MotoristaEncontradoInfoController encontrado) {
-        encontrado.start((Stage)((Button)event.getSource()).getScene().getWindow());
+        encontrado.start((Stage) ((Button) event.getSource()).getScene().getWindow());
     }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         labelBuscaMotorista.setVisible(false);
         labelDots.setVisible(false);
     }
 
-     //Tela onde a controller ira agir
+    //Tela onde a controller ira agir
     @Override
     public void start(Stage stage) throws IOException {
         Parent home_page_parent = FXMLLoader.load(getClass().getResource("/br/com/gomi/front/BuscandoMotorista.fxml"));
         Scene home_page_scene = new Scene(home_page_parent);
-        
-        home_page_parent.setOnMousePressed (new EventHandler<MouseEvent>(){
+
+        home_page_parent.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
-            public void handle(MouseEvent event){
+            public void handle(MouseEvent event) {
                 xOffset = event.getSceneX();
                 yOffset = event.getSceneY();
             }
         });
-        
-        home_page_parent.setOnMouseDragged(new EventHandler<MouseEvent>(){
+
+        home_page_parent.setOnMouseDragged(new EventHandler<MouseEvent>() {
             @Override
-            public void handle(MouseEvent event){
+            public void handle(MouseEvent event) {
                 stage.setX(event.getScreenX() - xOffset);
                 stage.setY(event.getScreenY() - yOffset);
             }
         });
-        
+
         stage.setScene(home_page_scene);
         stage.show();
     }

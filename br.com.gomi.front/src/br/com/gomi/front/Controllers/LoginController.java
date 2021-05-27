@@ -7,24 +7,18 @@ package br.com.gomi.front.Controllers;
 
 import br.com.gomi.business.*;
 import br.com.gomi.shared.UsuarioAtual;
-import com.sun.scenario.effect.impl.Renderer;
-import java.awt.Color;
-import java.awt.Paint;
 import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import javax.swing.JOptionPane;
 import javafx.scene.control.Hyperlink;
 
@@ -66,13 +60,13 @@ public class LoginController extends PadraoController {
                     case 'C': {
                         UsuarioAtual.getInstancia().setUsuario(Dados.recuperaCliente(loginTextField.getText()));
                         PrincipalCController principal = new PrincipalCController();
-                        principal.start((Stage)((Button)event.getSource()).getScene().getWindow());
+                        principal.start((Stage) ((Button) event.getSource()).getScene().getWindow());
                         break;
                     }
                     case 'M': {
                         UsuarioAtual.getInstancia().setUsuario(Dados.recuperaMotorista(loginTextField.getText()));
                         PrincipalMController principal = new PrincipalMController();
-                        principal.start((Stage)((Button)event.getSource()).getScene().getWindow());
+                        principal.start((Stage) ((Button) event.getSource()).getScene().getWindow());
                         break;
                     }
                     //Tela de administrador
@@ -88,48 +82,46 @@ public class LoginController extends PadraoController {
     //Se não possuir usuario, o botão leva para a tela de cadastro
     public void btnCadastrarOnClick(ActionEvent event) throws IOException {
         CadastroController cadastrar = new CadastroController();
-        cadastrar.start((Stage)((Button)event.getSource()).getScene().getWindow());
+        cadastrar.start((Stage) ((Button) event.getSource()).getScene().getWindow());
     }
 
     //Direcionado a tela caso o usuario esquecer a senha
     public void lnkEsqueceuSenhaOnClick(ActionEvent event) throws IOException {
         RedefinicaoSenhaController redefinicao = new RedefinicaoSenhaController();
-        redefinicao.start((Stage)((Hyperlink)event.getSource()).getScene().getWindow());
+        redefinicao.start((Stage) ((Hyperlink) event.getSource()).getScene().getWindow());
     }
 
     //Pagina sobre o programa e os integrantes do grupo
     public void imgSobreOnClick(ActionEvent event) throws IOException {
-        
+
         SobreController sobre = new SobreController();
-        sobre.start((Stage)((Button)event.getSource()).getScene().getWindow());
+        sobre.start((Stage) ((Button) event.getSource()).getScene().getWindow());
     }
 
-     //Tela onde a controller ira agir
+    //Tela onde a controller ira agir
     @Override
     public void start(Stage stage) throws IOException {
         Parent home_page_parent = FXMLLoader.load(getClass().getResource("/br/com/gomi/front/Login.fxml"));
         Scene home_page_scene = new Scene(home_page_parent);
-        
-        home_page_parent.setOnMousePressed (new EventHandler<MouseEvent>(){
+
+        home_page_parent.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
-            public void handle(MouseEvent event){
+            public void handle(MouseEvent event) {
                 xOffset = event.getSceneX();
                 yOffset = event.getSceneY();
             }
         });
-        
-        home_page_parent.setOnMouseDragged(new EventHandler<MouseEvent>(){
+
+        home_page_parent.setOnMouseDragged(new EventHandler<MouseEvent>() {
             @Override
-            public void handle(MouseEvent event){
+            public void handle(MouseEvent event) {
                 stage.setX(event.getScreenX() - xOffset);
                 stage.setY(event.getScreenY() - yOffset);
             }
         });
-        
-        
-        
+
         stage.setScene(home_page_scene);
         stage.show();
     }
-    
+
 }

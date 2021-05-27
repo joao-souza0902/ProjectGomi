@@ -5,7 +5,6 @@
  */
 package br.com.gomi.back;
 
-import java.math.BigDecimal;
 import java.util.HashMap;
 import br.com.gomi.shared.*;
 
@@ -13,13 +12,11 @@ import br.com.gomi.shared.*;
  *
  * @author Administrador
  */
-public class ClienteDAO extends PadraoDAO<ClienteViewModel>
-{
-      
+public class ClienteDAO extends PadraoDAO<ClienteViewModel> {
+
     @Override
     //Cria os parametros
-    protected String[] CriaParametros(ClienteViewModel model)
-    {           
+    protected String[] CriaParametros(ClienteViewModel model) {
         String[] parametros = new String[7];
         parametros[0] = String.valueOf(model.getIdCliente());
         parametros[1] = model.getRua();
@@ -33,29 +30,27 @@ public class ClienteDAO extends PadraoDAO<ClienteViewModel>
 
     @Override
     //Cria as models com os campos
-    protected ClienteViewModel MontaModel(HashMap<String, Object> registro)
-    {
+    protected ClienteViewModel MontaModel(HashMap<String, Object> registro) {
         ClienteViewModel t = new ClienteViewModel();
-        t.setIdCliente((Integer)registro.get("IdCliente"));
-        t.setRua((String)registro.get("Rua"));
-        t.setNumero((Integer)registro.get("Numero"));
-        t.setComplemento((String)registro.get("Complemento"));
-        t.setBairro((String)registro.get("Bairro"));
-        t.setCidade((String)registro.get("Cidade"));
-        t.setCep((String)registro.get("CEP"));
+        t.setIdCliente((Integer) registro.get("IdCliente"));
+        t.setRua((String) registro.get("Rua"));
+        t.setNumero((Integer) registro.get("Numero"));
+        t.setComplemento((String) registro.get("Complemento"));
+        t.setBairro((String) registro.get("Bairro"));
+        t.setCidade((String) registro.get("Cidade"));
+        t.setCep((String) registro.get("CEP"));
         return t;
     }
 
     @Override
     //Tabela utilizada no SQL
-    protected void setTabela()
-    {
-       tabela = "Cliente";
-    }    
-    
+    protected void setTabela() {
+        tabela = "Cliente";
+    }
+
     @Override
     //Parametros em Cliente
-    protected void setQtdParametros(){
+    protected void setQtdParametros() {
         qtdParametros = " ?, ?, ?, ?, ?, ?, ?";
     }
 }

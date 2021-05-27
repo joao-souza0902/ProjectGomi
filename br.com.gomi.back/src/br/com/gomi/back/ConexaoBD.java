@@ -13,11 +13,10 @@ import java.sql.SQLException;
  *
  * @author Administrador
  */
-public class ConexaoBD
-{
+public class ConexaoBD {
+
     //Conexão no banco de dados
-    public static Connection getConexao() throws SQLException
-    {
+    public static Connection getConexao() throws SQLException {
         String strCon = "jdbc:sqlserver://localhost\\SQLEXPRESS2017;databaseName=Gomi;integratedSecurity=false;user=gb;password=GuilhermeBarros";
         //String strCon = "jdbc:sqlserver://localhost;databaseName=Gomi;integratedSecurity=false;user=sa;password=1234";
         Connection conexao = DriverManager.getConnection(strCon);

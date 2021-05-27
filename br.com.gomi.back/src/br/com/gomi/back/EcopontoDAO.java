@@ -5,7 +5,6 @@
  */
 package br.com.gomi.back;
 
-import java.math.BigDecimal;
 import java.util.HashMap;
 import br.com.gomi.shared.*;
 
@@ -13,13 +12,11 @@ import br.com.gomi.shared.*;
  *
  * @author Administrador
  */
-public class EcopontoDAO extends PadraoDAO<EcopontoViewModel>
-{
-    
+public class EcopontoDAO extends PadraoDAO<EcopontoViewModel> {
+
     @Override
     //Cria os parametros
-    protected String[] CriaParametros(EcopontoViewModel model)
-    {           
+    protected String[] CriaParametros(EcopontoViewModel model) {
         String[] parametros = new String[3];
         parametros[0] = String.valueOf(model.getId());
         parametros[1] = model.getCep();
@@ -29,25 +26,23 @@ public class EcopontoDAO extends PadraoDAO<EcopontoViewModel>
 
     @Override
     //Cria as models com os campos
-    protected EcopontoViewModel MontaModel(HashMap<String, Object> registro)
-    {
+    protected EcopontoViewModel MontaModel(HashMap<String, Object> registro) {
         EcopontoViewModel t = new EcopontoViewModel();
-        t.setId((Integer)registro.get("IdEcoponto"));
-        t.setCep((String)registro.get("cep"));
-        t.setNumero((Integer)registro.get("numero"));
+        t.setId((Integer) registro.get("IdEcoponto"));
+        t.setCep((String) registro.get("cep"));
+        t.setNumero((Integer) registro.get("numero"));
         return t;
     }
 
     @Override
     //Tabela utilizada no SQL
-    protected void setTabela()
-    {
-       tabela = "Ecoponto";
-    }    
-    
+    protected void setTabela() {
+        tabela = "Ecoponto";
+    }
+
     @Override
     //Parametros em Ecoponto
-    protected void setQtdParametros(){
+    protected void setQtdParametros() {
         qtdParametros = " ?, ?, ?";
     }
 }

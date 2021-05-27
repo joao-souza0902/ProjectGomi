@@ -9,23 +9,22 @@ package br.com.gomi.shared;
  *
  * @author Administrador
  */
-public class LogViewModel extends PadraoViewModel
-{
+public class LogViewModel extends PadraoViewModel {
+
     private String descricao; //Descrição do log
+
     /**
      * @return the descricao
      */
-    public String getDescricao()
-    {
+    public String getDescricao() {
         return descricao;
     }
 
     /**
      * @param descricao the descricao to set
      */
-    public void setDescricao(String descricao)
-    {
+    public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-    
+
 }

@@ -20,7 +20,6 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -30,7 +29,6 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import javax.swing.JOptionPane;
 
 /**
@@ -105,7 +103,6 @@ public class CadastroController extends PadraoController {
     Label cargaLabel;
     @FXML
     Button fotoCnhButton;
-    
 
     //verificar como colocar foto
     //verificar como colocar método de pagamento
@@ -206,7 +203,7 @@ public class CadastroController extends PadraoController {
     //Voltar a tela de login
     public void btnVoltarOnClick(ActionEvent event) throws IOException, Exception {
         LoginController login = new LoginController();
-        login.start((Stage)((Button)event.getSource()).getScene().getWindow());
+        login.start((Stage) ((Button) event.getSource()).getScene().getWindow());
     }
 
     //Mudar para preencher dados exclusivos do cliente
@@ -303,30 +300,28 @@ public class CadastroController extends PadraoController {
 
     }
 
-     //Tela onde a controller ira agir
+    //Tela onde a controller ira agir
     @Override
     public void start(Stage stage) throws IOException {
         Parent home_page_parent = FXMLLoader.load(getClass().getResource("/br/com/gomi/front/Cadastro.fxml"));
         Scene home_page_scene = new Scene(home_page_parent);
-        
-        
-        home_page_parent.setOnMousePressed (new EventHandler<MouseEvent>(){
+
+        home_page_parent.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
-            public void handle(MouseEvent event){
+            public void handle(MouseEvent event) {
                 xOffset = event.getSceneX();
                 yOffset = event.getSceneY();
             }
         });
-        
-        home_page_parent.setOnMouseDragged(new EventHandler<MouseEvent>(){
+
+        home_page_parent.setOnMouseDragged(new EventHandler<MouseEvent>() {
             @Override
-            public void handle(MouseEvent event){
+            public void handle(MouseEvent event) {
                 stage.setX(event.getScreenX() - xOffset);
                 stage.setY(event.getScreenY() - yOffset);
             }
         });
-        
-        
+
         stage.setScene(home_page_scene);
         stage.show();
     }

@@ -12,17 +12,17 @@
          <children>
             <Button fx:id="btnAlterarDados" layoutX="132.0" layoutY="210.0" mnemonicParsing="false" onAction="#btnAlterarDadosOnClick" prefHeight="74.0" prefWidth="443.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Alterar dados" textFill="WHITE">
                <font>
-                  <Font size="24.0" />
+                  <Font name="Segoe UI" size="24.0" />
                </font>
             </Button>
             <Button fx:id="btnHistorico" layoutX="132.0" layoutY="327.0" mnemonicParsing="false" onAction="#btnHistoricoOnClick" prefHeight="74.0" prefWidth="443.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Histórico" textFill="WHITE">
                <font>
-                  <Font size="24.0" />
+                  <Font name="Segoe UI" size="24.0" />
                </font>
             </Button>
             <CheckBox fx:id="disponivelRadioButton" layoutX="263.0" layoutY="88.0" mnemonicParsing="false" onAction="#disponivelRadioButtonOnToggle" text="Buscar Coletas" textFill="WHITE">
                <font>
-                  <Font size="22.0" />
+                  <Font name="Segoe UI" size="22.0" />
                </font>
             </CheckBox>
          </children>
@@ -31,17 +31,17 @@
          <children>
             <Button fx:id="btnClose" layoutX="642.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnCloseClick" prefHeight="46.0" prefWidth="29.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="X" textFill="WHITE">
                 <font>
-                <Font size="20.0" />
+                <Font name="Segoe UI" size="20.0" />
                 </font>
             </Button>
             <Label layoutX="269.0" layoutY="8.0" prefHeight="65.0" prefWidth="170.0" text="Principal">
                <font>
-                  <Font size="44.0" />
+                  <Font name="Segoe UI" size="44.0" />
                </font>
             </Label>
             <Button fx:id="btnSair" layoutX="14.0" layoutY="20.0" mnemonicParsing="false" onAction="#btnSairOnClick" prefHeight="36.0" prefWidth="79.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Sair" textFill="WHITE">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Segoe UI" size="18.0" />
                </font>
             </Button>            
          </children>
