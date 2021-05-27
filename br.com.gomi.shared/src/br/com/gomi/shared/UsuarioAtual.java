@@ -42,7 +42,7 @@ public class UsuarioAtual {
 
     public UsuarioViewModel getUsuario() {
         if (avm != null) {
-            return avm;
+            return avm; 
         } else if (cvm != null) {
             return cvm;
         } else {
