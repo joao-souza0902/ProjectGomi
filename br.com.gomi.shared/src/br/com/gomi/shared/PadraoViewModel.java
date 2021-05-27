@@ -11,7 +11,7 @@ package br.com.gomi.shared;
  */
 public abstract class PadraoViewModel {
 
-    private int id;
+    private int id; //
 
     public int getId() {
         return id;

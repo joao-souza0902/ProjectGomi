@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<!--<?import br.com.gomi.front.util.MaskField> (Mascara imprtação ainda com erro) !-->
+
 
 <AnchorPane id="AnchorPane" prefHeight="563.0" prefWidth="707.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.Controllers.CadastroController">
     <children>
@@ -22,7 +22,6 @@
                <font>
                   <Font name="Segoe UI" size="12.0" />
                </font></Label>
-                <!-- MaskField emailTextField="AAAAAAAAAAA@AAAAAA.com"/ (modelo para email)!-->
                 <TextField fx:id="emailTextField" layoutX="144.0" layoutY="13.0" onKeyReleased="#emailTextKeyReleased" prefHeight="25.0" prefWidth="195.0" promptText="cadastro@email.com.br" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;">
                <font>
                   <Font name="Segoe UI" size="12.0" />
@@ -39,7 +38,6 @@
                <font>
                   <Font name="Segoe UI" size="12.0" />
                </font></Label>
-                <!-- MaskField cpfTextField="NNN.NNN.NNN-NN"/ (modelo para CPF)!-->
                 <TextField fx:id="cpfTextField" layoutX="144.0" layoutY="107.0" prefHeight="25.0" prefWidth="195.0" promptText="000.000.000-00" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;">
                <font>
                   <Font name="Segoe UI" size="12.0" />
