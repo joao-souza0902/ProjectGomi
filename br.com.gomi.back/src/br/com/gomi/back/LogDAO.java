@@ -5,7 +5,6 @@
  */
 package br.com.gomi.back;
 
-import java.math.BigDecimal;
 import java.util.HashMap;
 import br.com.gomi.shared.*;
 
@@ -13,12 +12,11 @@ import br.com.gomi.shared.*;
  *
  * @author Administrador
  */
-public class LogDAO extends PadraoDAO<LogViewModel>
-{
-      
+public class LogDAO extends PadraoDAO<LogViewModel> {
+
     @Override
-    protected String[] CriaParametros(LogViewModel model)
-    {           
+    //Cria os parametros
+    protected String[] CriaParametros(LogViewModel model) {
         String[] parametros = new String[2];
         parametros[0] = String.valueOf(model.getId());
         parametros[1] = model.getDescricao();
@@ -26,22 +24,23 @@ public class LogDAO extends PadraoDAO<LogViewModel>
     }
 
     @Override
-    protected LogViewModel MontaModel(HashMap<String, Object> registro)
-    {
+    //Cria as models com os campos
+    protected LogViewModel MontaModel(HashMap<String, Object> registro) {
         LogViewModel t = new LogViewModel();
-        t.setId((Integer)registro.get("id"));
-        t.setDescricao((String)registro.get("nome"));
+        t.setId((Integer) registro.get("id"));
+        t.setDescricao((String) registro.get("nome"));
         return t;
     }
 
     @Override
-    protected void setTabela()
-    {
-       tabela = "Log";
-    }    
-    
+    //Tabela utilizada no SQL
+    protected void setTabela() {
+        tabela = "Log";
+    }
+
     @Override
-    protected void setQtdParametros(){
+    //Quantidade de parametros em Log
+    protected void setQtdParametros() {
         qtdParametros = " ?, ?";
     }
 }

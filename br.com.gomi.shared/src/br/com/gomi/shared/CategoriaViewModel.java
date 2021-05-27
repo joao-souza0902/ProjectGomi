@@ -9,9 +9,10 @@ package br.com.gomi.shared;
  *
  * @author Fábio
  */
-public class CategoriaViewModel extends PadraoViewModel{
-    private String descricao;
-    
+public class CategoriaViewModel extends PadraoViewModel {
+
+    private String descricao; //Descrição da categoria
+
     public String getDescricao() {
         return descricao;
     }

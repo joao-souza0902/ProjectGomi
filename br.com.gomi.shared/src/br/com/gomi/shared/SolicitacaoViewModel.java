@@ -13,43 +13,41 @@ import java.util.ArrayList;
  * @author Fábio
  */
 public class SolicitacaoViewModel extends PadraoViewModel {
-    private int idCliente;
-    private int idMotorista;
-    private boolean agendamento;
-    private LocalDateTime dataSolicitacao;
-    private boolean aberto;
-    private String descricao;
-    private int volume;
-    private String cep;
-    private int numero;
-    ArrayList<CategoriaViewModel> categorias = new ArrayList<>();    
 
-    public int getIdCliente()
-    {
+    private Integer idCliente; //Id do Cliente que fez a solicitação
+    private Integer idMotorista; //id do Motorista atendendo a solicitação
+    private boolean coletado; //Conformação de coleta do produto
+    private LocalDateTime dataSolicitacao; //Data da solicitação
+    private boolean aberto; //True se aberto, False se fechado
+    private String descricao; //Descrição da solicitação
+    private String cep; //CEP do cliente
+    private int numero; //Numero do endereço do cliente
+    private String origem; //Endereço de origem do  
+    ArrayList<CategoriaViewModel> categorias = new ArrayList<>();
+
+    //metodos get e set para escrever nos campos vendo se condiz com o tipo
+    public Integer getIdCliente() {
         return idCliente;
     }
 
-    public void setIdCliente(int idCliente)
-    {
+    public void setIdCliente(Integer idCliente) {
         this.idCliente = idCliente;
     }
 
-    public int getIdMotorista()
-    {
+    public Integer getIdMotorista() {
         return idMotorista;
     }
 
-    public void setIdMotorista(int idMotorista)
-    {
+    public void setIdMotorista(Integer idMotorista) {
         this.idMotorista = idMotorista;
     }
-    
-    public boolean isAgendamento() {
-        return agendamento;
+
+    public boolean isColetado() {
+        return coletado;
     }
 
-    public void setAgendamento(boolean agendamento) {
-        this.agendamento = agendamento;
+    public void setColetado(boolean coletado) {
+        this.coletado = coletado;
     }
 
     public LocalDateTime getDataSolicitacao() {
@@ -76,14 +74,6 @@ public class SolicitacaoViewModel extends PadraoViewModel {
         this.descricao = descricao;
     }
 
-    public int getVolume() {
-        return volume;
-    }
-
-    public void setVolume(int volume) {
-        this.volume = volume;
-    } 
-    
     public String getCep() {
         return cep;
     }
@@ -98,5 +88,13 @@ public class SolicitacaoViewModel extends PadraoViewModel {
 
     public void setNumero(int numero) {
         this.numero = numero;
+    }
+
+    public String getOrigem() {
+        return origem;
+    }
+
+    public void setOrigem(String origem) {
+        this.origem = origem;
     }
 }

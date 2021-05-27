@@ -5,7 +5,6 @@
  */
 package br.com.gomi.back;
 
-import java.math.BigDecimal;
 import java.util.HashMap;
 import br.com.gomi.shared.*;
 import java.sql.SQLException;
@@ -18,6 +17,7 @@ import java.time.LocalDate;
 public class UsuarioDAO extends PadraoDAO<UsuarioViewModel>
 {
       
+    //Parametros do usuario
     @Override
     protected String[] CriaParametros(UsuarioViewModel model)
     {           
@@ -34,6 +34,7 @@ public class UsuarioDAO extends PadraoDAO<UsuarioViewModel>
     }
 
     @Override
+    //Model com os parametros do usuario
     protected UsuarioViewModel MontaModel(HashMap<String, Object> registro)
     {
         UsuarioViewModel t = new UsuarioViewModel();
@@ -54,12 +55,14 @@ public class UsuarioDAO extends PadraoDAO<UsuarioViewModel>
         return t;
     }
 
+    // Tabela utilizada no SQL
     @Override
     protected void setTabela()
     {
        tabela = "Usuario";
     }    
     
+    //Quantidade de parametros em Usuario
     @Override
     protected void setQtdParametros(){
         qtdParametros = " ?, ?, ?, ?, ?, ?, ?, ?";
@@ -67,10 +70,10 @@ public class UsuarioDAO extends PadraoDAO<UsuarioViewModel>
     
     public UsuarioViewModel consultaEmail(String email) throws SQLException{
         String[] parametros = {email};
-        JDataTable tabela = HelperDAO.executaProcSelect("spUsuario ?", parametros);
-        if (tabela.getNumeroLinhas() == 0)
+        JDataTable tab = HelperDAO.executaProcSelect("spUsuario ?", parametros);
+        if (tab == null)
             return null;
         else
-            return MontaModel(tabela.getLinha(1));
+            return MontaModel(tab.getLinha(1));
     }
 }

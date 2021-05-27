@@ -11,15 +11,16 @@ import java.time.LocalDate;
  *
  * @author Fábio
  */
+public class MotoristaViewModel extends NaoAdmViewModel {
 
-public class MotoristaViewModel extends NaoAdmViewModel{    
-    private String tipoVeiculo;
-    private String cnh;
-    private LocalDate dataExpiracao;
-    private char cnhCategoria;
-    private int cargaSuportada;
-    //Foto da CNH
+    private String tipoVeiculo; //Tipo do veiculo
+    private String cnh; //CNH do motorista
+    private LocalDate dataExpiracao; //Data de expiração
+    private char cnhCategoria; //Categoria da CNH (a, b, c, d, etc)
+    private int cargaSuportada; //Carga maxima suportada do veiculo
     
+
+    //metodos get e set para escrever nos campos vendo se condiz com string ou int
     public String getTipoVeiculo() {
         return tipoVeiculo;
     }
@@ -27,7 +28,7 @@ public class MotoristaViewModel extends NaoAdmViewModel{
     public void setTipoVeiculo(String tipoVeiculo) {
         this.tipoVeiculo = tipoVeiculo;
     }
-    
+
     public String getCnh() {
         return cnh;
     }

@@ -9,6 +9,6 @@ package br.com.gomi.shared;
  *
  * @author Fábio
  */
-public class AdministradorViewModel extends UsuarioViewModel{
-    
+public class AdministradorViewModel extends UsuarioViewModel {
+
 }

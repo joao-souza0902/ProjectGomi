@@ -5,7 +5,6 @@
  */
 package br.com.gomi.back;
 
-import java.math.BigDecimal;
 import java.util.HashMap;
 import br.com.gomi.shared.*;
 
@@ -13,33 +12,33 @@ import br.com.gomi.shared.*;
  *
  * @author Administrador
  */
-public class AdministradorDAO extends PadraoDAO<AdministradorViewModel>
-{
-      
+public class AdministradorDAO extends PadraoDAO<AdministradorViewModel> {
+
     @Override
-    protected String[] CriaParametros(AdministradorViewModel model)
-    {           
+    //Cria os parametros
+    protected String[] CriaParametros(AdministradorViewModel model) {
         String[] parametros = new String[1];
         parametros[0] = String.valueOf(model.getId());
         return parametros;
     }
 
     @Override
-    protected AdministradorViewModel MontaModel(HashMap<String, Object> registro)
-    {
+    //Cria a ViewModel
+    protected AdministradorViewModel MontaModel(HashMap<String, Object> registro) {
         AdministradorViewModel t = new AdministradorViewModel();
-        t.setId((Integer)registro.get("IdAdministrador"));
+        t.setIdAdministrador((Integer) registro.get("IdAdministrador"));
         return t;
     }
 
     @Override
-    protected void setTabela()
-    {
-       tabela = "Administrador";
-    }    
-    
+    //Tabela utilizada no SQL
+    protected void setTabela() {
+        tabela = "Administrador";
+    }
+
     @Override
-    protected void setQtdParametros(){
+    //Quantidade de parametros utilizados
+    protected void setQtdParametros() {
         qtdParametros = " ?";
     }
 }

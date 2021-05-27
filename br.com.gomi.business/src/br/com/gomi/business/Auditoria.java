@@ -7,56 +7,51 @@ package br.com.gomi.business;
 
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-/**
- *
- * @author Fábio
- */
+//Auditoria é responsavel por registrar todos os logs do programa
 public class Auditoria {
+
     /*Singleton*/
     static private Auditoria _instancia;
-    
-    private Auditoria(){
+
+    private Auditoria() {
     }
-    
-    public static Auditoria obtemInstancia(){
-        if(_instancia == null){
-            _instancia = new Auditoria();            
+
+    public static Auditoria obtemInstancia() {
+        if (_instancia == null) {
+            _instancia = new Auditoria();
         }
         return _instancia;
     }
     /*Singleton*/
-    
-    ThreadLogs thread;
+
+    ThreadLogs thread; //Thread responsavel por ler a fila e salvar no banco
+    //Fila de logs thread safe
     static private ConcurrentLinkedQueue<String> fila = new ConcurrentLinkedQueue<String>();
-    
+
     public ConcurrentLinkedQueue<String> getFila() {
         return fila;
     }
-    
-    public void salvarLog(String log){
+
+    public void salvarLog(String log) {
         fila.add(log);
     }
-    
-    public boolean existemLogsNaFila(){
-        if(fila.isEmpty()){
-            return false;
-        }
-        else{
-            return true;
-        }
+
+    public boolean existemLogsNaFila() {
+        return !fila.isEmpty();
     }
-    
-    //É necessário executar o método iniciar no inicio da aplicação
-    public void iniciar(){
-        if(thread == null){
+
+    //método que inicia a thread
+    public void iniciar() {
+        if (thread == null) {
             thread = new ThreadLogs();
+            thread.setName("Auditoria");
             thread.start();
-        }                
+        }
     }
-    
-    //É necessário executar o método finalizar no final da aplicação (Dentro do Finally)
-    public void finalizar(){
-        if(thread != null){
+
+    //método que finaliza a thread
+    public void finalizar() {
+        if (thread != null) {
             thread.setAtivo(false);
         }
     }
