@@ -15,7 +15,7 @@
                   <Font name="Segoe UI" size="24.0" />
                </font>
             </Button>
-            <TextField layoutX="10.0" layoutY="14.0" prefHeight="375.0" prefWidth="688.0" />
+            <TextField layoutX="10.0" layoutY="14.0" prefHeight="375.0" prefWidth="688.0" style="-fx-border-color: #2E8B57; -fx-background-color: #38414e; -fx-text-fill: #ffffff;" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="74.0" prefWidth="707.0" style="-fx-background-color: #00CC66;">
