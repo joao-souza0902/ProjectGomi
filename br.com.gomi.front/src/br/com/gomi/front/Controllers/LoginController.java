@@ -36,8 +36,8 @@ public class LoginController extends PadraoController {
     //Login do cliente conforme as iinformações inseridas corretamente
     public void btnLoginOnClick(ActionEvent event) throws Exception {
         try {
-            if (Validacao.validaLogin(loginTextField.getText(), senhaPasswordField.getText())) {
-                char tipo = Validacao.validaTipoLogin(loginTextField.getText());
+            if (Validacao.validaLogin(loginTextField.getText().trim().toLowerCase(), senhaPasswordField.getText().trim())) {
+                char tipo = Validacao.validaTipoLogin(loginTextField.getText().trim().toLowerCase());
                 if (tipo == 'X') {
                     String[] escolhas
                             = {
@@ -58,13 +58,18 @@ public class LoginController extends PadraoController {
                 }
                 switch (tipo) {
                     case 'C': {
-                        UsuarioAtual.getInstancia().setUsuario(Dados.recuperaCliente(loginTextField.getText()));
+                        UsuarioAtual.getInstancia().setUsuario(Dados.recuperaCliente(loginTextField.getText().trim().toLowerCase()));
                         PrincipalCController principal = new PrincipalCController();
-                        principal.start((Stage) ((Button) event.getSource()).getScene().getWindow());
+                        if(event.getSource() instanceof Button)
+                            principal.start((Stage) ((Button) event.getSource()).getScene().getWindow());
+                        else if (event.getSource() instanceof PasswordField)
+                            principal.start((Stage) ((PasswordField) event.getSource()).getScene().getWindow());
+                        else
+                            principal.start((Stage) ((TextField) event.getSource()).getScene().getWindow());
                         break;
                     }
                     case 'M': {
-                        UsuarioAtual.getInstancia().setUsuario(Dados.recuperaMotorista(loginTextField.getText()));
+                        UsuarioAtual.getInstancia().setUsuario(Dados.recuperaMotorista(loginTextField.getText().trim().toLowerCase()));
                         PrincipalMController principal = new PrincipalMController();
                         principal.start((Stage) ((Button) event.getSource()).getScene().getWindow());
                         break;

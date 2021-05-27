@@ -27,7 +27,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 
@@ -103,6 +105,10 @@ public class CadastroController extends PadraoController {
     Label cargaLabel;
     @FXML
     Button fotoCnhButton;
+    @FXML
+    ImageView fotoImg;
+    @FXML
+    StackPane imgStackPane;
 
     //verificar como colocar foto
     //verificar como colocar método de pagamento
@@ -114,43 +120,43 @@ public class CadastroController extends PadraoController {
                 return;
             }
 
-            char tipo = Validacao.validaCadastro(emailTextField.getText(), nomeTextField.getText(), telefoneTextField.getText(), cpfTextField.getText(), dataNascimentoTextField.getText(),
-                    senhaPasswordField.getText(), confirmacaoSenhaPasswordField.getText(), ehCliente, cepTextField.getText(), numeroTextField.getText(), ruaTextField.getText(),
-                    bairroTextField.getText(), cidadeTextField.getText(), tipoVeiculoTextField.getText(), cnhTextField.getText(), dataExpiracaoTextField.getText(),
-                    cnhCategoriaTextField.getText(), cargaSuportadaTextField.getText());
+            char tipo = Validacao.validaCadastro(emailTextField.getText().trim().toLowerCase(), nomeTextField.getText().trim(), telefoneTextField.getText().trim(), cpfTextField.getText().trim(), dataNascimentoTextField.getText().trim(),
+                    senhaPasswordField.getText().trim(), confirmacaoSenhaPasswordField.getText().trim(), ehCliente, cepTextField.getText().trim(), numeroTextField.getText().trim(), ruaTextField.getText().trim(),
+                    bairroTextField.getText().trim(), cidadeTextField.getText().trim(), tipoVeiculoTextField.getText().trim(), cnhTextField.getText().trim(), dataExpiracaoTextField.getText().trim(),
+                    cnhCategoriaTextField.getText().trim(), cargaSuportadaTextField.getText().trim());
 
             if (tipo == 'C') {
                 ClienteViewModel cliente = new ClienteViewModel();
-                cliente.setEmail(emailTextField.getText());
-                cliente.setNome(nomeTextField.getText());
-                cliente.setTelefoneddd(Integer.parseInt(telefoneTextField.getText().substring(1, 3)));
-                cliente.setTelefone(Integer.parseInt(telefoneTextField.getText().substring(4)));
-                cliente.setCpf(cpfTextField.getText());
-                cliente.setData(LocalDate.parse(dataNascimentoTextField.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-                cliente.setSenha(senhaPasswordField.getText());
-                cliente.setCep(cepTextField.getText());
-                cliente.setNumero(Integer.parseInt(numeroTextField.getText()));
-                cliente.setRua(ruaTextField.getText());
-                cliente.setComplemento(complementoTextField.getText());
-                cliente.setBairro(bairroTextField.getText());
-                cliente.setCidade(cidadeTextField.getText());
+                cliente.setEmail(emailTextField.getText().trim().toLowerCase());
+                cliente.setNome(nomeTextField.getText().trim());
+                cliente.setTelefoneddd(Integer.parseInt(telefoneTextField.getText().trim().substring(1, 3)));
+                cliente.setTelefone(Integer.parseInt(telefoneTextField.getText().trim().substring(4)));
+                cliente.setCpf(cpfTextField.getText().trim());
+                cliente.setData(LocalDate.parse(dataNascimentoTextField.getText().trim(), DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+                cliente.setSenha(senhaPasswordField.getText().trim());
+                cliente.setCep(cepTextField.getText().trim());
+                cliente.setNumero(Integer.parseInt(numeroTextField.getText().trim()));
+                cliente.setRua(ruaTextField.getText().trim());
+                cliente.setComplemento(complementoTextField.getText().trim());
+                cliente.setBairro(bairroTextField.getText().trim());
+                cliente.setCidade(cidadeTextField.getText().trim());
                 cliente.setIdCliente(Dados.insereCliente(cliente));
                 cliente.setIdNaoAdm(Dados.insereNaoAdm(cliente));
                 Dados.insereUsuario(cliente);
             } else if (tipo == 'M') {
                 MotoristaViewModel motorista = new MotoristaViewModel();
-                motorista.setEmail(emailTextField.getText());
-                motorista.setNome(nomeTextField.getText());
-                motorista.setTelefoneddd(Integer.parseInt(telefoneTextField.getText().substring(1, 3)));
-                motorista.setTelefone(Integer.parseInt(telefoneTextField.getText().substring(4)));
-                motorista.setCpf(cpfTextField.getText());
-                motorista.setData(LocalDate.parse(dataNascimentoTextField.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-                motorista.setSenha(senhaPasswordField.getText());
-                motorista.setTipoVeiculo(tipoVeiculoTextField.getText());
-                motorista.setCnh(cnhTextField.getText());
-                motorista.setDataExpiracao(LocalDate.parse(dataExpiracaoTextField.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-                motorista.setCnhCategoria(cnhCategoriaTextField.getText().charAt(0));
-                motorista.setCargaSuportada(Integer.parseInt(cargaSuportadaTextField.getText()));
+                motorista.setEmail(emailTextField.getText().trim().toLowerCase());
+                motorista.setNome(nomeTextField.getText().trim());
+                motorista.setTelefoneddd(Integer.parseInt(telefoneTextField.getText().trim().substring(1, 3)));
+                motorista.setTelefone(Integer.parseInt(telefoneTextField.getText().trim().substring(4)));
+                motorista.setCpf(cpfTextField.getText().trim());
+                motorista.setData(LocalDate.parse(dataNascimentoTextField.getText().trim(), DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+                motorista.setSenha(senhaPasswordField.getText().trim());
+                motorista.setTipoVeiculo(tipoVeiculoTextField.getText().trim());
+                motorista.setCnh(cnhTextField.getText().trim());
+                motorista.setDataExpiracao(LocalDate.parse(dataExpiracaoTextField.getText().trim(), DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+                motorista.setCnhCategoria(cnhCategoriaTextField.getText().trim().charAt(0));
+                motorista.setCargaSuportada(Integer.parseInt(cargaSuportadaTextField.getText().trim()));
                 motorista.setIdMotorista(Dados.insereMotorista(motorista));
                 motorista.setIdNaoAdm(Dados.insereNaoAdm(motorista));
                 Dados.insereUsuario(motorista);
@@ -160,14 +166,14 @@ public class CadastroController extends PadraoController {
                         return;
                     }
                     ClienteViewModel cliente = new ClienteViewModel();
-                    cliente.setCep(cepTextField.getText());
-                    cliente.setNumero(Integer.parseInt(numeroTextField.getText()));
-                    cliente.setRua(ruaTextField.getText());
-                    cliente.setComplemento(complementoTextField.getText());
-                    cliente.setBairro(bairroTextField.getText());
-                    cliente.setCidade(cidadeTextField.getText());
+                    cliente.setCep(cepTextField.getText().trim());
+                    cliente.setNumero(Integer.parseInt(numeroTextField.getText().trim()));
+                    cliente.setRua(ruaTextField.getText().trim());
+                    cliente.setComplemento(complementoTextField.getText().trim());
+                    cliente.setBairro(bairroTextField.getText().trim());
+                    cliente.setCidade(cidadeTextField.getText().trim());
                     cliente.setIdCliente(Dados.insereCliente(cliente));
-                    NaoAdmViewModel na = Dados.recuperaNaoAdm(emailTextField.getText());
+                    NaoAdmViewModel na = Dados.recuperaNaoAdm(emailTextField.getText().trim().toLowerCase());
                     cliente.setIdNaoAdm(na.getIdNaoAdm());
                     cliente.setTelefone(na.getTelefone());
                     cliente.setTelefoneddd(na.getTelefoneddd());
@@ -179,13 +185,13 @@ public class CadastroController extends PadraoController {
                         return;
                     }
                     MotoristaViewModel motorista = new MotoristaViewModel();
-                    motorista.setTipoVeiculo(tipoVeiculoTextField.getText());
-                    motorista.setCnh(cnhTextField.getText());
-                    motorista.setDataExpiracao(LocalDate.parse(dataExpiracaoTextField.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-                    motorista.setCnhCategoria(cnhCategoriaTextField.getText().charAt(0));
-                    motorista.setCargaSuportada(Integer.parseInt(cargaSuportadaTextField.getText()));
+                    motorista.setTipoVeiculo(tipoVeiculoTextField.getText().trim());
+                    motorista.setCnh(cnhTextField.getText().trim());
+                    motorista.setDataExpiracao(LocalDate.parse(dataExpiracaoTextField.getText().trim(), DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+                    motorista.setCnhCategoria(cnhCategoriaTextField.getText().trim().charAt(0));
+                    motorista.setCargaSuportada(Integer.parseInt(cargaSuportadaTextField.getText().trim()));
                     motorista.setIdMotorista(Dados.insereMotorista(motorista));
-                    NaoAdmViewModel na = Dados.recuperaNaoAdm(emailTextField.getText());
+                    NaoAdmViewModel na = Dados.recuperaNaoAdm(emailTextField.getText().trim().toLowerCase());
                     motorista.setIdNaoAdm(na.getIdNaoAdm());
                     motorista.setTelefone(na.getTelefone());
                     motorista.setTelefoneddd(na.getTelefoneddd());
@@ -231,6 +237,8 @@ public class CadastroController extends PadraoController {
         cnhCategoriaLabel.setVisible(false);
         cargaLabel.setVisible(false);
         fotoCnhButton.setVisible(false);
+        fotoImg.setVisible(false);
+        imgStackPane.setVisible(false);
         ehCliente = true;
     }
 
@@ -259,6 +267,8 @@ public class CadastroController extends PadraoController {
         cnhCategoriaLabel.setVisible(true);
         cargaLabel.setVisible(true);
         fotoCnhButton.setVisible(true);
+        fotoImg.setVisible(true);
+        imgStackPane.setVisible(true);
         ehCliente = false;
     }
 
@@ -297,7 +307,8 @@ public class CadastroController extends PadraoController {
         cnhCategoriaLabel.setVisible(false);
         cargaLabel.setVisible(false);
         fotoCnhButton.setVisible(false);
-
+        fotoImg.setVisible(false);
+        imgStackPane.setVisible(false);
     }
 
     //Tela onde a controller ira agir

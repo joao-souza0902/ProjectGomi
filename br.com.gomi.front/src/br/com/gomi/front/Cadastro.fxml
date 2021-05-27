@@ -64,11 +64,19 @@
                <font>
                   <Font name="Segoe UI" size="12.0" />
                </font></Label>
+            <PasswordField fx:id="senhaPasswordField" layoutX="144.0" layoutY="231.0" prefHeight="27.0" prefWidth="195.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #FFFFFF;">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font></PasswordField>
                 <Label layoutX="33.0" layoutY="275.0" text="Confirmar Senha" textFill="WHITE">
                <font>
                   <Font name="Segoe UI" size="12.0" />
                </font></Label>
-            <StackPane layoutX="6.0" layoutY="307.0" prefHeight="150.0" prefWidth="162.0" style="-fx-border-color: green;">
+            <PasswordField fx:id="confirmacaoSenhaPasswordField" layoutX="144.0" layoutY="270.0" prefHeight="27.0" prefWidth="195.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #FFFFFF;">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font></PasswordField>
+            <StackPane layoutX="6.0" layoutY="307.0" prefHeight="150.0" prefWidth="162.0" style="-fx-border-color: #2E8B57;">
                <children>
                       <ImageView fitHeight="144.0" fitWidth="156.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: green;" />
                </children>
@@ -95,7 +103,7 @@
                     </toggleGroup>
                 </RadioButton>
                 <Separator layoutX="374.0" layoutY="6.0" orientation="VERTICAL" prefHeight="443.0" prefWidth="6.0" />
-            <StackPane layoutX="411.0" layoutY="18.0" prefHeight="135.0" prefWidth="145.0" style="-fx-border-color: green;">
+            <StackPane fx:id="imgStackPane" layoutX="411.0" layoutY="18.0" prefHeight="135.0" prefWidth="145.0" style="-fx-border-color: #2E8B57;">
                <children>
                       <ImageView fx:id="fotoImg" fitHeight="128.0" fitWidth="137.0" pickOnBounds="true" preserveRatio="true" />
                </children>
@@ -145,11 +153,11 @@
                <font>
                   <Font name="Segoe UI" size="12.0" />
                </font></TextField>
-                <Label fx:id="cidadeLabel" layoutX="420.0" layoutY="196.0" text="Cidade" textFill="WHITE">
+                <Label fx:id="bairroLabel" layoutX="420.0" layoutY="196.0" text="Bairro" textFill="WHITE">
                <font>
                   <Font name="Segoe UI" size="12.0" />
                </font></Label>
-                <TextField fx:id="cidadeTextField" layoutX="501.0" layoutY="194.0" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;">
+                <TextField fx:id="bairroTextField" layoutX="501.0" layoutY="194.0" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;">
                <font>
                   <Font name="Segoe UI" size="12.0" />
                </font></TextField>
@@ -161,11 +169,11 @@
                <font>
                   <Font name="Segoe UI" size="12.0" />
                </font></TextField>
-                <Label fx:id="bairroLabel" layoutX="419.0" layoutY="236.0" text="Bairro" textFill="WHITE">
+                <Label fx:id="cidadeLabel" layoutX="419.0" layoutY="236.0" text="Cidade" textFill="WHITE">
                <font>
                   <Font name="Segoe UI" size="12.0" />
                </font></Label>
-                <TextField fx:id="bairroTextField" layoutX="501.0" layoutY="234.0" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;">
+                <TextField fx:id="cidadeTextField" layoutX="501.0" layoutY="234.0" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;">
                <font>
                   <Font name="Segoe UI" size="12.0" />
                </font></TextField>
@@ -198,14 +206,6 @@
                         <Font name="Segoe UI" size="18.0" />
                     </font>
                 </Button>
-            <PasswordField fx:id="senhaPasswordField" layoutX="144.0" layoutY="231.0" prefHeight="27.0" prefWidth="195.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #FFFFFF;">
-               <font>
-                  <Font name="Segoe UI" size="12.0" />
-               </font></PasswordField>
-            <PasswordField fx:id="confirmacaoSenhaPasswordField" layoutX="144.0" layoutY="270.0" prefHeight="27.0" prefWidth="195.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #FFFFFF;">
-               <font>
-                  <Font name="Segoe UI" size="12.0" />
-               </font></PasswordField>
             </children>
         </AnchorPane>
         <AnchorPane prefHeight="74.0" prefWidth="707.0" style="-fx-background-color: #00CC66;">
