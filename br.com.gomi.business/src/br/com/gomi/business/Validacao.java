@@ -156,7 +156,7 @@ public class Validacao {
             if (LocalDate.parse(dataExpiracao, DateTimeFormatter.ofPattern("dd/MM/yyyy")).isBefore(LocalDate.now())) {
                 throw new Exception("Data de expiração inválida!");
             }
-            if (cnhCategoria.length() != 1 || (cnhCategoria.equals("C") && cnhCategoria.equals("D") && cnhCategoria.equals("E"))) {
+            if (cnhCategoria.length() != 1 || (cnhCategoria.equals("B") && cnhCategoria.equals("C") && cnhCategoria.equals("D") && cnhCategoria.equals("E"))) {
                 throw new Exception("Categoria Inválida!");
             }
             if (cargaSuportada.isEmpty() || Integer.parseInt(cargaSuportada) <= 0) {

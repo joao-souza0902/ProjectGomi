@@ -37,11 +37,11 @@
                <font>
                   <Font name="Segoe UI" size="12.0" />
                </font></Button>
-            <TextField fx:id="loginTextField" layoutX="79.0" layoutY="142.0" prefHeight="40.0" prefWidth="317.0" promptText="E-mail" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;">
+            <TextField fx:id="loginTextField" layoutX="79.0" layoutY="142.0" onAction="#btnLoginOnClick" prefHeight="40.0" prefWidth="317.0" promptText="E-mail" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;">
                <font>
                   <Font name="Segoe UI" size="12.0" />
                </font></TextField>
-            <PasswordField fx:id="senhaPasswordField" layoutX="78.0" layoutY="199.0" prefHeight="40.0" prefWidth="317.0" promptText="Senha" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #FFFFFF;">
+            <PasswordField fx:id="senhaPasswordField" layoutX="78.0" layoutY="199.0" onAction="#btnLoginOnClick" prefHeight="40.0" prefWidth="317.0" promptText="Senha" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #FFFFFF;">
                <font>
                   <Font name="Segoe UI" size="12.0" />
                </font></PasswordField>

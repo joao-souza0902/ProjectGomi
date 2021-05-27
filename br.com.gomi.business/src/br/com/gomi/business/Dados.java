@@ -19,27 +19,37 @@ public class Dados {
     //Create
     public static int insereCliente(ClienteViewModel cliente) throws Exception {
         ClienteDAO dao = new ClienteDAO();
-        return dao.insert(cliente);
+        int retorno = dao.insert(cliente);
+        Auditoria.obtemInstancia().salvarLog("Cliente Id:" + retorno + " foi adicionado.");
+        return retorno;
     }
 
     public static int insereNaoAdm(NaoAdmViewModel naoAdm) throws Exception {
         NaoAdmDAO dao = new NaoAdmDAO();
-        return dao.insert(naoAdm);
+        int retorno = dao.insert(naoAdm);
+        Auditoria.obtemInstancia().salvarLog("NaoAdm Id:" + retorno + " foi adicionado.");
+        return retorno;
     }
 
     public static int insereUsuario(UsuarioViewModel usuario) throws Exception {
         UsuarioDAO dao = new UsuarioDAO();
-        return dao.insert(usuario);
+        int retorno = dao.insert(usuario);
+        Auditoria.obtemInstancia().salvarLog("Usuário Id:" + retorno + " foi adicionado.");
+        return retorno;
     }
 
     public static int insereMotorista(MotoristaViewModel motorista) throws Exception {
         MotoristaDAO dao = new MotoristaDAO();
-        return dao.insert(motorista);
+        int retorno = dao.insert(motorista);
+        Auditoria.obtemInstancia().salvarLog("Motorista Id:" + retorno + " foi adicionado.");
+        return retorno;
     }
 
     public static int insereSolicitacao(SolicitacaoViewModel solicitacao) throws Exception {
         SolicitacaoDAO dao = new SolicitacaoDAO();
-        return dao.insert(solicitacao);
+        int retorno = dao.insert(solicitacao);
+        Auditoria.obtemInstancia().salvarLog("Solicitação Id:" + retorno + " foi adicionada.");
+        return retorno;
     }
 
     //Read
@@ -97,6 +107,7 @@ public class Dados {
     public static void atualizaNaoAdm(NaoAdmViewModel na) throws Exception {
         NaoAdmDAO dao = new NaoAdmDAO();
         dao.update(na);
+        Auditoria.obtemInstancia().salvarLog("NaoAdm Id:" + na.getIdNaoAdm() + " foi atualizado.");
     }
 
     //Atualizar senha do usuario
@@ -104,12 +115,14 @@ public class Dados {
         UsuarioViewModel user = new UsuarioDAO().consultaEmail(email);
         user.setSenha(senha);
         new UsuarioDAO().update(user);
+        Auditoria.obtemInstancia().salvarLog("Senha do Usuário Id:" + user.getId() + " foi atualizada.");
         return user.getNome();
     }
 
     public static void atualizaSolicitacao(SolicitacaoViewModel solicitacao) throws Exception {
         SolicitacaoDAO dao = new SolicitacaoDAO();
         dao.update(solicitacao);
+        Auditoria.obtemInstancia().salvarLog("Solicitação Id:" + solicitacao.getId() + " foi atualizada.");
     }
 
     //recupera todas as solicitações abertas

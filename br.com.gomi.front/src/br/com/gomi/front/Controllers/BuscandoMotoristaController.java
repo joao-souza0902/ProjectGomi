@@ -20,6 +20,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -32,7 +33,7 @@ public class BuscandoMotoristaController extends PadraoController {
     @FXML
     Label labelBuscaMotorista;
     @FXML
-    Label labelDots;
+    ImageView loadingGIF;
     @FXML
     Button btnBuscar;
 
@@ -40,7 +41,7 @@ public class BuscandoMotoristaController extends PadraoController {
     public void btnBuscarOnClick(ActionEvent event) throws IOException {
         btnBuscar.setVisible(false);
         labelBuscaMotorista.setVisible(true);
-        labelDots.setVisible(true);
+        loadingGIF.setVisible(true);
         int idSolicitacao = Global.obtemInstancia().solicitacao.getId();
         MotoristaEncontradoInfoController encontrado = new MotoristaEncontradoInfoController();
 
@@ -89,7 +90,7 @@ public class BuscandoMotoristaController extends PadraoController {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         labelBuscaMotorista.setVisible(false);
-        labelDots.setVisible(false);
+        loadingGIF.setVisible(false);
     }
 
     //Tela onde a controller ira agir
