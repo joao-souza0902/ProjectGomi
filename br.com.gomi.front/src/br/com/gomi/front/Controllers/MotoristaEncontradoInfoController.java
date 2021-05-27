@@ -28,7 +28,8 @@ import javafx.stage.Stage;
  */
 public class MotoristaEncontradoInfoController extends PadraoController
 {
-
+    //Variaveis em campo de texto referentes ao nome do motorista, o carro e tempo de chegada
+    
     @FXML
     TextField txtNomeMotorista;
     @FXML
@@ -49,6 +50,7 @@ public class MotoristaEncontradoInfoController extends PadraoController
         txtTempoChegadaMotorista.setText(Validacao.getTempoChegada(Global.obtemInstancia().solicitacao.getOrigem(), Global.obtemInstancia().solicitacao.getCep()));
     }
 
+     //Tela onde a controller ira agir
     @Override
     public void start(Stage stage)
     {

@@ -12,6 +12,8 @@ import br.com.gomi.shared.SolicitacaoViewModel;
  *
  * @author Fábio
  */
+
+//Armazenar informações e motorista para ser passado entre as duas instancias de usuarios atuando (cliente e motorista)
 public class Global {
     /*Singleton*/
     static private Global _instancia;

@@ -55,11 +55,11 @@ public class ClienteViewModel extends NaoAdmViewModel {
     }
 
     public void setCidade(String cidade) {
-        this.cidade = cidade;
+        this.cidade = cidade; 
     }
 
     public String getCep() {
-        return cep; //Cidade do cliente
+        return cep; //CEP do cliente
     }
 
     public void setCep(String cep) {

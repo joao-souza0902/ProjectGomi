@@ -24,7 +24,7 @@ public class LoginDAO
         else
             return MontaModel(tabela.getLinha(1));
     }
-    
+    //ViewModel identificadora do usuario, se ele é usuario ou se é administrador.
     protected UsuarioViewModel MontaModel(HashMap<String, Object> registro)
     {
         UsuarioViewModel t = new UsuarioViewModel();

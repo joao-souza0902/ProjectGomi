@@ -303,6 +303,7 @@ public class CadastroController extends PadraoController {
 
     }
 
+     //Tela onde a controller ira agir
     @Override
     public void start(Stage stage) throws IOException {
         Parent home_page_parent = FXMLLoader.load(getClass().getResource("/br/com/gomi/front/Cadastro.fxml"));

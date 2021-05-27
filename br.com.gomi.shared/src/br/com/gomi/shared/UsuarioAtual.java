@@ -29,6 +29,7 @@ public class UsuarioAtual
     private ClienteViewModel cvm;
     private MotoristaViewModel mvm;
     
+    //Instancias diferentes de usuarios
     public void setUsuario(UsuarioViewModel uvm){
         if(uvm instanceof AdministradorViewModel)
             avm = (AdministradorViewModel)uvm;
@@ -47,6 +48,7 @@ public class UsuarioAtual
             return mvm;
     }
     
+    //logoff de usuarios
     public void logoff(){
         avm = null;
         cvm = null;

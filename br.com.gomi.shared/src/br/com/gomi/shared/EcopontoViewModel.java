@@ -16,7 +16,7 @@ public class EcopontoViewModel extends PadraoViewModel{
     
     //metodos get e set para escrever nos campos vendo se condiz com string ou int
     public String getCep() {
-        return cep;
+        return cep; 
     }
 
     public void setCep(String cep) {

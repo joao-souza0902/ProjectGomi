@@ -37,7 +37,7 @@ public class BuscandoMotoristaController extends PadraoController {
     @FXML
     Button btnBuscar;
     
-    
+    //Tela carregando enquanto motorista é procurado
     public void btnBuscarOnClick(ActionEvent event) throws IOException {
         btnBuscar.setVisible(false);
         labelBuscaMotorista.setVisible(true);
@@ -72,7 +72,7 @@ public class BuscandoMotoristaController extends PadraoController {
         th.start();
     }
 
-    
+    //Botão voltar
     public void btnVoltarOnClick(ActionEvent event) throws Exception {
         NovaColetaController novaColeta = new NovaColetaController();
         novaColeta.start((Stage)((Button)event.getSource()).getScene().getWindow());
@@ -82,6 +82,7 @@ public class BuscandoMotoristaController extends PadraoController {
         Dados.atualizaSolicitacao(solicitacao);
     }
 
+    //Apos o carregamento terminar, mudar tela.
     public void ChangeScene(ActionEvent event, MotoristaEncontradoInfoController encontrado) {
         encontrado.start((Stage)((Button)event.getSource()).getScene().getWindow());
     }
@@ -92,6 +93,7 @@ public class BuscandoMotoristaController extends PadraoController {
         labelDots.setVisible(false);
     }
 
+     //Tela onde a controller ira agir
     @Override
     public void start(Stage stage) throws IOException {
         Parent home_page_parent = FXMLLoader.load(getClass().getResource("/br/com/gomi/front/BuscandoMotorista.fxml"));

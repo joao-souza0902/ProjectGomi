@@ -104,6 +104,7 @@ public class LoginController extends PadraoController {
         sobre.start((Stage)((Button)event.getSource()).getScene().getWindow());
     }
 
+     //Tela onde a controller ira agir
     @Override
     public void start(Stage stage) throws IOException {
         Parent home_page_parent = FXMLLoader.load(getClass().getResource("/br/com/gomi/front/Login.fxml"));
