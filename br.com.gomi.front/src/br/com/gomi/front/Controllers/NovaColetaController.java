@@ -33,17 +33,19 @@ import javax.swing.JOptionPane;
 public class NovaColetaController extends PadraoController {
 
     @FXML
-    TextArea descricaoTextArea;
+    TextArea descricaoTextArea; //Descrição
     @FXML
-    CheckBox checkLixoReciclaveis;
+    CheckBox checkLixoReciclaveis; //Checkbox lixo reciclavel
     @FXML
-    CheckBox checkEletrodomesticos;
+    CheckBox checkEletrodomesticos; //Checkbox Eletrodomésticos
     @FXML
-    CheckBox checkMoveis;
+    CheckBox checkMoveis; //Checkbox móveis
     @FXML
-    CheckBox checkEntulho;
+    CheckBox checkEntulho; //Checkbox entulho
     @FXML
-    CheckBox checkLixoEletronico;
+    CheckBox checkLixoEletronico; //Checkbox lixo eletronico
+    
+    //Cada checkbox identifica o lixo que vai ser recolhido
     
     public void btnContinuarOnClick(ActionEvent event) throws IOException, SQLException {
         try {
@@ -67,15 +69,18 @@ public class NovaColetaController extends PadraoController {
         }
     }
     
+    //Voltar
     public void btnVoltarOnClick(ActionEvent event) throws IOException {
         PrincipalCController principal = new PrincipalCController();
         principal.start((Stage)((Button)event.getSource()).getScene().getWindow());
     }
     
+    //Foto coleta
     public void btnFotoColetaOnClick(ActionEvent event) throws IOException {
         
     }
     
+    //Tela onde a controller vai agir
     @Override
     public void start(Stage stage) throws IOException {
         Parent home_page_parent = FXMLLoader.load(getClass().getResource("/br/com/gomi/front/NovaColeta.fxml"));

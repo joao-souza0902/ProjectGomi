@@ -33,6 +33,7 @@ import javax.swing.JOptionPane;
  */
 public class DetalhesPedidoController extends PadraoController {
 
+    //Variaveis do endereço, descrição e distancia
     @FXML
     TextField txtEndereco;
     @FXML
@@ -40,6 +41,7 @@ public class DetalhesPedidoController extends PadraoController {
     @FXML
     TextField txtDistancia;
     
+    //Aceita o pedido
     public void btnAceitarOnClick(ActionEvent event) throws IOException, Exception {                
         Global.obtemInstancia().solicitacao.setIdMotorista(((MotoristaViewModel) UsuarioAtual.getInstancia().getUsuario()).getIdMotorista());
         Dados.atualizaSolicitacao(Global.obtemInstancia().solicitacao);
@@ -48,6 +50,7 @@ public class DetalhesPedidoController extends PadraoController {
         atender.start((Stage)((Button)event.getSource()).getScene().getWindow());
     }
 
+    //Nega o pedido
     public void btnRecusarOnClick(ActionEvent event) throws IOException {
         PrincipalMController principal = new PrincipalMController();
         Global.obtemInstancia().solicitacao = null;
@@ -63,6 +66,7 @@ public class DetalhesPedidoController extends PadraoController {
         txtDistancia.setText(Validacao.getDistancia(Global.obtemInstancia().solicitacao.getOrigem(), Global.obtemInstancia().solicitacao.getCep()));
     }
 
+    //Inicia a tela
     @Override
     public void start(Stage stage) throws IOException {
         Parent home_page_parent = FXMLLoader.load(getClass().getResource("/br/com/gomi/front/DetalhesPedido.fxml"));
