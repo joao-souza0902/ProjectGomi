@@ -9,17 +9,15 @@ package br.com.gomi.shared;
  *
  * @author Administrador
  */
-public abstract class PadraoViewModel
-{
+public abstract class PadraoViewModel {
+
     private int id;
-    
-    public int getId()
-    {
+
+    public int getId() {
         return id;
     }
 
-    public void setId(int id)
-    {
+    public void setId(int id) {
         this.id = id;
-    } 
+    }
 }

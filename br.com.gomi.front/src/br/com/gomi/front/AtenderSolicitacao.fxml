@@ -12,7 +12,7 @@
          <children>
             <Button fx:id="btnConfirmar" layoutX="132.0" layoutY="399.0" mnemonicParsing="false" onAction="#btnConfirmarOnClick" prefHeight="46.0" prefWidth="443.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Confirmar Coleta" textFill="WHITE">
                <font>
-                  <Font size="24.0" />
+                  <Font name="Segoe UI" size="24.0" />
                </font>
             </Button>
             <TextField layoutX="10.0" layoutY="14.0" prefHeight="375.0" prefWidth="688.0" />
@@ -22,17 +22,17 @@
          <children>
             <Button fx:id="btnClose" layoutX="642.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnCloseClick" prefHeight="46.0" prefWidth="29.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="X" textFill="WHITE">
                 <font>
-                <Font size="20.0" />
+                <Font name="Segoe UI" size="20.0" />
                 </font>
             </Button>
             <Label layoutX="152.0" layoutY="8.0" prefHeight="65.0" prefWidth="403.0" text="Atender Solicitação">
                <font>
-                  <Font size="44.0" />
+                  <Font name="Segoe UI" size="44.0" />
                </font>
             </Label>
             <Button fx:id="btnVoltar" layoutX="14.0" layoutY="20.0" mnemonicParsing="false" onAction="#btnCancelarOnClick" prefHeight="41.0" prefWidth="96.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Cancelar" textFill="WHITE">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Segoe UI" size="18.0" />
                </font>
             </Button>            
          </children>

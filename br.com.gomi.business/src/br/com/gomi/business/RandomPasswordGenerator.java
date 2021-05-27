@@ -15,31 +15,28 @@ import javax.mail.internet.MimeMessage;
  *
  * @author Administrador
  */
-public class RandomPasswordGenerator
-{
+public class RandomPasswordGenerator {
+
     //Caracteres permitidos em uma senha
-    static Character[] vetor =
-    {
-        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
-        'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
-        '!', '@', '#', '$', '%', '&', '*', '-'
-    };
+    static Character[] vetor
+            = {
+                'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+                'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+                '!', '@', '#', '$', '%', '&', '*', '-'
+            };
 
     //Quantidade de campos em uma senha
-    public static String geraSenha()
-    {
+    public static String geraSenha() {
         StringBuilder senha = new StringBuilder();
         Random random = new Random();
-        for (int i = 0; i < 8; i++)
-        {
+        for (int i = 0; i < 8; i++) {
             senha.append(vetor[random.nextInt(vetor.length)]);
         }
         return senha.toString();
     }
-    
+
     //Enviar email, o email automatico sendo do endereço "gomiprojeto@gmail.com"
-    public static void enviarEmail(String email, String senha, String nome)
-    {
+    public static void enviarEmail(String email, String senha, String nome) {
         Properties props = new Properties();
         /**
          * Parâmetros de conexão com servidor Gmail
@@ -51,10 +48,8 @@ public class RandomPasswordGenerator
         props.put("mail.smtp.port", "465");
 
         Session session = Session.getDefaultInstance(props,
-                new javax.mail.Authenticator()
-        {
-            protected PasswordAuthentication getPasswordAuthentication()
-            {
+                new javax.mail.Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication("gomiprojeto@gmail.com", "projectgomi");
             }
         });
@@ -64,8 +59,7 @@ public class RandomPasswordGenerator
          */
         session.setDebug(true);
 
-        try
-        {
+        try {
 
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress("gomiprojeto@gmail.com"));//Remetente
@@ -83,8 +77,7 @@ public class RandomPasswordGenerator
 
             System.out.println("Feito!!!");
 
-        } catch (MessagingException e)
-        {
+        } catch (MessagingException e) {
             throw new RuntimeException(e);
         }
     }

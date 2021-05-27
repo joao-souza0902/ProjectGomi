@@ -14,31 +14,36 @@ import java.util.List;
  *
  * @author Administrador
  */
-public class Dados
-{
+public class Dados {
+
     //Create
-    public static int insereCliente(ClienteViewModel cliente) throws Exception{
+    public static int insereCliente(ClienteViewModel cliente) throws Exception {
         ClienteDAO dao = new ClienteDAO();
         return dao.insert(cliente);
     }
-    public static int insereNaoAdm(NaoAdmViewModel naoAdm) throws Exception{
+
+    public static int insereNaoAdm(NaoAdmViewModel naoAdm) throws Exception {
         NaoAdmDAO dao = new NaoAdmDAO();
         return dao.insert(naoAdm);
     }
-    public static int insereUsuario(UsuarioViewModel usuario) throws Exception{
+
+    public static int insereUsuario(UsuarioViewModel usuario) throws Exception {
         UsuarioDAO dao = new UsuarioDAO();
         return dao.insert(usuario);
     }
-    public static int insereMotorista(MotoristaViewModel motorista) throws Exception{
+
+    public static int insereMotorista(MotoristaViewModel motorista) throws Exception {
         MotoristaDAO dao = new MotoristaDAO();
         return dao.insert(motorista);
     }
-    public static int insereSolicitacao(SolicitacaoViewModel solicitacao) throws Exception{
+
+    public static int insereSolicitacao(SolicitacaoViewModel solicitacao) throws Exception {
         SolicitacaoDAO dao = new SolicitacaoDAO();
         return dao.insert(solicitacao);
     }
+
     //Read
-    public static ClienteViewModel recuperaCliente(String login) throws Exception{
+    public static ClienteViewModel recuperaCliente(String login) throws Exception {
         UsuarioViewModel user = new UsuarioDAO().consultaEmail(login);
         NaoAdmViewModel na = new NaoAdmDAO().consult(user.getIdNaoAdm());
         ClienteViewModel cli = new ClienteDAO().consult(na.getIdCliente());
@@ -51,10 +56,11 @@ public class Dados
         cli.setSenha(user.getSenha());
         cli.setNome(user.getNome());
         cli.setData(user.getData());
-        cli.setCpf(user.getCpf());        
+        cli.setCpf(user.getCpf());
         return cli;
     }
-    public static MotoristaViewModel recuperaMotorista(String login) throws SQLException, Exception{
+
+    public static MotoristaViewModel recuperaMotorista(String login) throws SQLException, Exception {
         UsuarioViewModel user = new UsuarioDAO().consultaEmail(login);
         NaoAdmViewModel na = new NaoAdmDAO().consult(user.getIdNaoAdm());
         MotoristaViewModel mot = new MotoristaDAO().consult(na.getIdMotorista());
@@ -67,45 +73,47 @@ public class Dados
         mot.setSenha(user.getSenha());
         mot.setNome(user.getNome());
         mot.setData(user.getData());
-        mot.setCpf(user.getCpf());        
+        mot.setCpf(user.getCpf());
         return mot;
     }
-    
-    public static MotoristaViewModel recuperaMotorista(int idMotorista) throws SQLException, Exception{
-        MotoristaViewModel motorista = new MotoristaDAO().fullConsult(idMotorista);       
+
+    public static MotoristaViewModel recuperaMotorista(int idMotorista) throws SQLException, Exception {
+        MotoristaViewModel motorista = new MotoristaDAO().fullConsult(idMotorista);
         return motorista;
     }
-    
-    public static NaoAdmViewModel recuperaNaoAdm(String login) throws SQLException, Exception{
+
+    public static NaoAdmViewModel recuperaNaoAdm(String login) throws SQLException, Exception {
         UsuarioViewModel user = new UsuarioDAO().consultaEmail(login);
         NaoAdmViewModel na = new NaoAdmDAO().consult(user.getIdNaoAdm());
         return na;
     }
-    public static SolicitacaoViewModel recuperaSolicitacao(int id) throws Exception{
+
+    public static SolicitacaoViewModel recuperaSolicitacao(int id) throws Exception {
         SolicitacaoViewModel model = new SolicitacaoDAO().consult(id);
         return model;
     }
-    
+
     //Update    
-    public static void atualizaNaoAdm(NaoAdmViewModel na) throws Exception{
+    public static void atualizaNaoAdm(NaoAdmViewModel na) throws Exception {
         NaoAdmDAO dao = new NaoAdmDAO();
         dao.update(na);
     }
+
     //Atualizar senha do usuario
-    public static String atualizaSenhaUsuario(String email, String senha) throws Exception{
+    public static String atualizaSenhaUsuario(String email, String senha) throws Exception {
         UsuarioViewModel user = new UsuarioDAO().consultaEmail(email);
         user.setSenha(senha);
         new UsuarioDAO().update(user);
         return user.getNome();
     }
-        
-    public static void atualizaSolicitacao(SolicitacaoViewModel solicitacao) throws Exception{
+
+    public static void atualizaSolicitacao(SolicitacaoViewModel solicitacao) throws Exception {
         SolicitacaoDAO dao = new SolicitacaoDAO();
         dao.update(solicitacao);
     }
-    
+
     //recupera todas as solicitações abertas
-    public static List<SolicitacaoViewModel> recuperaSolicitacoes() throws Exception{
+    public static List<SolicitacaoViewModel> recuperaSolicitacoes() throws Exception {
         SolicitacaoDAO dao = new SolicitacaoDAO();
         return dao.listarAbertas();
     }

@@ -19,10 +19,12 @@ import java.time.format.DateTimeFormatter;
  * @author Administrador
  */
 public class Validacao {
+
     //Validação dos campos, mensagens de erro caso vazio ou incorreto
     public static boolean validaLogin(String usuario, String senha) throws Exception {
-        if (usuario.equals("")||senha.equals(""))
-            throw new Exception ("Preencha os campos!");
+        if (usuario.equals("") || senha.equals("")) {
+            throw new Exception("Preencha os campos!");
+        }
         UsuarioViewModel user = new LoginDAO().login(usuario, senha);
         if (user != null) {
             return true;
@@ -36,8 +38,9 @@ public class Validacao {
         UsuarioViewModel user = new UsuarioDAO().consultaEmail(usuario);
         if (user.getIdNaoAdm() != null) {
             NaoAdmViewModel naoAdm = new NaoAdmDAO().consult(user.getIdNaoAdm());
-            if (naoAdm.getIdCliente() != null && naoAdm.getIdMotorista() != null)
+            if (naoAdm.getIdCliente() != null && naoAdm.getIdMotorista() != null) {
                 return 'X';
+            }
             if (naoAdm.getIdCliente() != null) {
                 return 'C';
             } else {
@@ -96,10 +99,11 @@ public class Validacao {
         }
         if (usuarioExiste(email)) {
             char tipoExistente = validaTipoLogin(email);
-            if ((tipoExistente == 'C' && !ehCliente) || (tipoExistente == 'M' && ehCliente))            
+            if ((tipoExistente == 'C' && !ehCliente) || (tipoExistente == 'M' && ehCliente)) {
                 tipo = 'X';
-            else
+            } else {
                 throw new Exception("E-mail já cadastrado?");
+            }
         }
         if (Integer.parseInt(telefone.substring(1, 3)) <= 10 || telefone.substring(1, 3).indexOf("0") != -1) {
             throw new Exception("DDD inválido!");
@@ -117,8 +121,9 @@ public class Validacao {
             throw new Exception("Senha e confirmação não estão iguais!");
         }
         if (ehCliente) {
-            if (tipo != 'X')
+            if (tipo != 'X') {
                 tipo = 'C';
+            }
             if (cep.replace("-", "").length() != 8) {
                 throw new Exception("CEP inválido!");
             }
@@ -136,8 +141,9 @@ public class Validacao {
             }
             return tipo;
         } else {
-            if (tipo != 'X')
+            if (tipo != 'X') {
                 tipo = 'M';
+            }
             if (tipoVeiculo.isEmpty()) {
                 throw new Exception("Preencha o tipo de veiculo!");
             }
@@ -159,22 +165,22 @@ public class Validacao {
             return tipo;
         }
     }
-    
-    public static String getDistancia(String origem, String destino){
+
+    public static String getDistancia(String origem, String destino) {
         String distancia;
         String respostaAPI = ConsumidorAPI.getInstancia().getDirections(origem, destino);
-        int instrucao = respostaAPI.indexOf("\"distance\" : {\n" +
-"                  \"text\" : \"" ) + 43;
+        int instrucao = respostaAPI.indexOf("\"distance\" : {\n"
+                + "                  \"text\" : \"") + 43;
         distancia = respostaAPI.substring(instrucao, instrucao + 15);
         return distancia.substring(0, distancia.indexOf("\""));
     }
-    
-    public static String getTempoChegada(String origem, String destino){
+
+    public static String getTempoChegada(String origem, String destino) {
         String tempo;
         String respostaAPI = ConsumidorAPI.getInstancia().getDirections(origem, destino);
-        int instrucao = respostaAPI.indexOf("\"duration\" : {\n" +
-"                  \"text\" : \"" ) + 43;
+        int instrucao = respostaAPI.indexOf("\"duration\" : {\n"
+                + "                  \"text\" : \"") + 43;
         tempo = respostaAPI.substring(instrucao, instrucao + 15);
-        return tempo.substring(0,tempo.indexOf("\""));
+        return tempo.substring(0, tempo.indexOf("\""));
     }
 }

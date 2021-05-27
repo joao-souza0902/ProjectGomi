@@ -13,6 +13,7 @@ import java.util.ArrayList;
  * @author Fábio
  */
 public class SolicitacaoViewModel extends PadraoViewModel {
+
     private Integer idCliente; //Id do Cliente que fez a solicitação
     private Integer idMotorista; //id do Motorista atendendo a solicitação
     private boolean agendamento; //Agendamento
@@ -22,29 +23,25 @@ public class SolicitacaoViewModel extends PadraoViewModel {
     private String cep; //CEP do cliente
     private int numero; //Numero do endereço do cliente
     private String origem; //Endereço de origem do  
-    ArrayList<CategoriaViewModel> categorias = new ArrayList<>();    
+    ArrayList<CategoriaViewModel> categorias = new ArrayList<>();
 
     //metodos get e set para escrever nos campos vendo se condiz com o tipo
-    public Integer getIdCliente()
-    {
+    public Integer getIdCliente() {
         return idCliente;
     }
 
-    public void setIdCliente(Integer idCliente)
-    {
+    public void setIdCliente(Integer idCliente) {
         this.idCliente = idCliente;
     }
 
-    public Integer getIdMotorista()
-    {
+    public Integer getIdMotorista() {
         return idMotorista;
     }
 
-    public void setIdMotorista(Integer idMotorista)
-    {
+    public void setIdMotorista(Integer idMotorista) {
         this.idMotorista = idMotorista;
     }
-    
+
     public boolean isAgendamento() {
         return agendamento;
     }
@@ -75,8 +72,8 @@ public class SolicitacaoViewModel extends PadraoViewModel {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
-    } 
-    
+    }
+
     public String getCep() {
         return cep;
     }
@@ -92,12 +89,12 @@ public class SolicitacaoViewModel extends PadraoViewModel {
     public void setNumero(int numero) {
         this.numero = numero;
     }
-    
+
     public String getOrigem() {
         return origem;
     }
 
     public void setOrigem(String origem) {
         this.origem = origem;
-    } 
+    }
 }
