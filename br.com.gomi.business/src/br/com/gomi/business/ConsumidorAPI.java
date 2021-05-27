@@ -28,9 +28,9 @@ public class ConsumidorAPI
     private static final String URLBase = "https://maps.googleapis.com/maps/api/";
     private static final String token = "AIzaSyBm-NJBXbbypVeoPSr1adAK2czqzWlRfNg";
     
-    private static ConsumidorAPI _instancia;
+    private static ConsumidorAPI _instancia; //Instancia da API do Google Maps para o consumidor
     
-    private final CloseableHttpClient clienteHTTP;
+    private final CloseableHttpClient clienteHTTP; //Endereço HTTP cliente
     
     private ConsumidorAPI(){
         this.clienteHTTP = HttpClients.createDefault();
@@ -42,6 +42,7 @@ public class ConsumidorAPI
         return _instancia;
     }
     
+    //Direções do mapa
     public String getDirections(String origem, String destino){
         String responseBody = null;
         try{

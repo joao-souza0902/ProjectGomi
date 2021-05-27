@@ -15,7 +15,7 @@ import java.net.URISyntaxException;
  */
 public class WebPageOpener
 {
-
+    //Abre a pagina web
     public static boolean openWebpage(String site) throws URISyntaxException
     {
         URI uri = new URI(site);

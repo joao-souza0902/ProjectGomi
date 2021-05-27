@@ -12,13 +12,13 @@ import java.time.LocalDate;
  * @author Fábio
  */
 public class UsuarioViewModel extends PadraoViewModel{
-    private Integer idNaoAdm;
-    private Integer idAdministrador;
-    private String email;
-    private String senha;
-    private String nome;
-    private LocalDate dataNascimento;
-    private String cpf;
+    private Integer idNaoAdm; //ID de um usuario não administrativo
+    private Integer idAdministrador; //ID de um usuario administrador
+    private String email; //emal do usuario
+    private String senha; //senha do usuario
+    private String nome; // nome do usuario
+    private LocalDate dataNascimento; //data de nascimento usuario
+    private String cpf; //cpf usuario
     
     public Integer getIdNaoAdm()
     {

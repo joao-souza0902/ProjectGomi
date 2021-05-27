@@ -11,7 +11,7 @@ package br.com.gomi.shared;
  */
 public class LogViewModel extends PadraoViewModel
 {
-    private String descricao;
+    private String descricao; //Descrição do log
     /**
      * @return the descricao
      */
